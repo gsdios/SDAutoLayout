@@ -29,5 +29,11 @@
    
    方法名中带有“Is”的方法表示view的某一属性值等于参数数值，需要传递1个参数：（CGFloat）数值
 
+# PS
+
+/* 如果您需要布局错误LOG信息提示请打开此宏 */
+
+//#define SDAutoLayoutIssueLog
 
 ![](http://ww3.sinaimg.cn/bmiddle/9b8146edgw1ex4mukixr6g209g07lhdt.gif)
+
