@@ -1,8 +1,8 @@
 //
-//  AppDelegate.h
-//  SDAutoLayout 测试 Demo
+//  TestCell2.h
+//  iphone6 plus 适配测试
 //
-//  Created by gsd on 15/10/12.
+//  Created by gsd on 15/10/10.
 //  Copyright (c) 2015年 gsd. All rights reserved.
 //
 
@@ -23,10 +23,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface TestCell2 : UITableViewCell
 
 @end
-

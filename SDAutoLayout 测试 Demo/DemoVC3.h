@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  DemoVC3.h
 //  SDAutoLayout 测试 Demo
 //
 //  Created by gsd on 15/10/12.
@@ -23,10 +23,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface DemoVC3 : UITableViewController
 
 @end
-

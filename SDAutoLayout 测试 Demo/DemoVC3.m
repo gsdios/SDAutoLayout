@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  DemoVC3.m
 //  SDAutoLayout 测试 Demo
 //
 //  Created by gsd on 15/10/12.
@@ -21,12 +21,40 @@
  
  */
 
-#import <UIKit/UIKit.h>
+#import "DemoVC3.h"
+#import "TestCell2.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@implementation DemoVC3
+{
+    NSTimer *_timer;
+}
 
-@property (strong, nonatomic) UIWindow *window;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.tableView.rowHeight = 150;
+    // 打开可进行性能测试
+//    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(test) userInfo:nil repeats:YES];
+}
 
+- (void)test
+{
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.frame.size.height + self.tableView.contentOffset.y) animated:YES];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 300;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"test";
+    TestCell2 *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[TestCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    return cell;
+}
 
 @end
-

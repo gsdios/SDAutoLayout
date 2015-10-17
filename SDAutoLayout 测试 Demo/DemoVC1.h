@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  DemoVC1.h
 //  SDAutoLayout 测试 Demo
 //
 //  Created by gsd on 15/10/12.
@@ -22,11 +22,8 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface DemoVC1 : ViewController
 
 @end
-

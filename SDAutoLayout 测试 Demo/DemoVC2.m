@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  DemoVC2.m
 //  SDAutoLayout 测试 Demo
 //
 //  Created by gsd on 15/10/12.
@@ -21,12 +21,25 @@
  
  */
 
-#import <UIKit/UIKit.h>
+#import "DemoVC2.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@implementation DemoVC2
 
-@property (strong, nonatomic) UIWindow *window;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self.view0 addSubview:self.view1];
+    [self.view1 addSubview:self.view2];
+    
+    self.view0.sd_layout.leftSpaceToView(self.view, 30).rightSpaceToView(self.view, 30).topSpaceToView(self.view, 100).bottomSpaceToView(self.view, 30);
+    self.view1.sd_layout.leftSpaceToView(self.view0, 30).topSpaceToView(self.view0, 30).widthRatioToView(self.view0, 0.5).heightRatioToView(self.view0, 0.5);
+    self.view2.sd_layout.leftSpaceToView(self.view1, 30).topSpaceToView(self.view1, 30).widthRatioToView(self.view1, 0.5).heightRatioToView(self.view1, 0.5);
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.view0.sd_layout.heightIs(200).topSpaceToView(self.view, 80);
+    });
+}
 
 
 @end
-
