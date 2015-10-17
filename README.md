@@ -5,7 +5,7 @@
     /* 用法一 */
     self.view0.sd_layout
     .leftSpaceToView(self.view, 10)
-    .topSpaceToView(self.view,80)
+    .topSpaceToView(self.view, 80)
     .heightIs(130)
     .widthRatioToView(self.view, 0.4);  
 
