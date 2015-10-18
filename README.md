@@ -3,14 +3,14 @@
 
 # 0.用法示例
     /* 用法一 */
-    self.view0.sd_layout
+    _view.sd_layout
     .leftSpaceToView(self.view, 10)
     .topSpaceToView(self.view, 80)
     .heightIs(130)
     .widthRatioToView(self.view, 0.4);  
 
     /* 用法二 （一行代码搞定，其实用法一也是一行代码） */
-    self.view0.sd_layout.leftSpaceToView(self.view, 10).topSpaceToView(self.view,80).heightIs(130).widthRatioToView(self.view, 0.4);
+    _view.sd_layout.leftSpaceToView(self.view, 10).topSpaceToView(self.view,80).heightIs(130).widthRatioToView(self.view, 0.4);
 
 # 1.用法简析
 
