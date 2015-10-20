@@ -574,13 +574,15 @@
         }
         
     } else if (model.equalBottom) {
-        if (!view.fixedHeight) {
-            view.height = model.referencedView.bottom - view.top;
-        }
-        
         if (view.superview == model.referencedView) {
+            if (!view.fixedHeight) {
+                view.height = view.superview.height - view.top;
+            }
             view.bottom = model.referencedView.height;
         } else {
+            if (!view.fixedHeight) {
+                view.height = model.referencedView.bottom - view.top;
+            }
             view.bottom = model.referencedView.bottom;
         }
     }
