@@ -12,6 +12,28 @@
 
     /* 用法二 （一行代码搞定，其实用法一也是一行代码） */
     _view.sd_layout.leftSpaceToView(self.view, 10).topSpaceToView(self.view,80).heightIs(130).widthRatioToView(self.view, 0.4);
+    
+    *******************************************************************************
+        
+        注意:先把需要自动布局的view加入父view然后在进行自动布局，例： 
+        
+        UIView *view0 = [UIView new];
+        UIView *view1 = [UIView new];
+        [self.view addSubview:view0];
+        [self.view addSubview:view1];
+        
+        view0.sd_layout
+        .leftSpaceToView(self.view, 10)
+        .topSpaceToView(self.view, 80)
+        .heightIs(100)
+        .widthRatioToView(self.view, 0.4);
+        
+        view1.sd_layout
+        .leftSpaceToView(view0, 10)
+        .topEqualToView(view0)
+        .heightRatioToView(view0, 1)
+        .rightSpaceToView(self.view, 10);
+    *******************************************************************************
 
 # 1.用法简析
 
