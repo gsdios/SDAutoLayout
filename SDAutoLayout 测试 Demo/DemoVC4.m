@@ -59,11 +59,11 @@
     self.view4.sd_layout
     .leftEqualToView(self.view2)
     .topSpaceToView(self.view2, 20)
-    .bottomSpaceToView(self.view, 100)
+    .bottomSpaceToView(self.view, 30)
     .widthRatioToView(self.view1, 0.7);
     
     self.view5.sd_layout
-    .widthRatioToView(self.view1, 0.25)
+    .leftSpaceToView(self.view4, 10)
     .rightEqualToView(self.view1)
     .heightRatioToView(self.view4, 1)
     .topEqualToView(self.view4);

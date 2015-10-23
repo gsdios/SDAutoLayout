@@ -63,13 +63,14 @@
     self.view5.sd_layout
     .topSpaceToView(self.view0, 20)
     .leftEqualToView(self.view0)
-    .heightIs(120);
+    .bottomSpaceToView(self.view, 30);
     
     self.view6.sd_layout
     .leftSpaceToView(self.view5, 10)
     .topEqualToView(self.view5)
     .heightRatioToView(self.view5, 1)
     .widthRatioToView(self.view5, 1);
+    
 }
 
 - (void)viewWillLayoutSubviews

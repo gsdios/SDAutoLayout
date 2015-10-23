@@ -146,6 +146,8 @@
         
         
         _view0.sd_layout
+        .widthIs(50)
+        .heightIs(50)
         .topSpaceToView(self.contentView, 20)
         .leftSpaceToView(self.contentView, 20);
         
@@ -174,25 +176,15 @@
         .widthRatioToView(_view1, 0.7);
         
         _view5.sd_layout
-        .widthRatioToView(self.contentView, 0.2)
+        .leftSpaceToView(_view4, 10)
         .rightSpaceToView(self.contentView, 20)
-        .bottomSpaceToView(self.contentView, 10);
+        .bottomSpaceToView(self.contentView, 10)
+        .heightIs(20);
         
     }
     return self;
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    _view0.sd_layout
-    .widthIs(50)
-    .heightIs(50);
-    
-    _view5.sd_layout
-    .heightIs(20);
-}
 
 
 @end

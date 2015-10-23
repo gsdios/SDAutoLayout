@@ -41,27 +41,33 @@
     .leftSpaceToView(self.view0, 10)
     .topEqualToView(self.view0)
     .rightSpaceToView(self.view, 30)
-    .heightRatioToView(self.view, 0.23);
+    .heightRatioToView(self.view, 0.2);
     
     self.view2.sd_layout
     .rightSpaceToView(self.view, 10)
-    .topSpaceToView(self.view1, 30)
+    .topSpaceToView(self.view1, 20)
     .widthRatioToView(self.view0, 1)
     .heightRatioToView(self.view0, 1);
     
     self.view3.sd_layout
     .rightSpaceToView(self.view2, 10)
     .leftSpaceToView(self.view, 30)
-    .heightRatioToView(self.view, 0.2)
+    .heightRatioToView(self.view, 0.17)
     .topEqualToView(self.view2);
     
     self.view4.sd_layout
     .leftEqualToView(self.view0)
     .heightRatioToView(self.view0, 1)
     .widthRatioToView(self.view0, 1)
-    .topSpaceToView(self.view3, 30);
+    .topSpaceToView(self.view3, 20);
     
-    self.view5.sd_layout.leftEqualToView(self.view1).rightEqualToView(self.view1).heightRatioToView(self.view1, 1).topEqualToView(self.view4);
+    self.view5.sd_layout
+    .leftEqualToView(self.view1)
+    .rightEqualToView(self.view1)
+    .bottomSpaceToView(self.view, 20)
+    .topEqualToView(self.view4);
+    
+    self.view5.tag = 19999;
 }
 
 @end

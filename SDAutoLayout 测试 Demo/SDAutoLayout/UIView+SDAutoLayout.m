@@ -542,14 +542,15 @@
             view.top = model.referencedView.bottom + [model.top floatValue];
         }
     } else if (model.equalTop) {
-
-        if (!view.fixedHeight) {
-            view.height = view.superview.height - view.bottom - model.referencedView.top;
-        }
-
         if (view.superview == model.referencedView) {
+            if (!view.fixedHeight) {
+                view.height = view.bottom;
+            }
             view.top = 0;
         } else {
+            if (!view.fixedHeight) {
+                view.height = view.bottom - model.referencedView.top;
+            }
             view.top = model.referencedView.top;
         }
     } else if (model.equalCenterY) {
