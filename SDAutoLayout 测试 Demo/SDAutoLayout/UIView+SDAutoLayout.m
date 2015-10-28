@@ -78,6 +78,9 @@
         [self.referencedView.autoLayoutModelsArray addObject:self];
     } else {
         [self.referencedView.superview.autoLayoutModelsArray addObject:self];
+        if (!self.referencedView) {
+            [self.needsAutoResizeView.superview.autoLayoutModelsArray addObject:self];
+        }
     }
 }
 
@@ -314,9 +317,11 @@
         } else if ([key isEqualToString:@"y"]) {
             weakSelf.needsAutoResizeView.top = value;
         } else if ([key isEqualToString:@"centerX"]) {
-            weakSelf.needsAutoResizeView.centerX = value;
+            weakSelf.centerX = @(value);
+            [weakSelf addLayoutModelToSuperView];
         } else if ([key isEqualToString:@"centerY"]) {
-            weakSelf.needsAutoResizeView.centerY = value;
+            weakSelf.centerY = @(value);
+            [weakSelf addLayoutModelToSuperView];
         }
         
 #if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
@@ -503,6 +508,8 @@
         } else {
             view.centerX = model.referencedView.centerX;
         }
+    } else if (model.centerX) {
+        view.centerX = [model.centerX floatValue];
     }
     
     if (model.right) {
@@ -559,6 +566,8 @@
         } else {
             view.centerY = model.referencedView.centerY;
         }
+    } else if (model.centerY) {
+        view.centerY = [model.centerY floatValue];
     }
     
     if (model.bottom) {

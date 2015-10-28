@@ -29,48 +29,60 @@
 {
     [super viewDidLoad];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.view0.sd_layout
-    .leftSpaceToView(self.view, 10)
-    .topSpaceToView(self.view,80)
-    .heightIs(130)
-    .widthRatioToView(self.view, 0.4);
+    .centerXIs(100)
+    .centerYIs(100)
+    .heightIs(50)
+    .widthIs(50);
     
     self.view1.sd_layout
-    .leftSpaceToView(self.view0, 10)
-    .topEqualToView(self.view0)
-    .heightIs(60);
+    .xIs(100)
+    .yIs(100)
+    .heightIs(100)
+    .widthIs(100);
     
-    self.view2.sd_layout
-    .leftSpaceToView(self.view1, 10)
-    .topEqualToView(self.view1)
-    .heightRatioToView(self.view1, 1)
-    .widthRatioToView(self.view1, 1);
-    
-    self.view3.sd_layout
-    .leftEqualToView(self.view1)
-    .topSpaceToView(self.view1, 10)
-    .heightRatioToView(self.view1, 1)
-    .widthRatioToView(self.view1, 1);
-    
-    self.view4.sd_layout
-    .leftEqualToView(self.view2)
-    .topEqualToView(self.view3)
-    .heightRatioToView(self.view3, 1)
-    .widthRatioToView(self.view1, 1);
-    
-    
-    self.view5.sd_layout
-    .topSpaceToView(self.view0, 20)
-    .leftEqualToView(self.view0)
-    .bottomSpaceToView(self.view, 30);
-    
-    self.view6.sd_layout
-    .leftSpaceToView(self.view5, 10)
-    .topEqualToView(self.view5)
-    .heightRatioToView(self.view5, 1)
-    .widthRatioToView(self.view5, 1);
-    
+//    self.view0.sd_layout
+//    .leftSpaceToView(self.view, 10)
+//    .topSpaceToView(self.view,80)
+//    .heightIs(130)
+//    .widthRatioToView(self.view, 0.4);
+//    
+//    self.view1.sd_layout
+//    .leftSpaceToView(self.view0, 10)
+//    .topEqualToView(self.view0)
+//    .heightIs(60);
+//    
+//    self.view2.sd_layout
+//    .leftSpaceToView(self.view1, 10)
+//    .topEqualToView(self.view1)
+//    .heightRatioToView(self.view1, 1)
+//    .widthRatioToView(self.view1, 1);
+//    
+//    self.view3.sd_layout
+//    .leftEqualToView(self.view1)
+//    .topSpaceToView(self.view1, 10)
+//    .heightRatioToView(self.view1, 1)
+//    .widthRatioToView(self.view1, 1);
+//    
+//    self.view4.sd_layout
+//    .leftEqualToView(self.view2)
+//    .topEqualToView(self.view3)
+//    .heightRatioToView(self.view3, 1)
+//    .widthRatioToView(self.view1, 1);
+//    
+//    
+//    self.view5.sd_layout
+//    .topSpaceToView(self.view0, 20)
+//    .leftEqualToView(self.view0)
+//    .bottomSpaceToView(self.view, 30);
+//    
+//    self.view6.sd_layout
+//    .leftSpaceToView(self.view5, 10)
+//    .topEqualToView(self.view5)
+//    .heightRatioToView(self.view5, 1)
+//    .widthRatioToView(self.view5, 1);
 }
 
 
@@ -99,11 +111,11 @@
 {
     [super viewWillLayoutSubviews];
     
-    CGFloat view1W = (self.view.width * 0.6 - 10 * 4) / 2;
-    self.view1.sd_layout.widthIs(view1W);
-    
-    CGFloat view5W = (self.view.width - 30) / 2;
-    self.view5.sd_layout.widthIs(view5W);
+//    CGFloat view1W = (self.view.width * 0.6 - 10 * 4) / 2;
+//    self.view1.sd_layout.widthIs(view1W);
+//    
+//    CGFloat view5W = (self.view.width - 30) / 2;
+//    self.view5.sd_layout.widthIs(view5W);
 }
 
 
