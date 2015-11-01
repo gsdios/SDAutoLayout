@@ -13,6 +13,13 @@
     /* 用法二 （一行代码搞定，其实用法一也是一行代码） */
     _view.sd_layout.leftSpaceToView(self.view, 10).topSpaceToView(self.view,80).heightIs(130).widthRatioToView(self.view, 0.4);
     
+#    ☆新增：label文字自适应 + cell高度自适应☆
+    // autoHeightRatio() 传0则根据文字自动计算高度（传大于0的值则根据此数值设置高度和宽度的比值）
+    _label.sd_layout.autoHeightRatio(0);
+    
+    // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
+    [self setupAutoHeightWithBottomView:_view4 bottomMargin:10];
+    
     *******************************************************************************
         
         注意:先把需要自动布局的view加入父view然后在进行自动布局，例： 
