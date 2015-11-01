@@ -12,9 +12,9 @@
     
     >> Cellg高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
-    [self setupAutoHeightWithBottomView:_view4 bottomMargin:10];
+    [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
     
-    设置tableview数据源和代理
+    >> tableview cell 高度自适应数据源和代理设置
     
     - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
     {
