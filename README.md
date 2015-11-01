@@ -1,5 +1,5 @@
 # SDAutoLayout
-致力于做最简单易用的Autolayout库。The most easy way for autolayout.
+一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
 # 摒弃复杂累赘的约束，利用运行时Runtime在合适的时机布局视图。
 
