@@ -25,4 +25,6 @@
 
 @interface TestCell2 : UITableViewCell
 
+@property (nonatomic, copy) NSString *text;
+
 @end

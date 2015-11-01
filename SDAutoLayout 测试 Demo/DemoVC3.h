@@ -25,4 +25,7 @@
 
 @interface DemoVC3 : UITableViewController
 
+@property (nonatomic, assign) NSInteger rowCount;
+
 @end
+

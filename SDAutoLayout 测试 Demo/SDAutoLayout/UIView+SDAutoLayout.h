@@ -90,6 +90,7 @@ typedef SDAutoLayoutModel *(^Margin)(CGFloat value);
 typedef SDAutoLayoutModel *(^MarginEqualToView)(UIView *toView);
 typedef SDAutoLayoutModel *(^WidthHeight)(CGFloat value);
 typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat ratioValue);
+typedef SDAutoLayoutModel *(^AutoHeight)(CGFloat ratioValue);
 
 @interface SDAutoLayoutModel : NSObject
 
@@ -142,6 +143,7 @@ typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat rat
 @property (nonatomic, copy, readonly) WidthHeightEqualToView widthRatioToView;
 @property (nonatomic, copy, readonly) WidthHeightEqualToView heightRatioToView;
 
+@property (nonatomic, copy, readonly) AutoHeight autoHeightRatio;
 
 @property (nonatomic, weak) UIView *referencedView;
 @property (nonatomic, weak) UIView *needsAutoResizeView;
@@ -160,6 +162,8 @@ typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat rat
 
 @property (nonatomic, strong) NSNumber *fixedWith;
 @property (nonatomic, strong) NSNumber *fixedHeight;
+
+@property (nonatomic, strong) NSNumber *autoHeightRatioValue;
 
 #if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
 
@@ -189,3 +193,4 @@ typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat rat
 @property (nonatomic) CGSize size;
 
 @end
+

@@ -22,6 +22,12 @@
 		487D3EF01BCBB61A00A66173 /* TestCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EED1BCBB61A00A66173 /* TestCell2.m */; };
 		487D3EF41BCBB71500A66173 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EF31BCBB71500A66173 /* DemoVC3.m */; };
 		48D632331BD0A7B500F86A88 /* DemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D632321BD0A7B500F86A88 /* DemoVC4.m */; };
+		99E7288B1BE5D04700771161 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E7288A1BE5D04600771161 /* UITableView+SDAutoTableViewCellHeight.m */; };
+		99E728A71BE5E22D00771161 /* sdRefeshView_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99E7289D1BE5E22D00771161 /* sdRefeshView_arrow@2x.png */; };
+		99E728A81BE5E22D00771161 /* SDRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A01BE5E22D00771161 /* SDRefreshFooterView.m */; };
+		99E728A91BE5E22D00771161 /* SDRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A21BE5E22D00771161 /* SDRefreshHeaderView.m */; };
+		99E728AA1BE5E22D00771161 /* SDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A41BE5E22D00771161 /* SDRefreshView.m */; };
+		99E728AB1BE5E22D00771161 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A61BE5E22D00771161 /* UIView+SDExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +70,18 @@
 		487D3EF31BCBB71500A66173 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		48D632311BD0A7B500F86A88 /* DemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC4.h; sourceTree = "<group>"; };
 		48D632321BD0A7B500F86A88 /* DemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC4.m; sourceTree = "<group>"; };
+		99E728891BE5D04600771161 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		99E7288A1BE5D04600771161 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		99E7289D1BE5E22D00771161 /* sdRefeshView_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sdRefeshView_arrow@2x.png"; sourceTree = "<group>"; };
+		99E7289E1BE5E22D00771161 /* SDRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefresh.h; sourceTree = "<group>"; };
+		99E7289F1BE5E22D00771161 /* SDRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefreshFooterView.h; sourceTree = "<group>"; };
+		99E728A01BE5E22D00771161 /* SDRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshFooterView.m; sourceTree = "<group>"; };
+		99E728A11BE5E22D00771161 /* SDRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefreshHeaderView.h; sourceTree = "<group>"; };
+		99E728A21BE5E22D00771161 /* SDRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshHeaderView.m; sourceTree = "<group>"; };
+		99E728A31BE5E22D00771161 /* SDRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefreshView.h; sourceTree = "<group>"; };
+		99E728A41BE5E22D00771161 /* SDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshView.m; sourceTree = "<group>"; };
+		99E728A51BE5E22D00771161 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		99E728A61BE5E22D00771161 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +123,7 @@
 		487D3EB31BCB9EC700A66173 /* SDAutoLayout 测试 Demo */ = {
 			isa = PBXGroup;
 			children = (
+				99E7289C1BE5E22D00771161 /* SDRefeshView */,
 				487D3EDE1BCBA52900A66173 /* DemoVC */,
 				487D3EDA1BCB9EEE00A66173 /* SDAutoLayout */,
 				487D3EB81BCB9EC700A66173 /* AppDelegate.h */,
@@ -150,6 +169,8 @@
 			children = (
 				487D3EDB1BCB9EEE00A66173 /* UIView+SDAutoLayout.h */,
 				487D3EDC1BCB9EEE00A66173 /* UIView+SDAutoLayout.m */,
+				99E728891BE5D04600771161 /* UITableView+SDAutoTableViewCellHeight.h */,
+				99E7288A1BE5D04600771161 /* UITableView+SDAutoTableViewCellHeight.m */,
 			);
 			path = SDAutoLayout;
 			sourceTree = "<group>";
@@ -181,6 +202,23 @@
 				487D3EF31BCBB71500A66173 /* DemoVC3.m */,
 			);
 			name = DemoVC3;
+			sourceTree = "<group>";
+		};
+		99E7289C1BE5E22D00771161 /* SDRefeshView */ = {
+			isa = PBXGroup;
+			children = (
+				99E7289D1BE5E22D00771161 /* sdRefeshView_arrow@2x.png */,
+				99E7289E1BE5E22D00771161 /* SDRefresh.h */,
+				99E7289F1BE5E22D00771161 /* SDRefreshFooterView.h */,
+				99E728A01BE5E22D00771161 /* SDRefreshFooterView.m */,
+				99E728A11BE5E22D00771161 /* SDRefreshHeaderView.h */,
+				99E728A21BE5E22D00771161 /* SDRefreshHeaderView.m */,
+				99E728A31BE5E22D00771161 /* SDRefreshView.h */,
+				99E728A41BE5E22D00771161 /* SDRefreshView.m */,
+				99E728A51BE5E22D00771161 /* UIView+SDExtension.h */,
+				99E728A61BE5E22D00771161 /* UIView+SDExtension.m */,
+			);
+			path = SDRefeshView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +270,7 @@
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = V4Q779DR3D;
 					};
 					487D3EC91BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
@@ -266,6 +305,7 @@
 				487D3EC01BCB9EC700A66173 /* Main.storyboard in Resources */,
 				487D3EC51BCB9EC700A66173 /* LaunchScreen.xib in Resources */,
 				487D3EC21BCB9EC700A66173 /* Images.xcassets in Resources */,
+				99E728A71BE5E22D00771161 /* sdRefeshView_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,12 +327,17 @@
 				487D3EBD1BCB9EC700A66173 /* ViewController.m in Sources */,
 				487D3EF41BCBB71500A66173 /* DemoVC3.m in Sources */,
 				487D3EBA1BCB9EC700A66173 /* AppDelegate.m in Sources */,
+				99E728AA1BE5E22D00771161 /* SDRefreshView.m in Sources */,
 				48D632331BD0A7B500F86A88 /* DemoVC4.m in Sources */,
 				487D3EE11BCBA55700A66173 /* DemoVC0.m in Sources */,
+				99E728AB1BE5E22D00771161 /* UIView+SDExtension.m in Sources */,
+				99E728A81BE5E22D00771161 /* SDRefreshFooterView.m in Sources */,
 				487D3EEA1BCBACF500A66173 /* DemoVC2.m in Sources */,
+				99E728A91BE5E22D00771161 /* SDRefreshHeaderView.m in Sources */,
 				487D3EDD1BCB9EEE00A66173 /* UIView+SDAutoLayout.m in Sources */,
 				487D3EF01BCBB61A00A66173 /* TestCell2.m in Sources */,
 				487D3EB71BCB9EC700A66173 /* main.m in Sources */,
+				99E7288B1BE5D04700771161 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				487D3EE41BCBA6CA00A66173 /* DemoVC1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "SDAutoLayout 测试 Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -432,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "SDAutoLayout 测试 Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -23,6 +23,8 @@
 
 #import "DemoTableViewControler.h"
 
+#import "DemoVC3.h"
+
 @implementation DemoTableViewControler
 
 - (void)viewDidLoad
@@ -30,6 +32,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.navigationController pushViewController:[DemoVC3 new] animated:YES];
 }
 
 #pragma mark - tableview datasourece and delegate
@@ -55,6 +59,11 @@
     NSString *demoClassString = [NSString stringWithFormat:@"DemoVC%ld", indexPath.row];
     
     [self.navigationController pushViewController:[NSClassFromString(demoClassString) new] animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
 
 @end

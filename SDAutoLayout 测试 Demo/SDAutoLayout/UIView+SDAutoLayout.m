@@ -1,4 +1,4 @@
-//
+ //
 //  UIView+SDAutoLayout.m
 //
 //  Created by gsd on 15/10/6.
@@ -21,6 +21,7 @@
  */
 
 #import "UIView+SDAutoLayout.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
 
 #import <objc/runtime.h>
 
@@ -71,6 +72,7 @@
 @synthesize yIs = _yIs;
 @synthesize centerXIs = _centerXIs;
 @synthesize centerYIs = _centerYIs;
+@synthesize autoHeightRatio = _autoHeightRatio;
 
 - (void)addLayoutModelToSuperView
 {
@@ -368,6 +370,22 @@
     return _centerYIs;
 }
 
+- (AutoHeight)autoHeightRatio
+{
+    __weak typeof(self) weakSelf = self;
+    
+    if (!_autoHeightRatio) {
+        _autoHeightRatio = ^(CGFloat ratioaValue) {
+            weakSelf.needsAutoResizeView.autoHeightRatioValue = @(ratioaValue);
+            
+            SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
+            newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
+            return newModel;
+        };
+    }
+    return _autoHeightRatio;
+}
+
 @end
 
 @implementation UIView (SDAutoLayout)
@@ -435,6 +453,16 @@
     objc_setAssociatedObject(self, @selector(fixedHeight), fixedHeight, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (NSNumber *)autoHeightRatioValue
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setAutoHeightRatioValue:(NSNumber *)autoHeightRatioValue
+{
+    objc_setAssociatedObject(self, @selector(autoHeightRatioValue), autoHeightRatioValue, OBJC_ASSOCIATION_RETAIN);
+}
+
 - (SDAutoLayoutModel *)sd_layout
 {
     SDAutoLayoutModel *model = [SDAutoLayoutModel new];
@@ -458,6 +486,11 @@
     [self.subviews makeObjectsPerformSelector:@selector(checkAutoLayoutIntegrality)];
     
 #endif
+    
+    if ([self isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
+        UITableViewCell *cell = (UITableViewCell *)(self.superview);
+        cell.autoHeight = cell.sd_bottomView.bottom + cell.sd_bottomViewBottomMargin;
+    }
 }
 
 - (void)sd_resizeWithModel:(SDAutoLayoutModel *)model
@@ -594,6 +627,19 @@
                 view.height = model.referencedView.bottom - view.top;
             }
             view.bottom = model.referencedView.bottom;
+        }
+    }
+    
+    if (view.autoHeightRatioValue && view.width > 0) {
+        if ([view.autoHeightRatioValue floatValue] > 0) {
+            view.height = view.width * [view.autoHeightRatioValue floatValue];
+        } else {
+            if ([view isKindOfClass:[UILabel class]]) {
+                UILabel *label = (UILabel *)view;
+                label.numberOfLines = 10;
+                CGRect rect = [label.text boundingRectWithSize:CGSizeMake(label.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
+                label.height = rect.size.height;
+            }
         }
     }
     
@@ -798,3 +844,4 @@
 }
 
 @end
+
