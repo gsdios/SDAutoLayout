@@ -10,11 +10,11 @@
     // autoHeightRatio() 传0则根据文字自动计算高度（传大于0的值则根据此数值设置高度和宽度的比值）
     _label.sd_layout.autoHeightRatio(0);
     
-    >> Cellg高度自适应：
+    >> Cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
     [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
     
-    >> tableview cell 高度自适应数据源和代理设置
+    >> tableview 高度自适应数据源和代理设置
     
     - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
     {
