@@ -4,21 +4,19 @@
 # 摒弃复杂累赘的约束，利用运行时Runtime在合适的时机布局视图。
 
 
-#    ☆新增：label文字自适应 + cell高度自适应☆
+#    ☆新增：cell高度自适应 + label文字自适应☆
     
-    >> UILabel文字自适应：
-    // autoHeightRatio() 传0则根据文字自动计算高度（传大于0的值则根据此数值设置高度和宽度的比值）
-    _label.sd_layout.autoHeightRatio(0);
+#    >>>>> tableview cell 自动高度设置只需要3步
     
-    >> Cell高度自适应：
+    1. >> Cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
     [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
     
-    >> tableview 高度自适应数据源和代理设置
+    2. >> tableview 高度自适应数据源和代理设置
     
     - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
     {
-    // >>>>>>>>>>>>>>>>>>>>> * cell自适应步骤1 * >>>>>>>>>>>>>>>>>>>>>>>>
+    // 2.1 注册模型cell 
     [self.tableView startAutoCellHeightWithCellClass:“cell类名” contentViewWidth:“contentview宽度”];
 
     return _rowCount;
@@ -26,7 +24,7 @@
     
     - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
     {
-    // >>>>>>>>>>>>>>>>>>>>> * cell自适应步骤2 * >>>>>>>>>>>>>>>>>>>>>>>>
+    // 2.2 根据模型取得cell高度
     return [self.tableView cellHeightForIndexPath:indexPath model:“model” keyPath:@"model属性名"];
     }
     
@@ -43,6 +41,11 @@
 
     /* 用法二 （一行代码搞定，其实用法一也是一行代码） */
     _view.sd_layout.leftSpaceToView(self.view, 10).topSpaceToView(self.view,80).heightIs(130).widthRatioToView(self.view, 0.4);
+    
+    
+    >> UILabel文字自适应：
+    // autoHeightRatio() 传0则根据文字自动计算高度（传大于0的值则根据此数值设置高度和宽度的比值）
+    _label.sd_layout.autoHeightRatio(0);
     
     *******************************************************************************
         
