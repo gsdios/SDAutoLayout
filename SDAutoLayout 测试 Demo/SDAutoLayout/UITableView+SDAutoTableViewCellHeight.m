@@ -77,6 +77,11 @@
     if (self = [super init]) {
         _modelCell = (UITableViewCell *)[cellClass alloc];
         _modelCell = [_modelCell initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellAutoHeightManager"];
+        if (!_modelCell.contentView.subviews.count) {
+            UITableView *temp = [UITableView new];
+            [temp registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:@"SDCellAutoHeightManager"];
+            _modelCell = [temp dequeueReusableCellWithIdentifier:@"SDCellAutoHeightManager"];
+        }
         _cellClass = cellClass;
         
         _cacheDictionary = [NSMutableDictionary new];

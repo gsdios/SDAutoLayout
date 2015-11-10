@@ -489,7 +489,9 @@
     
     if ([self isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
         UITableViewCell *cell = (UITableViewCell *)(self.superview);
-        cell.autoHeight = cell.sd_bottomView.bottom + cell.sd_bottomViewBottomMargin;
+        if ([cell isKindOfClass:[UITableViewCell class]]) {
+            cell.autoHeight = cell.sd_bottomView.bottom + cell.sd_bottomViewBottomMargin;
+        }
     }
 }
 
