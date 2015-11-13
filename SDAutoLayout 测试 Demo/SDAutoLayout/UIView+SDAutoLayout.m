@@ -487,8 +487,11 @@
     
 #endif
     
-    if ([self isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
+    if (self.tag == kSDModelCellTag && [self isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
         UITableViewCell *cell = (UITableViewCell *)(self.superview);
+        if ([cell isKindOfClass:NSClassFromString(@"UITableViewCellScrollView")]) {
+            cell = (UITableViewCell *)cell.superview;
+        }
         if ([cell isKindOfClass:[UITableViewCell class]]) {
             cell.autoHeight = cell.sd_bottomView.bottom + cell.sd_bottomViewBottomMargin;
         }

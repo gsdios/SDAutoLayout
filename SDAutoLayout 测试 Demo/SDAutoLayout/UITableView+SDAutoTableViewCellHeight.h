@@ -23,6 +23,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kSDModelCellTag 199206
+
 
 @interface UITableViewCell (SDAutoHeight)
 

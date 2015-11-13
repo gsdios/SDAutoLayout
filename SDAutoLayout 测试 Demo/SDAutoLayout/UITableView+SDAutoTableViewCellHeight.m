@@ -82,6 +82,7 @@
             [temp registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:@"SDCellAutoHeightManager"];
             _modelCell = [temp dequeueReusableCellWithIdentifier:@"SDCellAutoHeightManager"];
         }
+        _modelCell.contentView.tag = kSDModelCellTag;
         _cellClass = cellClass;
         
         _cacheDictionary = [NSMutableDictionary new];
@@ -102,7 +103,7 @@
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath
 {
-    NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", indexPath.section, indexPath.row];
+    NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
     NSNumber *cacheHeight = [_cacheDictionary objectForKey:cacheKey];
     if (cacheHeight) {
         return [cacheHeight floatValue];
