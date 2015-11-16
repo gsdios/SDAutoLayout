@@ -73,6 +73,7 @@
 @synthesize centerXIs = _centerXIs;
 @synthesize centerYIs = _centerYIs;
 @synthesize autoHeightRatio = _autoHeightRatio;
+@synthesize spaceToSuperView = _spaceToSuperView;
 
 - (void)addLayoutModelToSuperView
 {
@@ -384,6 +385,25 @@
         };
     }
     return _autoHeightRatio;
+}
+
+- (SpaceToSuperView)spaceToSuperView
+{
+    __weak typeof(self) weakSelf = self;
+    
+    if (!_spaceToSuperView) {
+        _spaceToSuperView = ^(UIEdgeInsets insets) {
+            UIView *superView = weakSelf.needsAutoResizeView.superview;
+            if (superView) {
+                weakSelf.needsAutoResizeView.sd_layout
+                .leftSpaceToView(superView, insets.left)
+                .topSpaceToView(superView, insets.top)
+                .rightSpaceToView(superView, insets.right)
+                .bottomSpaceToView(superView, insets.bottom);
+            }
+        };
+    }
+    return _spaceToSuperView;
 }
 
 @end

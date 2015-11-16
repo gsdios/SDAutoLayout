@@ -91,6 +91,7 @@ typedef SDAutoLayoutModel *(^MarginEqualToView)(UIView *toView);
 typedef SDAutoLayoutModel *(^WidthHeight)(CGFloat value);
 typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat ratioValue);
 typedef SDAutoLayoutModel *(^AutoHeight)(CGFloat ratioValue);
+typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface SDAutoLayoutModel : NSObject
 
@@ -145,8 +146,16 @@ typedef SDAutoLayoutModel *(^AutoHeight)(CGFloat ratioValue);
 
 @property (nonatomic, copy, readonly) AutoHeight autoHeightRatio;
 
+/*
+ * 填充父view(快捷方法)
+ */
+
+@property (nonatomic, copy, readonly) SpaceToSuperView spaceToSuperView;
+
 @property (nonatomic, weak) UIView *referencedView;
 @property (nonatomic, weak) UIView *needsAutoResizeView;
+
+
 
 @end
 
