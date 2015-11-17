@@ -21,8 +21,8 @@
 		487D3EF01BCBB61A00A66173 /* TestCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EED1BCBB61A00A66173 /* TestCell2.m */; };
 		487D3EF41BCBB71500A66173 /* DemoVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EF31BCBB71500A66173 /* DemoVC3.m */; };
 		48D632331BD0A7B500F86A88 /* DemoVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D632321BD0A7B500F86A88 /* DemoVC4.m */; };
-		48DA2AEB1BFB430600A771E6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DA2AE81BFB430600A771E6 /* UITableView+SDAutoTableViewCellHeight.m */; };
-		48DA2AEC1BFB430600A771E6 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DA2AEA1BFB430600A771E6 /* UIView+SDAutoLayout.m */; };
+		48DA2AF21BFB503F00A771E6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DA2AEF1BFB503F00A771E6 /* UITableView+SDAutoTableViewCellHeight.m */; };
+		48DA2AF31BFB503F00A771E6 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DA2AF11BFB503F00A771E6 /* UIView+SDAutoLayout.m */; };
 		99E728A71BE5E22D00771161 /* sdRefeshView_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99E7289D1BE5E22D00771161 /* sdRefeshView_arrow@2x.png */; };
 		99E728A81BE5E22D00771161 /* SDRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A01BE5E22D00771161 /* SDRefreshFooterView.m */; };
 		99E728A91BE5E22D00771161 /* SDRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A21BE5E22D00771161 /* SDRefreshHeaderView.m */; };
@@ -68,10 +68,10 @@
 		487D3EF31BCBB71500A66173 /* DemoVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC3.m; sourceTree = "<group>"; };
 		48D632311BD0A7B500F86A88 /* DemoVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC4.h; sourceTree = "<group>"; };
 		48D632321BD0A7B500F86A88 /* DemoVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC4.m; sourceTree = "<group>"; };
-		48DA2AE71BFB430600A771E6 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
-		48DA2AE81BFB430600A771E6 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
-		48DA2AE91BFB430600A771E6 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
-		48DA2AEA1BFB430600A771E6 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		48DA2AEE1BFB503F00A771E6 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		48DA2AEF1BFB503F00A771E6 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		48DA2AF01BFB503F00A771E6 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		48DA2AF11BFB503F00A771E6 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		99E7289D1BE5E22D00771161 /* sdRefeshView_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sdRefeshView_arrow@2x.png"; sourceTree = "<group>"; };
 		99E7289E1BE5E22D00771161 /* SDRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefresh.h; sourceTree = "<group>"; };
 		99E7289F1BE5E22D00771161 /* SDRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRefreshFooterView.h; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		487D3EB31BCB9EC700A66173 /* SDAutoLayout 测试 Demo */ = {
 			isa = PBXGroup;
 			children = (
-				48DA2AE61BFB430600A771E6 /* SDAutoLayout */,
+				48DA2AED1BFB503F00A771E6 /* SDAutoLayout */,
 				99E7289C1BE5E22D00771161 /* SDRefeshView */,
 				487D3EDE1BCBA52900A66173 /* DemoVC */,
 				487D3EB81BCB9EC700A66173 /* AppDelegate.h */,
@@ -193,13 +193,13 @@
 			name = DemoVC3;
 			sourceTree = "<group>";
 		};
-		48DA2AE61BFB430600A771E6 /* SDAutoLayout */ = {
+		48DA2AED1BFB503F00A771E6 /* SDAutoLayout */ = {
 			isa = PBXGroup;
 			children = (
-				48DA2AE71BFB430600A771E6 /* UITableView+SDAutoTableViewCellHeight.h */,
-				48DA2AE81BFB430600A771E6 /* UITableView+SDAutoTableViewCellHeight.m */,
-				48DA2AE91BFB430600A771E6 /* UIView+SDAutoLayout.h */,
-				48DA2AEA1BFB430600A771E6 /* UIView+SDAutoLayout.m */,
+				48DA2AEE1BFB503F00A771E6 /* UITableView+SDAutoTableViewCellHeight.h */,
+				48DA2AEF1BFB503F00A771E6 /* UITableView+SDAutoTableViewCellHeight.m */,
+				48DA2AF01BFB503F00A771E6 /* UIView+SDAutoLayout.h */,
+				48DA2AF11BFB503F00A771E6 /* UIView+SDAutoLayout.m */,
 			);
 			path = SDAutoLayout;
 			sourceTree = "<group>";
@@ -325,10 +325,10 @@
 			files = (
 				487D3EE71BCBA78B00A66173 /* DemoTableViewControler.m in Sources */,
 				487D3EBD1BCB9EC700A66173 /* ViewController.m in Sources */,
-				48DA2AEC1BFB430600A771E6 /* UIView+SDAutoLayout.m in Sources */,
+				48DA2AF31BFB503F00A771E6 /* UIView+SDAutoLayout.m in Sources */,
 				487D3EF41BCBB71500A66173 /* DemoVC3.m in Sources */,
 				487D3EBA1BCB9EC700A66173 /* AppDelegate.m in Sources */,
-				48DA2AEB1BFB430600A771E6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				48DA2AF21BFB503F00A771E6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				99E728AA1BE5E22D00771161 /* SDRefreshView.m in Sources */,
 				48D632331BD0A7B500F86A88 /* DemoVC4.m in Sources */,
 				487D3EE11BCBA55700A66173 /* DemoVC0.m in Sources */,
