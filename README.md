@@ -1,4 +1,7 @@
 # SDAutoLayout
+
+SDAutoLayout视频教程：http://www.letv.com/ptv/vplay/24038772.html
+
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
 
