@@ -662,8 +662,12 @@
             if ([view isKindOfClass:[UILabel class]]) {
                 UILabel *label = (UILabel *)view;
                 label.numberOfLines = 0;
-                CGRect rect = [label.text boundingRectWithSize:CGSizeMake(label.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
-                label.height = rect.size.height;
+                if (label.text.length) {
+                    CGRect rect = [label.text boundingRectWithSize:CGSizeMake(label.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
+                    label.height = rect.size.height;
+                } else {
+                    label.height = 0;
+                }
             }
         }
     }
