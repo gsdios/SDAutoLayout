@@ -33,7 +33,9 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.navigationController pushViewController:[DemoVC5 new] animated:YES];
+    UIViewController *vc = [DemoVC5 new];
+    vc.title = @"DemoVC5";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - tableview datasourece and delegate
@@ -57,8 +59,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *demoClassString = [NSString stringWithFormat:@"DemoVC%ld", indexPath.row];
-    
-    [self.navigationController pushViewController:[NSClassFromString(demoClassString) new] animated:YES];
+    UIViewController *vc = [NSClassFromString(demoClassString) new];
+    vc.title = demoClassString;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
