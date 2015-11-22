@@ -23,7 +23,7 @@
 
 #import "DemoTableViewControler.h"
 
-#import "DemoVC3.h"
+#import "DemoVC5.h"
 
 @implementation DemoTableViewControler
 
@@ -33,14 +33,14 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.navigationController pushViewController:[DemoVC3 new] animated:YES];
+    [self.navigationController pushViewController:[DemoVC5 new] animated:YES];
 }
 
 #pragma mark - tableview datasourece and delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

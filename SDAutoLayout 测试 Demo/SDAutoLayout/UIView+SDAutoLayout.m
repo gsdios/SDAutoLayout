@@ -668,6 +668,8 @@
                 } else {
                     label.height = 0;
                 }
+            } else {
+                view.height = 0;
             }
         }
     }
