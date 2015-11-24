@@ -6,6 +6,8 @@
 
 
 #    ☆新增：cell高度自适应 + label文字自适应☆
+
+![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)
     
 ##    >>>>> tableview cell 自动高度设置只需要3步
     
