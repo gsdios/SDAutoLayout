@@ -37,7 +37,8 @@
     self.view2.sd_layout.leftSpaceToView(self.view1, 30).topSpaceToView(self.view1, 30).widthRatioToView(self.view1, 0.5).heightRatioToView(self.view1, 0.5);
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.view0.sd_layout.heightIs(200).topSpaceToView(self.view, 80);
+        self.view0.sd_layout.bottomSpaceToView(self.view, 100);
+        [self.view layoutSubviews];
     });
 }
 

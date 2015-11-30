@@ -1,4 +1,4 @@
- //
+//
 //  UIView+SDAutoLayout.m
 //
 //  Created by gsd on 15/10/6.
@@ -27,28 +27,28 @@
 
 @interface SDAutoLayoutModel ()
 
-@property (nonatomic, strong) NSNumber *width;
-@property (nonatomic, strong) NSNumber *height;
-@property (nonatomic, strong) NSNumber *left;
-@property (nonatomic, strong) NSNumber *top;
-@property (nonatomic, strong) NSNumber *right;
-@property (nonatomic, strong) NSNumber *bottom;
+@property (nonatomic, strong) SDAutoLayoutModelItem *width;
+@property (nonatomic, strong) SDAutoLayoutModelItem *height;
+@property (nonatomic, strong) SDAutoLayoutModelItem *left;
+@property (nonatomic, strong) SDAutoLayoutModelItem *top;
+@property (nonatomic, strong) SDAutoLayoutModelItem *right;
+@property (nonatomic, strong) SDAutoLayoutModelItem *bottom;
 @property (nonatomic, strong) NSNumber *centerX;
 @property (nonatomic, strong) NSNumber *centerY;
 
-@property (nonatomic, strong) NSNumber *ratio_width;
-@property (nonatomic, strong) NSNumber *ratio_height;
-@property (nonatomic, strong) NSNumber *ratio_left;
-@property (nonatomic, strong) NSNumber *ratio_top;
-@property (nonatomic, strong) NSNumber *ratio_right;
-@property (nonatomic, strong) NSNumber *ratio_bottom;
+@property (nonatomic, strong) SDAutoLayoutModelItem *ratio_width;
+@property (nonatomic, strong) SDAutoLayoutModelItem *ratio_height;
+@property (nonatomic, strong) SDAutoLayoutModelItem *ratio_left;
+@property (nonatomic, strong) SDAutoLayoutModelItem *ratio_top;
+@property (nonatomic, strong) SDAutoLayoutModelItem *ratio_right;
+@property (nonatomic, strong) SDAutoLayoutModelItem *ratio_bottom;
 
-@property (nonatomic, assign) BOOL equalLeft;
-@property (nonatomic, assign) BOOL equalRight;
-@property (nonatomic, assign) BOOL equalTop;
-@property (nonatomic, assign) BOOL equalBottom;
-@property (nonatomic, assign) BOOL equalCenterX;
-@property (nonatomic, assign) BOOL equalCenterY;
+@property (nonatomic, strong) SDAutoLayoutModelItem *equalLeft;
+@property (nonatomic, strong) SDAutoLayoutModelItem *equalRight;
+@property (nonatomic, strong) SDAutoLayoutModelItem *equalTop;
+@property (nonatomic, strong) SDAutoLayoutModelItem *equalBottom;
+@property (nonatomic, strong) SDAutoLayoutModelItem *equalCenterX;
+@property (nonatomic, strong) SDAutoLayoutModelItem *equalCenterY;
 
 @end
 
@@ -74,27 +74,6 @@
 @synthesize centerYIs = _centerYIs;
 @synthesize autoHeightRatio = _autoHeightRatio;
 @synthesize spaceToSuperView = _spaceToSuperView;
-
-- (void)addLayoutModelToSuperView
-{
-    if (self.needsAutoResizeView.superview == self.referencedView) {
-        [self.referencedView.autoLayoutModelsArray addObject:self];
-    } else {
-        [self.referencedView.superview.autoLayoutModelsArray addObject:self];
-        if (!self.referencedView) {
-            [self.needsAutoResizeView.superview.autoLayoutModelsArray addObject:self];
-        }
-    }
-}
-
-- (void)addLayoutModelWithWidthHeightAttributeToSuperView
-{
-    if (self.needsAutoResizeView.superview == self.referencedView) {
-        [self.referencedView addLayoutModelWithAttributeHeightOrWidth:self];
-    } else {
-        [self.referencedView.superview addLayoutModelWithAttributeHeightOrWidth:self];
-    }
-}
 
 - (MarginToView)leftSpaceToView
 {
@@ -132,19 +111,11 @@
 {
     __weak typeof(self) weakSelf = self;
     return ^(UIView *view, CGFloat value) {
-        weakSelf.referencedView = view;
-        [weakSelf setValue:@(value) forKey:key];
-        [weakSelf addLayoutModelToSuperView];
-        
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-        
-        [weakSelf.needsAutoResizeView addOwnAutoLayoutModel:weakSelf withKey:key];
-        
-#endif
-        
-        SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
-        newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
-        return newModel;
+        SDAutoLayoutModelItem *item = [SDAutoLayoutModelItem new];
+        item.value = @(value);
+        item.refView = view;
+        [weakSelf setValue:item forKey:key];
+        return weakSelf;
     };
 }
 
@@ -155,16 +126,7 @@
         _widthIs = ^(CGFloat value) {
             weakSelf.needsAutoResizeView.width = value;
             weakSelf.needsAutoResizeView.fixedWith = @(value);
-            
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-            
-            [weakSelf.needsAutoResizeView addOwnAutoLayoutModel:weakSelf withKey:@"width"];
-            
-#endif
-            
-            SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
-            newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
-            return newModel;
+            return weakSelf;
         };
     }
     return _widthIs;
@@ -177,16 +139,7 @@
         _heightIs = ^(CGFloat value) {
             weakSelf.needsAutoResizeView.height = value;
             weakSelf.needsAutoResizeView.fixedHeight = @(value);
-            
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-            
-            [weakSelf.needsAutoResizeView addOwnAutoLayoutModel:weakSelf withKey:@"height"];
-            
-#endif
-            
-            SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
-            newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
-            return newModel;
+            return weakSelf;
         };
     }
     return _heightIs;
@@ -197,19 +150,10 @@
     if (!_widthRatioToView) {
         __weak typeof(self) weakSelf = self;
         _widthRatioToView = ^(UIView *view, CGFloat value) {
-            weakSelf.referencedView = view;
-            weakSelf.ratio_width = @(value);
-            [weakSelf addLayoutModelWithWidthHeightAttributeToSuperView];
-            
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-            
-            [weakSelf.needsAutoResizeView addOwnAutoLayoutModel:weakSelf withKey:@"width"];
-            
-#endif
-            
-            SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
-            newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
-            return newModel;
+            weakSelf.ratio_width = [SDAutoLayoutModelItem new];
+            weakSelf.ratio_width.value = @(value);
+            weakSelf.ratio_width.refView = view;
+            return weakSelf;
         };
     }
     return _widthRatioToView;
@@ -220,19 +164,10 @@
     if (!_heightRatioToView) {
         __weak typeof(self) weakSelf = self;
         _heightRatioToView = ^(UIView *view, CGFloat value) {
-            weakSelf.referencedView = view;
-            weakSelf.ratio_height = @(value);
-            [weakSelf addLayoutModelWithWidthHeightAttributeToSuperView];
-            
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-            
-            [weakSelf.needsAutoResizeView addOwnAutoLayoutModel:weakSelf withKey:@"height"];
-            
-#endif
-            
-            SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
-            newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
-            return newModel;
+            weakSelf.ratio_height = [SDAutoLayoutModelItem new];
+            weakSelf.ratio_height.refView = view;
+            weakSelf.ratio_height.value = @(value);
+            return weakSelf;
         };
     }
     return _heightRatioToView;
@@ -244,19 +179,10 @@
     __weak typeof(self) weakSelf = self;
     
     return ^(UIView *view) {
-        weakSelf.referencedView = view;
-        [weakSelf setValue:@(YES) forKey:key];
-        [weakSelf addLayoutModelToSuperView];
-        
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-        
-        [weakSelf.needsAutoResizeView addOwnAutoLayoutModel:weakSelf withKey:key];
-        
-#endif
-        
-        SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
-        newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
-        return newModel;
+        SDAutoLayoutModelItem *item = [SDAutoLayoutModelItem new];
+        item.refView = view;
+        [weakSelf setValue:item forKey:key];
+        return weakSelf;
     };
 }
 
@@ -321,21 +247,11 @@
             weakSelf.needsAutoResizeView.top = value;
         } else if ([key isEqualToString:@"centerX"]) {
             weakSelf.centerX = @(value);
-            [weakSelf addLayoutModelToSuperView];
         } else if ([key isEqualToString:@"centerY"]) {
             weakSelf.centerY = @(value);
-            [weakSelf addLayoutModelToSuperView];
         }
         
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-        
-        [weakSelf.needsAutoResizeView addOwnAutoLayoutModel:weakSelf withKey:key];
-        
-#endif
-
-        SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
-        newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
-        return newModel;
+        return weakSelf;
     };
 }
 
@@ -378,10 +294,7 @@
     if (!_autoHeightRatio) {
         _autoHeightRatio = ^(CGFloat ratioaValue) {
             weakSelf.needsAutoResizeView.autoHeightRatioValue = @(ratioaValue);
-            
-            SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
-            newModel.needsAutoResizeView = weakSelf.needsAutoResizeView;
-            return newModel;
+            return weakSelf;
         };
     }
     return _autoHeightRatio;
@@ -408,6 +321,12 @@
 
 @end
 
+
+@implementation SDAutoLayoutModelItem
+
+@end
+
+
 @implementation UIView (SDAutoLayout)
 
 + (void)load
@@ -421,29 +340,6 @@
 }
 
 #pragma mark - properties
-
-- (void)addLayoutModelWithAttributeHeightOrWidth:(SDAutoLayoutModel *)model
-{
-
-    __block long index = 0;
-    __block BOOL found = NO;
-    [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *obj, NSUInteger idx, BOOL *stop) {
-        if (obj.needsAutoResizeView == model.needsAutoResizeView) {
-            index = idx;
-            found = YES;
-            *stop = YES;
-        }
-    }];
-    
-    if (found) {
-        [self.autoLayoutModelsArray insertObject:model atIndex:index];
-    } else {
-        [self.autoLayoutModelsArray addObject:model];
-    }
-
-
-    
-}
 
 - (NSMutableArray *)autoLayoutModelsArray
 {
@@ -483,10 +379,25 @@
     objc_setAssociatedObject(self, @selector(autoHeightRatioValue), autoHeightRatioValue, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (SDAutoLayoutModel *)ownLayoutModel
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setOwnLayoutModel:(SDAutoLayoutModel *)ownLayoutModel
+{
+    objc_setAssociatedObject(self, @selector(ownLayoutModel), ownLayoutModel, OBJC_ASSOCIATION_RETAIN);
+}
+
 - (SDAutoLayoutModel *)sd_layout
 {
-    SDAutoLayoutModel *model = [SDAutoLayoutModel new];
-    model.needsAutoResizeView = self;
+    SDAutoLayoutModel *model = [self ownLayoutModel];
+    if (!model) {
+        model = [SDAutoLayoutModel new];
+        model.needsAutoResizeView = self;
+        [self setOwnLayoutModel:model];
+        [self.superview.autoLayoutModelsArray addObject:model];
+    }
     
     return model;
 }
@@ -500,12 +411,6 @@
             [self sd_resizeWithModel:model];
         }];
     }
-    
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-    
-    [self.subviews makeObjectsPerformSelector:@selector(checkAutoLayoutIntegrality)];
-    
-#endif
     
     if (self.tag == kSDModelCellTag && [self isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
         UITableViewCell *cell = (UITableViewCell *)(self.superview);
@@ -523,135 +428,135 @@
     UIView *view = model.needsAutoResizeView;
     
     if (model.width) {
-        view.width = [model.width floatValue];
+        view.width = [model.width.value floatValue];
         view.fixedWith = @(view.width);
     } else if (model.ratio_width) {
-        view.width = model.referencedView.width * [model.ratio_width floatValue];
+        view.width = model.ratio_width.refView.width * [model.ratio_width.value floatValue];
         view.fixedWith = @(view.width);
     }
     
     if (model.height) {
-        view.height = [model.height floatValue];
+        view.height = [model.height.value floatValue];
         view.fixedHeight = @(view.height);
     } else if (model.ratio_height) {
-        view.height = [model.ratio_height floatValue] * model.referencedView.height;
+        view.height = [model.ratio_height.value floatValue] * model.ratio_height.refView.height;
         view.fixedHeight = @(view.height);
     }
     
     if (model.left) {
-        if (view.superview == model.referencedView) {
+        if (view.superview == model.left.refView) {
             if (!view.fixedWith) { // view.autoLeft && view.autoRight
-                view.width = view.right - [model.left floatValue];
+                view.width = view.right - [model.left.value floatValue];
             }
-            view.left = [model.left floatValue];
+            view.left = [model.left.value floatValue];
         } else {
             if (!view.fixedWith) { // view.autoLeft && view.autoRight
-                view.width = view.right - model.referencedView.right - [model.left floatValue];
+                view.width = view.right - model.left.refView.right - [model.left.value floatValue];
             }
-            view.left = model.referencedView.right + [model.left floatValue];
+            view.left = model.left.refView.right + [model.left.value floatValue];
         }
         
     } else if (model.equalLeft) {
         if (!view.fixedWith) {
-            view.width = view.right - model.referencedView.left;
+            view.width = view.right - model.equalLeft.refView.left;
         }
-        if (view.superview == model.referencedView) {
+        if (view.superview == model.equalLeft.refView) {
             view.left = 0;
         } else {
-            view.left = model.referencedView.left;
+            view.left = model.equalLeft.refView.left;
         }
     } else if (model.equalCenterX) {
-        if (view.superview == model.referencedView) {
-            view.centerX = model.referencedView.width * 0.5;
+        if (view.superview == model.equalCenterX.refView) {
+            view.centerX = model.equalCenterX.refView.width * 0.5;
         } else {
-            view.centerX = model.referencedView.centerX;
+            view.centerX = model.equalCenterX.refView.centerX;
         }
     } else if (model.centerX) {
         view.centerX = [model.centerX floatValue];
     }
     
     if (model.right) {
-        if (view.superview == model.referencedView) {
+        if (view.superview == model.right.refView) {
             if (!view.fixedWith) { // view.autoLeft && view.autoRight
-                view.width = model.referencedView.width - view.left - [model.right floatValue];
+                view.width = model.right.refView.width - view.left - [model.right.value floatValue];
             }
-            view.right = model.referencedView.width - [model.right floatValue];
+            view.right = model.right.refView.width - [model.right.value floatValue];
         } else {
             if (!view.fixedWith) { // view.autoLeft && view.autoRight
-                view.width =  model.referencedView.left - view.left - [model.right floatValue];
+                view.width =  model.right.refView.left - view.left - [model.right.value floatValue];
             }
-            view.right = model.referencedView.left - [model.right floatValue];
+            view.right = model.right.refView.left - [model.right.value floatValue];
         }
     } else if (model.equalRight) {
         if (!view.fixedWith) {
-            view.width = model.referencedView.right - view.left;
+            view.width = model.equalRight.refView.right - view.left;
         }
         
-        view.right = model.referencedView.right;
-        if (view.superview == model.referencedView) {
-            view.right = model.referencedView.width;
+        view.right = model.equalRight.refView.right;
+        if (view.superview == model.equalRight.refView) {
+            view.right = model.equalRight.refView.width;
         }
         
     }
     
     if (model.top) {
-        if (view.superview == model.referencedView) {
+        if (view.superview == model.top.refView) {
             if (!view.fixedHeight) { // view.autoTop && view.autoBottom && view.bottom
-                view.height = view.bottom - [model.top floatValue];
+                view.height = view.bottom - [model.top.value floatValue];
             }
-            view.top = [model.top floatValue];
+            view.top = [model.top.value floatValue];
         } else {
             if (!view.fixedHeight) { // view.autoTop && view.autoBottom && view.bottom
-                view.height = view.bottom - model.referencedView.bottom - [model.top floatValue];
+                view.height = view.bottom - model.top.refView.bottom - [model.top.value floatValue];
             }
-            view.top = model.referencedView.bottom + [model.top floatValue];
+            view.top = model.top.refView.bottom + [model.top.value floatValue];
         }
     } else if (model.equalTop) {
-        if (view.superview == model.referencedView) {
+        if (view.superview == model.equalTop.refView) {
             if (!view.fixedHeight) {
                 view.height = view.bottom;
             }
             view.top = 0;
         } else {
             if (!view.fixedHeight) {
-                view.height = view.bottom - model.referencedView.top;
+                view.height = view.bottom - model.equalTop.refView.top;
             }
-            view.top = model.referencedView.top;
+            view.top = model.equalTop.refView.top;
         }
     } else if (model.equalCenterY) {
-        if (view.superview == model.referencedView) {
-            view.centerY = model.referencedView.height * 0.5;
+        if (view.superview == model.equalCenterY.refView) {
+            view.centerY = model.equalCenterY.refView.height * 0.5;
         } else {
-            view.centerY = model.referencedView.centerY;
+            view.centerY = model.equalCenterY.refView.centerY;
         }
     } else if (model.centerY) {
         view.centerY = [model.centerY floatValue];
     }
     
     if (model.bottom) {
-        if (view.superview == model.referencedView) {
+        if (view.superview == model.bottom.refView) {
             if (!view.fixedHeight) {
-                view.height = view.superview.height - view.top - [model.bottom floatValue];
+                view.height = view.superview.height - view.top - [model.bottom.value floatValue];
             }
-            view.bottom = model.referencedView.height - [model.bottom floatValue];
+            view.bottom = model.bottom.refView.height - [model.bottom.value floatValue];
         } else {
             if (!view.fixedHeight) {
-                view.height = model.referencedView.top - view.top - [model.bottom floatValue];
+                view.height = model.bottom.refView.top - view.top - [model.bottom.value floatValue];
             }
-            view.bottom = model.referencedView.top - [model.bottom floatValue];
+            view.bottom = model.bottom.refView.top - [model.bottom.value floatValue];
         }
         
     } else if (model.equalBottom) {
-        if (view.superview == model.referencedView) {
+        if (view.superview == model.equalBottom.refView) {
             if (!view.fixedHeight) {
                 view.height = view.superview.height - view.top;
             }
-            view.bottom = model.referencedView.height;
+            view.bottom = model.equalBottom.refView.height;
         } else {
             if (!view.fixedHeight) {
-                view.height = model.referencedView.bottom - view.top;
+                view.height = model.equalBottom.refView.bottom - view.top;
             }
-            view.bottom = model.referencedView.bottom;
+            view.bottom = model.equalBottom.refView.bottom;
         }
     }
     
@@ -680,94 +585,6 @@
 {
     [self.autoLayoutModelsArray addObject:model];
 }
-
-
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-
-#define SDAutoLayoutAttributeLeftKey        @"水平方向约束（left）"
-#define SDAutoLayoutAttributeRightKey       @"水平方向约束（right）"
-#define SDAutoLayoutAttributeTopKey         @"垂直方向约束（top）"
-#define SDAutoLayoutAttributeBottomKey      @"垂直方向约束（bottom）"
-#define SDAutoLayoutAttributeWidthKey       @"宽度约束（width）"
-#define SDAutoLayoutAttributeHeightKey      @"高度约束（height）"
-
-- (void)addOwnAutoLayoutModel:(SDAutoLayoutModel *)model withKey:(NSString *)key
-{
-    NSDictionary *modelDict = nil;
-    
-    if ([key rangeOfString:@"left" options:NSCaseInsensitiveSearch].length || [key rangeOfString:@"centerX" options:NSCaseInsensitiveSearch].length) {
-        modelDict = @{SDAutoLayoutAttributeLeftKey : model};
-    } else if ([key rangeOfString:@"right" options:NSCaseInsensitiveSearch].length) {
-        modelDict = @{SDAutoLayoutAttributeRightKey : model};
-    } else if ([key rangeOfString:@"top" options:NSCaseInsensitiveSearch].length || [key rangeOfString:@"centerY" options:NSCaseInsensitiveSearch].length) {
-        modelDict = @{SDAutoLayoutAttributeTopKey : model};
-    } else if ([key rangeOfString:@"bottom" options:NSCaseInsensitiveSearch].length) {
-        modelDict = @{SDAutoLayoutAttributeBottomKey : model};
-    } else if ([key rangeOfString:@"width" options:NSCaseInsensitiveSearch].length) {
-        modelDict = @{SDAutoLayoutAttributeWidthKey : model};
-    } else if ([key rangeOfString:@"height" options:NSCaseInsensitiveSearch].length) {
-        modelDict = @{SDAutoLayoutAttributeHeightKey : model};
-    }
-    if (!modelDict) return;
-    [[self ownAutoLayoutModelsArray] addObject:modelDict];
-}
-
-- (NSMutableArray *)ownAutoLayoutModelsArray
-{
-    if (!objc_getAssociatedObject(self, _cmd)) {
-        objc_setAssociatedObject(self, _cmd, [NSMutableArray array], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return objc_getAssociatedObject(self, _cmd);
-}
-
-- (void)checkAutoLayoutIntegrality
-{
-    if ([self ownAutoLayoutModelsArray].count && [self ownAutoLayoutModelsArray].count < 4) {
-        NSString *strStsrt = @"\n\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>（缺少约束）>>>>>>>>>>>>>>>>>>>>>>>>>>> \n\n";
-        NSString *strEnd   = @"\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n";
-        
-        NSMutableString *layoutString = [NSMutableString stringWithString:@"\n 您需要同时设置4个维度的约束，请根据LOG信息检查并修改：\n\n 已经存在的约束：\n"];
-        
-        [[self ownAutoLayoutModelsArray] enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-            [layoutString appendFormat:@" ---- %@ ---- %@\n", [dict.allKeys firstObject], [dict.allValues firstObject]];
-            SDAutoLayoutModel *model = [dict.allValues firstObject];
-            if (model.referencedView == self) {
-                [layoutString appendFormat:@" ^^^^ %@ 此条约束引用的view为自身，请检查并修改\n", model];
-            }
-        }];
-        
-        NSLog(@"%@ %@\n%@%@",strStsrt, self, layoutString, strEnd);
-        
-    } else if ([self ownAutoLayoutModelsArray].count > 4) {
-        NSString *strStsrt = @"\n\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>（约束冲突）>>>>>>>>>>>>>>>>>>>>>>>>>>> \n\n";
-        NSString *strEnd   = @"\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n";
-        
-        NSMutableString *layoutString = [NSMutableString stringWithString:@"\n 您只需要设置4个维度的约束，请根据LOG信息检查并修改：\n\n 已经存在的约束：\n"];
-        
-        [[self ownAutoLayoutModelsArray] enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-            [layoutString appendFormat:@" ---- %@ ---- %@\n", [dict.allKeys firstObject], [dict.allValues firstObject]];
-            SDAutoLayoutModel *model = [dict.allValues firstObject];
-            if (model.referencedView == self) {
-                [layoutString appendFormat:@" ^^^^ %@ 此条约束引用的view为自身，请检查并修改\n", model];
-            }
-        }];
-        
-        NSLog(@"%@ %@\n%@%@",strStsrt, self, layoutString, strEnd);
-    } else {
-        [[self ownAutoLayoutModelsArray] enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL *stop) {
-            SDAutoLayoutModel *model = [dict.allValues firstObject];
-            if (model.referencedView == self) {
-                NSLog(@"\n -- %@ -- %@ 此条约束引用的view为自身，请检查并修改\n", model.needsAutoResizeView, [[dict allKeys] firstObject]);
-            }
-        }];
-    }
-}
-
-#endif
-
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-
-#endif
 
 @end
 

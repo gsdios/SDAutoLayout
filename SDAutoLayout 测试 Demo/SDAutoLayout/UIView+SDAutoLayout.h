@@ -6,56 +6,56 @@
 //
 
 /*
-*************************************************************************
-
-                    --------- INTRODUCTION ---------
+ *************************************************************************
+ 
+ --------- INTRODUCTION ---------
  
  
-                                ********
-                                *      *
-                                *  v1  *
-                                ********
-                                    |
+ ********
+ *      *
+ *  v1  *
+ ********
+ |
  
-                              topSpaceToView
+ topSpaceToView
  
-                                    |
+ |
  ********                       ********                        ********
  *      *                       *      *                        *      *
  *  v0  * —— leftSpaceToView —— * Demo *  —— rightSpaceToView ——*  v2  *
  ********                       ********                        ********
-                                    |
+ |
  
-                            bottomSpaceToView
+ bottomSpaceToView
  
-                                    |
-                                ********
-                                *      *
-                                *  v3  *
-                                ********
+ |
+ ********
+ *      *
+ *  v3  *
+ ********
  
  HOW TO USE ?
  
  
-MODE 1. >>>>>>>>>>>>>>> You can use it in this way:
+ MODE 1. >>>>>>>>>>>>>>> You can use it in this way:
  
-    Demo.sd_layout
-    .topSpaceToView(v1, 100)
-    .bottomSpaceToView(v3, 100)
-    .leftSpaceToView(v0, 150)
-    .rightSpaceToView(v2, 150);
- 
- 
-
-MODE 2. >>>>>>>>>>>>>>> You can also use it in this way that is more brevity:
- 
-    Demo.sd_layout.topSpaceToView(v1, 100).bottomSpaceToView(v3, 100).leftSpaceToView(v0, 150).rightSpaceToView(v2, 150);
+ Demo.sd_layout
+ .topSpaceToView(v1, 100)
+ .bottomSpaceToView(v3, 100)
+ .leftSpaceToView(v0, 150)
+ .rightSpaceToView(v2, 150);
  
  
  
-
-*************************************************************************
-*/
+ MODE 2. >>>>>>>>>>>>>>> You can also use it in this way that is more brevity:
+ 
+ Demo.sd_layout.topSpaceToView(v1, 100).bottomSpaceToView(v3, 100).leftSpaceToView(v0, 150).rightSpaceToView(v2, 150);
+ 
+ 
+ 
+ 
+ *************************************************************************
+ */
 
 
 /*
@@ -72,14 +72,6 @@ MODE 2. >>>>>>>>>>>>>>> You can also use it in this way that is more brevity:
  *********************************************************************************
  
  */
-
-
-
-/*
- * 如果您需要布局错误LOG信息提示请打开此宏
- */
-
-//#define SDAutoLayoutIssueLog
 
 #import <UIKit/UIKit.h>
 
@@ -152,10 +144,26 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @property (nonatomic, copy, readonly) SpaceToSuperView spaceToSuperView;
 
-@property (nonatomic, weak) UIView *referencedView;
 @property (nonatomic, weak) UIView *needsAutoResizeView;
 
+@end
 
+
+
+
+
+
+
+
+
+
+
+// ----------------- 以下为此库内部需要用到的类和方法（可以不用看）----------------
+
+@interface SDAutoLayoutModelItem : NSObject
+
+@property (nonatomic, strong) NSNumber *value;
+@property (nonatomic, weak) UIView *refView;
 
 @end
 
@@ -167,20 +175,10 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 - (void)addAutoLayoutModel:(SDAutoLayoutModel *)model;
 
-- (void)addLayoutModelWithAttributeHeightOrWidth:(SDAutoLayoutModel *)model;
-
 @property (nonatomic, strong) NSNumber *fixedWith;
 @property (nonatomic, strong) NSNumber *fixedHeight;
 
 @property (nonatomic, strong) NSNumber *autoHeightRatioValue;
-
-#if defined DEBUG && defined SDAutoLayoutIssueLog // 调试状态下 约束问题提醒
-
-- (void)addOwnAutoLayoutModel:(SDAutoLayoutModel *)model withKey:(NSString *)key;
-
-- (void)checkAutoLayoutIntegrality;
-
-#endif
 
 @end
 
