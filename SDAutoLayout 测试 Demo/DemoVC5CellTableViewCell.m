@@ -33,6 +33,7 @@
     UILabel *_view1;
     UILabel *_view2;
     UIImageView *_view3;
+    UILabel *_view4;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -63,13 +64,18 @@
     view3.backgroundColor = [UIColor orangeColor];
     _view3 = view3;
     
+    UILabel *view4 = [UILabel new];
+    view4.textColor = [UIColor whiteColor];
+    view4.backgroundColor = [UIColor lightGrayColor];
+    view4.text = @"纯文本";
+    view4.font = [UIFont systemFontOfSize:13];
+    _view4 = view4;
     
     [self.contentView addSubview:view0];
     [self.contentView addSubview:view1];
     [self.contentView addSubview:view2];
     [self.contentView addSubview:view3];
-
-    
+    [self.contentView addSubview:view4];
     
     
     _view0.sd_layout
@@ -81,7 +87,6 @@
     _view1.sd_layout
     .topEqualToView(_view0)
     .leftSpaceToView(_view0, 10)
-    .rightSpaceToView(self.contentView, 10)
     .heightRatioToView(_view0, 0.4);
     
     _view2.sd_layout
@@ -95,7 +100,17 @@
     .leftEqualToView(_view2)
     .widthRatioToView(_view2, 0.7);
     
+    _view4.sd_layout
+    .leftSpaceToView(_view1, 5)
+    .centerYEqualToView(_view1)
+    .heightIs(14);
+    
+    [_view4 setSigleLineAutoResizeWithMaxWidth:50];
+    
     _view0.sd_cornerRadiusFromWidthRatio = @(0.5);
+    
+    [_view1 setSigleLineAutoResizeWithMaxWidth:200];
+    
 }
 
 - (void)setModel:(DemoVC5Model *)model
@@ -117,8 +132,10 @@
         _view3.sd_layout.autoHeightRatio(scale);
         _view3.image = pic;
         bottomMargin = 10;
+        _view4.hidden = YES;
     } else {
         _view3.sd_layout.autoHeightRatio(0);
+        _view4.hidden = NO;
     }
 
     //***********************高度自适应cell设置步骤************************

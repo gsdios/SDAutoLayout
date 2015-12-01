@@ -59,9 +59,10 @@
     .centerXEqualToView(scrollView)
     .topSpaceToView(self.view2, 20);
 
+    // scrollview自动contentsize
     [scrollView setupAutoContentSizeWithBottomView:self.view3 bottomMargin:20];
     
-    
+    // 设置圆角
     self.view0.sd_cornerRadiusFromHeightRatio = @(0.5);
     self.view1.sd_cornerRadiusFromWidthRatio = @(0.5);
     self.view2.sd_cornerRadiusFromWidthRatio = @(0.5);

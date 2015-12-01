@@ -178,6 +178,13 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @end
 
 
+@interface UILabel (SDLabelAutoResize)
+
+- (void)setSigleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth;
+
+@end
+
+
 
 // ----------------- 以下为此库内部需要用到的类和方法（可以不用看）----------------
 
@@ -198,6 +205,8 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @property (nonatomic, strong) NSNumber *fixedWith;
 @property (nonatomic, strong) NSNumber *fixedHeight;
+
+@property (nonatomic, strong) NSNumber *sd_maxWidth;
 
 @property (nonatomic, strong) NSNumber *autoHeightRatioValue;
 

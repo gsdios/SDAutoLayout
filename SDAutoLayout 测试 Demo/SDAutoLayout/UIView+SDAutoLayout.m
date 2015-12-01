@@ -407,6 +407,15 @@
 
 @end
 
+@implementation UILabel (SDLabelAutoResize)
+
+- (void)setSigleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth
+{
+    self.sd_maxWidth = @(maxWidth);
+}
+
+@end
+
 
 @implementation SDAutoLayoutModelItem
 
@@ -463,6 +472,16 @@
 - (void)setAutoHeightRatioValue:(NSNumber *)autoHeightRatioValue
 {
     objc_setAssociatedObject(self, @selector(autoHeightRatioValue), autoHeightRatioValue, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (NSNumber *)sd_maxWidth
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setSd_maxWidth:(NSNumber *)sd_maxWidth
+{
+    objc_setAssociatedObject(self, @selector(sd_maxWidth), sd_maxWidth, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (SDAutoLayoutModel *)ownLayoutModel
@@ -672,6 +691,20 @@
                 }
             } else {
                 view.height = 0;
+            }
+        }
+    }
+    
+    if (view.sd_maxWidth) {
+        if ([view isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)view;
+            CGFloat width = [view.sd_maxWidth floatValue] > 0 ? [view.sd_maxWidth floatValue] : MAXFLOAT;
+            label.numberOfLines = 1;
+            if (label.text.length) {
+                CGRect rect = [label.text boundingRectWithSize:CGSizeMake(width, label.height) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
+                label.width = rect.size.width;
+            } else {
+                label.width = 0;
             }
         }
     }
