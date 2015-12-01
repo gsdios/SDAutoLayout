@@ -95,7 +95,7 @@
     .leftEqualToView(_view2)
     .widthRatioToView(_view2, 0.7);
     
-    
+    _view0.sd_cornerRadiusFromWidthRatio = @(0.5);
 }
 
 - (void)setModel:(DemoVC5Model *)model

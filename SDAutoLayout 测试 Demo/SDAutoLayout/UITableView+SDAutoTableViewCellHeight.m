@@ -25,47 +25,6 @@
 #import "UIView+SDAutoLayout.h"
 #import <objc/runtime.h>
 
-@implementation  UITableViewCell (SDAutoHeight)
-
-- (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin
-{
-    self.sd_bottomView = bottomView;
-    self.sd_bottomViewBottomMargin = bottomMargin;
-    self.sd_layout.autoHeightRatio(0);
-}
-
-- (CGFloat)autoHeight
-{
-    return [objc_getAssociatedObject(self, _cmd) floatValue];
-}
-
-- (void)setAutoHeight:(CGFloat)autoHeight
-{
-    objc_setAssociatedObject(self, @selector(autoHeight), @(autoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (UIView *)sd_bottomView
-{
-    return objc_getAssociatedObject(self, _cmd);
-}
-
-- (void)setSd_bottomView:(UIView *)sd_bottomView
-{
-    objc_setAssociatedObject(self, @selector(sd_bottomView), sd_bottomView, OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (CGFloat)sd_bottomViewBottomMargin
-{
-    return [objc_getAssociatedObject(self, _cmd) floatValue];
-}
-
-- (void)setSd_bottomViewBottomMargin:(CGFloat)sd_bottomViewBottomMargin
-{
-    objc_setAssociatedObject(self, @selector(sd_bottomViewBottomMargin), @(sd_bottomViewBottomMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-@end
-
 @implementation SDCellAutoHeightManager
 {
     NSMutableDictionary *_cacheDictionary;

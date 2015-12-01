@@ -322,6 +322,92 @@
 @end
 
 
+@implementation UIView (SDAutoHeight)
+
+- (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin
+{
+    self.sd_bottomView = bottomView;
+    self.sd_bottomViewBottomMargin = bottomMargin;
+}
+
+- (CGFloat)autoHeight
+{
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
+}
+
+- (void)setAutoHeight:(CGFloat)autoHeight
+{
+    objc_setAssociatedObject(self, @selector(autoHeight), @(autoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIView *)sd_bottomView
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setSd_bottomView:(UIView *)sd_bottomView
+{
+    objc_setAssociatedObject(self, @selector(sd_bottomView), sd_bottomView, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (CGFloat)sd_bottomViewBottomMargin
+{
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
+}
+
+- (void)setSd_bottomViewBottomMargin:(CGFloat)sd_bottomViewBottomMargin
+{
+    objc_setAssociatedObject(self, @selector(sd_bottomViewBottomMargin), @(sd_bottomViewBottomMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+
+@implementation UIView (SDLayoutExtention)
+
+- (NSNumber *)sd_cornerRadius
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setSd_cornerRadius:(NSNumber *)sd_cornerRadius
+{
+    objc_setAssociatedObject(self, @selector(sd_cornerRadius), sd_cornerRadius, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+
+- (NSNumber *)sd_cornerRadiusFromWidthRatio
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setSd_cornerRadiusFromWidthRatio:(NSNumber *)sd_cornerRadiusFromWidthRatio
+{
+    objc_setAssociatedObject(self, @selector(sd_cornerRadiusFromWidthRatio), sd_cornerRadiusFromWidthRatio, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+
+- (NSNumber *)sd_cornerRadiusFromHeightRatio
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setSd_cornerRadiusFromHeightRatio:(NSNumber *)sd_cornerRadiusFromHeightRatio
+{
+    objc_setAssociatedObject(self, @selector(sd_cornerRadiusFromHeightRatio), sd_cornerRadiusFromHeightRatio, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
+
+@implementation UIScrollView (SDAutoContentSize)
+
+- (void)setupAutoContentSizeWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin
+{
+    [self setupAutoHeightWithBottomView:bottomView bottomMargin:bottomMargin];
+}
+
+@end
+
+
 @implementation SDAutoLayoutModelItem
 
 @end
@@ -419,6 +505,17 @@
         }
         if ([cell isKindOfClass:[UITableViewCell class]]) {
             cell.autoHeight = cell.sd_bottomView.bottom + cell.sd_bottomViewBottomMargin;
+        }
+    } else if (![self isKindOfClass:[UITableViewCell class]] && self.sd_bottomView) {
+        if ([self isKindOfClass:[UIScrollView class]]) {
+            CGFloat contentHeight = self.sd_bottomView.bottom + self.sd_bottomViewBottomMargin;
+            UIScrollView *scrollView = (UIScrollView *)self;
+            CGSize contentSize = scrollView.contentSize;
+            contentSize.height = contentHeight;
+            if (contentSize.width <= 0) {
+                contentSize.width = scrollView.width;
+            }
+            scrollView.contentSize = contentSize;
         }
     }
 }
@@ -577,6 +674,22 @@
                 view.height = 0;
             }
         }
+    }
+    
+    CGFloat cornerRadius = view.layer.cornerRadius;
+    CGFloat newCornerRadius = 0;
+    
+    if (view.sd_cornerRadius && (cornerRadius != [view.sd_cornerRadius floatValue])) {
+        newCornerRadius = [view.sd_cornerRadius floatValue];
+    } else if (view.sd_cornerRadiusFromWidthRatio && (cornerRadius != [view.sd_cornerRadiusFromWidthRatio floatValue] * view.width)) {
+        newCornerRadius = view.width * [view.sd_cornerRadiusFromWidthRatio floatValue];
+    } else if (view.sd_cornerRadiusFromHeightRatio && (cornerRadius != view.height * [view.sd_cornerRadiusFromHeightRatio floatValue])) {
+        newCornerRadius = view.height * [view.sd_cornerRadiusFromHeightRatio floatValue];
+    }
+    
+    if (newCornerRadius > 0) {
+        view.layer.cornerRadius = newCornerRadius;
+        view.clipsToBounds = YES;
     }
     
 }

@@ -151,10 +151,31 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 
 
+@interface UIView (SDAutoHeight)
+
+@property (nonatomic) CGFloat autoHeight;
+
+@property (nonatomic) UIView *sd_bottomView;
+@property (nonatomic) CGFloat sd_bottomViewBottomMargin;
+
+- (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
+
+@end
+
+@interface UIView (SDLayoutExtention)
+
+@property (nonatomic, strong) NSNumber *sd_cornerRadius;
+@property (nonatomic, strong) NSNumber *sd_cornerRadiusFromWidthRatio;
+@property (nonatomic, strong) NSNumber *sd_cornerRadiusFromHeightRatio;
+
+@end
 
 
+@interface UIScrollView (SDAutoContentSize)
 
+- (void)setupAutoContentSizeWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
+@end
 
 
 

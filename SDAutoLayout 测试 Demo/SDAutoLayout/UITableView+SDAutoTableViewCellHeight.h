@@ -25,19 +25,6 @@
 
 #define kSDModelCellTag 199206
 
-
-@interface UITableViewCell (SDAutoHeight)
-
-@property (nonatomic) CGFloat autoHeight;
-
-@property (nonatomic) UIView *sd_bottomView;
-@property (nonatomic) CGFloat sd_bottomViewBottomMargin;
-
-- (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
-
-@end
-
-
 @interface SDCellAutoHeightManager : NSObject
 
 @property (nonatomic, assign) CGFloat contentViewWidth;

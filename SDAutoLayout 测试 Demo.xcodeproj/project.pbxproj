@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		486A382D1C0D852C000D43E5 /* DemoVC6.m in Sources */ = {isa = PBXBuildFile; fileRef = 486A382C1C0D852C000D43E5 /* DemoVC6.m */; };
 		487D3EB71BCB9EC700A66173 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EB61BCB9EC700A66173 /* main.m */; };
 		487D3EBA1BCB9EC700A66173 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EB91BCB9EC700A66173 /* AppDelegate.m */; };
 		487D3EBD1BCB9EC700A66173 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EBC1BCB9EC700A66173 /* ViewController.m */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		486A382B1C0D852C000D43E5 /* DemoVC6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC6.h; sourceTree = "<group>"; };
+		486A382C1C0D852C000D43E5 /* DemoVC6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC6.m; sourceTree = "<group>"; };
 		487D3EB11BCB9EC700A66173 /* SDAutoLayout 测试 Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDAutoLayout 测试 Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		487D3EB51BCB9EC700A66173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		487D3EB61BCB9EC700A66173 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		486A382A1C0D8499000D43E5 /* DemoVC6 */ = {
+			isa = PBXGroup;
+			children = (
+				486A382B1C0D852C000D43E5 /* DemoVC6.h */,
+				486A382C1C0D852C000D43E5 /* DemoVC6.m */,
+			);
+			name = DemoVC6;
+			sourceTree = "<group>";
+		};
 		487D3EA81BCB9EC700A66173 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +209,7 @@
 		487D3EDE1BCBA52900A66173 /* DemoVC */ = {
 			isa = PBXGroup;
 			children = (
+				486A382A1C0D8499000D43E5 /* DemoVC6 */,
 				48DBCD051C01D82A002EC476 /* DemoVC5 */,
 				487D3EBB1BCB9EC700A66173 /* ViewController.h */,
 				487D3EBC1BCB9EC700A66173 /* ViewController.m */,
@@ -398,6 +411,7 @@
 				487D3EBD1BCB9EC700A66173 /* ViewController.m in Sources */,
 				48DA2B011BFB529200A771E6 /* UIView+SDAutoLayout.m in Sources */,
 				487D3EF41BCBB71500A66173 /* DemoVC3.m in Sources */,
+				486A382D1C0D852C000D43E5 /* DemoVC6.m in Sources */,
 				48DBCD0E1C01DA1E002EC476 /* DemoVC5Model.m in Sources */,
 				487D3EBA1BCB9EC700A66173 /* AppDelegate.m in Sources */,
 				48DBCD0B1C01D89C002EC476 /* DemoVC5.m in Sources */,
