@@ -36,6 +36,11 @@
 @property (nonatomic, strong) NSNumber *centerX;
 @property (nonatomic, strong) NSNumber *centerY;
 
+@property (nonatomic, strong) NSNumber *maxWidth;
+@property (nonatomic, strong) NSNumber *maxHeight;
+@property (nonatomic, strong) NSNumber *minWidth;
+@property (nonatomic, strong) NSNumber *minHeight;
+
 @property (nonatomic, strong) SDAutoLayoutModelItem *ratio_width;
 @property (nonatomic, strong) SDAutoLayoutModelItem *ratio_height;
 @property (nonatomic, strong) SDAutoLayoutModelItem *ratio_left;
@@ -74,6 +79,10 @@
 @synthesize centerYIs = _centerYIs;
 @synthesize autoHeightRatio = _autoHeightRatio;
 @synthesize spaceToSuperView = _spaceToSuperView;
+@synthesize maxWidthIs = _maxWidthIs;
+@synthesize maxHeightIs = _maxHeightIs;
+@synthesize minWidthIs = _minWidthIs;
+@synthesize minHeightIs = _minHeightIs;
 
 - (MarginToView)leftSpaceToView
 {
@@ -171,6 +180,50 @@
         };
     }
     return _heightRatioToView;
+}
+
+- (WidthHeight)maxWidthIs
+{
+    if (!_maxWidthIs) {
+        _maxWidthIs = [self limitingWidthHeightWithKey:@"maxWidth"];
+    }
+    return _maxWidthIs;
+}
+
+- (WidthHeight)maxHeightIs
+{
+    if (!_maxHeightIs) {
+        _maxHeightIs = [self limitingWidthHeightWithKey:@"maxHeight"];
+    }
+    return _maxHeightIs;
+}
+
+- (WidthHeight)minWidthIs
+{
+    if (!_minWidthIs) {
+        _minWidthIs = [self limitingWidthHeightWithKey:@"minWidth"];
+    }
+    return _minWidthIs;
+}
+
+- (WidthHeight)minHeightIs
+{
+    if (!_minHeightIs) {
+        _minHeightIs = [self limitingWidthHeightWithKey:@"minHeight"];
+    }
+    return _minHeightIs;
+}
+
+
+- (WidthHeight)limitingWidthHeightWithKey:(NSString *)key
+{
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(CGFloat value) {
+        [weakSelf setValue:@(value) forKey:key];
+        
+        return weakSelf;
+    };
 }
 
 
@@ -707,6 +760,22 @@
                 label.width = 0;
             }
         }
+    }
+    
+    if (model.maxWidth && [model.maxWidth floatValue] < view.width) {
+        view.width = [model.maxWidth floatValue];
+    }
+    
+    if (model.minWidth && [model.minWidth floatValue] > view.width) {
+        view.width = [model.minWidth floatValue];
+    }
+    
+    if (model.maxHeight && [model.maxHeight floatValue] < view.height) {
+        view.height = [model.maxHeight floatValue];
+    }
+    
+    if (model.minHeight && [model.minHeight floatValue] > view.height) {
+        view.height = [model.minHeight floatValue];
     }
     
     CGFloat cornerRadius = view.layer.cornerRadius;

@@ -8,34 +8,9 @@
 /*
  *************************************************************************
  
- --------- INTRODUCTION ---------
- 
- 
- ********
- *      *
- *  v1  *
- ********
- |
- 
- topSpaceToView
- 
- |
- ********                       ********                        ********
- *      *                       *      *                        *      *
- *  v0  * —— leftSpaceToView —— * Demo *  —— rightSpaceToView ——*  v2  *
- ********                       ********                        ********
- |
- 
- bottomSpaceToView
- 
- |
- ********
- *      *
- *  v3  *
- ********
+                    --------- INTRODUCTION ---------
  
  HOW TO USE ?
- 
  
  MODE 1. >>>>>>>>>>>>>>> You can use it in this way:
  
@@ -45,13 +20,9 @@
  .leftSpaceToView(v0, 150)
  .rightSpaceToView(v2, 150);
  
- 
- 
  MODE 2. >>>>>>>>>>>>>>> You can also use it in this way that is more brevity:
  
  Demo.sd_layout.topSpaceToView(v1, 100).bottomSpaceToView(v3, 100).leftSpaceToView(v0, 150).rightSpaceToView(v2, 150);
- 
- 
  
  
  *************************************************************************
@@ -61,14 +32,17 @@
 /*
  
  *********************************************************************************
- *                                                                                *
- * 在您使用此自动布局库的过程中如果出现bug请及时以以下任意一种方式联系我们，我们会及时修复bug并  *
- * 帮您解决问题。                                                                    *
- * QQ    : 2689718696(gsdios)                                                      *
- * Email : gsdios@126.com                                                          *
- * GitHub: https://github.com/gsdios                                               *
- * 新浪微博:GSD_iOS                                                                 *
- *                                                                                *
+ *
+ * 在您使用此自动布局库的过程中如果出现bug请及时以以下任意一种方式联系我们，我们会及时修复bug并
+ * 帮您解决问题。
+ * QQ    : 2689718696(gsdios)
+ * Email : gsdios@126.com
+ * GitHub: https://github.com/gsdios
+ * 新浪微博:GSD_iOS
+ *
+ * 视频教程：http://www.letv.com/ptv/vplay/24038772.html
+ * 用法示例：https://github.com/gsdios/SDAutoLayout/blob/master/README.md
+ *
  *********************************************************************************
  
  */
@@ -117,6 +91,16 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic, copy, readonly) Margin centerYIs;
 @property (nonatomic, copy, readonly) WidthHeight widthIs;
 @property (nonatomic, copy, readonly) WidthHeight heightIs;
+
+/*
+ * 设置最大宽度和高度、最小宽度和高度
+ */
+
+@property (nonatomic, copy, readonly) WidthHeight maxWidthIs;
+@property (nonatomic, copy, readonly) WidthHeight maxHeightIs;
+@property (nonatomic, copy, readonly) WidthHeight minWidthIs;
+@property (nonatomic, copy, readonly) WidthHeight minHeightIs;
+
 
 /*
  *  设置和哪一个参照view的边距相同
