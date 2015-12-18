@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4845116F1C2439830071BE2C /* DemoVC7.m in Sources */ = {isa = PBXBuildFile; fileRef = 484511681C2439830071BE2C /* DemoVC7.m */; };
+		484511701C2439830071BE2C /* DemoVC7Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845116A1C2439830071BE2C /* DemoVC7Cell.m */; };
+		484511711C2439830071BE2C /* DemoVC7Cell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845116C1C2439830071BE2C /* DemoVC7Cell2.m */; };
+		484511721C2439830071BE2C /* DemoVC7Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845116E1C2439830071BE2C /* DemoVC7Model.m */; };
 		486A382D1C0D852C000D43E5 /* DemoVC6.m in Sources */ = {isa = PBXBuildFile; fileRef = 486A382C1C0D852C000D43E5 /* DemoVC6.m */; };
 		487D3EB71BCB9EC700A66173 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EB61BCB9EC700A66173 /* main.m */; };
 		487D3EBA1BCB9EC700A66173 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3EB91BCB9EC700A66173 /* AppDelegate.m */; };
@@ -55,6 +59,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		484511671C2439830071BE2C /* DemoVC7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7.h; sourceTree = "<group>"; };
+		484511681C2439830071BE2C /* DemoVC7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC7.m; sourceTree = "<group>"; };
+		484511691C2439830071BE2C /* DemoVC7Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7Cell.h; sourceTree = "<group>"; };
+		4845116A1C2439830071BE2C /* DemoVC7Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC7Cell.m; sourceTree = "<group>"; };
+		4845116B1C2439830071BE2C /* DemoVC7Cell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7Cell2.h; sourceTree = "<group>"; };
+		4845116C1C2439830071BE2C /* DemoVC7Cell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC7Cell2.m; sourceTree = "<group>"; };
+		4845116D1C2439830071BE2C /* DemoVC7Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7Model.h; sourceTree = "<group>"; };
+		4845116E1C2439830071BE2C /* DemoVC7Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC7Model.m; sourceTree = "<group>"; };
 		486A382B1C0D852C000D43E5 /* DemoVC6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC6.h; sourceTree = "<group>"; };
 		486A382C1C0D852C000D43E5 /* DemoVC6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC6.m; sourceTree = "<group>"; };
 		487D3EB11BCB9EC700A66173 /* SDAutoLayout 测试 Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDAutoLayout 测试 Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +146,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		484511661C24395F0071BE2C /* DemoVC7 */ = {
+			isa = PBXGroup;
+			children = (
+				484511671C2439830071BE2C /* DemoVC7.h */,
+				484511681C2439830071BE2C /* DemoVC7.m */,
+				484511691C2439830071BE2C /* DemoVC7Cell.h */,
+				4845116A1C2439830071BE2C /* DemoVC7Cell.m */,
+				4845116B1C2439830071BE2C /* DemoVC7Cell2.h */,
+				4845116C1C2439830071BE2C /* DemoVC7Cell2.m */,
+				4845116D1C2439830071BE2C /* DemoVC7Model.h */,
+				4845116E1C2439830071BE2C /* DemoVC7Model.m */,
+			);
+			name = DemoVC7;
+			sourceTree = "<group>";
+		};
 		486A382A1C0D8499000D43E5 /* DemoVC6 */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +236,7 @@
 		487D3EDE1BCBA52900A66173 /* DemoVC */ = {
 			isa = PBXGroup;
 			children = (
+				484511661C24395F0071BE2C /* DemoVC7 */,
 				486A382A1C0D8499000D43E5 /* DemoVC6 */,
 				48DBCD051C01D82A002EC476 /* DemoVC5 */,
 				487D3EBB1BCB9EC700A66173 /* ViewController.h */,
@@ -413,8 +441,12 @@
 				487D3EF41BCBB71500A66173 /* DemoVC3.m in Sources */,
 				486A382D1C0D852C000D43E5 /* DemoVC6.m in Sources */,
 				48DBCD0E1C01DA1E002EC476 /* DemoVC5Model.m in Sources */,
+				484511711C2439830071BE2C /* DemoVC7Cell2.m in Sources */,
+				484511721C2439830071BE2C /* DemoVC7Model.m in Sources */,
 				487D3EBA1BCB9EC700A66173 /* AppDelegate.m in Sources */,
 				48DBCD0B1C01D89C002EC476 /* DemoVC5.m in Sources */,
+				4845116F1C2439830071BE2C /* DemoVC7.m in Sources */,
+				484511701C2439830071BE2C /* DemoVC7Cell.m in Sources */,
 				48DA2B001BFB529200A771E6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				99E728AA1BE5E22D00771161 /* SDRefreshView.m in Sources */,
 				48D632331BD0A7B500F86A88 /* DemoVC4.m in Sources */,

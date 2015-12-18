@@ -23,7 +23,61 @@
 
 #import <UIKit/UIKit.h>
 
+@class SDCellAutoHeightManager;
+
 #define kSDModelCellTag 199206
+
+@interface UITableView (SDAutoTableViewCellHeight)
+
+- (void)startAutoCellHeightWithCellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth;
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;
+
+
+// 多cell情景下调用以下方法
+
+/*
+ * cellClassArray 为所有cell的类组成的数组
+ */
+- (void)startAutoCellHeightWithCellClasses:(NSArray<Class> *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth;
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass;
+
+@property (nonatomic, strong) SDCellAutoHeightManager *cellAutoHeightManager;
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------------- 以下为库内部使用无须了解 --------------------
 
 @interface SDCellAutoHeightManager : NSObject
 
@@ -37,15 +91,9 @@
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;
 
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass;
+
 - (instancetype)initWithCellClass:(Class)cellClass;
 + (instancetype)managerWithCellClass:(Class)cellClass;
-@end
-
-@interface UITableView (SDAutoTableViewCellHeight)
-
-- (void)startAutoCellHeightWithCellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth;
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;
-@property (nonatomic, strong) SDCellAutoHeightManager *cellAutoHeightManager;
-
 @end
 

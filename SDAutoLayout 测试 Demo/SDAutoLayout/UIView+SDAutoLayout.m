@@ -449,6 +449,16 @@
     objc_setAssociatedObject(self, @selector(sd_cornerRadiusFromHeightRatio), sd_cornerRadiusFromHeightRatio, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (NSArray *)sd_equalWidthSubviews
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setSd_equalWidthSubviews:(NSArray *)sd_equalWidthSubviews
+{
+    objc_setAssociatedObject(self, @selector(sd_equalWidthSubviews), sd_equalWidthSubviews, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 @end
 
 @implementation UIScrollView (SDAutoContentSize)
@@ -563,6 +573,19 @@
 - (void)sd_autolayout
 {
     [self sd_autolayout];
+    
+    if (self.sd_equalWidthSubviews.count) {
+        __block CGFloat totalMargin = 0;
+        [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView * _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+            SDAutoLayoutModel *model = view.sd_layout;
+            totalMargin += ([model.left.value floatValue] + [model.right.value floatValue]);
+        }];
+        CGFloat averageWidth = (self.width - totalMargin) / self.sd_equalWidthSubviews.count;
+        [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView * _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+            view.width = averageWidth;
+            view.fixedWith = @(averageWidth);
+        }];
+    }
     
     if (self.autoLayoutModelsArray.count) {
         [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {

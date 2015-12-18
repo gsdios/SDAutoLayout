@@ -25,34 +25,63 @@
 #import "UIView+SDAutoLayout.h"
 #import <objc/runtime.h>
 
+@interface SDCellAutoHeightManager ()
+
+@property (nonatomic, strong) UITableViewCell *modelCell;
+
+@end
+
 @implementation SDCellAutoHeightManager
 {
     NSMutableDictionary *_cacheDictionary;
-    UITableViewCell *_modelCell;
+    UITableView *_modelTableview;
 }
 
 - (instancetype)initWithCellClass:(Class)cellClass
 {
     if (self = [super init]) {
-        _modelCell = (UITableViewCell *)[cellClass alloc];
-        _modelCell = [_modelCell initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellAutoHeightManager"];
-        if (!_modelCell.contentView.subviews.count) {
-            UITableView *temp = [UITableView new];
-            [temp registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:@"SDCellAutoHeightManager"];
-            _modelCell = [temp dequeueReusableCellWithIdentifier:@"SDCellAutoHeightManager"];
-        }
-        _modelCell.contentView.tag = kSDModelCellTag;
-        _cellClass = cellClass;
-        
+        _modelTableview = [UITableView new];
+        [self registerCellWithCellClass:cellClass];
         _cacheDictionary = [NSMutableDictionary new];
     }
     return self;
+}
+
+- (instancetype)initWithCellClasses:(NSArray<Class> *)cellClassArray
+{
+    if (self = [super init]) {
+        _modelTableview = [UITableView new];
+        [cellClassArray enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self registerCellWithCellClass:obj];
+        }];
+        _cacheDictionary = [NSMutableDictionary new];
+    }
+    return self;
+}
+
+- (void)registerCellWithCellClass:(Class)cellClass
+{
+    [_modelTableview registerClass:cellClass forCellReuseIdentifier:NSStringFromClass(cellClass)];
+    self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+    if (!self.modelCell.contentView.subviews.count) {
+        self.modelCell = nil;
+        [_modelTableview registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:NSStringFromClass(cellClass)];
+        self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+    }
 }
 
 + (instancetype)managerWithCellClass:(Class)cellClass
 {
     SDCellAutoHeightManager *manager = [[self alloc] initWithCellClass:cellClass];
     return manager;
+}
+
+- (UITableViewCell *)modelCell
+{
+    if (_modelCell.tag != kSDModelCellTag) {
+        _modelCell.contentView.tag = kSDModelCellTag;
+    }
+    return _modelCell;
 }
 
 - (void)clearHeightCache
@@ -68,12 +97,28 @@
         return [cacheHeight floatValue];
     } else {
         if (model && keyPath) {
-            [_modelCell setValue:model forKey:keyPath];
+            [self.modelCell setValue:model forKey:keyPath];
         }
-        [_modelCell.contentView layoutSubviews];
-        [_cacheDictionary setObject:@(_modelCell.autoHeight) forKey:cacheKey];
-        return _modelCell.autoHeight;
+        [self.modelCell.contentView layoutSubviews];
+        [_cacheDictionary setObject:@(self.modelCell.autoHeight) forKey:cacheKey];
+        return self.modelCell.autoHeight;
     }
+}
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass
+{
+    if (![self.modelCell isKindOfClass:cellClass]) {
+        self.modelCell = nil;
+        self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+        if (!self.modelCell) {
+            [self registerCellWithCellClass:cellClass];
+        }
+        _modelCell.contentView.tag = kSDModelCellTag;
+    }
+    if (self.modelCell.contentView.width != self.contentViewWidth) {
+        _modelCell.contentView.width = self.contentViewWidth;
+    }
+    return [self cellHeightForIndexPath:indexPath model:model keyPath:keyPath];
 }
 
 - (void)setContentViewWidth:(CGFloat)contentViewWidth
@@ -83,15 +128,14 @@
     }
     _contentViewWidth = contentViewWidth;
     
-    _modelCell.frame = CGRectMake(0, 0, contentViewWidth, 44);
-    _modelCell.contentView.frame = CGRectMake(0, 0, contentViewWidth, 44);
+    self.modelCell.contentView.width = self.contentViewWidth;
 }
 
 @end
 
 
 @implementation UITableView (SDAutoTableViewCellHeight)
- 
+
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -109,25 +153,25 @@
 /*
  * 下一步即将实现的功能
  
-- (void)sd_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
-{
-    [self sd_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
-}
-
-- (void)sd_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
-{
-    [self sd_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
-}
-
-- (void)sd_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
-{
-    [self sd_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
-}
-
-- (void)sd_moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
-{
-    [self sd_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
-}
+ - (void)sd_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+ {
+ [self sd_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+ }
+ 
+ - (void)sd_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+ {
+ [self sd_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+ }
+ 
+ - (void)sd_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+ {
+ [self sd_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+ }
+ 
+ - (void)sd_moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
+ {
+ [self sd_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+ }
  
  */
 
@@ -139,9 +183,22 @@
     self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
 }
 
+- (void)startAutoCellHeightWithCellClasses:(NSArray<Class> *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth
+{
+    if (!self.cellAutoHeightManager) {
+        self.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] initWithCellClasses:cellClassArray];
+    }
+    self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
+}
+
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath
 {
     return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath];
+}
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass
+{
+    return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass];
 }
 
 - (SDCellAutoHeightManager *)cellAutoHeightManager

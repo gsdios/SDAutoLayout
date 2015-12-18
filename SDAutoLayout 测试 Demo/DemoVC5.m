@@ -45,7 +45,7 @@
 {
     [super viewDidLoad];
     
-    
+    self.tableView.estimatedRowHeight = 100;
     
     [self creatModelsWithCount:10];
     

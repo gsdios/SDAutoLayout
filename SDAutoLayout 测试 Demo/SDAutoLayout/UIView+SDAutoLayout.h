@@ -8,7 +8,7 @@
 /*
  *************************************************************************
  
-                    --------- INTRODUCTION ---------
+ --------- INTRODUCTION ---------
  
  HOW TO USE ?
  
@@ -142,21 +142,27 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic) UIView *sd_bottomView;
 @property (nonatomic) CGFloat sd_bottomViewBottomMargin;
 
+// 设置普通view内容自适应
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
 @end
 
 @interface UIView (SDLayoutExtention)
 
+/* 设置圆角 */
 @property (nonatomic, strong) NSNumber *sd_cornerRadius;
 @property (nonatomic, strong) NSNumber *sd_cornerRadiusFromWidthRatio;
 @property (nonatomic, strong) NSNumber *sd_cornerRadiusFromHeightRatio;
+
+// 设置等宽子view
+@property (nonatomic, strong) NSArray *sd_equalWidthSubviews;
 
 @end
 
 
 @interface UIScrollView (SDAutoContentSize)
 
+// 设置scrollview内容自适应
 - (void)setupAutoContentSizeWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
 @end
@@ -164,9 +170,42 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UILabel (SDLabelAutoResize)
 
+// 设置单行文本label宽度自适应
 - (void)setSigleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth;
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
