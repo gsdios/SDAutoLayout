@@ -596,6 +596,39 @@
 {
     UIView *view = model.needsAutoResizeView;
     
+    if (view.sd_maxWidth && (model.rightSpaceToView || model.rightEqualToView)) { // 靠右布局前提设置
+        if ([view isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)view;
+            CGFloat width = [view.sd_maxWidth floatValue] > 0 ? [view.sd_maxWidth floatValue] : MAXFLOAT;
+            label.numberOfLines = 1;
+            if (label.text.length) {
+                CGRect rect = [label.text boundingRectWithSize:CGSizeMake(width, label.height) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
+                label.width = rect.size.width;
+            } else {
+                label.width = 0;
+            }
+        }
+    }
+    
+    if (view.autoHeightRatioValue && view.width > 0 && (model.bottomEqualToView || model.bottomSpaceToView)) { // 底部布局前提设置
+        if ([view.autoHeightRatioValue floatValue] > 0) {
+            view.height = view.width * [view.autoHeightRatioValue floatValue];
+        } else {
+            if ([view isKindOfClass:[UILabel class]]) {
+                UILabel *label = (UILabel *)view;
+                label.numberOfLines = 0;
+                if (label.text.length) {
+                    CGRect rect = [label.text boundingRectWithSize:CGSizeMake(label.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
+                    label.height = rect.size.height;
+                } else {
+                    label.height = 0;
+                }
+            } else {
+                view.height = 0;
+            }
+        }
+    }
+    
     if (model.width) {
         view.width = [model.width.value floatValue];
         view.fixedWith = @(view.width);
