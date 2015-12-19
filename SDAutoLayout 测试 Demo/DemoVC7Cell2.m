@@ -69,18 +69,18 @@
     imageView0.sd_layout
     .topSpaceToView(_titleLabel, margin)
     .leftSpaceToView(contentView, margin)
-    .heightIs(60);
+    .autoHeightRatio(0.8);
     
     imageView1.sd_layout
     .topSpaceToView(_titleLabel, margin)
     .leftSpaceToView(imageView0, margin)
-    .heightIs(60);
+    .autoHeightRatio(0.8);
     
     imageView2.sd_layout
     .topSpaceToView(_titleLabel, margin)
     .leftSpaceToView(imageView1, margin)
     .rightSpaceToView(contentView, margin)
-    .heightIs(60);
+    .autoHeightRatio(0.8);
     
     [self setupAutoHeightWithBottomView:imageView0 bottomMargin:margin];
 }
