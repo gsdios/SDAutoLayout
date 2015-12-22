@@ -19,7 +19,7 @@
     
     - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
     {
-    // 2.2 根据模型取得cell高度
+    // 获取cell高度
     return [self cellHeightForIndexPath:indexPath cellContentViewWidth:[UIScreen mainScreen].bounds.size.width];
     }
     
