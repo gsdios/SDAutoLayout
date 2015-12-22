@@ -15,7 +15,7 @@
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
     [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
     
-    2. >> 设置 tableview 
+    2. >> 获取自动计算出的cell高度 
     
     - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
     {
