@@ -25,16 +25,18 @@
 #import "UIView+SDAutoLayout.h"
 #import <objc/runtime.h>
 
-@interface SDCellAutoHeightManager ()
-
-@property (nonatomic, strong) UITableViewCell *modelCell;
-
-@end
-
 @implementation SDCellAutoHeightManager
 {
     NSMutableDictionary *_cacheDictionary;
     UITableView *_modelTableview;
+}
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        _cacheDictionary = [NSMutableDictionary new];
+    }
+    return self;
 }
 
 - (instancetype)initWithCellClass:(Class)cellClass
@@ -214,5 +216,25 @@
 @end
 
 
+@implementation UITableViewController (SDTableViewControllerAutoCellHeight)
 
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellContentViewWidth:(CGFloat)width
+{
+    
+    if (!self.tableView.cellAutoHeightManager) {
+        self.tableView.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] init];
+    }
+    if (self.tableView.cellAutoHeightManager.contentViewWidth != width) {
+        self.tableView.cellAutoHeightManager.contentViewWidth = width;
+        [self.tableView.cellAutoHeightManager clearHeightCache];
+    }
+    UITableViewCell *cell = [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    self.tableView.cellAutoHeightManager.modelCell = cell;
+    if (cell.contentView.width != width) {
+        cell.contentView.width = width;
+    }
+    return [[self.tableView cellAutoHeightManager] cellHeightForIndexPath:indexPath model:nil keyPath:nil];
+}
+
+@end
 
