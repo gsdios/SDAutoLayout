@@ -8,8 +8,23 @@
 #    ☆新增：cell高度自适应 + label文字自适应☆
 
 ![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)
+
+##    >>>>> 升级版：tableview cell 自动高度设置只需要2步
     
-##    >>>>> tableview cell 自动高度设置只需要3步
+    1. >> 设置cell高度自适应：
+    // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
+    [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
+    
+    2. >> 设置 tableview 
+    
+    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+    {
+    // 2.2 根据模型取得cell高度
+    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:[UIScreen mainScreen].bounds.size.width];
+    }
+    
+    
+##    >>>>> 普通版：tableview cell 自动高度设置只需要3步
     
     1. >> 设置cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
