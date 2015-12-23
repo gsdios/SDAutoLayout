@@ -47,6 +47,8 @@
 		99E728A91BE5E22D00771161 /* SDRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A21BE5E22D00771161 /* SDRefreshHeaderView.m */; };
 		99E728AA1BE5E22D00771161 /* SDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A41BE5E22D00771161 /* SDRefreshView.m */; };
 		99E728AB1BE5E22D00771161 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E728A61BE5E22D00771161 /* UIView+SDExtension.m */; };
+		E6FEDD781C2A7BE60088E4F0 /* DemoVC9.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FEDD751C2A7BE60088E4F0 /* DemoVC9.m */; };
+		E6FEDD791C2A7BE60088E4F0 /* DemoVC9Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FEDD771C2A7BE60088E4F0 /* DemoVC9Cell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,10 @@
 		99E728A41BE5E22D00771161 /* SDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshView.m; sourceTree = "<group>"; };
 		99E728A51BE5E22D00771161 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		99E728A61BE5E22D00771161 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		E6FEDD741C2A7BE60088E4F0 /* DemoVC9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC9.h; sourceTree = "<group>"; };
+		E6FEDD751C2A7BE60088E4F0 /* DemoVC9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC9.m; sourceTree = "<group>"; };
+		E6FEDD761C2A7BE60088E4F0 /* DemoVC9Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC9Cell.h; sourceTree = "<group>"; };
+		E6FEDD771C2A7BE60088E4F0 /* DemoVC9Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC9Cell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +254,7 @@
 		487D3EDE1BCBA52900A66173 /* DemoVC */ = {
 			isa = PBXGroup;
 			children = (
+				E6FEDD731C2A7BE60088E4F0 /* DemoVC9 */,
 				4867A48C1C292EB500BE8767 /* DemoVC8 */,
 				484511661C24395F0071BE2C /* DemoVC7 */,
 				486A382A1C0D8499000D43E5 /* DemoVC6 */,
@@ -334,6 +341,17 @@
 				99E728A61BE5E22D00771161 /* UIView+SDExtension.m */,
 			);
 			path = SDRefeshView;
+			sourceTree = "<group>";
+		};
+		E6FEDD731C2A7BE60088E4F0 /* DemoVC9 */ = {
+			isa = PBXGroup;
+			children = (
+				E6FEDD741C2A7BE60088E4F0 /* DemoVC9.h */,
+				E6FEDD751C2A7BE60088E4F0 /* DemoVC9.m */,
+				E6FEDD761C2A7BE60088E4F0 /* DemoVC9Cell.h */,
+				E6FEDD771C2A7BE60088E4F0 /* DemoVC9Cell.m */,
+			);
+			path = DemoVC9;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,6 +471,8 @@
 				48DA2B011BFB529200A771E6 /* UIView+SDAutoLayout.m in Sources */,
 				487D3EF41BCBB71500A66173 /* DemoVC3.m in Sources */,
 				486A382D1C0D852C000D43E5 /* DemoVC6.m in Sources */,
+				E6FEDD791C2A7BE60088E4F0 /* DemoVC9Cell.m in Sources */,
+				E6FEDD781C2A7BE60088E4F0 /* DemoVC9.m in Sources */,
 				48DBCD0E1C01DA1E002EC476 /* DemoVC5Model.m in Sources */,
 				484511711C2439830071BE2C /* DemoVC7Cell2.m in Sources */,
 				484511721C2439830071BE2C /* DemoVC7Model.m in Sources */,
