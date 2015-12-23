@@ -24,6 +24,7 @@
 #import "DemoTableViewControler.h"
 
 #import "DemoVC5.h"
+#import "DemoVC9.h"
 
 @implementation DemoTableViewControler
 
@@ -33,16 +34,16 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIViewController *vc = [DemoVC5 new];
-    vc.title = @"DemoVC5";
-    [self.navigationController pushViewController:vc animated:YES];
+//    UIViewController *vc = [DemoVC5 new];
+//    vc.title = @"DemoVC5";
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - tableview datasourece and delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 9;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,6 +60,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *demoClassString = [NSString stringWithFormat:@"DemoVC%ld", indexPath.row];
+    
+    if (indexPath.row == 9) {
+        static UIStoryboard * s_storyboardHome = nil;
+        
+        if ( !s_storyboardHome ){
+            s_storyboardHome = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        }
+        DemoVC9 *vc9 = [s_storyboardHome instantiateViewControllerWithIdentifier:@"DemoVC9"];
+        vc9.title = demoClassString;
+        [self.navigationController pushViewController:vc9 animated:YES];
+        return;
+    }
+    
+    
     UIViewController *vc = [NSClassFromString(demoClassString) new];
     vc.title = demoClassString;
     [self.navigationController pushViewController:vc animated:YES];

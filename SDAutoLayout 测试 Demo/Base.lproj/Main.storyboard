@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ify-Kw-yI1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ify-Kw-yI1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -40,6 +41,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzC-iu-yvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-369" y="309"/>
+        </scene>
+        <!--DemoVC9-->
+        <scene sceneID="5hh-sI-oUv">
+            <objects>
+                <tableViewController storyboardIdentifier="DemoVC9" id="eSs-xM-uuS" customClass="DemoVC9" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="109" sectionHeaderHeight="28" sectionFooterHeight="28" id="lN3-Ab-qMF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DemoVC9Cell" rowHeight="100" id="dJ0-Qk-app" customClass="DemoVC9Cell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dJ0-Qk-app" id="8q5-zW-F64">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jid-of-ZCb">
+                                            <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="ZqN-r1-qeL"/>
+                                                <constraint firstAttribute="width" constant="40" id="pVw-rs-eD4"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOj-dJ-JCs">
+                                            <rect key="frame" x="60" y="19" width="305" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckI-zf-Y8D">
+                                            <rect key="frame" x="10" y="60" width="355" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Jid-of-ZCb" firstAttribute="top" secondItem="8q5-zW-F64" secondAttribute="top" constant="10" id="AOh-li-8U9"/>
+                                        <constraint firstItem="Jid-of-ZCb" firstAttribute="leading" secondItem="8q5-zW-F64" secondAttribute="leading" constant="10" id="CaH-XF-q4G"/>
+                                        <constraint firstItem="UOj-dJ-JCs" firstAttribute="leading" secondItem="Jid-of-ZCb" secondAttribute="trailing" constant="10" id="EvO-w8-zep"/>
+                                        <constraint firstItem="UOj-dJ-JCs" firstAttribute="centerY" secondItem="Jid-of-ZCb" secondAttribute="centerY" id="P0T-cf-Zzs"/>
+                                        <constraint firstItem="ckI-zf-Y8D" firstAttribute="leading" secondItem="Jid-of-ZCb" secondAttribute="leading" id="WfA-wG-kKx"/>
+                                        <constraint firstAttribute="trailing" secondItem="UOj-dJ-JCs" secondAttribute="trailing" constant="10" id="ihK-te-xFv"/>
+                                        <constraint firstItem="ckI-zf-Y8D" firstAttribute="top" secondItem="Jid-of-ZCb" secondAttribute="bottom" constant="10" id="pT9-po-wgG"/>
+                                        <constraint firstItem="UOj-dJ-JCs" firstAttribute="trailing" secondItem="ckI-zf-Y8D" secondAttribute="trailing" id="wJY-8b-0Db"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.98336127179999999" blue="0.98776322530000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="img" destination="Jid-of-ZCb" id="u2F-qg-k5a"/>
+                                    <outlet property="lbInfo" destination="ckI-zf-Y8D" id="ILB-8Q-2gY"/>
+                                    <outlet property="lbTitle" destination="UOj-dJ-JCs" id="FnE-dE-KTI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eSs-xM-uuS" id="Rlk-YU-VPo"/>
+                            <outlet property="delegate" destination="eSs-xM-uuS" id="UJH-w6-lfl"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FHy-as-VmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871.5" y="308.5"/>
         </scene>
     </scenes>
 </document>
