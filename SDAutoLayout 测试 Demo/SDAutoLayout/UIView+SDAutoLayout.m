@@ -472,7 +472,7 @@
 
 @implementation UILabel (SDLabelAutoResize)
 
-- (void)setSigleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth
+- (void)setSingleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth
 {
     self.sd_maxWidth = @(maxWidth);
 }
@@ -602,8 +602,8 @@
             cell.autoHeight = cell.sd_bottomView.bottom + cell.sd_bottomViewBottomMargin;
         }
     } else if (![self isKindOfClass:[UITableViewCell class]] && self.sd_bottomView) {
+        CGFloat contentHeight = self.sd_bottomView.bottom + self.sd_bottomViewBottomMargin;
         if ([self isKindOfClass:[UIScrollView class]]) {
-            CGFloat contentHeight = self.sd_bottomView.bottom + self.sd_bottomViewBottomMargin;
             UIScrollView *scrollView = (UIScrollView *)self;
             CGSize contentSize = scrollView.contentSize;
             contentSize.height = contentHeight;
@@ -611,6 +611,9 @@
                 contentSize.width = scrollView.width;
             }
             scrollView.contentSize = contentSize;
+        } else {
+            // 如果这里出现循环调用情况请把demo发送到gsdios@126.com，谢谢配合。
+            self.height = contentHeight;
         }
     }
 }
@@ -627,6 +630,7 @@
             if (label.text.length) {
                 CGRect rect = [label.text boundingRectWithSize:CGSizeMake(width, label.height) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
                 label.width = rect.size.width;
+                label.fixedWith = @(label.width);
             } else {
                 label.width = 0;
             }

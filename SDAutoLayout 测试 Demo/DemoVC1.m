@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     
+    
     // 暂时用view替代展示cell效果
     
     self.view0.sd_layout
@@ -37,11 +38,11 @@
     .widthIs(50)
     .heightIs(50);
     
+    // view1使用高度根据子view内容自适应，所有不需要设置高度
     self.view1.sd_layout
     .leftSpaceToView(self.view0, 10)
     .topEqualToView(self.view0)
-    .rightSpaceToView(self.view, 30)
-    .heightRatioToView(self.view, 0.2);
+    .rightSpaceToView(self.view, 30);
     
     self.view2.sd_layout
     .rightSpaceToView(self.view, 10)
@@ -66,8 +67,32 @@
     .rightEqualToView(self.view1)
     .bottomSpaceToView(self.view, 20)
     .topEqualToView(self.view4);
+
+//  ============================================================
     
-    self.view5.tag = 19999;
+    // 在view1中加入两个子view，然后设置view1高度根据子view内容自适应
+    
+    
+    UILabel *testLabel = [UILabel new];
+    UIView *testView = [UIView new];
+    [self.view1 addSubview:testLabel];
+    [self.view1 addSubview:testView];
+    
+    testLabel.backgroundColor = [UIColor purpleColor];
+    testView.backgroundColor = [UIColor orangeColor];
+    
+    testLabel.text = @"edflgjl;ijf;iljd;lij;lfk;lknsdfhfg;ljhl;sfdj;oigfj;jgf;lfgjrlkfewiorrgi";
+    
+    testLabel.sd_layout.autoHeightRatio(0).spaceToSuperView(UIEdgeInsetsMake(10, 10, 0, 10));
+    testView.sd_layout
+    .topSpaceToView(testLabel, 10)
+    .widthRatioToView(testLabel, 1)
+    .heightIs(30)
+    .leftEqualToView(testLabel);
+    
+    [self.view1 setupAutoHeightWithBottomView:testView bottomMargin:10];
+    
+//  ============================================================
 }
 
 @end

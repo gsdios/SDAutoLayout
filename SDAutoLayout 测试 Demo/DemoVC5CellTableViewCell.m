@@ -105,11 +105,11 @@
     .centerYEqualToView(_view1)
     .heightIs(14);
     
-    [_view4 setSigleLineAutoResizeWithMaxWidth:50];
+    [_view4 setSingleLineAutoResizeWithMaxWidth:50];
     
     _view0.sd_cornerRadiusFromWidthRatio = @(0.5);
     
-    [_view1 setSigleLineAutoResizeWithMaxWidth:200];
+    [_view1 setSingleLineAutoResizeWithMaxWidth:200];
     
 }
 

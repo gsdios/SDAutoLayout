@@ -171,7 +171,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @interface UILabel (SDLabelAutoResize)
 
 // 设置单行文本label宽度自适应
-- (void)setSigleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth;
+- (void)setSingleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth;
 
 @end
 

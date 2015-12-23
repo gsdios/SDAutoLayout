@@ -33,16 +33,15 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIViewController *vc = [DemoVC5 new];
-    vc.title = @"DemoVC5";
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    [self.navigationController pushViewController:[NSClassFromString(@"DemoVC9") new] animated:YES];
 }
 
 #pragma mark - tableview datasourece and delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 9;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
