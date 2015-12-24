@@ -6,7 +6,7 @@
 
 
 #    ☆新增：cell高度自适应 + label文字自适应☆
-![](http://code.cocoachina.com/uploads/attachments/20151223/128785/f261001dd0b0acae7281e9acfff2da20.gif)
+![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)
 ![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)
 
 ##    >>>>> 升级版：tableview cell 自动高度设置只需要2步
