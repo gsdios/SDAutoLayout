@@ -1,4 +1,4 @@
-# SDAutoLayout
+# SDAutoLayout（新建QQ交流群：497140713）
 
 ☆☆ SDAutoLayout 视频教程：http://www.letv.com/ptv/vplay/24038772.html ☆☆
 
