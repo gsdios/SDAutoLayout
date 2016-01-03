@@ -74,13 +74,13 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 /* 设置距离其它view的间距 */
 
-/** 左边与其参照view之间的间距，参数为“(参照view，间距数值)”  */
+/** 左边到其参照view之间的间距，参数为“(参照view，间距数值)”  */
 @property (nonatomic, copy, readonly) MarginToView leftSpaceToView;
-/** 右边与其参照view之间的间距，参数为“(参照view，间距数值)”  */
+/** 右边到其参照view之间的间距，参数为“(参照view，间距数值)”  */
 @property (nonatomic, copy, readonly) MarginToView rightSpaceToView;
-/** 顶部与其参照view之间的间距，参数为“(参照view，间距数值)”  */
+/** 顶部到其参照view之间的间距，参数为“(参照view，间距数值)”  */
 @property (nonatomic, copy, readonly) MarginToView topSpaceToView;
-/** 底部与其参照view之间的间距，参数为“(参照view，间距数值)”  */
+/** 底部到其参照view之间的间距，参数为“(参照view，间距数值)”  */
 @property (nonatomic, copy, readonly) MarginToView bottomSpaceToView;
 
 
@@ -159,7 +159,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic) UIView *sd_bottomView;
 @property (nonatomic) CGFloat sd_bottomViewBottomMargin;
 
-/** 设置普通view内容自适应 */
+/** 设置Cell的高度自适应，也可用于设置普通view内容自适应 */
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
 @end
@@ -243,6 +243,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 - (NSMutableArray *)autoLayoutModelsArray;
 
+/** 开始自动布局  */
 - (SDAutoLayoutModel *)sd_layout;
 
 - (void)addAutoLayoutModel:(SDAutoLayoutModel *)model;
