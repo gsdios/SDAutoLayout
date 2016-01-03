@@ -72,33 +72,44 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
  *****************************************************
  */
 
-/*
- *  设置距离其它view的间距
- */
+/* 设置距离其它view的间距 */
 
+/** 左边与其参照view之间的间距，参数为“(参照view，间距数值)”  */
 @property (nonatomic, copy, readonly) MarginToView leftSpaceToView;
+/** 右边与其参照view之间的间距，参数为“(参照view，间距数值)”  */
 @property (nonatomic, copy, readonly) MarginToView rightSpaceToView;
+/** 顶部与其参照view之间的间距，参数为“(参照view，间距数值)”  */
 @property (nonatomic, copy, readonly) MarginToView topSpaceToView;
+/** 底部与其参照view之间的间距，参数为“(参照view，间距数值)”  */
 @property (nonatomic, copy, readonly) MarginToView bottomSpaceToView;
 
-/*
- *  设置x、y、width、height、centerX、centerY 值
- */
 
+
+/* 设置x、y、width、height、centerX、centerY 值 */
+
+/** x值  */
 @property (nonatomic, copy, readonly) Margin xIs;
+/** y值  */
 @property (nonatomic, copy, readonly) Margin yIs;
+/** centerX值  */
 @property (nonatomic, copy, readonly) Margin centerXIs;
+/** centerY值  */
 @property (nonatomic, copy, readonly) Margin centerYIs;
+/** 宽度值  */
 @property (nonatomic, copy, readonly) WidthHeight widthIs;
+/** 高度值  */
 @property (nonatomic, copy, readonly) WidthHeight heightIs;
 
-/*
- * 设置最大宽度和高度、最小宽度和高度
- */
 
+/* 设置最大宽度和高度、最小宽度和高度 */
+
+/** 最大宽度值  */
 @property (nonatomic, copy, readonly) WidthHeight maxWidthIs;
+/** 最大高度值  */
 @property (nonatomic, copy, readonly) WidthHeight maxHeightIs;
+/** 最小宽度值  */
 @property (nonatomic, copy, readonly) WidthHeight minWidthIs;
+/** 最小高度值  */
 @property (nonatomic, copy, readonly) WidthHeight minHeightIs;
 
 
@@ -106,26 +117,32 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
  *  设置和哪一个参照view的边距相同
  */
 
+/** 左间距与参照view相同  */
 @property (nonatomic, copy, readonly) MarginEqualToView leftEqualToView;
+/** 右间距与参照view相同  */
 @property (nonatomic, copy, readonly) MarginEqualToView rightEqualToView;
+/** 顶部间距与参照view相同  */
 @property (nonatomic, copy, readonly) MarginEqualToView topEqualToView;
+/** 底部间距与参照view相同  */
 @property (nonatomic, copy, readonly) MarginEqualToView bottomEqualToView;
+/** centerX与参照view相同  */
 @property (nonatomic, copy, readonly) MarginEqualToView centerXEqualToView;
+/** centerY与参照view相同  */
 @property (nonatomic, copy, readonly) MarginEqualToView centerYEqualToView;
 
-/*
- *  设置宽度或者高度等于参照view的多少倍
- */
 
+/*  设置宽度或者高度等于参照view的多少倍 */
+
+/** 宽度是参照view宽度的多少倍 */
 @property (nonatomic, copy, readonly) WidthHeightEqualToView widthRatioToView;
+/** 高度是参照view宽度的多少倍 */
 @property (nonatomic, copy, readonly) WidthHeightEqualToView heightRatioToView;
-
+/** 自适应高度，传入高宽比值，label可以传0实现文字高度自适应 */
 @property (nonatomic, copy, readonly) AutoHeight autoHeightRatio;
 
-/*
- * 填充父view(快捷方法)
- */
+/* 填充父view(快捷方法) */
 
+/** 传入UIEdgeInsetsMake(top, left, bottom, right)，可以快捷设置view到其父view上左下右的间距  */
 @property (nonatomic, copy, readonly) SpaceToSuperView spaceToSuperView;
 
 @property (nonatomic, weak) UIView *needsAutoResizeView;
@@ -142,7 +159,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic) UIView *sd_bottomView;
 @property (nonatomic) CGFloat sd_bottomViewBottomMargin;
 
-// 设置普通view内容自适应
+/** 设置普通view内容自适应 */
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
 @end
@@ -150,11 +167,15 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @interface UIView (SDLayoutExtention)
 
 /* 设置圆角 */
+
+/** 设置圆角半径值  */
 @property (nonatomic, strong) NSNumber *sd_cornerRadius;
+/** 设置圆角半径值为view宽度的多少倍  */
 @property (nonatomic, strong) NSNumber *sd_cornerRadiusFromWidthRatio;
+/** 设置圆角半径值为view高度的多少倍  */
 @property (nonatomic, strong) NSNumber *sd_cornerRadiusFromHeightRatio;
 
-// 设置等宽子view
+/** 设置等宽子view（子view需要在同一水平方向） */
 @property (nonatomic, strong) NSArray *sd_equalWidthSubviews;
 
 @end
@@ -162,7 +183,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UIScrollView (SDAutoContentSize)
 
-// 设置scrollview内容自适应
+/** 设置scrollview内容自适应 */
 - (void)setupAutoContentSizeWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
 @end
@@ -170,7 +191,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UILabel (SDLabelAutoResize)
 
-// 设置单行文本label宽度自适应
+/** 设置单行文本label宽度自适应 */
 - (void)setSingleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth;
 
 @end

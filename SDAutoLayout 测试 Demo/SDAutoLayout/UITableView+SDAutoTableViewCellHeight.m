@@ -228,12 +228,33 @@
         self.tableView.cellAutoHeightManager.contentViewWidth = width;
         [self.tableView.cellAutoHeightManager clearHeightCache];
     }
-    UITableViewCell *cell = [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView.dataSource tableView:self.tableView cellForRowAtIndexPath:indexPath];
     self.tableView.cellAutoHeightManager.modelCell = cell;
     if (cell.contentView.width != width) {
         cell.contentView.width = width;
     }
     return [[self.tableView cellAutoHeightManager] cellHeightForIndexPath:indexPath model:nil keyPath:nil];
+}
+
+@end
+
+@implementation NSObject (SDAnyObjectAutoCellHeight)
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellContentViewWidth:(CGFloat)width tableView:(UITableView *)tableView
+{
+    if (!tableView.cellAutoHeightManager) {
+        tableView.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] init];
+    }
+    if (tableView.cellAutoHeightManager.contentViewWidth != width) {
+        tableView.cellAutoHeightManager.contentViewWidth = width;
+        [tableView.cellAutoHeightManager clearHeightCache];
+    }
+    UITableViewCell *cell = [tableView.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
+    tableView.cellAutoHeightManager.modelCell = cell;
+    if (cell.contentView.width != width) {
+        cell.contentView.width = width;
+    }
+    return [[tableView cellAutoHeightManager] cellHeightForIndexPath:indexPath model:nil keyPath:nil];
 }
 
 @end
