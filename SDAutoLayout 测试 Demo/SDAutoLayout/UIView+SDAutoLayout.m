@@ -575,6 +575,7 @@
     SDAutoLayoutModel *model = [self ownLayoutModel];
     if (model) {
         [self.superview.autoLayoutModelsArray removeObject:model];
+        [self setOwnLayoutModel:nil];
     }
     return [self sd_layout];
 }
