@@ -570,6 +570,15 @@
     return model;
 }
 
+- (SDAutoLayoutModel *)sd_resetLayout
+{
+    SDAutoLayoutModel *model = [self ownLayoutModel];
+    if (model) {
+        [self.superview.autoLayoutModelsArray removeObject:model];
+    }
+    return [self sd_layout];
+}
+
 - (void)sd_autolayout
 {
     [self sd_autolayout];

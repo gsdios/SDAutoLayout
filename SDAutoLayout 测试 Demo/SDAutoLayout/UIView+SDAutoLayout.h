@@ -246,6 +246,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 开始自动布局  */
 - (SDAutoLayoutModel *)sd_layout;
 
+/** 清空之前的自动布局设置，重新开始自动布局  */
+- (SDAutoLayoutModel *)sd_resetLayout;
+
 - (void)addAutoLayoutModel:(SDAutoLayoutModel *)model;
 
 @property (nonatomic, strong) NSNumber *fixedWith;
