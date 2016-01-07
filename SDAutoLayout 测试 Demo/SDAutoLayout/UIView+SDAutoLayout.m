@@ -55,6 +55,9 @@
 @property (nonatomic, strong) SDAutoLayoutModelItem *equalCenterX;
 @property (nonatomic, strong) SDAutoLayoutModelItem *equalCenterY;
 
+@property (nonatomic, strong) SDAutoLayoutModelItem *widthEqualHeight;
+@property (nonatomic, strong) SDAutoLayoutModelItem *heightEqualWidth;
+
 @end
 
 @implementation SDAutoLayoutModel
@@ -83,6 +86,8 @@
 @synthesize maxHeightIs = _maxHeightIs;
 @synthesize minWidthIs = _minWidthIs;
 @synthesize minHeightIs = _minHeightIs;
+@synthesize widthEqualToHeight = _widthEqualToHeight;
+@synthesize heightEqualToWidth = _heightEqualToWidth;
 
 - (MarginToView)leftSpaceToView
 {
@@ -372,10 +377,36 @@
     return _spaceToSuperView;
 }
 
+- (SameWidthHeight)widthEqualToHeight
+{
+    __weak typeof(self) weakSelf = self;
+    
+    if (!_widthEqualToHeight) {
+        _widthEqualToHeight = ^() {
+            weakSelf.widthEqualHeight = [SDAutoLayoutModelItem new];
+            return weakSelf;
+        };
+    }
+    return _widthEqualToHeight;
+}
+
+- (SameWidthHeight)heightEqualToWidth
+{
+    __weak typeof(self) weakSelf = self;
+    
+    if (!_heightEqualToWidth) {
+        _heightEqualToWidth = ^() {
+            weakSelf.heightEqualWidth = [SDAutoLayoutModelItem new];
+            return weakSelf;
+        };
+    }
+    return _heightEqualToWidth;
+}
+
 @end
 
 
-@implementation UIView (SDAutoHeight)
+@implementation UIView (SDAutoHeightWidth)
 
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin
 {
@@ -411,6 +442,26 @@
 - (void)setSd_bottomViewBottomMargin:(CGFloat)sd_bottomViewBottomMargin
 {
     objc_setAssociatedObject(self, @selector(sd_bottomViewBottomMargin), @(sd_bottomViewBottomMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIView *)sd_rightView
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setSd_rightView:(UIView *)sd_rightView
+{
+    objc_setAssociatedObject(self, @selector(sd_rightView), sd_rightView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)sd_rightMargin
+{
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
+}
+
+- (void)setSd_rightMargin:(CGFloat)sd_rightMargin
+{
+    objc_setAssociatedObject(self, @selector(sd_rightMargin), @(sd_rightMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
@@ -466,6 +517,12 @@
 - (void)setupAutoContentSizeWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin
 {
     [self setupAutoHeightWithBottomView:bottomView bottomMargin:bottomMargin];
+}
+
+- (void)setupAutoContentSizeWithRightView:(UIView *)rightView rightMargin:(CGFloat)rightMargin
+{
+    [self setSd_rightView:rightView];
+    [self setSd_rightMargin:rightMargin];
 }
 
 @end
@@ -611,12 +668,24 @@
         if ([cell isKindOfClass:[UITableViewCell class]]) {
             cell.autoHeight = cell.sd_bottomView.bottom + cell.sd_bottomViewBottomMargin;
         }
-    } else if (![self isKindOfClass:[UITableViewCell class]] && self.sd_bottomView) {
-        CGFloat contentHeight = self.sd_bottomView.bottom + self.sd_bottomViewBottomMargin;
+    } else if (![self isKindOfClass:[UITableViewCell class]] && (self.sd_bottomView || self.sd_rightView)) {
+        CGFloat contentHeight = 0;
+        CGFloat contentWidth = 0;
+        if (self.sd_bottomView) {
+            contentHeight = self.sd_bottomView.bottom + self.sd_bottomViewBottomMargin;
+        }
+        if (self.sd_rightView) {
+            contentWidth = self.sd_rightView.right + self.sd_rightMargin;
+        }
         if ([self isKindOfClass:[UIScrollView class]]) {
             UIScrollView *scrollView = (UIScrollView *)self;
             CGSize contentSize = scrollView.contentSize;
-            contentSize.height = contentHeight;
+            if (contentHeight > 0) {
+                contentSize.height = contentHeight;
+            }
+            if (contentWidth > 0) {
+                contentSize.width = contentWidth;
+            }
             if (contentSize.width <= 0) {
                 contentSize.width = scrollView.width;
             }
@@ -846,6 +915,14 @@
     
     if (model.minHeight && [model.minHeight floatValue] > view.height) {
         view.height = [model.minHeight floatValue];
+    }
+    
+    if (model.widthEqualHeight) {
+        view.width = view.height;
+    }
+    
+    if (model.heightEqualWidth) {
+        view.height = view.width;
     }
     
     CGFloat cornerRadius = view.layer.cornerRadius;

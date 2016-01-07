@@ -10,7 +10,7 @@
  
  --------- INTRODUCTION ---------
  
- HOW TO USE ?
+ USAGE:
  
  MODE 1. >>>>>>>>>>>>>>> You can use it in this way:
  
@@ -57,6 +57,7 @@ typedef SDAutoLayoutModel *(^MarginEqualToView)(UIView *toView);
 typedef SDAutoLayoutModel *(^WidthHeight)(CGFloat value);
 typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat ratioValue);
 typedef SDAutoLayoutModel *(^AutoHeight)(CGFloat ratioValue);
+typedef SDAutoLayoutModel *(^SameWidthHeight)();
 typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface SDAutoLayoutModel : NSObject
@@ -71,6 +72,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
  
  *****************************************************
  */
+
 
 /* 设置距离其它view的间距 */
 
@@ -87,58 +89,65 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 /* 设置x、y、width、height、centerX、centerY 值 */
 
-/** x值  */
+/** x值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) Margin xIs;
-/** y值  */
+/** y值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) Margin yIs;
-/** centerX值  */
+/** centerX值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) Margin centerXIs;
-/** centerY值  */
+/** centerY值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) Margin centerYIs;
-/** 宽度值  */
+/** 宽度值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) WidthHeight widthIs;
-/** 高度值  */
+/** 高度值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) WidthHeight heightIs;
+
 
 
 /* 设置最大宽度和高度、最小宽度和高度 */
 
-/** 最大宽度值  */
+/** 最大宽度值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) WidthHeight maxWidthIs;
-/** 最大高度值  */
+/** 最大高度值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) WidthHeight maxHeightIs;
-/** 最小宽度值  */
+/** 最小宽度值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) WidthHeight minWidthIs;
-/** 最小高度值  */
+/** 最小高度值，参数为“(CGFloat数值)”  */
 @property (nonatomic, copy, readonly) WidthHeight minHeightIs;
 
 
-/*
- *  设置和哪一个参照view的边距相同
- */
 
-/** 左间距与参照view相同  */
+/* 设置和某个参照view的边距相同 */
+
+/** 左间距与参照view相同，参数为“(参照view)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView leftEqualToView;
-/** 右间距与参照view相同  */
+/** 右间距与参照view相同，参数为“(参照view)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView rightEqualToView;
-/** 顶部间距与参照view相同  */
+/** 顶部间距与参照view相同，参数为“(参照view)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView topEqualToView;
-/** 底部间距与参照view相同  */
+/** 底部间距与参照view相同，参数为“(参照view)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView bottomEqualToView;
-/** centerX与参照view相同  */
+/** centerX与参照view相同，参数为“(参照view)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView centerXEqualToView;
-/** centerY与参照view相同  */
+/** centerY与参照view相同，参数为“(参照view)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView centerYEqualToView;
+
 
 
 /*  设置宽度或者高度等于参照view的多少倍 */
 
-/** 宽度是参照view宽度的多少倍 */
+/** 宽度是参照view宽度的多少倍，参数为“(参照view，比例数值)” */
 @property (nonatomic, copy, readonly) WidthHeightEqualToView widthRatioToView;
-/** 高度是参照view宽度的多少倍 */
+/** 高度是参照view宽度的多少倍，参数为“(参照view，比例数值)” */
 @property (nonatomic, copy, readonly) WidthHeightEqualToView heightRatioToView;
+/** 设置一个view的宽度和它的高度相同，参数为空“()” */
+@property (nonatomic, copy, readonly) SameWidthHeight widthEqualToHeight;
+/** 设置一个view的高度和它的宽度相同，参数为空“()” */
+@property (nonatomic, copy, readonly) SameWidthHeight heightEqualToWidth;
 /** 自适应高度，传入高宽比值，label可以传0实现文字高度自适应 */
 @property (nonatomic, copy, readonly) AutoHeight autoHeightRatio;
+
+
 
 /* 填充父view(快捷方法) */
 
@@ -152,15 +161,18 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 
 
-@interface UIView (SDAutoHeight)
+@interface UIView (SDAutoHeightWidth)
+
+/** 设置Cell的高度自适应，也可用于设置普通view内容自适应 */
+- (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
 @property (nonatomic) CGFloat autoHeight;
 
 @property (nonatomic) UIView *sd_bottomView;
 @property (nonatomic) CGFloat sd_bottomViewBottomMargin;
 
-/** 设置Cell的高度自适应，也可用于设置普通view内容自适应 */
-- (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
+@property (nonatomic) UIView *sd_rightView;
+@property (nonatomic) CGFloat sd_rightMargin;
 
 @end
 
@@ -183,8 +195,11 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UIScrollView (SDAutoContentSize)
 
-/** 设置scrollview内容自适应 */
+/** 设置scrollview内容竖向自适应 */
 - (void)setupAutoContentSizeWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
+
+/** 设置scrollview内容横向自适应 */
+- (void)setupAutoContentSizeWithRightView:(UIView *)rightView rightMargin:(CGFloat)rightMargin;
 
 @end
 
