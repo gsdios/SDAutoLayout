@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.estimatedRowHeight = 100;
+//    self.tableView.estimatedRowHeight = 100;
     
     [self creatModelsWithCount:18];
     
