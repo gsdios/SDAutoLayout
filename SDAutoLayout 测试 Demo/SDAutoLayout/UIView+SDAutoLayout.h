@@ -76,69 +76,69 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 /* 设置距离其它view的间距 */
 
-/** 左边到其参照view之间的间距，参数为“(参照view，间距数值)”  */
+/** 左边到其参照view之间的间距，参数为“(View, CGFloat)”  */
 @property (nonatomic, copy, readonly) MarginToView leftSpaceToView;
-/** 右边到其参照view之间的间距，参数为“(参照view，间距数值)”  */
+/** 右边到其参照view之间的间距，参数为“(View, CGFloat)”  */
 @property (nonatomic, copy, readonly) MarginToView rightSpaceToView;
-/** 顶部到其参照view之间的间距，参数为“(参照view，间距数值)”  */
+/** 顶部到其参照view之间的间距，参数为“(View, CGFloat)”  */
 @property (nonatomic, copy, readonly) MarginToView topSpaceToView;
-/** 底部到其参照view之间的间距，参数为“(参照view，间距数值)”  */
+/** 底部到其参照view之间的间距，参数为“(View, CGFloat)”  */
 @property (nonatomic, copy, readonly) MarginToView bottomSpaceToView;
 
 
 
 /* 设置x、y、width、height、centerX、centerY 值 */
 
-/** x值，参数为“(CGFloat数值)”  */
+/** x值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) Margin xIs;
-/** y值，参数为“(CGFloat数值)”  */
+/** y值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) Margin yIs;
-/** centerX值，参数为“(CGFloat数值)”  */
+/** centerX值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) Margin centerXIs;
-/** centerY值，参数为“(CGFloat数值)”  */
+/** centerY值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) Margin centerYIs;
-/** 宽度值，参数为“(CGFloat数值)”  */
+/** 宽度值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) WidthHeight widthIs;
-/** 高度值，参数为“(CGFloat数值)”  */
+/** 高度值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) WidthHeight heightIs;
 
 
 
 /* 设置最大宽度和高度、最小宽度和高度 */
 
-/** 最大宽度值，参数为“(CGFloat数值)”  */
+/** 最大宽度值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) WidthHeight maxWidthIs;
-/** 最大高度值，参数为“(CGFloat数值)”  */
+/** 最大高度值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) WidthHeight maxHeightIs;
-/** 最小宽度值，参数为“(CGFloat数值)”  */
+/** 最小宽度值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) WidthHeight minWidthIs;
-/** 最小高度值，参数为“(CGFloat数值)”  */
+/** 最小高度值，参数为“(CGFloat)”  */
 @property (nonatomic, copy, readonly) WidthHeight minHeightIs;
 
 
 
 /* 设置和某个参照view的边距相同 */
 
-/** 左间距与参照view相同，参数为“(参照view)”  */
+/** 左间距与参照view相同，参数为“(View)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView leftEqualToView;
-/** 右间距与参照view相同，参数为“(参照view)”  */
+/** 右间距与参照view相同，参数为“(View)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView rightEqualToView;
-/** 顶部间距与参照view相同，参数为“(参照view)”  */
+/** 顶部间距与参照view相同，参数为“(View)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView topEqualToView;
-/** 底部间距与参照view相同，参数为“(参照view)”  */
+/** 底部间距与参照view相同，参数为“(View)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView bottomEqualToView;
-/** centerX与参照view相同，参数为“(参照view)”  */
+/** centerX与参照view相同，参数为“(View)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView centerXEqualToView;
-/** centerY与参照view相同，参数为“(参照view)”  */
+/** centerY与参照view相同，参数为“(View)”  */
 @property (nonatomic, copy, readonly) MarginEqualToView centerYEqualToView;
 
 
 
 /*  设置宽度或者高度等于参照view的多少倍 */
 
-/** 宽度是参照view宽度的多少倍，参数为“(参照view，比例数值)” */
+/** 宽度是参照view宽度的多少倍，参数为“(View, CGFloat)” */
 @property (nonatomic, copy, readonly) WidthHeightEqualToView widthRatioToView;
-/** 高度是参照view宽度的多少倍，参数为“(参照view，比例数值)” */
+/** 高度是参照view宽度的多少倍，参数为“(View, CGFloat)” */
 @property (nonatomic, copy, readonly) WidthHeightEqualToView heightRatioToView;
 /** 设置一个view的宽度和它的高度相同，参数为空“()” */
 @property (nonatomic, copy, readonly) SameWidthHeight widthEqualToHeight;

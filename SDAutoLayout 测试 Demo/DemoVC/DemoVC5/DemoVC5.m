@@ -26,9 +26,13 @@
 
 #import "DemoVC5CellTableViewCell.h"
 
-#import "SDRefeshView/SDRefresh.h"
+#import "SDRefresh.h"
 
 #import "UITableView+SDAutoTableViewCellHeight.h"
+
+#import "SDCycleScrollView.h"
+
+#import "UIView+SDAutoLayout.h"
 
 @interface DemoVC5 ()
 
@@ -47,6 +51,8 @@
     
 //    self.tableView.estimatedRowHeight = 100;
     
+    [self setupHeaderView];
+    
     [self creatModelsWithCount:10];
     
     __weak typeof(self) weakSelf = self;
@@ -62,6 +68,54 @@
             [weakRefreshFooter endRefreshing];
         });
     };
+}
+
+- (void)setupHeaderView
+{
+    UIView *header = [UIView new];
+    
+    NSArray *picImageNamesArray = @[ @"pic1.jpg",
+                                     @"pic2.jpg",
+                                     @"pic3.jpg",
+                                     @"pic4.jpg",
+                                     ];
+    
+    SDCycleScrollView *scrollView = [SDCycleScrollView new];
+    scrollView.localizationImageNamesGroup = picImageNamesArray;
+    [header addSubview:scrollView];
+    
+    UILabel *tagLabel = [UILabel new];
+    tagLabel.font = [UIFont systemFontOfSize:13];
+    tagLabel.textColor = [UIColor lightGrayColor];
+    tagLabel.text = @"更新时间：2016.01.08";
+    [header addSubview:tagLabel];
+    
+    UIView *bottomLine = [UIView new];
+    bottomLine.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
+    [header addSubview:bottomLine];
+    
+    scrollView.sd_layout
+    .leftSpaceToView(header, 0)
+    .topSpaceToView(header, 0)
+    .rightSpaceToView(header, 0)
+    .heightIs(150);
+    
+    tagLabel.sd_layout
+    .leftSpaceToView(header, 10)
+    .topSpaceToView(scrollView, 0)
+    .heightIs(25)
+    .rightSpaceToView(header, 0);
+    
+    bottomLine.sd_layout
+    .topSpaceToView(tagLabel, 0)
+    .leftSpaceToView(header, 0)
+    .rightSpaceToView(header, 0)
+    .heightIs(1);
+    
+    [header setupAutoHeightWithBottomView:bottomLine bottomMargin:0];
+    [header layoutSubviews];
+    
+    self.tableView.tableHeaderView = header;
 }
 
 - (void)creatModelsWithCount:(NSInteger)count

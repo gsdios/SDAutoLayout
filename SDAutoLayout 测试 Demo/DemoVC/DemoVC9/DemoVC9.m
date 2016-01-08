@@ -30,7 +30,7 @@
 
 #import "DemoVC5CellTableViewCell.h"
 
-#import "SDRefeshView/SDRefresh.h"
+#import "SDRefresh.h"
 
 #import "UITableView+SDAutoTableViewCellHeight.h"
 
