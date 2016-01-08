@@ -616,6 +616,17 @@
 
 - (SDAutoLayoutModel *)sd_layout
 {
+    /*
+    卡在这里说明你的要自动布局的view在没有添加到父view的情况下就开始设置布局,你需要这样：
+    1.  UIView *view = [UIView new];
+    2.  [superView addSubview:view];
+    3.  view.sd_layout
+        .leftEqualToView()...
+     */
+    NSAssert(self.superview, @">>>>>>>>>在加入父view之后才可以做自动布局设置");
+    
+    
+    
     SDAutoLayoutModel *model = [self ownLayoutModel];
     if (!model) {
         model = [SDAutoLayoutModel new];
