@@ -36,7 +36,7 @@ NSString * const demo5Content = @"1.利用普通view的内容自适应功能添�
 NSString * const demo6Content = @"展示scrollview的内容自适应和普通view的动态圆角处理";
 NSString * const demo7Content = @"利用“普通版tableview的《多cell》高度自适应”2步设置完成tableview的排布";
 NSString * const demo8Content = @"利用“升级版tableview的《多cell》高度自适应”1步完成tableview的排布";
-NSString * const demo9Content = @"利用SDAutoLayout仿制微信朋友圈。高仿微信计划：\n 1.高仿朋友圈 \n2.完善细节 \n3.高仿完整微信app \nPS：代码会持续在我的github更新";
+NSString * const demo9Content = @"利用SDAutoLayout仿制微信朋友圈。高仿微信计划：\n1.高仿朋友圈 \n2.完善细节 \n3.高仿完整微信app \nPS：代码会持续在我的github更新";
 
 @implementation DemoTableViewControler
 {
