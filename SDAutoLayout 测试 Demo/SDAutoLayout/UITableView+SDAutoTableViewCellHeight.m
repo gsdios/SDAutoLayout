@@ -108,6 +108,10 @@
             return 0;
         }
         
+        if (model && keyPath) {
+            [self.modelCell setValue:model forKey:keyPath];
+        }
+        
         
         
         /*
@@ -119,10 +123,7 @@
         NSAssert(self.modelCell.sd_bottomView, @">>>>>> 你的cell还没有调用“setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin”方法或者你传递的bottomView为nil，请检查并修改");
         
         
-        
-        if (model && keyPath) {
-            [self.modelCell setValue:model forKey:keyPath];
-        }
+    
         [self.modelCell.contentView layoutSubviews];
         NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
         [_cacheDictionary setObject:@(self.modelCell.autoHeight) forKey:cacheKey];

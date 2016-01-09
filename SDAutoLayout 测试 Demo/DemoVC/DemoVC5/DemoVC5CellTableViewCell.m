@@ -111,8 +111,6 @@
     
     [_view1 setSingleLineAutoResizeWithMaxWidth:200];
     
-    [self setupAutoHeightWithBottomView:_view3 bottomMargin:0];
-    
 }
 
 - (void)setModel:(DemoVC5Model *)model
