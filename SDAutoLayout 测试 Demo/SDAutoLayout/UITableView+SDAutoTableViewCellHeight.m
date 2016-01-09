@@ -91,10 +91,16 @@
     [_cacheDictionary removeAllObjects];
 }
 
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath
+- (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
-    NSNumber *cacheHeight = [_cacheDictionary objectForKey:cacheKey];
+    return (NSNumber *)[_cacheDictionary objectForKey:cacheKey];
+}
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath
+{
+    
+    NSNumber *cacheHeight = [self heightCacheForIndexPath:indexPath];
     if (cacheHeight) {
         return [cacheHeight floatValue];
     } else {
@@ -118,6 +124,7 @@
             [self.modelCell setValue:model forKey:keyPath];
         }
         [self.modelCell.contentView layoutSubviews];
+        NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
         [_cacheDictionary setObject:@(self.modelCell.autoHeight) forKey:cacheKey];
         return self.modelCell.autoHeight;
     }
@@ -236,20 +243,7 @@
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellContentViewWidth:(CGFloat)width
 {
-    
-    if (!self.tableView.cellAutoHeightManager) {
-        self.tableView.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] init];
-    }
-    if (self.tableView.cellAutoHeightManager.contentViewWidth != width) {
-        self.tableView.cellAutoHeightManager.contentViewWidth = width;
-        [self.tableView.cellAutoHeightManager clearHeightCache];
-    }
-    UITableViewCell *cell = [self.tableView.dataSource tableView:self.tableView cellForRowAtIndexPath:indexPath];
-    self.tableView.cellAutoHeightManager.modelCell = cell;
-    if (cell.contentView.width != width) {
-        cell.contentView.width = width;
-    }
-    return [[self.tableView cellAutoHeightManager] cellHeightForIndexPath:indexPath model:nil keyPath:nil];
+    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:width tableView:self.tableView];
 }
 
 @end
@@ -264,6 +258,9 @@
     if (tableView.cellAutoHeightManager.contentViewWidth != width) {
         tableView.cellAutoHeightManager.contentViewWidth = width;
         [tableView.cellAutoHeightManager clearHeightCache];
+    }
+    if ([tableView.cellAutoHeightManager heightCacheForIndexPath:indexPath]) {
+        return [[tableView.cellAutoHeightManager heightCacheForIndexPath:indexPath] floatValue];
     }
     UITableViewCell *cell = [tableView.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
     tableView.cellAutoHeightManager.modelCell = cell;

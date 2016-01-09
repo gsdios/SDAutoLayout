@@ -124,6 +124,8 @@
 
 - (void)clearHeightCache;
 
+- (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath;
+
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass;
