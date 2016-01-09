@@ -1,5 +1,5 @@
 # SDAutoLayout（一行代码搞定自动布局！）
-# 新建QQ交流群：497140713（已满）519489682（新开）
+# QQ交流群：497140713（已满）519489682（新开）
 
 ☆☆ SDAutoLayout 视频教程：http://www.letv.com/ptv/vplay/24038772.html ☆☆
 
