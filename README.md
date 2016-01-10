@@ -5,6 +5,8 @@
 
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
+支持pod：  pod 'SDAutoLayout', '~> 1.3'
+
 
 #    ☆新增：cell高度自适应 + label文字自适应☆
 ![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)
