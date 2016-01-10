@@ -49,11 +49,11 @@
     return self;
 }
 
-- (instancetype)initWithCellClasses:(NSArray<Class> *)cellClassArray
+- (instancetype)initWithCellClasses:(NSArray *)cellClassArray
 {
     if (self = [super init]) {
         _modelTableview = [UITableView new];
-        [cellClassArray enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [cellClassArray enumerateObjectsUsingBlock:^(Class obj, NSUInteger idx, BOOL *stop) {
             [self registerCellWithCellClass:obj];
         }];
         _cacheDictionary = [NSMutableDictionary new];
@@ -209,7 +209,7 @@
     self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
 }
 
-- (void)startAutoCellHeightWithCellClasses:(NSArray<Class> *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth
+- (void)startAutoCellHeightWithCellClasses:(NSArray *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth
 {
     if (!self.cellAutoHeightManager) {
         self.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] initWithCellClasses:cellClassArray];

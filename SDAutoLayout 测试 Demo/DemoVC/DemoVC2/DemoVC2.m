@@ -38,7 +38,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.view0.sd_layout.bottomSpaceToView(self.view, 100);
-        [self.view layoutSubviews];
+        [self.view0 updateLayout];
     });
 }
 
