@@ -73,8 +73,6 @@
 		487D3EC21BCB9EC700A66173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EC11BCB9EC700A66173 /* Images.xcassets */; };
 		487D3EC51BCB9EC700A66173 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EC31BCB9EC700A66173 /* LaunchScreen.xib */; };
 		487D3ED11BCB9EC700A66173 /* SDAutoLayout____DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3ED01BCB9EC700A66173 /* SDAutoLayout____DemoTests.m */; };
-		48DA2B001BFB529200A771E6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DA2AFD1BFB529200A771E6 /* UITableView+SDAutoTableViewCellHeight.m */; };
-		48DA2B011BFB529200A771E6 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DA2AFF1BFB529200A771E6 /* UIView+SDAutoLayout.m */; };
 		48DBCD1A1C01E045002EC476 /* icon0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD101C01E045002EC476 /* icon0.jpg */; };
 		48DBCD1B1C01E045002EC476 /* icon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD111C01E045002EC476 /* icon1.jpg */; };
 		48DBCD1C1C01E045002EC476 /* icon2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD121C01E045002EC476 /* icon2.jpg */; };
@@ -85,6 +83,8 @@
 		48DBCD211C01E045002EC476 /* pic2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD171C01E045002EC476 /* pic2.jpg */; };
 		48DBCD221C01E045002EC476 /* pic3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD181C01E045002EC476 /* pic3.jpg */; };
 		48DBCD231C01E045002EC476 /* pic4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD191C01E045002EC476 /* pic4.jpg */; };
+		99A697741C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */; };
+		99A697751C423B0D004EA699 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,10 +225,6 @@
 		487D3ECA1BCB9EC700A66173 /* SDAutoLayout 测试 DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SDAutoLayout 测试 DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		487D3ECF1BCB9EC700A66173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		487D3ED01BCB9EC700A66173 /* SDAutoLayout____DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SDAutoLayout____DemoTests.m"; sourceTree = "<group>"; };
-		48DA2AFC1BFB529200A771E6 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
-		48DA2AFD1BFB529200A771E6 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
-		48DA2AFE1BFB529200A771E6 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
-		48DA2AFF1BFB529200A771E6 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		48DBCD101C01E045002EC476 /* icon0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon0.jpg; sourceTree = "<group>"; };
 		48DBCD111C01E045002EC476 /* icon1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon1.jpg; sourceTree = "<group>"; };
 		48DBCD121C01E045002EC476 /* icon2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon2.jpg; sourceTree = "<group>"; };
@@ -239,6 +235,10 @@
 		48DBCD171C01E045002EC476 /* pic2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic2.jpg; sourceTree = "<group>"; };
 		48DBCD181C01E045002EC476 /* pic3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic3.jpg; sourceTree = "<group>"; };
 		48DBCD191C01E045002EC476 /* pic4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic4.jpg; sourceTree = "<group>"; };
+		99A697701C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		99A697721C423B0D004EA699 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,10 +533,10 @@
 		487D3EB31BCB9EC700A66173 /* SDAutoLayout 测试 Demo */ = {
 			isa = PBXGroup;
 			children = (
+				99A6976F1C423B0D004EA699 /* SDAutoLayout */,
 				485303491C3F97AA004361A7 /* Others */,
 				485303021C3F977A004361A7 /* DemoVC */,
 				485302961C3F648F004361A7 /* Vender */,
-				48DA2AFB1BFB529200A771E6 /* SDAutoLayout */,
 				487D3EBE1BCB9EC700A66173 /* Main.storyboard */,
 				487D3EC11BCB9EC700A66173 /* Images.xcassets */,
 				487D3EC31BCB9EC700A66173 /* LaunchScreen.xib */,
@@ -572,17 +572,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		48DA2AFB1BFB529200A771E6 /* SDAutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				48DA2AFC1BFB529200A771E6 /* UITableView+SDAutoTableViewCellHeight.h */,
-				48DA2AFD1BFB529200A771E6 /* UITableView+SDAutoTableViewCellHeight.m */,
-				48DA2AFE1BFB529200A771E6 /* UIView+SDAutoLayout.h */,
-				48DA2AFF1BFB529200A771E6 /* UIView+SDAutoLayout.m */,
-			);
-			path = SDAutoLayout;
-			sourceTree = "<group>";
-		};
 		48DBCD0F1C01DEB1002EC476 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +593,17 @@
 				48DBCD191C01E045002EC476 /* pic4.jpg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		99A6976F1C423B0D004EA699 /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				99A697701C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.h */,
+				99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */,
+				99A697721C423B0D004EA699 /* UIView+SDAutoLayout.h */,
+				99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */,
+			);
+			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -728,7 +728,6 @@
 				4853033C1C3F977A004361A7 /* DemoVC5CellTableViewCell.m in Sources */,
 				485303501C3F97AA004361A7 /* AppDelegate.m in Sources */,
 				485302F61C3F65EE004361A7 /* TADotView.m in Sources */,
-				48DA2B011BFB529200A771E6 /* UIView+SDAutoLayout.m in Sources */,
 				485303481C3F977A004361A7 /* SDWeiXinPhotoContainerView.m in Sources */,
 				485302DB1C3F6490004361A7 /* SDWebImageManager.m in Sources */,
 				485302F51C3F65EE004361A7 /* TAAnimatedDotView.m in Sources */,
@@ -751,6 +750,7 @@
 				485303351C3F977A004361A7 /* DemoVC0.m in Sources */,
 				485302D81C3F6490004361A7 /* SDWebImageDecoder.m in Sources */,
 				485302DC1C3F6490004361A7 /* SDWebImagePrefetcher.m in Sources */,
+				99A697751C423B0D004EA699 /* UIView+SDAutoLayout.m in Sources */,
 				485302D21C3F6490004361A7 /* SDRefreshView.m in Sources */,
 				4853033D1C3F977A004361A7 /* DemoVC5Model.m in Sources */,
 				485302DE1C3F6490004361A7 /* UIImage+GIF.m in Sources */,
@@ -765,9 +765,9 @@
 				485303511C3F97AA004361A7 /* DemoTableViewControler.m in Sources */,
 				485302F41C3F65EE004361A7 /* TAAbstractDotView.m in Sources */,
 				485302F81C3F65EE004361A7 /* SDCollectionViewCell.m in Sources */,
-				48DA2B001BFB529200A771E6 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				485302DA1C3F6490004361A7 /* SDWebImageDownloaderOperation.m in Sources */,
 				485303521C3F97AA004361A7 /* ViewController.m in Sources */,
+				99A697741C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				485302D71C3F6490004361A7 /* SDWebImageCompat.m in Sources */,
 				485303461C3F977A004361A7 /* DemoVC9Cell.m in Sources */,
 				485302D51C3F6490004361A7 /* NSData+ImageContentType.m in Sources */,
