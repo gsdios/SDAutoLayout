@@ -100,8 +100,8 @@
     [UIView animateWithDuration:0.8 animations:^{
         self.view0.sd_layout
         .widthRatioToView(self.view, _widthRatio);
-        [self.view layoutSubviews];
-        [self.view0 layoutSubviews];
+        [self.view0 updateLayout];
+        [self.view5 updateLayout];
     }];
     
     

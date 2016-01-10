@@ -166,6 +166,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 设置Cell的高度自适应，也可用于设置普通view内容自适应 */
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
+/** 主动刷新布局（如果你需要设置完布局代码就获得view的frame请调用此方法） */
+- (void)updateLayout;
+
 @property (nonatomic) CGFloat autoHeight;
 
 @property (nonatomic) UIView *sd_bottomView;

@@ -13,5 +13,597 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048229.986539"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "widthEqualToHeight"
+            landmarkType = "19">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048232.978036"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "heightEqualToWidth"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModel needsAutoResizeView]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.931664"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModel setNeedsAutoResizeView:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.932296"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048244.058026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "spaceToSuperView"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModel needsAutoResizeView]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.935283"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModel setNeedsAutoResizeView:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.93572"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048256.160705"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "-updateLatout"
+            landmarkType = "4">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem value]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.938238"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.938637"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048259.417708"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "sd_cornerRadius"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem value]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.939929"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.940373"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048260.825398"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "sd_cornerRadiusFromWidthRatio"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem value]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.941675"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.942141"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048262.273608"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "sd_cornerRadiusFromHeightRatio"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem value]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.943273"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.943782"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048264.625555"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "sd_equalWidthSubviews"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem value]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.945007"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.945416"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048268.609438"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "-setupAutoContentSizeWithBottomView:bottomMargin:"
+            landmarkType = "4">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem value]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.946644"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.947034"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048270.131494"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-setupAutoContentSizeWithRightView:rightMargin:"
+            landmarkType = "4">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem value]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.948352"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.948778"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+            timestampString = "474048277.889387"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "-setSingleLineAutoResizeWithMaxWidth:"
+            landmarkType = "4">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem value]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.95029"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
+                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
+                  timestampString = "474053256.950698"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UITableView+SDAutoTableViewCellHeight.h"
+            timestampString = "474048295.992674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "-cellHeightForIndexPath:cellContentViewWidth:tableView:"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UITableView+SDAutoTableViewCellHeight.h"
+            timestampString = "474048299.088354"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-cellHeightForIndexPath:cellContentViewWidth:"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UITableView+SDAutoTableViewCellHeight.h"
+            timestampString = "474048304.360346"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-cellHeightForIndexPath:model:keyPath:cellClass:"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/SDAutoLayout/UITableView+SDAutoTableViewCellHeight.h"
+            timestampString = "474048305.312717"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-startAutoCellHeightWithCellClasses:contentViewWidth:"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/DemoVC/DemoVC7/DemoVC7.m"
+            timestampString = "474050545.805873"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-tableView:numberOfRowsInSection:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SDAutoLayout &#x6d4b;&#x8bd5; Demo/DemoVC/DemoVC8/DemoVC8.m"
+            timestampString = "474051218.636262"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

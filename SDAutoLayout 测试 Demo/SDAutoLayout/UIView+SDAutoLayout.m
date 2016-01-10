@@ -414,6 +414,11 @@
     self.sd_bottomViewBottomMargin = bottomMargin;
 }
 
+- (void)updateLayout
+{
+    [self.superview layoutSubviews];
+}
+
 - (CGFloat)autoHeight
 {
     return [objc_getAssociatedObject(self, _cmd) floatValue];
