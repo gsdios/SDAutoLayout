@@ -410,7 +410,15 @@
 
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin
 {
-    self.sd_bottomView = bottomView;
+    if (!bottomView) return;
+    [self.sd_bottomViewsArray addObject:bottomView];
+    self.sd_bottomViewBottomMargin = bottomMargin;
+}
+
+- (void)setupAutoHeightWithBottomViewsArray:(NSArray *)bottomViewsArray bottomMargin:(CGFloat)bottomMargin
+{
+    if (!bottomViewsArray) return;
+    [self.sd_bottomViewsArray addObjectsFromArray:bottomViewsArray];
     self.sd_bottomViewBottomMargin = bottomMargin;
 }
 
@@ -429,14 +437,13 @@
     objc_setAssociatedObject(self, @selector(autoHeight), @(autoHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (UIView *)sd_bottomView
+- (NSMutableArray *)sd_bottomViewsArray
 {
+    NSMutableArray *array = objc_getAssociatedObject(self, _cmd);
+    if (!array) {
+        objc_setAssociatedObject(self, _cmd, [NSMutableArray new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
     return objc_getAssociatedObject(self, _cmd);
-}
-
-- (void)setSd_bottomView:(UIView *)sd_bottomView
-{
-    objc_setAssociatedObject(self, @selector(sd_bottomView), sd_bottomView, OBJC_ASSOCIATION_ASSIGN);
 }
 
 - (CGFloat)sd_bottomViewBottomMargin
@@ -621,6 +628,8 @@
 
 - (SDAutoLayoutModel *)sd_layout
 {
+    
+#ifdef SDDebugWithAssert
     /*
     卡在这里说明你的要自动布局的view在没有添加到父view的情况下就开始设置布局,你需要这样：
     1.  UIView *view = [UIView new];
@@ -630,7 +639,7 @@
      */
     NSAssert(self.superview, @">>>>>>>>>在加入父view之后才可以做自动布局设置");
     
-    
+#endif
     
     SDAutoLayoutModel *model = [self ownLayoutModel];
     if (!model) {
@@ -682,13 +691,27 @@
             cell = (UITableViewCell *)cell.superview;
         }
         if ([cell isKindOfClass:[UITableViewCell class]]) {
-            cell.autoHeight = cell.sd_bottomView.bottom + cell.sd_bottomViewBottomMargin;
+            CGFloat height = 0;
+            for (UIView *view in cell.sd_bottomViewsArray) {
+                if (view.sd_bottomViewsArray.count) {
+                    [view layoutSubviews];
+                }
+                height = MAX(height, view.bottom);
+            }
+            cell.autoHeight = height + cell.sd_bottomViewBottomMargin;
         }
-    } else if (![self isKindOfClass:[UITableViewCell class]] && (self.sd_bottomView || self.sd_rightView)) {
+    } else if (![self isKindOfClass:[UITableViewCell class]] && (self.sd_bottomViewsArray.count || self.sd_rightView)) {
         CGFloat contentHeight = 0;
         CGFloat contentWidth = 0;
-        if (self.sd_bottomView) {
-            contentHeight = self.sd_bottomView.bottom + self.sd_bottomViewBottomMargin;
+        if (self.sd_bottomViewsArray) {
+            CGFloat height = 0;
+            for (UIView *view in self.sd_bottomViewsArray) {
+                if (view.sd_bottomViewsArray.count) {
+                    [view layoutSubviews];
+                }
+                height = MAX(height, view.bottom);
+            }
+            contentHeight = height + self.sd_bottomViewBottomMargin;
         }
         if (self.sd_rightView) {
             contentWidth = self.sd_rightView.right + self.sd_rightMargin;
@@ -813,7 +836,11 @@
         }
     } else if (model.equalRight) {
         if (!view.fixedWith) {
-            view.width = model.equalRight.refView.right - view.left;
+            if (model.equalRight.refView == view.superview) {
+                view.width = model.equalRight.refView.width - view.left;
+            } else {
+                view.width = model.equalRight.refView.right - view.left;
+            }
         }
         
         view.right = model.equalRight.refView.right;

@@ -55,7 +55,8 @@
     .rightSpaceToView(contentView, margin)
     .heightIs(60);
     
-    [self setupAutoHeightWithBottomView:_imageView bottomMargin:margin];
+    // 当你不确定哪个view在自动布局之后会排布在cell最下方的时候可以调用次方法将所有可能在最下方的view都传过去
+    [self setupAutoHeightWithBottomViewsArray:@[_titleLabel, _imageView] bottomMargin:margin];
 }
 
 - (void)setModel:(DemoVC7Model *)model

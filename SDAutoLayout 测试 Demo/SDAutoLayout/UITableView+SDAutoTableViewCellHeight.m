@@ -113,16 +113,16 @@
         }
         
         
-        
+#ifdef SDDebugWithAssert
         /*
          如果程序卡在了这里说明你的cell还没有调用“setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin”方法或者你传递的bottomView为nil，请检查并修改。例：
          
          //注意：bottomView不能为nil
          [cell setupAutoHeightWithBottomView:bottomView bottomMargin:bottomMargin];
          */
-        NSAssert(self.modelCell.sd_bottomView, @">>>>>> 你的cell还没有调用“setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin”方法或者你传递的bottomView为nil，请检查并修改");
+        NSAssert(self.modelCell.sd_bottomViewsArray.count, @">>>>>> 你的cell还没有调用“setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin”方法或者你传递的bottomView为nil，请检查并修改");
         
-        
+#endif
     
         [self.modelCell.contentView layoutSubviews];
         NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];

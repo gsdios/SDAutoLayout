@@ -150,7 +150,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DemoVC5CellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDemoVC9CellId];
+    DemoVC9Cell *cell = [tableView dequeueReusableCellWithIdentifier:kDemoVC9CellId];
     
     cell.model = self.modelsArray[indexPath.row];
     return cell;
