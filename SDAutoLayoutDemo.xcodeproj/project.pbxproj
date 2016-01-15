@@ -72,7 +72,7 @@
 		487D3EC01BCB9EC700A66173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EBE1BCB9EC700A66173 /* Main.storyboard */; };
 		487D3EC21BCB9EC700A66173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EC11BCB9EC700A66173 /* Images.xcassets */; };
 		487D3EC51BCB9EC700A66173 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EC31BCB9EC700A66173 /* LaunchScreen.xib */; };
-		487D3ED11BCB9EC700A66173 /* SDAutoLayout____DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3ED01BCB9EC700A66173 /* SDAutoLayout____DemoTests.m */; };
+		487D3ED11BCB9EC700A66173 /* SDAutoLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3ED01BCB9EC700A66173 /* SDAutoLayoutDemoTests.m */; };
 		48DBCD1A1C01E045002EC476 /* icon0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD101C01E045002EC476 /* icon0.jpg */; };
 		48DBCD1B1C01E045002EC476 /* icon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD111C01E045002EC476 /* icon1.jpg */; };
 		48DBCD1C1C01E045002EC476 /* icon2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD121C01E045002EC476 /* icon2.jpg */; };
@@ -216,15 +216,15 @@
 		4853034F1C3F97AA004361A7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		485303531C3F97E6004361A7 /* DemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCell.h; sourceTree = "<group>"; };
 		485303541C3F97E6004361A7 /* DemoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCell.m; sourceTree = "<group>"; };
-		487D3EB11BCB9EC700A66173 /* SDAutoLayout 测试 Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDAutoLayout 测试 Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		487D3EB11BCB9EC700A66173 /* SDAutoLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDAutoLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		487D3EB51BCB9EC700A66173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		487D3EB61BCB9EC700A66173 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		487D3EBF1BCB9EC700A66173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		487D3EC11BCB9EC700A66173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		487D3EC41BCB9EC700A66173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		487D3ECA1BCB9EC700A66173 /* SDAutoLayout 测试 DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SDAutoLayout 测试 DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		487D3ECA1BCB9EC700A66173 /* SDAutoLayoutDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDAutoLayoutDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		487D3ECF1BCB9EC700A66173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		487D3ED01BCB9EC700A66173 /* SDAutoLayout____DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SDAutoLayout____DemoTests.m"; sourceTree = "<group>"; };
+		487D3ED01BCB9EC700A66173 /* SDAutoLayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDAutoLayoutDemoTests.m; sourceTree = "<group>"; };
 		48DBCD101C01E045002EC476 /* icon0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon0.jpg; sourceTree = "<group>"; };
 		48DBCD111C01E045002EC476 /* icon1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon1.jpg; sourceTree = "<group>"; };
 		48DBCD121C01E045002EC476 /* icon2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon2.jpg; sourceTree = "<group>"; };
@@ -515,8 +515,8 @@
 		487D3EA81BCB9EC700A66173 = {
 			isa = PBXGroup;
 			children = (
-				487D3EB31BCB9EC700A66173 /* SDAutoLayout 测试 Demo */,
-				487D3ECD1BCB9EC700A66173 /* SDAutoLayout 测试 DemoTests */,
+				487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */,
+				487D3ECD1BCB9EC700A66173 /* SDAutoLayoutDemoTests */,
 				487D3EB21BCB9EC700A66173 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -524,13 +524,13 @@
 		487D3EB21BCB9EC700A66173 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				487D3EB11BCB9EC700A66173 /* SDAutoLayout 测试 Demo.app */,
-				487D3ECA1BCB9EC700A66173 /* SDAutoLayout 测试 DemoTests.xctest */,
+				487D3EB11BCB9EC700A66173 /* SDAutoLayoutDemo.app */,
+				487D3ECA1BCB9EC700A66173 /* SDAutoLayoutDemo.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		487D3EB31BCB9EC700A66173 /* SDAutoLayout 测试 Demo */ = {
+		487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
 				99A6976F1C423B0D004EA699 /* SDAutoLayout */,
@@ -542,7 +542,7 @@
 				487D3EC31BCB9EC700A66173 /* LaunchScreen.xib */,
 				487D3EB41BCB9EC700A66173 /* Supporting Files */,
 			);
-			path = "SDAutoLayout 测试 Demo";
+			path = SDAutoLayoutDemo;
 			sourceTree = "<group>";
 		};
 		487D3EB41BCB9EC700A66173 /* Supporting Files */ = {
@@ -555,13 +555,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		487D3ECD1BCB9EC700A66173 /* SDAutoLayout 测试 DemoTests */ = {
+		487D3ECD1BCB9EC700A66173 /* SDAutoLayoutDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				487D3ED01BCB9EC700A66173 /* SDAutoLayout____DemoTests.m */,
+				487D3ED01BCB9EC700A66173 /* SDAutoLayoutDemoTests.m */,
 				487D3ECE1BCB9EC700A66173 /* Supporting Files */,
 			);
-			path = "SDAutoLayout 测试 DemoTests";
+			path = SDAutoLayoutDemoTests;
 			sourceTree = "<group>";
 		};
 		487D3ECE1BCB9EC700A66173 /* Supporting Files */ = {
@@ -609,9 +609,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		487D3EB01BCB9EC700A66173 /* SDAutoLayout 测试 Demo */ = {
+		487D3EB01BCB9EC700A66173 /* SDAutoLayoutDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 487D3ED41BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayout 测试 Demo" */;
+			buildConfigurationList = 487D3ED41BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayoutDemo" */;
 			buildPhases = (
 				487D3EAD1BCB9EC700A66173 /* Sources */,
 				487D3EAE1BCB9EC700A66173 /* Frameworks */,
@@ -621,14 +621,14 @@
 			);
 			dependencies = (
 			);
-			name = "SDAutoLayout 测试 Demo";
+			name = SDAutoLayoutDemo;
 			productName = "SDAutoLayout 测试 Demo";
-			productReference = 487D3EB11BCB9EC700A66173 /* SDAutoLayout 测试 Demo.app */;
+			productReference = 487D3EB11BCB9EC700A66173 /* SDAutoLayoutDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		487D3EC91BCB9EC700A66173 /* SDAutoLayout 测试 DemoTests */ = {
+		487D3EC91BCB9EC700A66173 /* SDAutoLayoutDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 487D3ED71BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayout 测试 DemoTests" */;
+			buildConfigurationList = 487D3ED71BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayoutDemoTests" */;
 			buildPhases = (
 				487D3EC61BCB9EC700A66173 /* Sources */,
 				487D3EC71BCB9EC700A66173 /* Frameworks */,
@@ -639,9 +639,9 @@
 			dependencies = (
 				487D3ECC1BCB9EC700A66173 /* PBXTargetDependency */,
 			);
-			name = "SDAutoLayout 测试 DemoTests";
+			name = SDAutoLayoutDemoTests;
 			productName = "SDAutoLayout 测试 DemoTests";
-			productReference = 487D3ECA1BCB9EC700A66173 /* SDAutoLayout 测试 DemoTests.xctest */;
+			productReference = 487D3ECA1BCB9EC700A66173 /* SDAutoLayoutDemo.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -663,7 +663,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 487D3EAC1BCB9EC700A66173 /* Build configuration list for PBXProject "SDAutoLayout 测试 Demo" */;
+			buildConfigurationList = 487D3EAC1BCB9EC700A66173 /* Build configuration list for PBXProject "SDAutoLayoutDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -676,8 +676,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				487D3EB01BCB9EC700A66173 /* SDAutoLayout 测试 Demo */,
-				487D3EC91BCB9EC700A66173 /* SDAutoLayout 测试 DemoTests */,
+				487D3EB01BCB9EC700A66173 /* SDAutoLayoutDemo */,
+				487D3EC91BCB9EC700A66173 /* SDAutoLayoutDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -788,7 +788,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				487D3ED11BCB9EC700A66173 /* SDAutoLayout____DemoTests.m in Sources */,
+				487D3ED11BCB9EC700A66173 /* SDAutoLayoutDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,7 +797,7 @@
 /* Begin PBXTargetDependency section */
 		487D3ECC1BCB9EC700A66173 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 487D3EB01BCB9EC700A66173 /* SDAutoLayout 测试 Demo */;
+			target = 487D3EB01BCB9EC700A66173 /* SDAutoLayoutDemo */;
 			targetProxy = 487D3ECB1BCB9EC700A66173 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -909,10 +909,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "SDAutoLayout 测试 Demo/Info.plist";
+				INFOPLIST_FILE = SDAutoLayoutDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gsdios.test;
+				PRODUCT_NAME = SDAutoLayoutDemo;
 			};
 			name = Debug;
 		};
@@ -921,10 +922,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "SDAutoLayout 测试 Demo/Info.plist";
+				INFOPLIST_FILE = SDAutoLayoutDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gsdios.test;
+				PRODUCT_NAME = SDAutoLayoutDemo;
 			};
 			name = Release;
 		};
@@ -940,10 +942,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SDAutoLayout 测试 DemoTests/Info.plist";
+				INFOPLIST_FILE = SDAutoLayoutDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayout 测试 Demo.app/SDAutoLayout 测试 Demo";
+				PRODUCT_NAME = SDAutoLayoutDemo;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayoutDemo.app/SDAutoLayoutDemo";
 			};
 			name = Debug;
 		};
@@ -955,17 +957,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SDAutoLayout 测试 DemoTests/Info.plist";
+				INFOPLIST_FILE = SDAutoLayoutDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayout 测试 Demo.app/SDAutoLayout 测试 Demo";
+				PRODUCT_NAME = SDAutoLayoutDemo;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayoutDemo.app/SDAutoLayoutDemo";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		487D3EAC1BCB9EC700A66173 /* Build configuration list for PBXProject "SDAutoLayout 测试 Demo" */ = {
+		487D3EAC1BCB9EC700A66173 /* Build configuration list for PBXProject "SDAutoLayoutDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				487D3ED21BCB9EC700A66173 /* Debug */,
@@ -974,7 +976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		487D3ED41BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayout 测试 Demo" */ = {
+		487D3ED41BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayoutDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				487D3ED51BCB9EC700A66173 /* Debug */,
@@ -983,7 +985,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		487D3ED71BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayout 测试 DemoTests" */ = {
+		487D3ED71BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayoutDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				487D3ED81BCB9EC700A66173 /* Debug */,

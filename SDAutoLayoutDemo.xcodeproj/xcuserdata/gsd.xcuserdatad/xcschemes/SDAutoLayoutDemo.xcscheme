@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "487D3EB01BCB9EC700A66173"
-               BuildableName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo.app"
-               BlueprintName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-               ReferencedContainer = "container:SDAutoLayout &#x6d4b;&#x8bd5; Demo.xcodeproj">
+               BuildableName = "SDAutoLayoutDemo.app"
+               BlueprintName = "SDAutoLayoutDemo"
+               ReferencedContainer = "container:SDAutoLayoutDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "487D3EC91BCB9EC700A66173"
-               BuildableName = "SDAutoLayout &#x6d4b;&#x8bd5; DemoTests.xctest"
-               BlueprintName = "SDAutoLayout &#x6d4b;&#x8bd5; DemoTests"
-               ReferencedContainer = "container:SDAutoLayout &#x6d4b;&#x8bd5; Demo.xcodeproj">
+               BuildableName = "SDAutoLayoutDemo.xctest"
+               BlueprintName = "SDAutoLayoutDemoTests"
+               ReferencedContainer = "container:SDAutoLayoutDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "487D3EC91BCB9EC700A66173"
-               BuildableName = "SDAutoLayout &#x6d4b;&#x8bd5; DemoTests.xctest"
-               BlueprintName = "SDAutoLayout &#x6d4b;&#x8bd5; DemoTests"
-               ReferencedContainer = "container:SDAutoLayout &#x6d4b;&#x8bd5; Demo.xcodeproj">
+               BuildableName = "SDAutoLayoutDemo.xctest"
+               BlueprintName = "SDAutoLayoutDemoTests"
+               ReferencedContainer = "container:SDAutoLayoutDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "487D3EB01BCB9EC700A66173"
-            BuildableName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo.app"
-            BlueprintName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-            ReferencedContainer = "container:SDAutoLayout &#x6d4b;&#x8bd5; Demo.xcodeproj">
+            BuildableName = "SDAutoLayoutDemo.app"
+            BlueprintName = "SDAutoLayoutDemo"
+            ReferencedContainer = "container:SDAutoLayoutDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "487D3EB01BCB9EC700A66173"
-            BuildableName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo.app"
-            BlueprintName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-            ReferencedContainer = "container:SDAutoLayout &#x6d4b;&#x8bd5; Demo.xcodeproj">
+            BuildableName = "SDAutoLayoutDemo.app"
+            BlueprintName = "SDAutoLayoutDemo"
+            ReferencedContainer = "container:SDAutoLayoutDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "487D3EB01BCB9EC700A66173"
-            BuildableName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo.app"
-            BlueprintName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-            ReferencedContainer = "container:SDAutoLayout &#x6d4b;&#x8bd5; Demo.xcodeproj">
+            BuildableName = "SDAutoLayoutDemo.app"
+            BlueprintName = "SDAutoLayoutDemo"
+            ReferencedContainer = "container:SDAutoLayoutDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
