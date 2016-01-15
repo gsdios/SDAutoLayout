@@ -267,15 +267,17 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UIView (SDAutoLayout)
 
-- (NSMutableArray *)autoLayoutModelsArray;
-
 /** 开始自动布局  */
 - (SDAutoLayoutModel *)sd_layout;
 
 /** 清空之前的自动布局设置，重新开始自动布局  */
 - (SDAutoLayoutModel *)sd_resetLayout;
 
+- (NSMutableArray *)autoLayoutModelsArray;
+
 - (void)addAutoLayoutModel:(SDAutoLayoutModel *)model;
+
+@property (nonatomic) SDAutoLayoutModel *ownLayoutModel;
 
 @property (nonatomic, strong) NSNumber *fixedWith;
 @property (nonatomic, strong) NSNumber *fixedHeight;

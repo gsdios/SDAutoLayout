@@ -1061,8 +1061,14 @@
 }
 
 - (void)setWidth:(CGFloat)width {
+    if (self.ownLayoutModel.widthEqualHeight) {
+        if (width != self.height) return;
+    }
     CGRect frame = self.frame;
     frame.size.width = width;
+    if (self.ownLayoutModel.heightEqualWidth) {
+        frame.size.height = width;
+    }
     self.frame = frame;
 }
 
@@ -1071,8 +1077,14 @@
 }
 
 - (void)setHeight:(CGFloat)height {
+    if (self.ownLayoutModel.heightEqualWidth) {
+        if (height != self.width) return;
+    }
     CGRect frame = self.frame;
     frame.size.height = height;
+    if (self.ownLayoutModel.widthEqualHeight) {
+        frame.size.width = height;
+    }
     self.frame = frame;
 }
 
