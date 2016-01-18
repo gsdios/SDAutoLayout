@@ -34,6 +34,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
+        _modelTableview = [UITableView new];
         _cacheDictionary = [NSMutableDictionary new];
     }
     return self;
@@ -149,9 +150,9 @@
 
 - (void)setContentViewWidth:(CGFloat)contentViewWidth
 {
-    if (_contentViewWidth != contentViewWidth) {
-        [self clearHeightCache];
-    }
+    if (_contentViewWidth == contentViewWidth) return;
+    
+    [self clearHeightCache];
     _contentViewWidth = contentViewWidth;
     
     self.modelCell.contentView.width = self.contentViewWidth;
@@ -201,7 +202,7 @@
  
  */
 
-- (void)startAutoCellHeightWithCellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth
+- (void)startAutoCellHeightWithCellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth NS_DEPRECATED(10_0, 10_4, 6_0, 6_0)
 {
     if (!self.cellAutoHeightManager) {
         self.cellAutoHeightManager = [SDCellAutoHeightManager managerWithCellClass:cellClass];
@@ -209,7 +210,7 @@
     self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
 }
 
-- (void)startAutoCellHeightWithCellClasses:(NSArray *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth
+- (void)startAutoCellHeightWithCellClasses:(NSArray *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth NS_DEPRECATED(10_0, 10_4, 6_0, 6_0)
 {
     if (!self.cellAutoHeightManager) {
         self.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] initWithCellClasses:cellClassArray];
@@ -217,13 +218,24 @@
     self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
 }
 
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath NS_DEPRECATED(10_0, 10_4, 6_0, 6_0)
 {
     return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath];
 }
 
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass NS_DEPRECATED(10_0, 10_4, 6_0, 6_0)
 {
+    return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass];
+}
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth
+{
+    if (!self.cellAutoHeightManager) {
+        self.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] init];
+    }
+    
+    self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
+    
     return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass];
 }
 
