@@ -655,7 +655,6 @@
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = V4Q779DR3D;
 					};
 					487D3EC91BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
@@ -914,6 +913,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gsdios.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
+				PROVISIONING_PROFILE = "93045a84-2289-43e6-8406-321145a49475";
 			};
 			name = Debug;
 		};
@@ -927,6 +927,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gsdios.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
+				PROVISIONING_PROFILE = "93045a84-2289-43e6-8406-321145a49475";
 			};
 			name = Release;
 		};

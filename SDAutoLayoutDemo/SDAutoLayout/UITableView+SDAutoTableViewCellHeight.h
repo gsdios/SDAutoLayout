@@ -52,7 +52,7 @@
 // ☆☆☆☆☆☆☆☆☆☆☆【推荐使用方法（性能高+易用性好），详见demo7和demo9】☆☆☆☆☆☆☆☆☆☆☆
 
 /** 
-  * 返回计算出的cell高度（普通优化版方法，同样只需一步设置即可完成）
+  * 返回计算出的cell高度（普通简化版方法，同样只需一步设置即可完成）
   * model              : cell的数据模型实例
   * keyPath            : cell的数据模型属性的属性名字符串（即kvc原理中的key）
   * cellClass          : 当前的indexPath对应的cell的class
@@ -66,22 +66,22 @@
 
 
 
-// >>>>>>>>>>>>>> 单个cell情景下调用以下方法(详细用法见demo5) >>>>>>>>>>>>>>
+// >>>>>>>>>>>>>> 单个cell情景下调用以下方法 >>>>>>>>>>>>>>
 
-/** 开启高度自适应，建议在tableview的数据源方法“- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section”中调用此方法，详细用法见demo5 */
+/** (不再推荐使用此方法！)开启高度自适应，建议在tableview的数据源方法“- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section”中调用此方法*/
 - (void)startAutoCellHeightWithCellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth NS_DEPRECATED(10_0, 10_4, 6_0, 6_0);
 
-/** 返回计算出的cell高度;model为cell的数据模型实例;keyPath为cell的数据模型属性的属性名字符串（即kvc原理中的key）*/
+/** (不再推荐使用此方法！)返回计算出的cell高度;model为cell的数据模型实例;keyPath为cell的数据模型属性的属性名字符串（即kvc原理中的key）*/
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath NS_DEPRECATED(10_0, 10_4, 6_0, 6_0);
 
 
 
 // >>>>>>>>>>>>>> 多cell情景下调用以下方法(详细用法见demo7) >>>>>>>>>>>>>>>>>
 
-/** cellClassArray 为所有cell的类组成的数组，详细用法见demo7 */
+/** (不再推荐使用此方法！)cellClassArray 为所有cell的类组成的数组，详细用法见demo7 */
 - (void)startAutoCellHeightWithCellClasses:(NSArray *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth NS_DEPRECATED(10_0, 10_4, 6_0, 6_0);
 
-/** 返回计算出的cell高度;model为cell的数据模型实例;keyPath为cell的数据模型属性的属性名字符串（即kvc原理中的key） */
+/** (不再推荐使用此方法！)返回计算出的cell高度;model为cell的数据模型实例;keyPath为cell的数据模型属性的属性名字符串（即kvc原理中的key） */
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass NS_DEPRECATED(10_0, 10_4, 6_0, 6_0);
 
 @end

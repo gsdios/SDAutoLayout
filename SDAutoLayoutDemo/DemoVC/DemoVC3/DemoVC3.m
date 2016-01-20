@@ -64,11 +64,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // >>>>>>>>>>>>>>>>>>>>> * cell自适应步骤1 * >>>>>>>>>>>>>>>>>>>>>>>>
-    
-    [self.tableView startAutoCellHeightWithCellClass:[TestCell2 class] contentViewWidth:[UIScreen mainScreen].bounds.size.width];
-    
-    
     return _rowCount;
 }
 
@@ -91,7 +86,21 @@
     
     // >>>>>>>>>>>>>>>>>>>>> * cell自适应步骤2 * >>>>>>>>>>>>>>>>>>>>>>>>
     /* model 为模型实例， keyPath 为 model 的属性名，通过 kvc 统一赋值接口 */
-    return [self.tableView cellHeightForIndexPath:indexPath model:str keyPath:@"text"];
+    return [self.tableView cellHeightForIndexPath:indexPath model:str keyPath:@"text" cellClass:[TestCell2 class] contentViewWidth:[self cellContentViewWith]];
+}
+
+
+
+
+- (CGFloat)cellContentViewWith
+{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    
+    // 适配ios7
+    if ([UIApplication sharedApplication].statusBarOrientation != UIInterfaceOrientationPortrait && [[UIDevice currentDevice].systemVersion floatValue] < 8) {
+        width = [UIScreen mainScreen].bounds.size.height;
+    }
+    return width;
 }
 
 @end

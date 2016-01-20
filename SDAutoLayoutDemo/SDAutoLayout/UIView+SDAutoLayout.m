@@ -731,6 +731,9 @@
             scrollView.contentSize = contentSize;
         } else {
             // 如果这里出现循环调用情况请把demo发送到gsdios@126.com，谢谢配合。
+            if (floorf(contentHeight) == floorf(self.height)) {
+                return;
+            }
             self.height = contentHeight;
         }
     }
