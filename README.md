@@ -13,6 +13,26 @@
 
 支持pod：  pod 'SDAutoLayout', '~> 1.3'
 
+## 更新记录：
+
+2016.01.21 -- 实现tableview局部刷新cell高度缓存的自动管理
+
+2016.01.20 -- demo中的tableview适配在ios7上的屏幕旋转问题
+
+2016.01.18 -- 推出“普通简化版”tableview的cell自动高度方法（推荐使用），原来的需2步设置的普通版方法将标记过期
+
+2016.01.13 -- 增加在不确定bottom view的情况下的cell高度自适应方法
+
+2016.01.07 -- 1.增加 scrollview 横向内容自适应功能；2.增加view宽高相等的功能
+
+2016.01.03 -- 增加任何类型对象都可以实现一行代码搞定cell高度自适应；增加文档注释
+
+2015.12.08 -- 重大升级：1.支持scrollview内容自适应；2.任意添加或者修改约束不冲突；3.性能提升40%以上；4.添加最大、最小宽高约束
+
+
+
+
+
 
 #    ☆新增：cell高度自适应 + label文字自适应☆
 ![](http://ww1.sinaimg.cn/bmiddle/9b8146edgw1f06aoe2umhg206e0b4u0x.gif)![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)
