@@ -15,11 +15,26 @@
 
 
 #    ☆新增：cell高度自适应 + label文字自适应☆
-![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)
+![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)![](http://ww1.sinaimg.cn/bmiddle/9b8146edgw1f06aoe2umhg206e0b4u0x.gif)
 
-![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)
 
-##    >>>>> 升级版：tableview 高度自适应设置只需要2步
+##    >>>>> 普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
+    
+    1. >> 设置cell高度自适应：
+    // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
+    [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
+    
+    2. >> 设置 tableview 数据源和代理
+    
+    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+    {
+        // >>>>>>>>>>>>>>>>>>>>> * cell自适应 * >>>>>>>>>>>>>>>>>>>>>>>>
+        id model = self.modelsArray[indexPath.row];
+        return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[DemoVC9Cell class]         contentViewWidth:[self cellContentViewWith]];
+    }
+
+
+##    >>>>> 升级版（适应于cell条数少于100的tableview）：tableview 高度自适应设置只需要2步
     
     1. >> 设置cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
@@ -31,29 +46,6 @@
     {
     // 获取cell高度
     return [self cellHeightForIndexPath:indexPath cellContentViewWidth:[UIScreen mainScreen].bounds.size.width];
-    }
-    
-    
-##    >>>>> 普通版：tableview 高度自适应设置只需要3步
-    
-    1. >> 设置cell高度自适应：
-    // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
-    [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
-    
-    2. >> 设置 tableview 数据源和代理
-    
-    - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-    {
-    // 2.1 注册模型cell 
-    [self.tableView startAutoCellHeightWithCellClass:“cell类名” contentViewWidth:“contentview宽度”];
-
-    return _rowCount;
-    }
-    
-    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-    {
-    // 2.2 根据模型取得cell高度
-    return [self.tableView cellHeightForIndexPath:indexPath model:“model” keyPath:@"model属性名"];
     }
     
     
