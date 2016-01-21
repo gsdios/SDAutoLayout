@@ -15,7 +15,7 @@
 
 
 #    ☆新增：cell高度自适应 + label文字自适应☆
-![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)![](http://ww1.sinaimg.cn/bmiddle/9b8146edgw1f06aoe2umhg206e0b4u0x.gif)
+![](http://ww1.sinaimg.cn/bmiddle/9b8146edgw1f06aoe2umhg206e0b4u0x.gif)![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)
 
 
 ##    >> 普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
