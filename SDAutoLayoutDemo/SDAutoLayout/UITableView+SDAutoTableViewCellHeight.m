@@ -92,6 +92,14 @@
     [_cacheDictionary removeAllObjects];
 }
 
+- (void)clearHeightCacheOfIndexPaths:(NSArray *)indexPaths
+{
+    [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+        NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
+        [_cacheDictionary removeObjectForKey:cacheKey];
+    }];
+}
+
 - (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
@@ -166,9 +174,16 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Method reloadData = class_getInstanceMethod(self, @selector(reloadData));
-        Method sd_reloadData = class_getInstanceMethod(self, @selector(sd_reloadData));
-        method_exchangeImplementations(reloadData, sd_reloadData);
+        
+        NSArray *selStringsArray = @[@"reloadData", @"reloadRowsAtIndexPaths:withRowAnimation:"];
+        
+        [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
+            NSString *mySelString = [@"sd_" stringByAppendingString:selString];
+        
+            Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
+            Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
+            method_exchangeImplementations(originalMethod, myMethod);
+        }];
     });
 }
 
@@ -177,6 +192,13 @@
     [self.cellAutoHeightManager clearHeightCache];
     [self sd_reloadData];
 }
+
+- (void)sd_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+{
+    [self.cellAutoHeightManager clearHeightCacheOfIndexPaths:indexPaths];
+    [self sd_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+}
+
 /*
  * 下一步即将实现的功能
  
@@ -188,11 +210,6 @@
  - (void)sd_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
  {
  [self sd_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
- }
- 
- - (void)sd_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
- {
- [self sd_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
  }
  
  - (void)sd_moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
