@@ -134,6 +134,10 @@
 
 # PS
 
+// 如果需要用“断言”调试程序请打开此宏(位于UIView+SDAutoLayout.h)
+
+//#define SDDebugWithAssert
+
 
 ![](http://ww3.sinaimg.cn/bmiddle/9b8146edgw1ex4mukixr6g209g07lhdt.gif)
 
