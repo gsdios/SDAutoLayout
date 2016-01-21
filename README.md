@@ -18,7 +18,7 @@
 ![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)![](http://ww1.sinaimg.cn/bmiddle/9b8146edgw1f06aoe2umhg206e0b4u0x.gif)
 
 
-##    >>>>> 普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
+##    >> 普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
     
     1. >> 设置cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
@@ -34,7 +34,7 @@
     }
 
 
-##    >>>>> 升级版（适应于cell条数少于100的tableview）：tableview 高度自适应设置只需要2步
+##    >> 升级版（适应于cell条数少于100的tableview）：tableview 高度自适应设置只需要2步
     
     1. >> 设置cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
