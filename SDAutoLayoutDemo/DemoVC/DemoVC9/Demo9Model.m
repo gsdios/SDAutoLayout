@@ -31,18 +31,25 @@ extern const CGFloat maxContentLabelHeight;
 @implementation Demo9Model
 
 @synthesize shouldShowMoreButton = _shouldShowMoreButton;
+@synthesize content = _content;
+
 
 - (void)setContent:(NSString *)content
 {
     _content = content;
-    
+}
+
+- (NSString *)content
+{
     CGFloat contentW = [UIScreen mainScreen].bounds.size.width - 70;
-    CGRect textRect = [content boundingRectWithSize:CGSizeMake(contentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:contentLabelFontSize]} context:nil];
+    CGRect textRect = [_content boundingRectWithSize:CGSizeMake(contentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:contentLabelFontSize]} context:nil];
     if (textRect.size.height > maxContentLabelHeight) {
         _shouldShowMoreButton = YES;
     } else {
         _shouldShowMoreButton = NO;
     }
+    
+    return _content;
 }
 
 - (void)setIsOpening:(BOOL)isOpening

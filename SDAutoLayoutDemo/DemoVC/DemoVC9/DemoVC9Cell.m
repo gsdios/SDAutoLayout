@@ -31,7 +31,7 @@
 #import "SDWeiXinPhotoContainerView.h"
 
 const CGFloat contentLabelFontSize = 15;
-const CGFloat maxContentLabelHeight = 60;
+const CGFloat maxContentLabelHeight = 54;
 
 @implementation DemoVC9Cell
 {
