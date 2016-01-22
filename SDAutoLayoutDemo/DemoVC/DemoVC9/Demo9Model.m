@@ -23,7 +23,35 @@
  */
 
 #import "Demo9Model.h"
+#import <UIKit/UIKit.h>
+
+extern const CGFloat contentLabelFontSize;
+extern const CGFloat maxContentLabelHeight;
 
 @implementation Demo9Model
+
+@synthesize shouldShowMoreButton = _shouldShowMoreButton;
+
+- (void)setContent:(NSString *)content
+{
+    _content = content;
+    
+    CGFloat contentW = [UIScreen mainScreen].bounds.size.width - 70;
+    CGRect textRect = [content boundingRectWithSize:CGSizeMake(contentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:contentLabelFontSize]} context:nil];
+    if (textRect.size.height > maxContentLabelHeight) {
+        _shouldShowMoreButton = YES;
+    } else {
+        _shouldShowMoreButton = NO;
+    }
+}
+
+- (void)setIsOpening:(BOOL)isOpening
+{
+    if (!_shouldShowMoreButton) {
+        _isOpening = NO;
+    } else {
+        _isOpening = isOpening;
+    }
+}
 
 @end

@@ -480,6 +480,16 @@
 
 @implementation UIView (SDLayoutExtention)
 
+- (void (^)(CGRect))didFinishAutoLayoutBlock
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setDidFinishAutoLayoutBlock:(void (^)(CGRect))didFinishAutoLayoutBlock
+{
+    objc_setAssociatedObject(self, @selector(didFinishAutoLayoutBlock), didFinishAutoLayoutBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
 - (NSNumber *)sd_cornerRadius
 {
     return objc_getAssociatedObject(self, _cmd);
@@ -560,9 +570,16 @@
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Method layoutSubviews = class_getInstanceMethod(self, @selector(layoutSubviews));
-        Method sd_autolayout = class_getInstanceMethod(self, @selector(sd_autolayout));
-        method_exchangeImplementations(layoutSubviews, sd_autolayout);
+        
+        NSArray *selStringsArray = @[@"layoutSubviews"];
+        
+        [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
+            NSString *mySelString = [@"sd_" stringByAppendingString:selString];
+            
+            Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
+            Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
+            method_exchangeImplementations(originalMethod, myMethod);
+        }];
     });
 }
 
@@ -662,9 +679,9 @@
     return [self sd_layout];
 }
 
-- (void)sd_autolayout
+- (void)sd_layoutSubviews
 {
-    [self sd_autolayout];
+    [self sd_layoutSubviews];
     
     if (self.sd_equalWidthSubviews.count) {
         __block CGFloat totalMargin = 0;
@@ -736,12 +753,17 @@
             }
             self.height = contentHeight;
         }
+        if (self.didFinishAutoLayoutBlock) {
+            self.didFinishAutoLayoutBlock(self.frame);
+        }
     }
 }
 
 - (void)sd_resizeWithModel:(SDAutoLayoutModel *)model
 {
     UIView *view = model.needsAutoResizeView;
+    
+    if (!view) return;
     
     if (view.sd_maxWidth && (model.rightSpaceToView || model.rightEqualToView)) { // 靠右布局前提设置
         if ([view isKindOfClass:[UILabel class]]) {
@@ -969,6 +991,10 @@
     
     if (model.heightEqualWidth) {
         view.height = view.width;
+    }
+    
+    if (view.didFinishAutoLayoutBlock) {
+        view.didFinishAutoLayoutBlock(view.frame);
     }
     
     CGFloat cornerRadius = view.layer.cornerRadius;

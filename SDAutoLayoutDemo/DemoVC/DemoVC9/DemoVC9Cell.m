@@ -30,6 +30,9 @@
 
 #import "SDWeiXinPhotoContainerView.h"
 
+const CGFloat contentLabelFontSize = 15;
+const CGFloat maxContentLabelHeight = 60;
+
 @implementation DemoVC9Cell
 {
     UIImageView *_iconView;
@@ -37,6 +40,8 @@
     UILabel *_contentLabel;
     SDWeiXinPhotoContainerView *_picContainerView;
     UILabel *_timeLabel;
+    UIButton *_moreButton;
+    BOOL _shouldOpenContentLabel;
 }
 
 
@@ -50,6 +55,9 @@
 
 - (void)setup
 {
+    
+    _shouldOpenContentLabel = NO;
+    
     _iconView = [UIImageView new];
     
     _nameLable = [UILabel new];
@@ -57,7 +65,13 @@
     _nameLable.textColor = [UIColor colorWithRed:(54 / 255.0) green:(71 / 255.0) blue:(121 / 255.0) alpha:0.9];
     
     _contentLabel = [UILabel new];
-    _contentLabel.font = [UIFont systemFontOfSize:15];
+    _contentLabel.font = [UIFont systemFontOfSize:contentLabelFontSize];
+    
+    _moreButton = [UIButton new];
+    [_moreButton setTitle:@"显示全部" forState:UIControlStateNormal];
+    [_moreButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [_moreButton addTarget:self action:@selector(moreButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    _moreButton.titleLabel.font = [UIFont systemFontOfSize:14];
     
     _picContainerView = [SDWeiXinPhotoContainerView new];
     
@@ -65,7 +79,7 @@
     _timeLabel.font = [UIFont systemFontOfSize:13];
     _timeLabel.textColor = [UIColor lightGrayColor];
     
-    NSArray *views = @[_iconView, _nameLable, _contentLabel, _picContainerView, _timeLabel];
+    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel];
     
     [views enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self.contentView addSubview:obj];
@@ -92,6 +106,13 @@
     .rightSpaceToView(contentView, margin)
     .autoHeightRatio(0);
     
+    // morebutton的高度在setmodel里面设置
+    _moreButton.sd_layout
+    .leftEqualToView(_contentLabel)
+    .topSpaceToView(_contentLabel, 0)
+    .widthIs(60);
+    
+    
     _picContainerView.sd_layout
     .leftEqualToView(_contentLabel);
     
@@ -102,7 +123,6 @@
     .autoHeightRatio(0);
     
     [self setupAutoHeightWithBottomView:_timeLabel bottomMargin:margin + 5];
-    
 }
 
 
@@ -110,16 +130,39 @@
 {
     _model = model;
     
+    _shouldOpenContentLabel = NO;
+    
     _iconView.image = [UIImage imageNamed:model.iconName];
     _nameLable.text = model.name;
     _contentLabel.text = model.content;
     _picContainerView.picPathStringsArray = model.picNamesArray;
+    
+    if (model.shouldShowMoreButton) { // 如果文字高度超过60
+        _moreButton.sd_layout.heightIs(20);
+        _moreButton.hidden = NO;
+        if (model.isOpening) { // 如果需要展开
+            _contentLabel.sd_layout.maxHeightIs(MAXFLOAT);
+        } else {
+            _contentLabel.sd_layout.maxHeightIs(60);
+        }
+    } else {
+        _moreButton.sd_layout.heightIs(0);
+        _moreButton.hidden = YES;
+    }
+    
     CGFloat picContainerTopMargin = 0;
     if (model.picNamesArray.count) {
         picContainerTopMargin = 10;
     }
-    _picContainerView.sd_layout.topSpaceToView(_contentLabel, picContainerTopMargin);
+    _picContainerView.sd_layout.topSpaceToView(_moreButton, picContainerTopMargin);
     _timeLabel.text = @"1分钟前";
+}
+
+- (void)moreButtonClicked
+{
+    if (self.moreButtonClickedBlock) {
+        self.moreButtonClickedBlock(self.indexPath);
+    }
 }
 
 @end

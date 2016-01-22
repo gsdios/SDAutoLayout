@@ -31,4 +31,8 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, strong) NSArray *picNamesArray;
 
+@property (nonatomic, assign) BOOL isOpening;
+
+@property (nonatomic, assign, readonly) BOOL shouldShowMoreButton;
+
 @end

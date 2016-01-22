@@ -189,6 +189,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UIView (SDLayoutExtention)
 
+/** 自动布局完成后的回调block，可以在这里获取到view的真实frame  */
+@property (nonatomic) void (^didFinishAutoLayoutBlock)(CGRect frame);
+
 /* 设置圆角 */
 
 /** 设置圆角半径值  */

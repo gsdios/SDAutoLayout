@@ -29,4 +29,8 @@
 
 @property (nonatomic, strong) Demo9Model *model;
 
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
+@property (nonatomic, copy) void (^moreButtonClickedBlock)(NSIndexPath *indexPath);
+
 @end
