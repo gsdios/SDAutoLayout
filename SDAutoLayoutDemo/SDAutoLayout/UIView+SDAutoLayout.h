@@ -220,6 +220,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UILabel (SDLabelAutoResize)
 
+/** 是否是attributedString */
+@property (nonatomic) BOOL isAttributedContent;
+
 /** 设置单行文本label宽度自适应 */
 - (void)setSingleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth;
 

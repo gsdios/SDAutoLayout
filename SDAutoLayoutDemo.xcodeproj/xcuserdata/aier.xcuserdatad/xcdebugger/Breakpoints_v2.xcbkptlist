@@ -43,38 +43,6 @@
             endingLineNumber = "146"
             landmarkName = "heightEqualToWidth"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModel needsAutoResizeView]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.931664"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModel setNeedsAutoResizeView:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.932296"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -91,38 +59,6 @@
             endingLineNumber = "155"
             landmarkName = "spaceToSuperView"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModel needsAutoResizeView]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.935283"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModel setNeedsAutoResizeView:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.93572"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -139,38 +75,6 @@
             endingLineNumber = "170"
             landmarkName = "-updateLayout"
             landmarkType = "4">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem value]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.938238"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.938637"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -187,38 +91,6 @@
             endingLineNumber = "187"
             landmarkName = "sd_cornerRadius"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem value]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.939929"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.940373"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -235,38 +107,6 @@
             endingLineNumber = "189"
             landmarkName = "sd_cornerRadiusFromWidthRatio"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem value]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.941675"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.942141"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -283,38 +123,6 @@
             endingLineNumber = "191"
             landmarkName = "sd_cornerRadiusFromHeightRatio"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem value]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.943273"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.943782"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -331,38 +139,6 @@
             endingLineNumber = "194"
             landmarkName = "sd_equalWidthSubviews"
             landmarkType = "19">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem value]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.945007"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.945416"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -379,38 +155,6 @@
             endingLineNumber = "202"
             landmarkName = "-setupAutoContentSizeWithBottomView:bottomMargin:"
             landmarkType = "4">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem value]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.946644"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.947034"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -427,38 +171,6 @@
             endingLineNumber = "205"
             landmarkName = "-setupAutoContentSizeWithRightView:rightMargin:"
             landmarkType = "4">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem value]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.948352"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.948778"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -475,38 +187,6 @@
             endingLineNumber = "213"
             landmarkName = "-setSingleLineAutoResizeWithMaxWidth:"
             landmarkType = "4">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem value]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.95029"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SDAutoLayoutModelItem setValue:]"
-                  moduleName = "SDAutoLayout &#x6d4b;&#x8bd5; Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aier/Documents/myios/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout%20%E6%B5%8B%E8%AF%95%20Demo/SDAutoLayout/UIView+SDAutoLayout.h"
-                  timestampString = "474053256.950698"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
