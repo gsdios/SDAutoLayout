@@ -784,38 +784,15 @@
                 if (!label.isAttributedContent) {
                     CGRect rect = [label.text boundingRectWithSize:CGSizeMake(width, label.height) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
                     label.width = rect.size.width;
-                    label.fixedWith = @(label.width);
                 } else{
                     [label sizeToFit];
                     if (label.width > width) {
                         label.width = width;
                     }
                 }
+                label.fixedWith = @(label.width);
             } else {
                 label.width = 0;
-            }
-        }
-    }
-    
-    if (view.autoHeightRatioValue && view.width > 0 && (model.bottomEqualToView || model.bottomSpaceToView)) { // 底部布局前提设置
-        if ([view.autoHeightRatioValue floatValue] > 0) {
-            view.height = view.width * [view.autoHeightRatioValue floatValue];
-        } else {
-            if ([view isKindOfClass:[UILabel class]]) {
-                UILabel *label = (UILabel *)view;
-                label.numberOfLines = 0;
-                if (label.text.length) {
-                    if (!label.isAttributedContent) {
-                        CGRect rect = [label.text boundingRectWithSize:CGSizeMake(label.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
-                        label.height = rect.size.height;
-                    } else {
-                        [label sizeToFit];
-                    }
-                } else {
-                    label.height = 0;
-                }
-            } else {
-                view.height = 0;
             }
         }
     }
@@ -895,6 +872,31 @@
         }
         
     }
+    
+    if (view.autoHeightRatioValue && view.width > 0 && (model.bottomEqualToView || model.bottomSpaceToView)) { // 底部布局前提设置
+        if ([view.autoHeightRatioValue floatValue] > 0) {
+            view.height = view.width * [view.autoHeightRatioValue floatValue];
+        } else {
+            if ([view isKindOfClass:[UILabel class]]) {
+                UILabel *label = (UILabel *)view;
+                label.numberOfLines = 0;
+                if (label.text.length) {
+                    if (!label.isAttributedContent) {
+                        CGRect rect = [label.text boundingRectWithSize:CGSizeMake(label.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
+                        label.height = rect.size.height;
+                    } else {
+                        [label sizeToFit];
+                    }
+                    label.fixedHeight = @(label.height);
+                } else {
+                    label.height = 0;
+                }
+            } else {
+                view.height = 0;
+            }
+        }
+    }
+
     
     if (model.top) {
         if (view.superview == model.top.refView) {
