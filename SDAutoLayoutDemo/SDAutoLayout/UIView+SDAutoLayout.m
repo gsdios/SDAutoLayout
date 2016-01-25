@@ -686,6 +686,9 @@
         [self.superview.autoLayoutModelsArray removeObject:model];
         [self setOwnLayoutModel:nil];
     }
+    if (self.autoHeightRatioValue) {
+        self.autoHeightRatioValue = nil;
+    }
     return [self sd_layout];
 }
 
