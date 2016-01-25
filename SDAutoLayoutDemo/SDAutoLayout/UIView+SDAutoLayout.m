@@ -879,6 +879,10 @@
         } else {
             if ([view isKindOfClass:[UILabel class]]) {
                 UILabel *label = (UILabel *)view;
+                if (model.top || model.equalTop) {
+                    model.bottom = nil;
+                    model.equalBottom = nil;
+                }
                 label.numberOfLines = 0;
                 if (label.text.length) {
                     if (!label.isAttributedContent) {
