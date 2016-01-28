@@ -83,7 +83,12 @@
     
     testLabel.text = @"edflgjl;ijf;iljd;lij;lfk;lknsdfhfg;ljhl;sfdj;oigfj;jgf;lfgjrlkfewiorrgi";
     
-    testLabel.sd_layout.autoHeightRatio(0).spaceToSuperView(UIEdgeInsetsMake(10, 10, 0, 10));
+    testLabel.sd_layout
+    .leftSpaceToView(self.view1, 10)
+    .rightSpaceToView(self.view1, 10)
+    .topSpaceToView(self.view1, 10)
+    .autoHeightRatio(0);
+    
     testView.sd_layout
     .topSpaceToView(testLabel, 10)
     .widthRatioToView(testLabel, 1)

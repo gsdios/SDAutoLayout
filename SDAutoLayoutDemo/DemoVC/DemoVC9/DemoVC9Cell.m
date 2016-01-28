@@ -134,6 +134,8 @@ const CGFloat maxContentLabelHeight = 54;
     
     _iconView.image = [UIImage imageNamed:model.iconName];
     _nameLable.text = model.name;
+    // 防止单行文本label在重用时宽度计算不准的问题
+    [_nameLable sizeToFit];
     _contentLabel.text = model.content;
     _picContainerView.picPathStringsArray = model.picNamesArray;
     
