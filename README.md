@@ -1,10 +1,15 @@
 # SDAutoLayout（一行代码搞定自动布局！）
+
+### 招募SDAutoLayout库合作开发者：
+要求有两年以上的iOS开发经验，热衷于简洁高效的纯代码UI。有意向的私聊（QQ：2689718696）！
+（SDAutoLayout在正式发布不到三个月的时间里已经得到许多开发者的支持，截至目前qq群一和群二 总人数500人左右，github上的star数量突破1100，期待与你共同维护一个优秀的开源框架！！！） 
+
+
 ### QQ交流群：519489682（已满）497140713
 
 ☆☆ SDAutoLayout 基础版视频教程：http://www.letv.com/ptv/vplay/24038772.html ☆☆
 
 ☆☆ SDAutoLayout 进阶版视频教程：http://www.letv.com/ptv/vplay/24381390.html ☆☆
-
 
 
 
