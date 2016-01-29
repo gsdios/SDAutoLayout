@@ -1039,6 +1039,10 @@
         view.didFinishAutoLayoutBlock(view.frame);
     }
     
+    if (view.sd_bottomViewsArray.count) {
+        [view layoutSubviews];
+    }
+    
     CGFloat cornerRadius = view.layer.cornerRadius;
     CGFloat newCornerRadius = 0;
     
