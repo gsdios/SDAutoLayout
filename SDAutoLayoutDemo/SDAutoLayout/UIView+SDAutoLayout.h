@@ -143,7 +143,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 /** 宽度是参照view宽度的多少倍，参数为“(View, CGFloat)” */
 @property (nonatomic, copy, readonly) WidthHeightEqualToView widthRatioToView;
-/** 高度是参照view宽度的多少倍，参数为“(View, CGFloat)” */
+/** 高度是参照view高度的多少倍，参数为“(View, CGFloat)” */
 @property (nonatomic, copy, readonly) WidthHeightEqualToView heightRatioToView;
 /** 设置一个view的宽度和它的高度相同，参数为空“()” */
 @property (nonatomic, copy, readonly) SameWidthHeight widthEqualToHeight;
