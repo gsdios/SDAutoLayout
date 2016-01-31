@@ -38,7 +38,7 @@
     .widthIs(50)
     .heightIs(50);
     
-    // view1使用高度根据子view内容自适应，所有不需要设置高度
+    // view1使用高度根据子view内容自适应，所以不需要设置高度，而是在后面设置“[self.view1 setupAutoHeightWithBottomView:testView bottomMargin:10];”实现高度根据内容自适应
     self.view1.sd_layout
     .leftSpaceToView(self.view0, 10)
     .topEqualToView(self.view0)
@@ -87,7 +87,7 @@
     .leftSpaceToView(self.view1, 10)
     .rightSpaceToView(self.view1, 10)
     .topSpaceToView(self.view1, 10)
-    .autoHeightRatio(0);
+    .autoHeightRatio(0); // 设置文本内容自适应，如果这里的参数为大于0的数值则会以此数值作为view的高宽比设置view的高度
     
     testView.sd_layout
     .topSpaceToView(testLabel, 10)
@@ -95,6 +95,7 @@
     .heightIs(30)
     .leftEqualToView(testLabel);
     
+    // 设置view1高度根据子其内容自适应
     [self.view1 setupAutoHeightWithBottomView:testView bottomMargin:10];
     
 //  ============================================================

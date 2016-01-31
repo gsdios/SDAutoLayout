@@ -79,13 +79,6 @@
     .widthRatioToView(self.view0, 0.5)
     .heightIs(20);
 
-//    self.view6.sd_layout
-//    .centerXEqualToView(self.view)
-//    .topSpaceToView(self.view0, 50)
-//    .heightRatioToView(self.view, 1)
-//    .widthRatioToView(self.view5, 1);
-    
-
 }
 
 
@@ -97,11 +90,13 @@
     } else {
         _widthRatio = 0.4;
     }
+    
+    // 开启动画
     [UIView animateWithDuration:0.8 animations:^{
         self.view0.sd_layout
         .widthRatioToView(self.view, _widthRatio);
-        [self.view0 updateLayout];
-        [self.view5 updateLayout];
+        [self.view0 updateLayout]; // 调用此方法开启view0动画效果
+        [self.view5 updateLayout]; // 调用此方法开启view5动画效果
     }];
     
     

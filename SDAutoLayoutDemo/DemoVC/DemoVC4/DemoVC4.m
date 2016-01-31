@@ -69,7 +69,7 @@
     .topEqualToView(self.view4);
     
     
-    // attributedString测试：行间距为8
+//  --------- attributedString测试：行间距为8 ---------------------------
     
     NSString *text = @"attributedString测试：行间距为8。彩虹网络卡福利费绿调查开房；卡法看得出来分开了的出口来反馈率打开了房；快烦死了；了； 调查开房；；v单纯考虑分离开都快来反馈来看发v离开的积分房积分jdhflgfkkvvm.cm。";
     NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -91,6 +91,7 @@
     // 标注lable的text为attributedString
     label.isAttributedContent = YES;
     
+//  --------- attributedString测试：行间距为8 ---------------------------
     
 }
 

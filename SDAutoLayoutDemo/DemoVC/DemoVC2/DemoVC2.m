@@ -28,18 +28,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+// ------------------设置3个水平等宽子view----------------
     
-    [self.view0 addSubview:self.view1];
-    [self.view1 addSubview:self.view2];
+    self.view.sd_equalWidthSubviews = @[self.view0, self.view1, self.view2];
     
-    self.view0.sd_layout.leftSpaceToView(self.view, 30).rightSpaceToView(self.view, 30).topSpaceToView(self.view, 100).bottomSpaceToView(self.view, 30);
-    self.view1.sd_layout.leftSpaceToView(self.view0, 30).topSpaceToView(self.view0, 30).widthRatioToView(self.view0, 0.5).heightRatioToView(self.view0, 0.5);
-    self.view2.sd_layout.leftSpaceToView(self.view1, 30).topSpaceToView(self.view1, 30).widthRatioToView(self.view1, 0.5).heightRatioToView(self.view1, 0.5);
+    self.view0.sd_layout
+    .leftSpaceToView(self.view, 0)      // 左边距父view为0
+    .topSpaceToView(self.view, 100)     // 上边距离父view为100
+    .heightEqualToWidth();              // 高度等于自身宽度
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.view0.sd_layout.bottomSpaceToView(self.view, 100);
-        [self.view0 updateLayout];
-    });
+    self.view1.sd_layout
+    .leftSpaceToView(self.view0, 0)     // 左边距离view0为0
+    .topEqualToView(self.view0)         // top和view0相同
+    .rightSpaceToView(self.view2, 0)    // 右边距离view2为0
+    .heightEqualToWidth();              // 高度等于自身宽度
+    
+    self.view2.sd_layout
+    .leftSpaceToView(self.view1, 0)     // 左边距离view1为0
+    .topEqualToView(self.view1)         // top和view1相同
+    .rightSpaceToView(self.view, 0)     // 右边距离父view为0
+    .heightEqualToWidth();              // 高度等于自身宽度
+    
+// ------------------------------------------------------
+    
+    
+    
+    self.view3.sd_layout
+    .widthIs(50)
+    .heightEqualToWidth()
+    .centerYEqualToView(self.view)
+    .centerXEqualToView(self.view);
+    
 }
 
 
