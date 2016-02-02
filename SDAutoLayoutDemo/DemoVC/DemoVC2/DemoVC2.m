@@ -41,7 +41,6 @@
     self.view1.sd_layout
     .leftSpaceToView(self.view0, 0)     // 左边距离view0为0
     .topEqualToView(self.view0)         // top和view0相同
-    .rightSpaceToView(self.view2, 0)    // 右边距离view2为0
     .heightEqualToWidth();              // 高度等于自身宽度
     
     self.view2.sd_layout

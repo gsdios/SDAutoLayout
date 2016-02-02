@@ -384,6 +384,8 @@
     if (!_widthEqualToHeight) {
         _widthEqualToHeight = ^() {
             weakSelf.widthEqualHeight = [SDAutoLayoutModelItem new];
+            // 主动触发一次赋值操作
+            weakSelf.needsAutoResizeView.height = weakSelf.needsAutoResizeView.height;
             return weakSelf;
         };
     }
@@ -397,6 +399,8 @@
     if (!_heightEqualToWidth) {
         _heightEqualToWidth = ^() {
             weakSelf.heightEqualWidth = [SDAutoLayoutModelItem new];
+            // 主动触发一次赋值操作
+            weakSelf.needsAutoResizeView.width = weakSelf.needsAutoResizeView.width;
             return weakSelf;
         };
     }
