@@ -412,18 +412,48 @@
 
 @implementation UIView (SDAutoHeightWidth)
 
+- (SDUIViewCategoryManager *)sd_categoryManager
+{
+    SDUIViewCategoryManager *manager = objc_getAssociatedObject(self, _cmd);
+    if (!manager) {
+        objc_setAssociatedObject(self, _cmd, [SDUIViewCategoryManager new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return objc_getAssociatedObject(self, _cmd);
+}
+
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin
 {
     if (!bottomView) return;
-    [self.sd_bottomViewsArray addObject:bottomView];
-    self.sd_bottomViewBottomMargin = bottomMargin;
+    
+    [self setupAutoHeightWithBottomViewsArray:@[bottomView] bottomMargin:bottomMargin];
+}
+
+- (void)setupAutoWidthWithRightView:(UIView *)rightView rightMargin:(CGFloat)rightMargin
+{
+    if (!rightView) return;
+    
+    self.sd_rightViewsArray = @[rightView];
+    self.sd_rightViewRightMargin = rightMargin;
 }
 
 - (void)setupAutoHeightWithBottomViewsArray:(NSArray *)bottomViewsArray bottomMargin:(CGFloat)bottomMargin
 {
     if (!bottomViewsArray) return;
+    
+    // 清空之前的view
+    [self.sd_bottomViewsArray removeAllObjects];
     [self.sd_bottomViewsArray addObjectsFromArray:bottomViewsArray];
     self.sd_bottomViewBottomMargin = bottomMargin;
+}
+
+- (void)clearAutoHeigtSettings
+{
+    [self.sd_bottomViewsArray removeAllObjects];
+}
+
+- (void)clearAutoWidthSettings
+{
+    self.sd_rightViewsArray = nil;
 }
 
 - (void)updateLayout
@@ -450,6 +480,16 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
+- (NSArray *)sd_rightViewsArray
+{
+    return [[self sd_categoryManager] rightViewsArray];
+}
+
+- (void)setSd_rightViewsArray:(NSArray *)sd_rightViewsArray
+{
+    [[self sd_categoryManager] setRightViewsArray:sd_rightViewsArray];
+}
+
 - (CGFloat)sd_bottomViewBottomMargin
 {
     return [objc_getAssociatedObject(self, _cmd) floatValue];
@@ -460,24 +500,14 @@
     objc_setAssociatedObject(self, @selector(sd_bottomViewBottomMargin), @(sd_bottomViewBottomMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (UIView *)sd_rightView
+- (void)setSd_rightViewRightMargin:(CGFloat)sd_rightViewRightMargin
 {
-    return objc_getAssociatedObject(self, _cmd);
+    [[self sd_categoryManager] setRightViewRightMargin:sd_rightViewRightMargin];
 }
 
-- (void)setSd_rightView:(UIView *)sd_rightView
+- (CGFloat)sd_rightViewRightMargin
 {
-    objc_setAssociatedObject(self, @selector(sd_rightView), sd_rightView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (CGFloat)sd_rightMargin
-{
-    return [objc_getAssociatedObject(self, _cmd) floatValue];
-}
-
-- (void)setSd_rightMargin:(CGFloat)sd_rightMargin
-{
-    objc_setAssociatedObject(self, @selector(sd_rightMargin), @(sd_rightMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return [[self sd_categoryManager] rightViewRightMargin];
 }
 
 @end
@@ -547,8 +577,10 @@
 
 - (void)setupAutoContentSizeWithRightView:(UIView *)rightView rightMargin:(CGFloat)rightMargin
 {
-    [self setSd_rightView:rightView];
-    [self setSd_rightMargin:rightMargin];
+    if (!rightView) return;
+    
+    self.sd_rightViewsArray = @[rightView];
+    self.sd_rightViewRightMargin = rightMargin;
 }
 
 @end
@@ -685,6 +717,12 @@
 
 - (SDAutoLayoutModel *)sd_resetLayout
 {
+    [self sd_clearAutoLayoutSettings];
+    return [self sd_layout];
+}
+
+- (void)sd_clearAutoLayoutSettings
+{
     SDAutoLayoutModel *model = [self ownLayoutModel];
     if (model) {
         [self.superview.autoLayoutModelsArray removeObject:model];
@@ -693,7 +731,6 @@
     if (self.autoHeightRatioValue) {
         self.autoHeightRatioValue = nil;
     }
-    return [self sd_layout];
 }
 
 - (void)sd_layoutSubviews
@@ -727,28 +764,26 @@
         if ([cell isKindOfClass:[UITableViewCell class]]) {
             CGFloat height = 0;
             for (UIView *view in cell.sd_bottomViewsArray) {
-                if (view.sd_bottomViewsArray.count) {
-                    [view layoutSubviews];
-                }
                 height = MAX(height, view.bottom);
             }
             cell.autoHeight = height + cell.sd_bottomViewBottomMargin;
         }
-    } else if (![self isKindOfClass:[UITableViewCell class]] && (self.sd_bottomViewsArray.count || self.sd_rightView)) {
+    } else if (![self isKindOfClass:[UITableViewCell class]] && (self.sd_bottomViewsArray.count || self.sd_rightViewsArray.count)) {
         CGFloat contentHeight = 0;
         CGFloat contentWidth = 0;
         if (self.sd_bottomViewsArray) {
             CGFloat height = 0;
             for (UIView *view in self.sd_bottomViewsArray) {
-                if (view.sd_bottomViewsArray.count) {
-                    [view layoutSubviews];
-                }
                 height = MAX(height, view.bottom);
             }
             contentHeight = height + self.sd_bottomViewBottomMargin;
         }
-        if (self.sd_rightView) {
-            contentWidth = self.sd_rightView.right + self.sd_rightMargin;
+        if (self.sd_rightViewsArray) {
+            CGFloat width = 0;
+            for (UIView *view in self.sd_rightViewsArray) {
+                width = MAX(width, view.right);
+            }
+            contentWidth = width + self.sd_rightViewRightMargin;
         }
         if ([self isKindOfClass:[UIScrollView class]]) {
             UIScrollView *scrollView = (UIScrollView *)self;
@@ -762,14 +797,54 @@
             if (contentSize.width <= 0) {
                 contentSize.width = scrollView.width;
             }
-            scrollView.contentSize = contentSize;
+            if (!CGSizeEqualToSize(contentSize, scrollView.contentSize)) {
+                scrollView.contentSize = contentSize;
+            }
         } else {
             // 如果这里出现循环调用情况请把demo发送到gsdios@126.com，谢谢配合。
-            if (floorf(contentHeight) == floorf(self.height)) {
-                return;
+            if (self.sd_bottomViewsArray.count && (floorf(contentHeight) != floorf(self.height))) {
+                self.height = contentHeight;
+                self.fixedHeight = @(self.height);
             }
-            self.height = contentHeight;
+            
+            if (self.sd_rightViewsArray.count && (floorf(contentWidth) != floorf(self.width))) {
+                self.width = contentWidth;
+                self.fixedWith = @(self.width);
+            }
         }
+        
+        if (self.sd_rightViewsArray.count && (self.ownLayoutModel.right || self.ownLayoutModel.equalRight)) {
+            SDAutoLayoutModel *model = self.ownLayoutModel;
+            UIView *view = self;
+            if (model.right) {
+                if (view.superview == model.right.refView) {
+                    if (!view.fixedWith) { // view.autoLeft && view.autoRight
+                        view.width = model.right.refView.width - view.left - [model.right.value floatValue];
+                    }
+                    view.right = model.right.refView.width - [model.right.value floatValue];
+                } else {
+                    if (!view.fixedWith) { // view.autoLeft && view.autoRight
+                        view.width =  model.right.refView.left - view.left - [model.right.value floatValue];
+                    }
+                    view.right = model.right.refView.left - [model.right.value floatValue];
+                }
+            } else if (model.equalRight) {
+                if (!view.fixedWith) {
+                    if (model.equalRight.refView == view.superview) {
+                        view.width = model.equalRight.refView.width - view.left;
+                    } else {
+                        view.width = model.equalRight.refView.right - view.left;
+                    }
+                }
+                
+                view.right = model.equalRight.refView.right;
+                if (view.superview == model.equalRight.refView) {
+                    view.right = model.equalRight.refView.width;
+                }
+                
+            }
+        }
+        
         if (self.didFinishAutoLayoutBlock) {
             self.didFinishAutoLayoutBlock(self.frame);
         }
@@ -1043,9 +1118,10 @@
         view.didFinishAutoLayoutBlock(view.frame);
     }
     
-    if (view.sd_bottomViewsArray.count) {
+    if (view.sd_bottomViewsArray.count || view.sd_rightViewsArray.count) {
         [view layoutSubviews];
     }
+    
     
     CGFloat cornerRadius = view.layer.cornerRadius;
     CGFloat newCornerRadius = 0;
@@ -1186,6 +1262,12 @@
     frame.size = size;
     self.frame = frame;
 }
+
+@end
+
+
+
+@implementation SDUIViewCategoryManager
 
 @end
 

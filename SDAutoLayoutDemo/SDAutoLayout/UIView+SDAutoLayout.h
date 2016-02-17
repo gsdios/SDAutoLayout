@@ -54,7 +54,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class SDAutoLayoutModel;
+@class SDAutoLayoutModel, SDUIViewCategoryManager;
 
 typedef SDAutoLayoutModel *(^MarginToView)(UIView *toView, CGFloat value);
 typedef SDAutoLayoutModel *(^Margin)(CGFloat value);
@@ -171,19 +171,27 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 设置Cell的高度自适应，也可用于设置普通view内容自适应 */
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
+/** 设置Cell的高度自适应，也可用于设置普通view内容自适应 */
+- (void)setupAutoWidthWithRightView:(UIView *)rightView rightMargin:(CGFloat)rightMargin;
+
 /** 设置Cell的高度自适应，也可用于设置普通view内容自适应（应用于当你不确定哪个view在自动布局之后会排布在最下方最为bottomView的时候可以调用次方法将所有可能在最下方的view都传过去） */
 - (void)setupAutoHeightWithBottomViewsArray:(NSArray *)bottomViewsArray bottomMargin:(CGFloat)bottomMargin;
 
 /** 主动刷新布局（如果你需要设置完布局代码就获得view的frame请调用此方法） */
 - (void)updateLayout;
 
+- (void)clearAutoHeigtSettings;
+- (void)clearAutoWidthSettings;
+
 @property (nonatomic) CGFloat autoHeight;
+
+@property (nonatomic, readonly) SDUIViewCategoryManager *sd_categoryManager;
 
 @property (nonatomic, readonly) NSMutableArray *sd_bottomViewsArray;
 @property (nonatomic) CGFloat sd_bottomViewBottomMargin;
 
-@property (nonatomic) UIView *sd_rightView;
-@property (nonatomic) CGFloat sd_rightMargin;
+@property (nonatomic) NSArray *sd_rightViewsArray;
+@property (nonatomic) CGFloat sd_rightViewRightMargin;
 
 @end
 
@@ -279,6 +287,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 清空之前的自动布局设置，重新开始自动布局  */
 - (SDAutoLayoutModel *)sd_resetLayout;
 
+/** 清空之前的自动布局设置  */
+- (void)sd_clearAutoLayoutSettings;
+
 - (NSMutableArray *)autoLayoutModelsArray;
 
 - (void)addAutoLayoutModel:(SDAutoLayoutModel *)model;
@@ -310,6 +321,14 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @property (nonatomic) CGPoint origin;
 @property (nonatomic) CGSize size;
+
+@end
+
+
+@interface SDUIViewCategoryManager : NSObject
+
+@property (nonatomic, strong) NSArray *rightViewsArray;
+@property (nonatomic, assign) CGFloat rightViewRightMargin;
 
 @end
 
