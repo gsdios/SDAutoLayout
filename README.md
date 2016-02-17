@@ -11,7 +11,7 @@
 
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
-支持pod：  pod 'SDAutoLayout', '~> 1.3'
+支持pod：  pod 'SDAutoLayout', '~> 1.31'
 
 ## 更新记录：
 
