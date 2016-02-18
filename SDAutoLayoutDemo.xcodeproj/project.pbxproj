@@ -85,7 +85,6 @@
 		48DBCD231C01E045002EC476 /* pic4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD191C01E045002EC476 /* pic4.jpg */; };
 		48EB72EF1C748D6C003A818E /* SDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EB72E31C748D6C003A818E /* SDWebViewController.m */; };
 		48EB72F01C748D6C003A818E /* SDChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EB72E71C748D6C003A818E /* SDChatModel.m */; };
-		48EB72F11C748D6C003A818E /* SDChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EB72E91C748D6C003A818E /* SDChatTableViewController.m */; };
 		48EB72F21C748D6C003A818E /* SDChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EB72EC1C748D6C003A818E /* SDChatTableViewCell.m */; };
 		48EB72FC1C748DF5003A818E /* MLEmoji_Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48EB72F41C748DF5003A818E /* MLEmoji_Expression.bundle */; };
 		48EB72FD1C748DF5003A818E /* MLEmoji_Expression.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48EB72F51C748DF5003A818E /* MLEmoji_Expression.plist */; };
@@ -342,8 +341,6 @@
 		48EB72E31C748D6C003A818E /* SDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebViewController.m; sourceTree = "<group>"; };
 		48EB72E61C748D6C003A818E /* SDChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDChatModel.h; sourceTree = "<group>"; };
 		48EB72E71C748D6C003A818E /* SDChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDChatModel.m; sourceTree = "<group>"; };
-		48EB72E81C748D6C003A818E /* SDChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDChatTableViewController.h; sourceTree = "<group>"; };
-		48EB72E91C748D6C003A818E /* SDChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDChatTableViewController.m; sourceTree = "<group>"; };
 		48EB72EB1C748D6C003A818E /* SDChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDChatTableViewCell.h; sourceTree = "<group>"; };
 		48EB72EC1C748D6C003A818E /* SDChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDChatTableViewCell.m; sourceTree = "<group>"; };
 		48EB72EE1C748D6C003A818E /* GlobalDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDefines.h; sourceTree = "<group>"; };
@@ -902,8 +899,6 @@
 			isa = PBXGroup;
 			children = (
 				48EB72E51C748D6C003A818E /* Models */,
-				48EB72E81C748D6C003A818E /* SDChatTableViewController.h */,
-				48EB72E91C748D6C003A818E /* SDChatTableViewController.m */,
 				48EB72EA1C748D6C003A818E /* Views */,
 				48EB73411C748F26003A818E /* DemoVC11.h */,
 				48EB73421C748F26003A818E /* DemoVC11.m */,
@@ -1443,7 +1438,6 @@
 				485302F61C3F65EE004361A7 /* TADotView.m in Sources */,
 				485303481C3F977A004361A7 /* SDWeiXinPhotoContainerView.m in Sources */,
 				485302DB1C3F6490004361A7 /* SDWebImageManager.m in Sources */,
-				48EB72F11C748D6C003A818E /* SDChatTableViewController.m in Sources */,
 				48EB73001C748DF5003A818E /* TTTAttributedLabel.m in Sources */,
 				48EB73041C748E1A003A818E /* SDAnalogDataGenerator.m in Sources */,
 				485302F51C3F65EE004361A7 /* TAAnimatedDotView.m in Sources */,
