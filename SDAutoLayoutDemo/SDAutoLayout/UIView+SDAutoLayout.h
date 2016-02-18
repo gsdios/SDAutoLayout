@@ -168,10 +168,10 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UIView (SDAutoHeightWidth)
 
-/** 设置Cell的高度自适应，也可用于设置普通view内容自适应 */
+/** 设置Cell的高度自适应，也可用于设置普通view内容高度自适应 */
 - (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin;
 
-/** 设置Cell的高度自适应，也可用于设置普通view内容自适应 */
+/** 用于设置普通view内容宽度自适应 */
 - (void)setupAutoWidthWithRightView:(UIView *)rightView rightMargin:(CGFloat)rightMargin;
 
 /** 设置Cell的高度自适应，也可用于设置普通view内容自适应（应用于当你不确定哪个view在自动布局之后会排布在最下方最为bottomView的时候可以调用次方法将所有可能在最下方的view都传过去） */
