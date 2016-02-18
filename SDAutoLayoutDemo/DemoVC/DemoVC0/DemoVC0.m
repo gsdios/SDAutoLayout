@@ -97,6 +97,9 @@
         .widthRatioToView(self.view, _widthRatio);
         [self.view0 updateLayout]; // 调用此方法开启view0动画效果
         [self.view5 updateLayout]; // 调用此方法开启view5动画效果
+        /*
+         调用[self.view0 updateLayout]就可以实现view0和其它兄弟view一起动画，view0和view5是父子关系，如果view0需要动画要再主动调用一次[self.view5 updateLayout]
+         */
     }];
     
     
