@@ -741,7 +741,8 @@
         __block CGFloat totalMargin = 0;
         [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
             SDAutoLayoutModel *model = view.sd_layout;
-            totalMargin += ([model.left.value floatValue] + [model.right.value floatValue]);
+            CGFloat left = model.left ? [model.left.value floatValue] : model.needsAutoResizeView.left;
+            totalMargin += (left + [model.right.value floatValue]);
         }];
         CGFloat averageWidth = (self.width - totalMargin) / self.sd_equalWidthSubviews.count;
         [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
