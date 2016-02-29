@@ -1,4 +1,7 @@
 # SDAutoLayout（一行代码搞定自动布局！）
+一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
+
+支持pod：  pod 'SDAutoLayout', '~> 1.31'
 
 ### QQ交流群：519489682（已满）497140713
 
@@ -9,10 +12,6 @@
 ## 部分SDAutoLayout的DEMO
 ![](http://ww1.sinaimg.cn/bmiddle/9b8146edgw1f06aoe2umhg206e0b4u0x.gif)![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)
 
-
-一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
-
-支持pod：  pod 'SDAutoLayout', '~> 1.31'
 
 ## 更新记录：
 
