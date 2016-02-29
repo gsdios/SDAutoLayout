@@ -1,4 +1,4 @@
-# SDAutoLayout（一行代码搞定自动布局！）
+# SDAutoLayout(One line of code to implement automatic layout)（一行代码搞定自动布局！）
 
 ### QQ交流群：519489682（已满）497140713
 
