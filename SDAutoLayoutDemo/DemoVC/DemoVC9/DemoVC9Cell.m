@@ -81,9 +81,7 @@ const CGFloat maxContentLabelHeight = 54;
     
     NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel];
     
-    [views enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.contentView addSubview:obj];
-    }];
+    [self.contentView sd_addSubviews:views];
     
     UIView *contentView = self.contentView;
     CGFloat margin = 10;

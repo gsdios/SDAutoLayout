@@ -23,6 +23,8 @@
 
 #import "ViewController.h"
 
+#import "UIView+SDAutoLayout.h"
+
 
 
 @interface ViewController ()
@@ -78,15 +80,7 @@
     view8.backgroundColor = [UIColor blackColor];
     self.view8 = view8;
     
-    [self.view addSubview:view0];
-    [self.view addSubview:view1];
-    [self.view addSubview:view2];
-    [self.view addSubview:view3];
-    [self.view addSubview:view4];
-    [self.view addSubview:view5];
-    [self.view addSubview:view6];
-    [self.view addSubview:view7];
-    [self.view addSubview:view8];
+    [self.view sd_addSubviews:@[view0, view1, view2, view3, view4, view5, view6, view7, view8]];
 }
 
 

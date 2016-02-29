@@ -200,6 +200,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 自动布局完成后的回调block，可以在这里获取到view的真实frame  */
 @property (nonatomic) void (^didFinishAutoLayoutBlock)(CGRect frame);
 
+/** 添加一组子view  */
+- (void)sd_addSubviews:(NSArray *)subviews;
+
 /* 设置圆角 */
 
 /** 设置圆角半径值  */

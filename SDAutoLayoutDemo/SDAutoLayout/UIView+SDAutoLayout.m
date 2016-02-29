@@ -566,6 +566,15 @@
     objc_setAssociatedObject(self, @selector(sd_equalWidthSubviews), sd_equalWidthSubviews, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (void)sd_addSubviews:(NSArray *)subviews
+{
+    [subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
+        if ([view isKindOfClass:[UIView class]]) {
+            [self addSubview:view];
+        }
+    }];
+}
+
 @end
 
 @implementation UIScrollView (SDAutoContentSize)

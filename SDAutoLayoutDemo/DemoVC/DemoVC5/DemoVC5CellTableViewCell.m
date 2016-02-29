@@ -71,11 +71,7 @@
     view4.font = [UIFont systemFontOfSize:13];
     _view4 = view4;
     
-    [self.contentView addSubview:view0];
-    [self.contentView addSubview:view1];
-    [self.contentView addSubview:view2];
-    [self.contentView addSubview:view3];
-    [self.contentView addSubview:view4];
+    [self.contentView sd_addSubviews:@[view0, view1, view2, view3, view4]];
     
     
     _view0.sd_layout

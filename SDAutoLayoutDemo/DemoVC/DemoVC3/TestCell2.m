@@ -66,13 +66,9 @@
         UIView *view5 = [UIView new];
         view5.backgroundColor = [UIColor yellowColor];
         _view5 = view5;
+
         
-        [self.contentView addSubview:view0];
-        [self.contentView addSubview:view1];
-        [self.contentView addSubview:view2];
-        [self.contentView addSubview:view3];
-        [self.contentView addSubview:view4];
-        [self.contentView addSubview:view5];
+        [self.contentView sd_addSubviews:@[view0, view1, view2, view3, view4, view5]];
         
         
         

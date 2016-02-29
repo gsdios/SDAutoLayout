@@ -22,15 +22,7 @@
     UIScrollView *scrollView = [UIScrollView new];
     [self.view addSubview:scrollView];
     
-    [scrollView addSubview:self.view0];
-    [scrollView addSubview:self.view1];
-    [scrollView addSubview:self.view2];
-    [scrollView addSubview:self.view3];
-    [scrollView addSubview:self.view4];
-    [scrollView addSubview:self.view5];
-    [scrollView addSubview:self.view6];
-    [scrollView addSubview:self.view7];
-    [scrollView addSubview:self.view8];
+    [scrollView sd_addSubviews:@[self.view0, self.view1, self.view2, self.view3, self.view4, self.view5, self.view6, self.view7, self.view8]];
     
     
     scrollView.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
