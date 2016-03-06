@@ -23,9 +23,9 @@
 
 #import "DemoVC9.h"
 
-#import "SDRefresh.h"
 #import "SDTimeLineTableHeaderView.h"
 #import "SDTimeLineRefreshHeader.h"
+#import "SDTimeLineRefreshFooter.h"
 #import "SDTimeLineCell.h"
 
 #import "SDTimeLineCellModel.h"
@@ -39,9 +39,8 @@
 @end
 
 @implementation DemoVC9
-
 {
-    SDRefreshFooterView *_refreshFooter;
+    SDTimeLineRefreshFooter *_refreshFooter;
     SDTimeLineRefreshHeader *_refreshHeader;
     CGFloat _lastScrollViewOffsetY;
 }
@@ -52,22 +51,23 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    self.edgesForExtendedLayout = UIRectEdgeTop;
+    
     [self.dataArray addObjectsFromArray:[self creatModelsWithCount:10]];
     
     __weak typeof(self) weakSelf = self;
     
     
     // 上拉加载
-    _refreshFooter = [SDRefreshFooterView refreshView];
-    [_refreshFooter addToScrollView:self.tableView];
+    _refreshFooter = [SDTimeLineRefreshFooter refreshFooterWithRefreshingText:@"正在加载数据..."];
     __weak typeof(_refreshFooter) weakRefreshFooter = _refreshFooter;
-    _refreshFooter.beginRefreshingOperation = ^() {
+    [_refreshFooter addToScrollView:self.tableView refreshOpration:^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.dataArray addObjectsFromArray:[weakSelf creatModelsWithCount:10]];
             [weakSelf.tableView reloadData];
             [weakRefreshFooter endRefreshing];
         });
-    };
+    }];
     
     SDTimeLineTableHeaderView *headerView = [SDTimeLineTableHeaderView new];
     headerView.frame = CGRectMake(0, 0, 0, 260);

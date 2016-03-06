@@ -206,6 +206,7 @@
 		99D694EF1C8C567A00DA97E1 /* SDBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694EB1C8C567A00DA97E1 /* SDBaseNavigationController.m */; };
 		99D694F01C8C567A00DA97E1 /* SDBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694ED1C8C567A00DA97E1 /* SDBaseTableViewController.m */; };
 		99D694F21C8C585300DA97E1 /* Discover.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99D694F11C8C585200DA97E1 /* Discover.xcassets */; };
+		99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -568,6 +569,8 @@
 		99D694EC1C8C567A00DA97E1 /* SDBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBaseTableViewController.h; sourceTree = "<group>"; };
 		99D694ED1C8C567A00DA97E1 /* SDBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBaseTableViewController.m; sourceTree = "<group>"; };
 		99D694F11C8C585200DA97E1 /* Discover.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Discover.xcassets; sourceTree = "<group>"; };
+		99D694F61C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineRefreshFooter.h; sourceTree = "<group>"; };
+		99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineRefreshFooter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1399,6 +1402,8 @@
 		99D694B11C8C54D000DA97E1 /* TimeLineRefreshFooter */ = {
 			isa = PBXGroup;
 			children = (
+				99D694F61C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.h */,
+				99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */,
 			);
 			path = TimeLineRefreshFooter;
 			sourceTree = "<group>";
@@ -1761,6 +1766,7 @@
 				48FC0EA31C4FB60A004098B8 /* UIButton+AFNetworking.m in Sources */,
 				485302F81C3F65EE004361A7 /* SDCollectionViewCell.m in Sources */,
 				48FC0EB51C4FB60A004098B8 /* MJRefreshBackFooter.m in Sources */,
+				99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */,
 				485302DA1C3F6490004361A7 /* SDWebImageDownloaderOperation.m in Sources */,
 				485303521C3F97AA004361A7 /* ViewController.m in Sources */,
 				99D694E31C8C553500DA97E1 /* README.md in Sources */,
