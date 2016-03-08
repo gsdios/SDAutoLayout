@@ -8,6 +8,7 @@
 ☆☆ SDAutoLayout 基础版视频教程：http://www.letv.com/ptv/vplay/24038772.html ☆☆
 
 ☆☆ SDAutoLayout 进阶版视频教程：http://www.letv.com/ptv/vplay/24381390.html ☆☆
+☆☆ SDAutoLayout 原理简介视频教程：http://www.iqiyi.com/w_19rt0tec4p.html ☆☆
 
 ## 部分SDAutoLayout的DEMO
 ### 完整微信Demo https://github.com/gsdios/GSD_WeiXin
