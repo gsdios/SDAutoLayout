@@ -28,7 +28,7 @@
 #import "DemoCell.h"
 
 NSString * const demo0Content = @"自动布局动画，修改一个view的布局约束，其他view也会自动重新排布";
-NSString * const demo1Content = @"布局示例，其中view1用到了普通view的内容自适应功能，view1内部的label用到了文字自适应功能";
+NSString * const demo1Content = @"设置view1高度根据子view而自适应(在view1中加入两个子view(testLabel和testView)，然后设置view1高度根据子view内容自适应)";
 NSString * const demo2Content = @"1.设置水平方向的3个等宽子view\n2.设置一个宽高都为50的位于父view中间的view";
 NSString * const demo3Content = @"简单tableview展示";
 NSString * const demo4Content = @"1.行间距为8的attributedString的label\n2.类cell的自动布局展示";

@@ -21,8 +21,8 @@
  
  */
 
-#import <UIKit/UIKit.h>
+#import "SDBaseTableViewController.h"
 
-@interface DemoVC9 : UITableViewController
+@interface DemoVC9 : SDBaseTableViewController
 
 @end

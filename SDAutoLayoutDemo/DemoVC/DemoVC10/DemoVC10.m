@@ -25,14 +25,17 @@
 #import "ThreeThirdCell.h"
 #import "ThreeFourthCell.h"
 
+/*
+ 本demo由SDAutoLayout库的使用者“李西亚”提供，感谢“李西亚”对本库的关注与支持！
+ */
+
 @interface DemoVC10 () <UITableViewDelegate, UITableViewDataSource>
-{
-    MJRefreshComponent *myRefreshView;
-    NSInteger page;
-}
 
 @property(nonatomic ,strong) UITableView *tv;
 @property(nonatomic ,strong) NSMutableArray *listArry;
+
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) MJRefreshComponent *myRefreshView;
 
 @end
 
@@ -71,21 +74,25 @@
         _tv.delegate = self;
         _tv.dataSource = self;
         
+        __weak typeof(self) weakSelf = self;
+        
         //..下拉刷新
         _tv.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            page = 0;
-            myRefreshView = _tv.header;
-            [self loadData];
+            weakSelf.myRefreshView = weakSelf.tv.header;
+            weakSelf.page = 0;
+            [weakSelf loadData];
         }];
+        
         // 马上进入刷新状态
         [_tv.header beginRefreshing];
         
         //..上拉刷新
         _tv.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            page = page + 10;
-            myRefreshView = _tv.footer;
-            [self loadData];
+            weakSelf.myRefreshView = weakSelf.tv.footer;
+            weakSelf.page = weakSelf.page + 10;
+            [weakSelf loadData];
         }];
+        
         _tv.footer.hidden = YES;
         
         
@@ -103,7 +110,7 @@
 
 #pragma mark - 请求数据
 -(void)loadData{
-    NSString * urlString = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/%ld-20.html",@"headline/T1348647853363",page];
+    NSString * urlString = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/%ld-20.html",@"headline/T1348647853363",self.page];
     NSLog(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -119,29 +126,29 @@
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[ThreeModel mj_objectArrayWithKeyValuesArray:temArray]];
         
         //..下拉刷新
-        if (myRefreshView == _tv.header) {
+        if (self.myRefreshView == _tv.header) {
             self.listArry = arrayM;
             _tv.footer.hidden = self.listArry.count==0?YES:NO;
             
-        }else if(myRefreshView == _tv.footer){
+        }else if(self.myRefreshView == _tv.footer){
             [self.listArry addObjectsFromArray:arrayM];
         }
         
         
-        [self doneWithView:myRefreshView];
+        [self doneWithView:self.myRefreshView];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"请求失败");
-        [myRefreshView endRefreshing];
+        [_myRefreshView endRefreshing];
     }];
 }
 
 #pragma mark -  回调刷新
 -(void)doneWithView:(MJRefreshComponent*)refreshView{
     [_tv reloadData];
-    [myRefreshView  endRefreshing];
+    [_myRefreshView  endRefreshing];
 }
 
 
