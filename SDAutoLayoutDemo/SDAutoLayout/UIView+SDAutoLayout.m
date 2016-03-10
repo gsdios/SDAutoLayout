@@ -773,9 +773,6 @@
     
     [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
         model.needsAutoResizeView.frame = CGRectZero;
-        if (model.needsAutoResizeView.tag == 11001) {
-            NSLog(@">>>>> %@", model.needsAutoResizeView);
-        }
     }];
 }
 
