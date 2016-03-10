@@ -726,8 +726,28 @@
 
 - (SDAutoLayoutModel *)sd_resetLayout
 {
+    /* 
+     * 方案待定
     [self sd_clearAutoLayoutSettings];
     return [self sd_layout];
+    */
+    
+    SDAutoLayoutModel *model = [self ownLayoutModel];
+    SDAutoLayoutModel *newModel = [SDAutoLayoutModel new];
+    newModel.needsAutoResizeView = self;
+    [self sd_clearViewFrameCache];
+    NSInteger index = 0;
+    if (model) {
+        index = [self.superview.autoLayoutModelsArray indexOfObject:model];
+        [self.superview.autoLayoutModelsArray replaceObjectAtIndex:index withObject:newModel];
+    } else {
+        [self.superview.autoLayoutModelsArray addObject:newModel];
+    }
+    [self setOwnLayoutModel:newModel];
+    if (self.autoHeightRatioValue) {
+        self.autoHeightRatioValue = nil;
+    }
+    return newModel;
 }
 
 - (void)sd_clearAutoLayoutSettings
@@ -740,6 +760,23 @@
     if (self.autoHeightRatioValue) {
         self.autoHeightRatioValue = nil;
     }
+}
+
+- (void)sd_clearViewFrameCache
+{
+    self.frame = CGRectZero;
+}
+
+- (void)sd_clearSubviewsAutoLayoutFrameCaches
+{
+    if (self.autoLayoutModelsArray.count == 0) return;
+    
+    [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
+        model.needsAutoResizeView.frame = CGRectZero;
+        if (model.needsAutoResizeView.tag == 11001) {
+            NSLog(@">>>>> %@", model.needsAutoResizeView);
+        }
+    }];
 }
 
 - (void)sd_layoutSubviews

@@ -218,6 +218,42 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @end
 
 
+@interface UIView (SDAutoLayout)
+
+/** 开始自动布局  */
+- (SDAutoLayoutModel *)sd_layout;
+
+/** 清空之前的自动布局设置，重新开始自动布局  */
+- (SDAutoLayoutModel *)sd_resetLayout;
+
+/** 清空之前的自动布局设置  */
+- (void)sd_clearAutoLayoutSettings;
+
+/** 将自身frame清零（一般在cell内部控件重用前调用）  */
+- (void)sd_clearViewFrameCache;
+
+/** 将自己的需要自动布局的subviews的frame清零（一般在cell内部控件重用前调用）  */
+- (void)sd_clearSubviewsAutoLayoutFrameCaches;
+
+/** 设置固定宽度保证宽度不在自动布局过程再做中调整  */
+@property (nonatomic, strong) NSNumber *fixedWith;
+
+/** 设置固定高度保证高度不在自动布局过程中再做调整  */
+@property (nonatomic, strong) NSNumber *fixedHeight;
+
+
+
+// -------------------库内部使用-----------------------
+- (NSMutableArray *)autoLayoutModelsArray;
+- (void)addAutoLayoutModel:(SDAutoLayoutModel *)model;
+@property (nonatomic) SDAutoLayoutModel *ownLayoutModel;
+@property (nonatomic, strong) NSNumber *sd_maxWidth;
+@property (nonatomic, strong) NSNumber *autoHeightRatioValue;
+// -------------------库内部使用-----------------------
+
+@end
+
+
 @interface UIScrollView (SDAutoContentSize)
 
 /** 设置scrollview内容竖向自适应 */
@@ -282,31 +318,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @end
 
-@interface UIView (SDAutoLayout)
 
-/** 开始自动布局  */
-- (SDAutoLayoutModel *)sd_layout;
-
-/** 清空之前的自动布局设置，重新开始自动布局  */
-- (SDAutoLayoutModel *)sd_resetLayout;
-
-/** 清空之前的自动布局设置  */
-- (void)sd_clearAutoLayoutSettings;
-
-- (NSMutableArray *)autoLayoutModelsArray;
-
-- (void)addAutoLayoutModel:(SDAutoLayoutModel *)model;
-
-@property (nonatomic) SDAutoLayoutModel *ownLayoutModel;
-
-@property (nonatomic, strong) NSNumber *fixedWith;
-@property (nonatomic, strong) NSNumber *fixedHeight;
-
-@property (nonatomic, strong) NSNumber *sd_maxWidth;
-
-@property (nonatomic, strong) NSNumber *autoHeightRatioValue;
-
-@end
 
 
 @interface UIView (SDChangeFrame)

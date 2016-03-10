@@ -110,6 +110,9 @@
 
 #pragma mark - 请求数据
 -(void)loadData{
+    /*
+     本demo由SDAutoLayout库的使用者“李西亚”提供，感谢“李西亚”对本库的关注与支持！
+     */
     NSString * urlString = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/%ld-20.html",@"headline/T1348647853363",self.page];
     NSLog(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -160,6 +163,9 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    /*
+     本demo由SDAutoLayout库的使用者“李西亚”提供，感谢“李西亚”对本库的关注与支持！
+     */
     ThreeBaseCell * cell = nil;
     ThreeModel * threeModel = self.listArry[indexPath.row];
     

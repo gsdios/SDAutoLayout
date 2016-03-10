@@ -103,20 +103,6 @@
 {
     _model = model;
     
-    // 重置frame，防止重用过程中出现问题（只有在cell布局变化非常大的情况下需要此步设置，一般cell的自动布局不需要这样处理）
-    _label.frame = CGRectZero;
-    _container.frame = CGRectZero;
-    _iconImageView.frame = CGRectZero;
-    _messageImageView.frame = CGRectZero;
-    _maskImageView.frame = CGRectZero;
-    
-    // 清空之前的约束（只有在cell布局变化非常大的情况下需要此步设置，一般cell的自动布局不需要这样处理）
-    [_label sd_clearAutoLayoutSettings];
-    [_container sd_clearAutoLayoutSettings];
-    [_iconImageView sd_clearAutoLayoutSettings];
-    [_messageImageView sd_clearAutoLayoutSettings];
-    
-    
     _label.text = model.text;
     self.iconImageView.image = [UIImage imageNamed:model.iconName];
     
@@ -127,6 +113,7 @@
         
         // cell重用时候清除只有文字的情况下设置的container宽度自适应约束
         [self.container clearAutoWidthSettings];
+        self.messageImageView.hidden = NO;
         
         self.messageImageView.image = [UIImage imageNamed:model.imageName];
         
@@ -169,6 +156,8 @@
         
         // 清除展示图片时候用到的mask
         [_container.layer.mask removeFromSuperlayer];
+        
+        self.messageImageView.hidden = YES;
         
         // 清除展示图片时候_containerBackgroundImageView用到的didFinishAutoLayoutBlock
         _containerBackgroundImageView.didFinishAutoLayoutBlock = nil;
