@@ -3,6 +3,8 @@
 
 支持pod：  pod 'SDAutoLayout', '~> 1.31'
 
+如果发现pod search SDAutoLayout 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
+
 ### QQ交流群：519489682（已满）497140713
 
 ☆☆ SDAutoLayout 基础版视频教程：http://www.letv.com/ptv/vplay/24038772.html ☆☆
@@ -146,4 +148,3 @@
 
 
 ![](http://ww3.sinaimg.cn/bmiddle/9b8146edgw1ex4mukixr6g209g07lhdt.gif)
-
