@@ -119,6 +119,8 @@
 		48EB73401C748EDE003A818E /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48EB73231C748EDE003A818E /* 9.jpg */; };
 		48EB73431C748F26003A818E /* DemoVC11.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EB73421C748F26003A818E /* DemoVC11.m */; };
 		48EB73451C749212003A818E /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB73441C749212003A818E /* Home.xcassets */; };
+		48EEAD6C1C9C25F4001138FE /* DemoVC12.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EEAD6B1C9C25F4001138FE /* DemoVC12.m */; };
+		48EEAD701C9C3006001138FE /* DemoVC13.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EEAD6F1C9C3006001138FE /* DemoVC13.m */; };
 		48FC0E161C4FB3A8004098B8 /* Ads.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E041C4FB3A8004098B8 /* Ads.m */; };
 		48FC0E171C4FB3A8004098B8 /* Editor.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E061C4FB3A8004098B8 /* Editor.m */; };
 		48FC0E181C4FB3A8004098B8 /* Imgextra.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E081C4FB3A8004098B8 /* Imgextra.m */; };
@@ -396,6 +398,10 @@
 		48EB73411C748F26003A818E /* DemoVC11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC11.h; sourceTree = "<group>"; };
 		48EB73421C748F26003A818E /* DemoVC11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC11.m; sourceTree = "<group>"; };
 		48EB73441C749212003A818E /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
+		48EEAD6A1C9C25F4001138FE /* DemoVC12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC12.h; sourceTree = "<group>"; };
+		48EEAD6B1C9C25F4001138FE /* DemoVC12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC12.m; sourceTree = "<group>"; };
+		48EEAD6E1C9C3006001138FE /* DemoVC13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC13.h; sourceTree = "<group>"; };
+		48EEAD6F1C9C3006001138FE /* DemoVC13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC13.m; sourceTree = "<group>"; };
 		48FC0E031C4FB3A8004098B8 /* Ads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ads.h; sourceTree = "<group>"; };
 		48FC0E041C4FB3A8004098B8 /* Ads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ads.m; sourceTree = "<group>"; };
 		48FC0E051C4FB3A8004098B8 /* Editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Editor.h; sourceTree = "<group>"; };
@@ -706,6 +712,8 @@
 		485303021C3F977A004361A7 /* DemoVC */ = {
 			isa = PBXGroup;
 			children = (
+				48EEAD6D1C9C2FE4001138FE /* DemoVC13 */,
+				48EEAD691C9C25DB001138FE /* DemoVC12 */,
 				48EB72E01C748D40003A818E /* DemoVC11 */,
 				48FC0E011C4FB399004098B8 /* DemoVC10 */,
 				485303031C3F977A004361A7 /* DemoVC0 */,
@@ -1048,6 +1056,24 @@
 				48EB73231C748EDE003A818E /* 9.jpg */,
 			);
 			path = cell_icons;
+			sourceTree = "<group>";
+		};
+		48EEAD691C9C25DB001138FE /* DemoVC12 */ = {
+			isa = PBXGroup;
+			children = (
+				48EEAD6A1C9C25F4001138FE /* DemoVC12.h */,
+				48EEAD6B1C9C25F4001138FE /* DemoVC12.m */,
+			);
+			path = DemoVC12;
+			sourceTree = "<group>";
+		};
+		48EEAD6D1C9C2FE4001138FE /* DemoVC13 */ = {
+			isa = PBXGroup;
+			children = (
+				48EEAD6E1C9C3006001138FE /* DemoVC13.h */,
+				48EEAD6F1C9C3006001138FE /* DemoVC13.m */,
+			);
+			path = DemoVC13;
 			sourceTree = "<group>";
 		};
 		48FC0E011C4FB399004098B8 /* DemoVC10 */ = {
@@ -1706,6 +1732,7 @@
 				485302E11C3F6490004361A7 /* UIImageView+HighlightedWebCache.m in Sources */,
 				485303401C3F977A004361A7 /* DemoVC7Cell.m in Sources */,
 				99D694B51C8C54D000DA97E1 /* SDTimeLineCellModel.m in Sources */,
+				48EEAD701C9C3006001138FE /* DemoVC13.m in Sources */,
 				485303351C3F977A004361A7 /* DemoVC0.m in Sources */,
 				99D694DC1C8C553500DA97E1 /* MLTextAttachment.m in Sources */,
 				48FC0EA71C4FB60A004098B8 /* UIWebView+AFNetworking.m in Sources */,
@@ -1752,6 +1779,7 @@
 				485303551C3F97E6004361A7 /* DemoCell.m in Sources */,
 				99D694DA1C8C553500DA97E1 /* NSString+MLLabel.m in Sources */,
 				48FC0EA61C4FB60A004098B8 /* UIRefreshControl+AFNetworking.m in Sources */,
+				48EEAD6C1C9C25F4001138FE /* DemoVC12.m in Sources */,
 				485303391C3F977A004361A7 /* TestCell2.m in Sources */,
 				485302CC1C3F6490004361A7 /* SDBrowserImageView.m in Sources */,
 				485302CD1C3F6490004361A7 /* SDPhotoBrowser.m in Sources */,

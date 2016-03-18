@@ -55,7 +55,7 @@
     [scrollView setupAutoContentSizeWithBottomView:self.view3 bottomMargin:20];
     
     // 设置圆角
-    self.view0.sd_cornerRadiusFromHeightRatio = @(0.5);
+    self.view0.sd_cornerRadiusFromHeightRatio = @(0.5); // 设置view0的圆角半径为自身高度的0.5倍
     self.view1.sd_cornerRadiusFromWidthRatio = @(0.5);
     self.view2.sd_cornerRadiusFromWidthRatio = @(0.5);
 }

@@ -146,7 +146,7 @@
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass;
 
-- (instancetype)initWithCellClass:(Class)cellClass;
-+ (instancetype)managerWithCellClass:(Class)cellClass;
+- (instancetype)initWithCellClass:(Class)cellClass tableView:(UITableView *)tableView;
++ (instancetype)managerWithCellClass:(Class)cellClass tableView:(UITableView *)tableView;
 @end
 

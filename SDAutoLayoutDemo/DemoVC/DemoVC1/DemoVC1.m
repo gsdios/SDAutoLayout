@@ -69,8 +69,7 @@
     
     // 设置view1高度根据子其内容自适应
     [self.view1 setupAutoHeightWithBottomView:testView_subview2 bottomMargin:10];
-    
-    
 }
+
 
 @end
