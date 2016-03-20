@@ -6,12 +6,29 @@
 //  Copyright © 2016年 gsd. All rights reserved.
 //
 
+/*
+ 
+ *********************************************************************************
+ *                                                                                *
+ * 在您使用此自动布局库的过程中如果出现bug请及时以以下任意一种方式联系我们，我们会及时修复bug并  *
+ * 帮您解决问题。                                                                    *
+ * 持续更新地址: https://github.com/gsdios/SDAutoLayout                              *
+ * Email : gsdios@126.com                                                          *
+ * GitHub: https://github.com/gsdios                                               *
+ * 新浪微博:GSD_iOS                                                                 *
+ * QQ交流群：519489682（一群）497140713（二群）                                       *
+ *********************************************************************************
+ 
+ */
+
 #import "DemoVC13.h"
 
 #import "UIView+SDAutoLayout.h"
 
 NSString *const kCommonText = @"Hello, everybody! 我是SDAutoLayout，我是不是萌萌哒呢？ ^_^  ^(***)^  ^_^ ";
 static const CGFloat maxImageViewWidth = 200.f;
+
+#define kGridItemViewColor [[UIColor greenColor] colorWithAlphaComponent:0.5]
 
 @interface DemoVC13 ()
 
@@ -22,6 +39,10 @@ static const CGFloat maxImageViewWidth = 200.f;
 @property (nonatomic, strong) UIView *lastBottomLine;
 
 @property (nonatomic, strong) UIImageView *imageView;
+
+@property (nonatomic, strong) UIView *gridItemContainerView;
+
+@property (nonatomic, strong) UIButton *addGridItemButton;
 
 @end
 
@@ -35,6 +56,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     
     [self setupContentCell];
     [self setupImageCell];
+    [self setupGridViewCell];
     
     [self.scroollView setupAutoContentSizeWithBottomView:self.lastBottomLine bottomMargin:10];
 }
@@ -83,6 +105,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     return button;
 }
 
+// 设置展示文字的模拟cell
 - (void)setupContentCell
 {
     UILabel *titleLabel = [self titleLabelWithText:@"文字内容"];
@@ -140,6 +163,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     
 }
 
+// 设置展示图片的模拟cell
 - (void)setupImageCell
 {
     UILabel *titleLabel = [self titleLabelWithText:@"图片展示"];
@@ -183,6 +207,51 @@ static const CGFloat maxImageViewWidth = 200.f;
     self.lastBottomLine = [self addSeparatorLineBellowView:shrinkButton margin:10];
 }
 
+// 设置展示列表的模拟cell
+- (void)setupGridViewCell
+{
+    
+    UILabel *titleLabel = [self titleLabelWithText:@"列表展示"];
+    
+    UIView *contanerView = [UIView new];
+    contanerView.backgroundColor = [UIColor redColor];
+    self.gridItemContainerView = contanerView;
+    
+    [_scroollView sd_addSubviews:@[titleLabel, contanerView]];
+    
+    
+    {
+        UIButton *addButton = [UIButton new];
+        self.addGridItemButton = addButton;
+        [addButton setTitle:@"添加" forState:UIControlStateNormal];
+        addButton.backgroundColor = kGridItemViewColor;
+        [addButton addTarget:self action:@selector(addGridItemView) forControlEvents:UIControlEventTouchUpInside];
+        [contanerView addSubview:addButton];
+        
+        addButton.sd_layout
+        .leftSpaceToView(contanerView, 10)
+        .topSpaceToView(contanerView, 10)
+        .rightSpaceToView(contanerView, 10)
+        .heightIs(50);
+    }
+    
+    
+    
+    titleLabel.sd_layout
+    .leftSpaceToView(self.scroollView, 10)
+    .topSpaceToView(self.lastBottomLine, 10)
+    .widthIs(80)
+    .heightIs(20);
+    
+    contanerView.sd_layout
+    .leftSpaceToView(titleLabel, 10)
+    .topEqualToView(titleLabel)
+    .rightSpaceToView(_scroollView, 10);
+    [contanerView setupAutoHeightWithBottomView:contanerView.subviews.lastObject bottomMargin:10];
+    
+    self.lastBottomLine = [self addSeparatorLineBellowView:contanerView margin:10];
+}
+
 
 - (void)addText
 {
@@ -198,25 +267,78 @@ static const CGFloat maxImageViewWidth = 200.f;
     [self.scroollView layoutSubviews];
 }
 
+// 放大图片
 - (void)magnifyImage
 {
-    CGFloat w = self.imageView.width * 1.1;
+    CGFloat w = self.imageView.width * 1.3;
     if (w > maxImageViewWidth) {
         [self showAlertWithText:@"已经达到最大宽度"];
         return;
     }
     [UIView animateWithDuration:0.2 animations:^{
-        self.imageView.sd_layout.widthIs(self.imageView.width * 1.2);
+        self.imageView.sd_layout.widthIs(self.imageView.width * 1.3);
         [self.scroollView layoutSubviews];
     }];
 }
 
+// 缩小图片
 - (void)shrinkImage
 {
     [UIView animateWithDuration:0.2 animations:^{
-        self.imageView.sd_layout.widthIs(self.imageView.width * 0.8);
+        self.imageView.sd_layout.widthIs(self.imageView.width * 0.7);
         [self.scroollView layoutSubviews];
     }];
+}
+
+- (void)addGridItemView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = kGridItemViewColor;
+    [self.gridItemContainerView insertSubview:view belowSubview:self.addGridItemButton];
+    
+    __block UIView *lastView = self.gridItemContainerView;
+    
+    [self.gridItemContainerView.subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
+        if (idx < 3 && (idx == (self.gridItemContainerView.subviews.count > 2 ? 2 : 1))) { // 如果idx等于当第一行最后一个view的index时开始设置一行等宽子view
+            NSMutableArray *equalWidthSubviews = [NSMutableArray new];
+            for (int i = 0; i <= idx; i++) {
+                UIView *subview = self.gridItemContainerView.subviews[i];
+                [equalWidthSubviews addObject:subview];
+                if (i == 0) { // 设置一排等宽子view的第一个view的约束
+                    subview.sd_resetLayout
+                    .leftSpaceToView(lastView, 10)
+                    .topSpaceToView(lastView, 10)
+                    .heightIs(50);
+                } else if (i == idx) { // 设置一排等宽子view的中间view的约束
+                    subview.sd_resetLayout
+                    .leftSpaceToView(lastView, 10)
+                    .topEqualToView(lastView)
+                    .rightSpaceToView(self.gridItemContainerView, 10)
+                    .heightRatioToView(lastView, 1);
+                    self.gridItemContainerView.sd_equalWidthSubviews = [equalWidthSubviews copy];
+                } else { // 设置一排等宽子view的最后一个view的约束
+                    subview.sd_resetLayout
+                    .leftSpaceToView(lastView, 10)
+                    .topEqualToView(lastView)
+                    .heightIs(50);
+                }
+                lastView = subview;
+            }
+        } else if (idx > 2){ // 设置第一排之后的子view的的约束
+            long lastViewIndex = idx - 3;
+            lastView = self.gridItemContainerView.subviews[lastViewIndex];
+        
+            view.sd_resetNewLayout
+            .leftEqualToView(lastView)
+            .rightEqualToView(lastView)
+            .heightRatioToView(lastView, 1)
+            .topSpaceToView(lastView, 10);
+        }
+    }];
+    
+    [self.gridItemContainerView setupAutoHeightWithBottomView:self.gridItemContainerView.subviews.lastObject bottomMargin:10];
+    
+    [_scroollView layoutSubviews];
 }
 
 
@@ -236,7 +358,6 @@ static const CGFloat maxImageViewWidth = 200.f;
     .rightSpaceToView(alert, 20)
     .topSpaceToView(alert, 20)
     .autoHeightRatio(0);
-    
     
     
     

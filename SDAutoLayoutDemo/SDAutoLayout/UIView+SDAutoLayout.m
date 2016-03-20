@@ -655,6 +655,9 @@
 
 - (void)setFixedWith:(NSNumber *)fixedWith
 {
+    if (fixedWith) {
+        self.width = [fixedWith floatValue];
+    }
     objc_setAssociatedObject(self, @selector(fixedWith), fixedWith, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -665,6 +668,9 @@
 
 - (void)setFixedHeight:(NSNumber *)fixedHeight
 {
+    if (fixedHeight) {
+        self.height = [fixedHeight floatValue];
+    }
     objc_setAssociatedObject(self, @selector(fixedHeight), fixedHeight, OBJC_ASSOCIATION_RETAIN);
 }
 
@@ -744,10 +750,15 @@
         [self.superview.autoLayoutModelsArray addObject:newModel];
     }
     [self setOwnLayoutModel:newModel];
-    if (self.autoHeightRatioValue) {
-        self.autoHeightRatioValue = nil;
-    }
+    [self sd_clearExtraAutoLayoutItems];
     return newModel;
+}
+
+- (SDAutoLayoutModel *)sd_resetNewLayout
+{
+    [self sd_clearAutoLayoutSettings];
+    [self sd_clearExtraAutoLayoutItems];
+    return [self sd_layout];
 }
 
 - (void)sd_clearAutoLayoutSettings
@@ -757,9 +768,16 @@
         [self.superview.autoLayoutModelsArray removeObject:model];
         [self setOwnLayoutModel:nil];
     }
+    [self sd_clearExtraAutoLayoutItems];
+}
+
+- (void)sd_clearExtraAutoLayoutItems
+{
     if (self.autoHeightRatioValue) {
         self.autoHeightRatioValue = nil;
     }
+    self.fixedHeight = nil;
+    self.fixedWith = nil;
 }
 
 - (void)sd_clearViewFrameCache

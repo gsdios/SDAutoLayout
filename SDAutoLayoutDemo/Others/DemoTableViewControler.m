@@ -40,7 +40,7 @@ NSString * const demo9Description = @"利用SDAutoLayout仿制微信朋友圈。
 NSString * const demo10Description = @"一个SDAutoLayout使用者“李西亚”同学贡献的仿网易新闻界面";
 NSString * const demo11Description = @"仿微信的聊天界面：\n1.纯文本消息（带可点击链接，表情）\n2.图片消息";
 NSString * const demo12Description = @"scroll任意布局内容自适应";
-NSString * const demo13Description = @"scroll任意布局内容自适应2";
+NSString * const demo13Description = @"scroll任意布局内容自适应自动布局";
 
 @implementation DemoTableViewControler
 {

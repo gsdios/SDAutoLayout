@@ -223,8 +223,11 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 开始自动布局  */
 - (SDAutoLayoutModel *)sd_layout;
 
-/** 清空之前的自动布局设置，重新开始自动布局  */
+/** 清空之前的自动布局设置，重新开始自动布局(重新生成布局约束并使其在父view的布局序列数组中位置保持不变)  */
 - (SDAutoLayoutModel *)sd_resetLayout;
+
+/** 清空之前的自动布局设置，重新开始自动布局(重新生成布局约束并添加到父view布局序列数组中的最后一个位置)  */
+- (SDAutoLayoutModel *)sd_resetNewLayout;
 
 /** 清空之前的自动布局设置  */
 - (void)sd_clearAutoLayoutSettings;
