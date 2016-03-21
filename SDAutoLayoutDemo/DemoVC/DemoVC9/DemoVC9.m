@@ -133,7 +133,7 @@
                                @"你瞅啥？",
                                @"瞅你咋地？？？！！！",
                                @"hello，看我",
-                               @"曾经在幽幽暗暗反反复复中追问，才知道平平淡淡从从容容才是真，再回首恍然如梦，再回首我心依旧，只有那不变的长路伴着我",
+                               @"曾经在幽幽暗暗反反复复中追问，才知道平平淡淡从从容容才是真",
                                @"人艰不拆",
                                @"咯咯哒",
                                @"呵呵~~~~~~~~",
@@ -164,7 +164,7 @@
         
         
         // 模拟“随机图片”
-        int random = arc4random_uniform(10);
+        int random = arc4random_uniform(6);
         
         NSMutableArray *temp = [NSMutableArray new];
         for (int i = 0; i < random; i++) {
@@ -175,7 +175,7 @@
             model.picNamesArray = [temp copy];
         }
         
-        int commentRandom = arc4random_uniform(6);
+        int commentRandom = arc4random_uniform(3);
         NSMutableArray *tempComments = [NSMutableArray new];
         for (int i = 0; i < commentRandom; i++) {
             SDTimeLineCellCommentItemModel *commentItemModel = [SDTimeLineCellCommentItemModel new];
