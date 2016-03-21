@@ -34,6 +34,9 @@ extern const CGFloat contentLabelFontSize;
 extern CGFloat maxContentLabelHeight;
 
 @implementation SDTimeLineCellModel
+{
+    CGFloat _lastContentWidth;
+}
 
 @synthesize msgContent = _msgContent;
 
@@ -45,11 +48,14 @@ extern CGFloat maxContentLabelHeight;
 - (NSString *)msgContent
 {
     CGFloat contentW = [UIScreen mainScreen].bounds.size.width - 70;
-    CGRect textRect = [_msgContent boundingRectWithSize:CGSizeMake(contentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:contentLabelFontSize]} context:nil];
-    if (textRect.size.height > maxContentLabelHeight) {
-        _shouldShowMoreButton = YES;
-    } else {
-        _shouldShowMoreButton = NO;
+    if (contentW != _lastContentWidth) {
+        _lastContentWidth = contentW;
+        CGRect textRect = [_msgContent boundingRectWithSize:CGSizeMake(contentW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:contentLabelFontSize]} context:nil];
+        if (textRect.size.height > maxContentLabelHeight) {
+            _shouldShowMoreButton = YES;
+        } else {
+            _shouldShowMoreButton = NO;
+        }
     }
     
     return _msgContent;
