@@ -194,6 +194,9 @@
     
     self.modelCell.contentView.width = self.contentViewWidth;
     
+    
+    [_subviewFrameCacheDict removeAllObjects];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self clearHeightCache];
         [self.modelTableview reloadData];
