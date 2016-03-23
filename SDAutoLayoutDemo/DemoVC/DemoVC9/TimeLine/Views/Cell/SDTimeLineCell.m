@@ -74,6 +74,7 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     _nameLable.textColor = [UIColor colorWithRed:(54 / 255.0) green:(71 / 255.0) blue:(121 / 255.0) alpha:0.9];
     
     _contentLabel = [UILabel new];
+    _contentLabel.numberOfLines = 0;
     _contentLabel.font = [UIFont systemFontOfSize:contentLabelFontSize];
     if (maxContentLabelHeight == 0) {
         maxContentLabelHeight = _contentLabel.font.lineHeight * 3;

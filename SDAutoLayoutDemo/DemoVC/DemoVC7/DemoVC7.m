@@ -15,6 +15,8 @@
 
 #import "UITableView+SDAutoTableViewCellHeight.h"
 
+#import "UIView+SDAutoLayout.h"
+
 #import "SDRefresh.h"
 
 
@@ -129,6 +131,13 @@
     cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(currentClass)];
     
     cell.model = model;
+    
+    ////// 此步设置用于实现cell的frame缓存，可以让tableview滑动更加流畅 //////
+    
+    cell.sd_tableView = tableView;
+    cell.sd_indexPath = indexPath;
+    
+    ///////////////////////////////////////////////////////////////////////
     
     return cell;
 }

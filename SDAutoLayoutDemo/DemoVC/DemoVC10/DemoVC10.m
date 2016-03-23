@@ -177,6 +177,7 @@
         cell = [[mClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.threeModel = threeModel;
+    
     return cell;
     
 }

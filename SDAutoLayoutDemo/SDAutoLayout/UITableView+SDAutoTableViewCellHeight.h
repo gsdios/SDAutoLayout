@@ -51,12 +51,12 @@
 
 // ☆☆☆☆☆☆☆☆☆☆☆【推荐使用方法（性能高+易用性好），详见demo7和demo9】☆☆☆☆☆☆☆☆☆☆☆
 
-/** 
-  * 返回计算出的cell高度（普通简化版方法，同样只需一步设置即可完成）
-  * model              : cell的数据模型实例
-  * keyPath            : cell的数据模型属性的属性名字符串（即kvc原理中的key）
-  * cellClass          : 当前的indexPath对应的cell的class
-  * contentViewWidth   : cell的contentView的宽度
+/**
+ * 返回计算出的cell高度（普通简化版方法，同样只需一步设置即可完成）
+ * model              : cell的数据模型实例
+ * keyPath            : cell的数据模型属性的属性名字符串（即kvc原理中的key）
+ * cellClass          : 当前的indexPath对应的cell的class
+ * contentViewWidth   : cell的contentView的宽度
  */
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth;
 
@@ -136,6 +136,8 @@
 
 @property (nonatomic, strong) UITableViewCell *modelCell;
 
+@property (nonatomic, strong) NSMutableDictionary *subviewFrameCacheDict;
+
 - (void)clearHeightCache;
 
 - (void)clearHeightCacheOfIndexPaths:(NSArray *)indexPaths;
@@ -145,6 +147,10 @@
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass;
+
+
+- (NSMutableArray *)subviewFrameCachesWithIndexPath:(NSIndexPath *)indexPath;;
+- (void)setSubviewFrameCache:(CGRect)rect WithIndexPath:(NSIndexPath *)indexPath;
 
 - (instancetype)initWithCellClass:(Class)cellClass tableView:(UITableView *)tableView;
 + (instancetype)managerWithCellClass:(Class)cellClass tableView:(UITableView *)tableView;

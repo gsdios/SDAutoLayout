@@ -245,6 +245,12 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic, strong) NSNumber *fixedHeight;
 
 
+/** 所属tableview（目前为cell专用属性，后期会扩展到其他view） */
+@property (nonatomic) UITableView *sd_tableView;
+
+/** cell的indexPath（目前为cell专用属性，后期会扩展到cell的其他子view） */
+@property (nonatomic) NSIndexPath *sd_indexPath;
+
 
 // -------------------库内部使用-----------------------
 - (NSMutableArray *)autoLayoutModelsArray;
@@ -347,6 +353,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @property (nonatomic, strong) NSArray *rightViewsArray;
 @property (nonatomic, assign) CGFloat rightViewRightMargin;
+
+@property (nonatomic, weak) UITableView *sd_tableView;
+@property (nonatomic, strong) NSIndexPath *sd_indexPath;
 
 @end
 

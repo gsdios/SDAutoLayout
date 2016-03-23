@@ -104,6 +104,7 @@
 - (void)clearHeightCache
 {
     [_cacheDictionary removeAllObjects];
+    [_subviewFrameCacheDict removeAllObjects];
 }
 
 - (void)clearHeightCacheOfIndexPaths:(NSArray *)indexPaths
@@ -111,6 +112,7 @@
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
         NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
         [_cacheDictionary removeObjectForKey:cacheKey];
+        [_subviewFrameCacheDict removeObjectForKey:cacheKey];
     }];
 }
 
@@ -131,6 +133,11 @@
             return 0;
         }
         
+        if (self.modelTableview && self.modelTableview != self.modelCell.sd_tableView) {
+            self.modelCell.sd_tableView = self.modelTableview;
+        }
+        self.modelCell.sd_indexPath = indexPath;
+        
         if (model && keyPath) {
             [self.modelCell setValue:model forKey:keyPath];
         }
@@ -146,10 +153,19 @@
         NSAssert(self.modelCell.sd_bottomViewsArray.count, @">>>>>> 你的cell还没有调用“setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin”方法或者你传递的bottomView为nil，请检查并修改");
         
 #endif
-
+        
         [self.modelCell.contentView layoutSubviews];
         NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
         [_cacheDictionary setObject:@(self.modelCell.autoHeight) forKey:cacheKey];
+        
+        
+        if (self.modelCell.sd_indexPath && self.modelCell.sd_tableView) {
+            [self.modelCell.contentView.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
+                [self.modelTableview.cellAutoHeightManager setSubviewFrameCache:model.needsAutoResizeView.frame WithIndexPath:self.modelCell.sd_indexPath];
+            }];
+        }
+        
+        
         return self.modelCell.autoHeight;
     }
 }
@@ -184,6 +200,27 @@
     });
 }
 
+
+- (void)setSubviewFrameCache:(CGRect)rect WithIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.subviewFrameCacheDict) {
+        self.subviewFrameCacheDict = [NSMutableDictionary new];
+    }
+    NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
+    NSMutableArray *caches = [self.subviewFrameCacheDict objectForKey:cacheKey];
+    if (!caches) {
+        caches = [NSMutableArray new];
+        [self.subviewFrameCacheDict setValue:caches forKey:cacheKey];
+    }
+    [caches addObject:[NSValue valueWithCGRect:rect]];
+}
+
+- (NSMutableArray *)subviewFrameCachesWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
+    return [self.subviewFrameCacheDict valueForKey:cacheKey];
+}
+
 @end
 
 
@@ -197,7 +234,7 @@
         
         [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
             NSString *mySelString = [@"sd_" stringByAppendingString:selString];
-        
+            
             Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
             Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
             method_exchangeImplementations(originalMethod, myMethod);

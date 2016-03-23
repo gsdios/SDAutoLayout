@@ -42,6 +42,7 @@
         self.lblSubtitle = [UILabel new];
         self.lblSubtitle.textColor = [UIColor grayColor];
         self.lblSubtitle.font = [UIFont systemFontOfSize:13];
+        self.lblSubtitle.numberOfLines = 0;
         [self.contentView addSubview:self.lblSubtitle];
         
         self.lineView = [UIView new];

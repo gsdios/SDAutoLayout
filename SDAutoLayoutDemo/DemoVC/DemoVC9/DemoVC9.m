@@ -31,6 +31,7 @@
 #import "SDTimeLineCellModel.h"
 
 #import "UITableView+SDAutoTableViewCellHeight.h"
+#import "UIView+SDAutoLayout.h"
 
 #define kTimeLineTableViewCellId @"SDTimeLineCell"
 
@@ -62,7 +63,7 @@
     _refreshFooter = [SDTimeLineRefreshFooter refreshFooterWithRefreshingText:@"正在加载数据..."];
     __weak typeof(_refreshFooter) weakRefreshFooter = _refreshFooter;
     [_refreshFooter addToScrollView:self.tableView refreshOpration:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.dataArray addObjectsFromArray:[weakSelf creatModelsWithCount:10]];
             [weakSelf.tableView reloadData];
             [weakRefreshFooter endRefreshing];
@@ -87,7 +88,7 @@
         __weak typeof(_refreshHeader) weakHeader = _refreshHeader;
         __weak typeof(self) weakSelf = self;
         [_refreshHeader setRefreshingBlock:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 weakSelf.dataArray = [[weakSelf creatModelsWithCount:10] mutableCopy];
                 [weakHeader endRefreshing];
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -102,6 +103,7 @@
 - (void)dealloc
 {
     [_refreshHeader removeFromSuperview];
+    [_refreshFooter removeFromSuperview];
 }
 
 - (NSArray *)creatModelsWithCount:(NSInteger)count
@@ -213,6 +215,13 @@
             [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }];
     }
+    
+    ////// 此步设置用于实现cell的frame缓存，可以让tableview滑动更加流畅 //////
+    
+    cell.sd_tableView = tableView;
+    cell.sd_indexPath = indexPath;
+    
+    ///////////////////////////////////////////////////////////////////////
     
     cell.model = self.dataArray[indexPath.row];
     return cell;

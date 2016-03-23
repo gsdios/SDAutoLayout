@@ -321,9 +321,9 @@
 		485303251C3F977A004361A7 /* DemoVC7Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC7Model.h; sourceTree = "<group>"; };
 		485303261C3F977A004361A7 /* DemoVC7Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC7Model.m; sourceTree = "<group>"; };
 		485303281C3F977A004361A7 /* DemoVC8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC8.h; sourceTree = "<group>"; };
-		485303291C3F977A004361A7 /* DemoVC8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC8.m; sourceTree = "<group>"; };
+		485303291C3F977A004361A7 /* DemoVC8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DemoVC8.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4853032D1C3F977A004361A7 /* DemoVC9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC9.h; sourceTree = "<group>"; };
-		4853032E1C3F977A004361A7 /* DemoVC9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC9.m; sourceTree = "<group>"; };
+		4853032E1C3F977A004361A7 /* DemoVC9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DemoVC9.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4853034A1C3F97AA004361A7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4853034B1C3F97AA004361A7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4853034C1C3F97AA004361A7 /* DemoTableViewControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewControler.h; sourceTree = "<group>"; };
@@ -1583,7 +1583,7 @@
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = L6X9DMN9D4;
+						DevelopmentTeam = V4Q779DR3D;
 					};
 					487D3EC91BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;

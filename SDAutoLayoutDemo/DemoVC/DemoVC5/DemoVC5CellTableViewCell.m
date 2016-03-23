@@ -58,6 +58,7 @@
     UILabel *view2 = [UILabel new];
     view2.textColor = [UIColor grayColor];
     view2.font = [UIFont systemFontOfSize:16];
+    view2.numberOfLines = 0;
     _view2 = view2;
     
     UIImageView *view3 = [UIImageView new];

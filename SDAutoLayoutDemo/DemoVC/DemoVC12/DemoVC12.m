@@ -113,7 +113,7 @@
 - (void)setupScrollViewSubView2
 {
     UILabel *label = [UILabel new];
-    label.text = [NSString stringWithFormat:@" 共有%ld个字符 ", [_subview1_label.text length]];
+    label.text = [NSString stringWithFormat:@" 共有%u个字符 ", [_subview1_label.text length]];
     label.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
     _subview2 = label;
     [_scrollView addSubview:label];
@@ -166,7 +166,7 @@
     _subview1_label.text = [NSString stringWithFormat:@"%@     ---> %@", _subview1_label.text, addStr];
     [_subview1_label updateLayout];
     
-    _subview2.text = [NSString stringWithFormat:@" 共有%ld个字符 ", [_subview1_label.text length]];
+    _subview2.text = [NSString stringWithFormat:@" 共有%u个字符 ", [_subview1_label.text length]];
     
     if (_scrollView.contentSize.height > _scrollView.height) {
         CGPoint point = _scrollView.contentOffset;
