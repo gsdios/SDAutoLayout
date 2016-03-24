@@ -95,7 +95,7 @@
 
 - (UITableViewCell *)modelCell
 {
-    if (_modelCell.tag != kSDModelCellTag) {
+    if (_modelCell.contentView.tag != kSDModelCellTag) {
         _modelCell.contentView.tag = kSDModelCellTag;
     }
     return _modelCell;
