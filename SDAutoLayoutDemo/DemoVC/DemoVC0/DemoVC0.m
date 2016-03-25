@@ -114,7 +114,7 @@
 
 }
 
-- (void)dealloc
+- (void)viewDidDisappear:(BOOL)animated
 {
     [_timer invalidate];
     _timer = nil;

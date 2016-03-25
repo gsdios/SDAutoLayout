@@ -849,6 +849,7 @@
         [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
             if (caches) {
                 model.needsAutoResizeView.frame = [[caches objectAtIndex:idx] CGRectValue];
+                [self setupCornerRadiusWithView:model.needsAutoResizeView model:model];
             } else {
                 [self sd_resizeWithModel:model];
             }
@@ -912,7 +913,7 @@
             }
         }
         
-        if (self.sd_rightViewsArray.count && (self.ownLayoutModel.right || self.ownLayoutModel.equalRight)) {
+        if (![self isKindOfClass:[UIScrollView class]] && self.sd_rightViewsArray.count && (self.ownLayoutModel.right || self.ownLayoutModel.equalRight)) {
             SDAutoLayoutModel *model = self.ownLayoutModel;
             UIView *view = self;
             if (model.right) {
@@ -941,6 +942,37 @@
                     view.right = model.equalRight.refView.width;
                 }
                 
+            }
+        }
+        
+        if (![self isKindOfClass:[UIScrollView class]] && self.sd_bottomViewsArray.count && (self.ownLayoutModel.bottom || self.ownLayoutModel.equalBottom)) {
+            SDAutoLayoutModel *model = self.ownLayoutModel;
+            UIView *view = self;
+            if (model.bottom) {
+                if (view.superview == model.bottom.refView) {
+                    if (!view.fixedHeight) {
+                        view.height = view.superview.height - view.top - [model.bottom.value floatValue];
+                    }
+                    view.bottom = model.bottom.refView.height - [model.bottom.value floatValue];
+                } else {
+                    if (!view.fixedHeight) {
+                        view.height = model.bottom.refView.top - view.top - [model.bottom.value floatValue];
+                    }
+                    view.bottom = model.bottom.refView.top - [model.bottom.value floatValue];
+                }
+                
+            } else if (model.equalBottom) {
+                if (view.superview == model.equalBottom.refView) {
+                    if (!view.fixedHeight) {
+                        view.height = view.superview.height - view.top;
+                    }
+                    view.bottom = model.equalBottom.refView.height;
+                } else {
+                    if (!view.fixedHeight) {
+                        view.height = model.equalBottom.refView.bottom - view.top;
+                    }
+                    view.bottom = model.equalBottom.refView.bottom;
+                }
             }
         }
         
@@ -1222,6 +1254,12 @@
     }
     
     
+    [self setupCornerRadiusWithView:view model:model];
+    
+}
+
+- (void)setupCornerRadiusWithView:(UIView *)view model:(SDAutoLayoutModel *)model
+{
     CGFloat cornerRadius = view.layer.cornerRadius;
     CGFloat newCornerRadius = 0;
     
@@ -1237,7 +1275,6 @@
         view.layer.cornerRadius = newCornerRadius;
         view.clipsToBounds = YES;
     }
-    
 }
 
 - (void)addAutoLayoutModel:(SDAutoLayoutModel *)model
