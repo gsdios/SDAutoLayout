@@ -813,6 +813,9 @@
 
 - (void)sd_clearSubviewsAutoLayoutFrameCaches
 {
+    if ([self isKindOfClass:[UITableViewCell class]] && self.sd_indexPath) {
+        [self.sd_tableView.cellAutoHeightManager clearHeightCacheOfIndexPaths:@[self.sd_indexPath]];
+    }
     if (self.autoLayoutModelsArray.count == 0) return;
     
     [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
