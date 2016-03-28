@@ -111,7 +111,7 @@
     self.height = h;
     
     self.fixedHeight = @(h);
-    self.fixedWith = @(w);
+    self.fixedWidth = @(w);
 }
 
 #pragma mark - private actions

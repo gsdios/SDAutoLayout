@@ -239,7 +239,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 - (void)sd_clearSubviewsAutoLayoutFrameCaches;
 
 /** 设置固定宽度保证宽度不在自动布局过程再做中调整  */
-@property (nonatomic, strong) NSNumber *fixedWith;
+@property (nonatomic, strong) NSNumber *fixedWidth;
 
 /** 设置固定高度保证高度不在自动布局过程中再做调整  */
 @property (nonatomic, strong) NSNumber *fixedHeight;

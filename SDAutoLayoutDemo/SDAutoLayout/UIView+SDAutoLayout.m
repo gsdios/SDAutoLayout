@@ -139,7 +139,7 @@
         __weak typeof(self) weakSelf = self;
         _widthIs = ^(CGFloat value) {
             weakSelf.needsAutoResizeView.width = value;
-            weakSelf.needsAutoResizeView.fixedWith = @(value);
+            weakSelf.needsAutoResizeView.fixedWidth = @(value);
             return weakSelf;
         };
     }
@@ -648,17 +648,17 @@
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (NSNumber *)fixedWith
+- (NSNumber *)fixedWidth
 {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (void)setFixedWith:(NSNumber *)fixedWith
+- (void)setFixedWidth:(NSNumber *)fixedWidth
 {
-    if (fixedWith) {
-        self.width = [fixedWith floatValue];
+    if (fixedWidth) {
+        self.width = [fixedWidth floatValue];
     }
-    objc_setAssociatedObject(self, @selector(fixedWith), fixedWith, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(fixedWidth), fixedWidth, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (NSNumber *)fixedHeight
@@ -803,7 +803,7 @@
         self.autoHeightRatioValue = nil;
     }
     self.fixedHeight = nil;
-    self.fixedWith = nil;
+    self.fixedWidth = nil;
 }
 
 - (void)sd_clearViewFrameCache
@@ -834,7 +834,7 @@
         CGFloat averageWidth = (self.width - totalMargin) / self.sd_equalWidthSubviews.count;
         [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
             view.width = averageWidth;
-            view.fixedWith = @(averageWidth);
+            view.fixedWidth = @(averageWidth);
         }];
     }
     
@@ -909,7 +909,7 @@
             
             if (self.sd_rightViewsArray.count && (floorf(contentWidth) != floorf(self.width))) {
                 self.width = contentWidth;
-                self.fixedWith = @(self.width);
+                self.fixedWidth = @(self.width);
             }
         }
         
@@ -918,18 +918,18 @@
             UIView *view = self;
             if (model.right) {
                 if (view.superview == model.right.refView) {
-                    if (!view.fixedWith) { // view.autoLeft && view.autoRight
+                    if (!view.fixedWidth) { // view.autoLeft && view.autoRight
                         view.width = model.right.refView.width - view.left - [model.right.value floatValue];
                     }
                     view.right = model.right.refView.width - [model.right.value floatValue];
                 } else {
-                    if (!view.fixedWith) { // view.autoLeft && view.autoRight
+                    if (!view.fixedWidth) { // view.autoLeft && view.autoRight
                         view.width =  model.right.refView.left - view.left - [model.right.value floatValue];
                     }
                     view.right = model.right.refView.left - [model.right.value floatValue];
                 }
             } else if (model.equalRight) {
-                if (!view.fixedWith) {
+                if (!view.fixedWidth) {
                     if (model.equalRight.refView == view.superview) {
                         view.width = model.equalRight.refView.width - view.left;
                     } else {
@@ -1003,7 +1003,7 @@
                         label.width = width;
                     }
                 }
-                label.fixedWith = @(label.width);
+                label.fixedWidth = @(label.width);
             } else {
                 label.width = 0;
             }
@@ -1012,10 +1012,10 @@
     
     if (model.width) {
         view.width = [model.width.value floatValue];
-        view.fixedWith = @(view.width);
+        view.fixedWidth = @(view.width);
     } else if (model.ratio_width) {
         view.width = model.ratio_width.refView.width * [model.ratio_width.value floatValue];
-        view.fixedWith = @(view.width);
+        view.fixedWidth = @(view.width);
     }
     
     if (model.height) {
@@ -1028,19 +1028,19 @@
     
     if (model.left) {
         if (view.superview == model.left.refView) {
-            if (!view.fixedWith) { // view.autoLeft && view.autoRight
+            if (!view.fixedWidth) { // view.autoLeft && view.autoRight
                 view.width = view.right - [model.left.value floatValue];
             }
             view.left = [model.left.value floatValue];
         } else {
-            if (!view.fixedWith) { // view.autoLeft && view.autoRight
+            if (!view.fixedWidth) { // view.autoLeft && view.autoRight
                 view.width = view.right - model.left.refView.right - [model.left.value floatValue];
             }
             view.left = model.left.refView.right + [model.left.value floatValue];
         }
         
     } else if (model.equalLeft) {
-        if (!view.fixedWith) {
+        if (!view.fixedWidth) {
             view.width = view.right - model.equalLeft.refView.left;
         }
         if (view.superview == model.equalLeft.refView) {
@@ -1060,18 +1060,18 @@
     
     if (model.right) {
         if (view.superview == model.right.refView) {
-            if (!view.fixedWith) { // view.autoLeft && view.autoRight
+            if (!view.fixedWidth) { // view.autoLeft && view.autoRight
                 view.width = model.right.refView.width - view.left - [model.right.value floatValue];
             }
             view.right = model.right.refView.width - [model.right.value floatValue];
         } else {
-            if (!view.fixedWith) { // view.autoLeft && view.autoRight
+            if (!view.fixedWidth) { // view.autoLeft && view.autoRight
                 view.width =  model.right.refView.left - view.left - [model.right.value floatValue];
             }
             view.right = model.right.refView.left - [model.right.value floatValue];
         }
     } else if (model.equalRight) {
-        if (!view.fixedWith) {
+        if (!view.fixedWidth) {
             if (model.equalRight.refView == view.superview) {
                 view.width = model.equalRight.refView.width - view.left;
             } else {
@@ -1185,7 +1185,7 @@
                 if (!label.isAttributedContent) {
                     CGRect rect = [label.text boundingRectWithSize:CGSizeMake(width, label.height) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
                     label.width = rect.size.width;
-                    label.fixedWith = @(label.width);
+                    label.fixedWidth = @(label.width);
                 } else{
                     [label sizeToFit];
                     if (label.width > width) {

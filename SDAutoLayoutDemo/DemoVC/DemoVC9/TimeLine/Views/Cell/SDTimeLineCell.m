@@ -192,13 +192,13 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     UIView *bottomView;
     
     if (!model.commentItemsArray.count && !model.likeItemsArray.count) {
-        _commentView.fixedWith = @0; // 如果没有评论或者点赞，设置commentview的固定宽度为0（设置了fixedWith的控件将不再在自动布局过程中调整宽度）
+        _commentView.fixedWidth = @0; // 如果没有评论或者点赞，设置commentview的固定宽度为0（设置了fixedWidth的控件将不再在自动布局过程中调整宽度）
         _commentView.fixedHeight = @0; // 如果没有评论或者点赞，设置commentview的固定高度为0（设置了fixedHeight的控件将不再在自动布局过程中调整高度）
         _commentView.sd_layout.topSpaceToView(_timeLabel, 0);
         bottomView = _timeLabel;
     } else {
         _commentView.fixedHeight = nil; // 取消固定宽度约束
-        _commentView.fixedWith = nil; // 取消固定高度约束
+        _commentView.fixedWidth = nil; // 取消固定高度约束
         _commentView.sd_layout.topSpaceToView(_timeLabel, 10);
         bottomView = _commentView;
     }
