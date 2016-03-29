@@ -1,7 +1,7 @@
 # SDAutoLayout（一行代码搞定自动布局！）
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
-支持pod：  pod 'SDAutoLayout', '~> 1.31'
+支持pod：  pod 'SDAutoLayout', '~> 1.50'
 
 如果发现pod search SDAutoLayout 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
 
