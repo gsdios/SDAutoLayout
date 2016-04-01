@@ -281,6 +281,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 设置单行文本label宽度自适应 */
 - (void)setSingleLineAutoResizeWithMaxWidth:(CGFloat)maxWidth;
 
+/** 设置label最多可以显示多少行，如果传0则显示所有行文字 */
+- (void)setMaxNumberOfLinesToShow:(NSInteger)lineCount;
+
 @end
 
 

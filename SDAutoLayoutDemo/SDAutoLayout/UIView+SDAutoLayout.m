@@ -611,6 +611,16 @@
     self.sd_maxWidth = @(maxWidth);
 }
 
+- (void)setMaxNumberOfLinesToShow:(NSInteger)lineCount
+{
+    NSAssert(self.ownLayoutModel, @"请在布局完成之后再做此步设置！");
+    if (lineCount > 0) {
+        self.sd_layout.maxHeightIs(self.font.lineHeight * lineCount);
+    } else {
+        self.sd_layout.maxHeightIs(MAXFLOAT);
+    }
+}
+
 @end
 
 
