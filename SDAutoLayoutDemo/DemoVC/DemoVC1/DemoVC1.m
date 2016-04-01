@@ -24,19 +24,37 @@
 #import "DemoVC1.h"
 
 @implementation DemoVC1
+{
+    UILabel *_autoWidthLabel;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     
-    /*  
-     
-     设置view1高度根据子view而自适应(在view1中加入两个子view(testLabel和testView)，然后设置view1高度根据子view内容自适应)
+ 
+    // demo1.内容自适应view
+    [self setupAutoHeightView];
+    
+    // demo2.宽度自适应label
+    [self setupAutoWidthLabel];
+    
+    // demo3.高度自适应label
+    [self setupAutoHeightLabel];
+    
+}
+
+
+
+// demo1.内容自适应view
+- (void)setupAutoHeightView
+{
+    /*
+     设置view1高度根据子view而自适应(在view1中加入两个子view(testLabel和testView)
+     ，然后设置view1高度根据子view内容自适应)
      */
     
-    
-
     UILabel *testLabel_subview1 = [UILabel new]; // 初始化子view1
     testLabel_subview1.text = @"这个紫色的label会根据这些文字内容高度自适应；而这个灰色的父view会根据紫色的label和橙色的view具体情况实现高度自适应。\nGot it! OH YAEH!";
     testLabel_subview1.backgroundColor = [UIColor purpleColor];
@@ -69,6 +87,45 @@
     
     // 设置view1高度根据子其内容自适应
     [self.view1 setupAutoHeightWithBottomView:testView_subview2 bottomMargin:10];
+}
+
+
+// demo2.宽度自适应label
+- (void)setupAutoWidthLabel
+{
+    UILabel *autoWidthlabel = [UILabel new];
+    autoWidthlabel.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.5];
+    _autoWidthLabel = autoWidthlabel;
+    autoWidthlabel.font = [UIFont systemFontOfSize:12];
+    autoWidthlabel.text = @"宽度自适应(距离父view右边距10)";
+    
+    [self.view addSubview:autoWidthlabel];
+    
+    autoWidthlabel.sd_layout
+    .rightSpaceToView(self.view, 10)
+    .heightIs(20)
+    .bottomSpaceToView(self.view, 100);
+    
+    [autoWidthlabel setSingleLineAutoResizeWithMaxWidth:180];
+}
+
+
+// demo3.高度自适应label
+- (void)setupAutoHeightLabel
+{
+    UILabel *autoHeightlabel = [UILabel new];
+    autoHeightlabel.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
+    autoHeightlabel.font = [UIFont systemFontOfSize:12];
+    autoHeightlabel.text = @"高度自适应(距离父view左边距10，底部和其右侧label相同，宽度为100)";
+    
+    [self.view addSubview:autoHeightlabel];
+    
+    autoHeightlabel.sd_layout
+    .bottomEqualToView(_autoWidthLabel)
+    .leftSpaceToView(self.view, 10)
+    .widthIs(100)
+    .autoHeightRatio(0);
+    
 }
 
 
