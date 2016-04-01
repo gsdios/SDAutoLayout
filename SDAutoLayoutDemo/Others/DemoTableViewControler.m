@@ -28,7 +28,7 @@
 #import "DemoCell.h"
 
 NSString * const demo0Description = @"自动布局动画，修改一个view的布局约束，其他view也会自动重新排布";
-NSString * const demo1Description = @"设置view1高度根据子view而自适应(在view1中加入两个子view(testLabel和testView)，然后设置view1高度根据子view内容自适应)";
+NSString * const demo1Description = @"1.设置view1高度根据子view而自适应(在view1中加入两个子view(testLabel和testView)，然后设置view1高度根据子view内容自适应)\n2.高度自适应lable\n3.宽度自适应label";
 NSString * const demo2Description = @"1.设置水平方向的3个等宽子view\n2.设置一个宽高都为50的位于父view中间的view";
 NSString * const demo3Description = @"简单tableview展示";
 NSString * const demo4Description = @"1.行间距为8的attributedString的label\n2.类cell的自动布局展示";
@@ -73,14 +73,14 @@ NSString * const demo13Description = @"scroll任意布局内容自适应自动�
     if (!cell) {
         cell = [[DemoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    cell.titleLabel.text = [NSString stringWithFormat:@"Demo -- %ld", indexPath.row];
+    cell.titleLabel.text = [NSString stringWithFormat:@"Demo -- %ld", (long)indexPath.row];
     cell.contentLabel.text = _contenArray[indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *demoClassString = [NSString stringWithFormat:@"DemoVC%ld", indexPath.row];
+    NSString *demoClassString = [NSString stringWithFormat:@"DemoVC%ld", (long)indexPath.row];
     UIViewController *vc = [NSClassFromString(demoClassString) new];
     vc.title = demoClassString;
     [self.navigationController pushViewController:vc animated:YES];

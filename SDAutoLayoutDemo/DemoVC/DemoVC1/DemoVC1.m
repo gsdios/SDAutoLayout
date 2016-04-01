@@ -104,7 +104,7 @@
     autoWidthlabel.sd_layout
     .rightSpaceToView(self.view, 10)
     .heightIs(20)
-    .bottomSpaceToView(self.view, 100);
+    .bottomSpaceToView(self.view, 50);
     
     [autoWidthlabel setSingleLineAutoResizeWithMaxWidth:180];
 }
