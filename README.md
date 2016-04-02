@@ -13,7 +13,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ## QQ交流群：
 
-497140713   519489682（已满）
+497140713（1群）   519489682（已满）
 
 ## 视频教程：
 ☆☆ SDAutoLayout 基础版视频教程：http://www.letv.com/ptv/vplay/24038772.html ☆☆
