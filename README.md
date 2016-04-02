@@ -5,7 +5,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
-## 技术支持（QQ交流群）：
+## 技术支持(QQ交流群)：
 
 497140713（1群）   519489682（已满）
 
