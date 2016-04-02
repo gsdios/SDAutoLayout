@@ -1,4 +1,7 @@
 # SDAutoLayout（一行代码搞定自动布局！）
+
+### SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3effb8
+
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
 支持pod：  pod 'SDAutoLayout', '~> 1.50'
@@ -14,7 +17,7 @@
 ☆☆ SDAutoLayout 原理简介视频教程：http://www.iqiyi.com/w_19rt0tec4p.html ☆☆
 
 ## 部分SDAutoLayout的DEMO
-### SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3effb8
+
 ### 完整微信Demo https://github.com/gsdios/GSD_WeiXin
 
 ![](http://ww3.sinaimg.cn/mw690/9b8146edgw1f1nm3pziawg205u0a0qv5.gif)![](http://ww1.sinaimg.cn/bmiddle/9b8146edgw1f06aoe2umhg206e0b4u0x.gif)![](http://ww4.sinaimg.cn/bmiddle/9b8146edgw1ezal3smihcg206y0ciqv5.gif)![](http://ww3.sinaimg.cn/mw690/9b8146edgw1f1nm3lweg3g207s0dcu0x.gif)![](http://ww2.sinaimg.cn/mw690/9b8146edgw1f23irukb0qg207i0dwu0x.gif)![](http://ww2.sinaimg.cn/bmiddle/9b8146edgw1eya1jv951ig208c0etqv5.gif)
