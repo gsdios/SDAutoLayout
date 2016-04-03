@@ -461,6 +461,14 @@
     [self.superview layoutSubviews];
 }
 
+- (void)updateLayoutWithCellContentView:(UIView *)cellContentView
+{
+    if (cellContentView.sd_indexPath) {
+        [cellContentView sd_clearSubviewsAutoLayoutFrameCaches];
+    }
+    [self updateLayout];
+}
+
 - (CGFloat)autoHeight
 {
     return [objc_getAssociatedObject(self, _cmd) floatValue];
@@ -704,6 +712,12 @@
     objc_setAssociatedObject(self, @selector(sd_maxWidth), sd_maxWidth, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (void)useCellFrameCacheWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableview
+{
+    self.sd_indexPath = indexPath;
+    self.sd_tableView = tableview;
+}
+
 - (UITableView *)sd_tableView
 {
     return self.sd_categoryManager.sd_tableView;
@@ -823,9 +837,11 @@
 
 - (void)sd_clearSubviewsAutoLayoutFrameCaches
 {
-    if ([self isKindOfClass:[UITableViewCell class]] && self.sd_indexPath) {
+    if (self.sd_tableView && self.sd_indexPath) {
         [self.sd_tableView.cellAutoHeightManager clearHeightCacheOfIndexPaths:@[self.sd_indexPath]];
+        return;
     }
+    
     if (self.autoLayoutModelsArray.count == 0) return;
     
     [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
@@ -860,7 +876,7 @@
         }
         
         [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
-            if (caches) {
+            if (idx < caches.count) {
                 model.needsAutoResizeView.frame = [[caches objectAtIndex:idx] CGRectValue];
                 [self setupCornerRadiusWithView:model.needsAutoResizeView model:model];
             } else {

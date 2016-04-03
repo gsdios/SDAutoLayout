@@ -128,8 +128,7 @@
     
     ////// 此步设置用于实现cell的frame缓存，可以让tableview滑动更加流畅 //////
     
-    cell.sd_tableView = tableView;
-    cell.sd_indexPath = indexPath;
+    [cell useCellFrameCacheWithIndexPath:indexPath tableView:tableView];
     
     ///////////////////////////////////////////////////////////////////////
     
