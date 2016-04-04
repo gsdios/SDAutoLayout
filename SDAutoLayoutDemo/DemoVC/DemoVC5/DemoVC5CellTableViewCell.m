@@ -117,8 +117,6 @@
     _view0.image = [UIImage imageNamed:model.iconName];
     
     _view1.text = model.name;
-    // 防止单行文本label在重用时宽度计算不准的问题
-    [_view1 sizeToFit];
     
     _view2.text = model.content;
     
