@@ -28,9 +28,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SDTimeLineCellDelegate <NSObject>
+
+- (void)didClickLickButtonInCell:(UITableViewCell *)cell;
+- (void)didClickcCommentButtonInCell:(UITableViewCell *)cell;
+
+@end
+
 @class SDTimeLineCellModel;
 
 @interface SDTimeLineCell : UITableViewCell
+
+@property (nonatomic, weak) id<SDTimeLineCellDelegate> delegate;
 
 @property (nonatomic, strong) SDTimeLineCellModel *model;
 

@@ -183,6 +183,7 @@
 		48FC0EC61C4FB60A004098B8 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E931C4FB60A004098B8 /* UIView+MJExtension.m */; };
 		48FC0EC71C4FB60A004098B8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E941C4FB60A004098B8 /* README.md */; };
 		48FC0ECB1C4FB7CA004098B8 /* XYString.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0ECA1C4FB7CA004098B8 /* XYString.m */; };
+		9997FB651CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9997FB641CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m */; };
 		99A697741C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */; };
 		99A697751C423B0D004EA699 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */; };
 		99D694B51C8C54D000DA97E1 /* SDTimeLineCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694A01C8C54D000DA97E1 /* SDTimeLineCellModel.m */; };
@@ -526,6 +527,8 @@
 		48FC0E941C4FB60A004098B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		48FC0EC91C4FB7CA004098B8 /* XYString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYString.h; sourceTree = "<group>"; };
 		48FC0ECA1C4FB7CA004098B8 /* XYString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYString.m; sourceTree = "<group>"; };
+		9997FB631CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellOperationMenu.h; sourceTree = "<group>"; };
+		9997FB641CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellOperationMenu.m; sourceTree = "<group>"; };
 		99A697701C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
 		99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
 		99A697721C423B0D004EA699 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
@@ -1335,6 +1338,15 @@
 			path = XYString;
 			sourceTree = "<group>";
 		};
+		9997FB621CB2C26800A6FF62 /* OperationMenu */ = {
+			isa = PBXGroup;
+			children = (
+				9997FB631CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.h */,
+				9997FB641CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m */,
+			);
+			path = OperationMenu;
+			sourceTree = "<group>";
+		};
 		99A6976F1C423B0D004EA699 /* SDAutoLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1379,6 +1391,7 @@
 		99D694A41C8C54D000DA97E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9997FB621CB2C26800A6FF62 /* OperationMenu */,
 				99D694A51C8C54D000DA97E1 /* Cell */,
 				99D694A81C8C54D000DA97E1 /* CommentView */,
 				99D694AB1C8C54D000DA97E1 /* HeaderView */,
@@ -1702,6 +1715,7 @@
 				48EB73041C748E1A003A818E /* SDAnalogDataGenerator.m in Sources */,
 				485302F51C3F65EE004361A7 /* TAAnimatedDotView.m in Sources */,
 				48FC0EB21C4FB60A004098B8 /* NSString+MJExtension.m in Sources */,
+				9997FB651CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m in Sources */,
 				485302FA1C3F65EE004361A7 /* UIView+SDExtension.m in Sources */,
 				485302D31C3F6490004361A7 /* UIView+SDExtension.m in Sources */,
 				48FC0EC01C4FB60A004098B8 /* MJRefreshNormalHeader.m in Sources */,

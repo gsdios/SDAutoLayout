@@ -35,8 +35,12 @@
 
 #import "SDWeiXinPhotoContainerView.h"
 
+#import "SDTimeLineCellOperationMenu.h"
+
 const CGFloat contentLabelFontSize = 15;
 CGFloat maxContentLabelHeight = 0; // 根据具体font而定
+
+NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLineCellOperationButtonClickedNotification";
 
 @implementation SDTimeLineCell
 
@@ -50,6 +54,7 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     UIButton *_operationButton;
     SDTimeLineCellCommentView *_commentView;
     BOOL _shouldOpenContentLabel;
+    SDTimeLineCellOperationMenu *_operationMenu;
 }
 
 
@@ -65,6 +70,8 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
 - (void)setup
 {
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveOperationButtonClickedNotification:) name:kSDTimeLineCellOperationButtonClickedNotification object:nil];
+    
     _shouldOpenContentLabel = NO;
     
     _iconView = [UIImageView new];
@@ -74,8 +81,8 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     _nameLable.textColor = [UIColor colorWithRed:(54 / 255.0) green:(71 / 255.0) blue:(121 / 255.0) alpha:0.9];
     
     _contentLabel = [UILabel new];
-    _contentLabel.numberOfLines = 0;
     _contentLabel.font = [UIFont systemFontOfSize:contentLabelFontSize];
+    _contentLabel.numberOfLines = 0;
     if (maxContentLabelHeight == 0) {
         maxContentLabelHeight = _contentLabel.font.lineHeight * 3;
     }
@@ -98,7 +105,21 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     _timeLabel.font = [UIFont systemFontOfSize:13];
     _timeLabel.textColor = [UIColor lightGrayColor];
     
-    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel, _operationButton, _commentView];
+    
+    _operationMenu = [SDTimeLineCellOperationMenu new];
+    __weak typeof(self) weakSelf = self;
+    [_operationMenu setLikeButtonClickedOperation:^{
+        if ([weakSelf.delegate respondsToSelector:@selector(didClickLickButtonInCell:)]) {
+            [weakSelf.delegate didClickLickButtonInCell:weakSelf];
+        }
+    }];
+    [_operationMenu setCommentButtonClickedOperation:^{
+        if ([weakSelf.delegate respondsToSelector:@selector(didClickcCommentButtonInCell:)]) {
+            [weakSelf.delegate didClickcCommentButtonInCell:weakSelf];
+        }
+    }];
+    
+    NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel, _operationButton, _operationMenu, _commentView];
     
     [self.contentView sd_addSubviews:views];
     
@@ -149,8 +170,19 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     .leftEqualToView(_contentLabel)
     .rightSpaceToView(self.contentView, margin)
     .topSpaceToView(_timeLabel, margin); // 已经在内部实现高度自适应所以不需要再设置高度
+    
+    
+    _operationMenu.sd_layout
+    .rightSpaceToView(_operationButton, 0)
+    .heightIs(36)
+    .centerYEqualToView(_operationButton)
+    .widthIs(0);
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)setModel:(SDTimeLineCellModel *)model
 {
@@ -163,6 +195,8 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     
     _iconView.image = [UIImage imageNamed:model.iconName];
     _nameLable.text = model.name;
+    // 防止单行文本label在重用时宽度计算不准的问题
+    [_nameLable sizeToFit];
     _contentLabel.text = model.msgContent;
     _picContainerView.picPathStringsArray = model.picNamesArray;
     
@@ -190,7 +224,7 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     UIView *bottomView;
     
     if (!model.commentItemsArray.count && !model.likeItemsArray.count) {
-        _commentView.fixedWidth = @0; // 如果没有评论或者点赞，设置commentview的固定宽度为0（设置了fixedWidth的控件将不再在自动布局过程中调整宽度）
+        _commentView.fixedWidth = @0; // 如果没有评论或者点赞，设置commentview的固定宽度为0（设置了fixedWith的控件将不再在自动布局过程中调整宽度）
         _commentView.fixedHeight = @0; // 如果没有评论或者点赞，设置commentview的固定高度为0（设置了fixedHeight的控件将不再在自动布局过程中调整高度）
         _commentView.sd_layout.topSpaceToView(_timeLabel, 0);
         bottomView = _timeLabel;
@@ -206,6 +240,14 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
     _timeLabel.text = @"1分钟前";
 }
 
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    if (_operationMenu.isShowing) {
+        _operationMenu.show = NO;
+    }
+}
+
 #pragma mark - private actions
 
 - (void)moreButtonClicked
@@ -217,7 +259,32 @@ CGFloat maxContentLabelHeight = 0; // 根据具体font而定
 
 - (void)operationButtonClicked
 {
+    [self postOperationButtonClickedNotification];
+    _operationMenu.show = !_operationMenu.isShowing;
+}
+
+- (void)receiveOperationButtonClickedNotification:(NSNotification *)notification
+{
+    UIButton *btn = [notification object];
     
+    if (btn != _operationButton && _operationMenu.isShowing) {
+        _operationMenu.show = NO;
+    }
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    [self postOperationButtonClickedNotification];
+    if (_operationMenu.isShowing) {
+        _operationMenu.show = NO;
+    }
+}
+
+- (void)postOperationButtonClickedNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSDTimeLineCellOperationButtonClickedNotification object:_operationButton];
 }
 
 @end
