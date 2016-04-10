@@ -251,7 +251,7 @@
     [self sd_reloadData];
 }
 
-- (void)sd_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+- (void)sd_reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
     [self.cellAutoHeightManager clearHeightCacheOfIndexPaths:indexPaths];
     [self sd_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
