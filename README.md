@@ -11,13 +11,15 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ##Pod支持：
 
-支持pod：  pod 'SDAutoLayout', '~> 1.50'
+支持pod：  pod 'SDAutoLayout', '~> 1.51'
 
 如果发现pod search SDAutoLayout 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
 
 ## 更新记录：
 
-2016.03.23 -- 升级了缓存机制，新版本在tableview滑动cell时候流畅度和性能提升20%以上
+2016.04.05 -- 修复宽度自适应label在重用时候偶尔出现的宽度计算不准确的问题（发布pod1.51版本）
+
+2016.03.23 -- 升级了缓存机制，新版本在tableview滑动cell时候流畅度和性能提升20%以上（发布pod1.50版本）
 
 2016.01.23 -- 增加label对attributedString的内容自适应
 
