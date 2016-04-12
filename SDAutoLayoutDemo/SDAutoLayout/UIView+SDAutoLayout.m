@@ -623,14 +623,15 @@
 
 - (void)sd_setText:(NSString *)text
 {
+    // 如果程序崩溃在这行代码说明是你的label在执行“setText”方法时出了问题而不是在此自动布局库内部出现了问题，请检查你的“setText”方法
+    [self sd_setText:text];
+    
+    
     if (self.sd_maxWidth) {
         [self sizeToFit];
     } else if (self.autoHeightRatioValue) {
         self.frame = CGRectZero;
     }
-    
-    // 如果程序崩溃在这行代码说明是你的label在执行“setText”方法时出了问题而不是在此自动布局库内部出现了问题，请检查你的“setText”方法
-    [self sd_setText:text];
 }
 
 - (BOOL)isAttributedContent
