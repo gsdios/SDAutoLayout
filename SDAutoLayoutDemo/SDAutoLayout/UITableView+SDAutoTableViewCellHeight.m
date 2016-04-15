@@ -80,6 +80,10 @@
     if (!self.modelCell.contentView.subviews.count) {
         self.modelCell = nil;
         [_modelTableview registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:NSStringFromClass(cellClass)];
+        
+        /*
+         如果程序卡在了这里请检查并确保你的cell的子控件添加在cell的contentView上（不要直接添加到cell上）。
+         */
         self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
     }
     if (self.modelCell) {
@@ -118,6 +122,9 @@
 
 - (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath
 {
+    /*
+     如果程序卡在了这里很可能是由于你用了“dequeueReusableCellWithIdentifier:forIndexPath:”方法来重用cell，换成““dequeueReusableCellWithIdentifier:”（不带IndexPath）方法即可解决
+     */
     NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
     return (NSNumber *)[_cacheDictionary objectForKey:cacheKey];
 }
