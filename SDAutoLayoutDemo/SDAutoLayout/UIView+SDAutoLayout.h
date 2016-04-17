@@ -367,5 +367,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic, weak) UITableView *sd_tableView;
 @property (nonatomic, strong) NSIndexPath *sd_indexPath;
 
+@property (nonatomic, assign) BOOL hasSetFrameWithCache;
+
 @end
 

@@ -211,6 +211,7 @@ static CGFloat textFieldH = 40;
             model.picNamesArray = [temp copy];
         }
         
+        // 模拟随机评论数据
         int commentRandom = arc4random_uniform(3);
         NSMutableArray *tempComments = [NSMutableArray new];
         for (int i = 0; i < commentRandom; i++) {
@@ -226,6 +227,21 @@ static CGFloat textFieldH = 40;
             [tempComments addObject:commentItemModel];
         }
         model.commentItemsArray = [tempComments copy];
+        
+        // 模拟随机点赞数据
+        int likeRandom = arc4random_uniform(3);
+        NSMutableArray *tempLikes = [NSMutableArray new];
+        for (int i = 0; i < likeRandom; i++) {
+            SDTimeLineCellLikeItemModel *model = [SDTimeLineCellLikeItemModel new];
+            int index = arc4random_uniform((int)namesArray.count);
+            model.userName = namesArray[index];
+            model.userId = namesArray[index];
+            [tempLikes addObject:model];
+        }
+        
+        model.likeItemsArray = [tempLikes copy];
+        
+        
         
         [resArr addObject:model];
     }
@@ -304,9 +320,32 @@ static CGFloat textFieldH = 40;
     
 }
 
-- (void)didClickLickButtonInCell:(UITableViewCell *)cell
+- (void)didClickLikeButtonInCell:(UITableViewCell *)cell
 {
+    NSIndexPath *index = [self.tableView indexPathForCell:cell];
+    SDTimeLineCellModel *model = self.dataArray[index.row];
+    NSMutableArray *temp = [NSMutableArray arrayWithArray:model.likeItemsArray];
     
+    if (!model.isLiked) {
+        SDTimeLineCellLikeItemModel *likeModel = [SDTimeLineCellLikeItemModel new];
+        likeModel.userName = @"GSD_iOS";
+        likeModel.userId = @"gsdios";
+        [temp addObject:likeModel];
+        model.liked = YES;
+    } else {
+        SDTimeLineCellLikeItemModel *tempLikeModel = nil;
+        for (SDTimeLineCellLikeItemModel *likeModel in model.likeItemsArray) {
+            if ([likeModel.userId isEqualToString:@"gsdios"]) {
+                tempLikeModel = likeModel;
+                break;
+            }
+        }
+        [temp removeObject:tempLikeModel];
+        model.liked = NO;
+    }
+    model.likeItemsArray = [temp copy];
+    
+    [self.tableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 

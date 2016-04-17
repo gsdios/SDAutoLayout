@@ -910,6 +910,7 @@
             if (idx < caches.count) {
                 model.needsAutoResizeView.frame = [[caches objectAtIndex:idx] CGRectValue];
                 [self setupCornerRadiusWithView:model.needsAutoResizeView model:model];
+                model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache = YES;
             } else {
                 [self sd_resizeWithModel:model];
             }
@@ -929,6 +930,10 @@
             cell.autoHeight = height + cell.sd_bottomViewBottomMargin;
         }
     } else if (![self isKindOfClass:[UITableViewCell class]] && (self.sd_bottomViewsArray.count || self.sd_rightViewsArray.count)) {
+        if (self.sd_categoryManager.hasSetFrameWithCache) {
+            self.sd_categoryManager.hasSetFrameWithCache = NO;
+            return;
+        }
         CGFloat contentHeight = 0;
         CGFloat contentWidth = 0;
         if (self.sd_bottomViewsArray) {

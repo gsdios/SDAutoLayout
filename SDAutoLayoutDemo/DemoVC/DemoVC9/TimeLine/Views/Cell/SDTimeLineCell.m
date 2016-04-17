@@ -109,8 +109,8 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     _operationMenu = [SDTimeLineCellOperationMenu new];
     __weak typeof(self) weakSelf = self;
     [_operationMenu setLikeButtonClickedOperation:^{
-        if ([weakSelf.delegate respondsToSelector:@selector(didClickLickButtonInCell:)]) {
-            [weakSelf.delegate didClickLickButtonInCell:weakSelf];
+        if ([weakSelf.delegate respondsToSelector:@selector(didClickLikeButtonInCell:)]) {
+            [weakSelf.delegate didClickLikeButtonInCell:weakSelf];
         }
     }];
     [_operationMenu setCommentButtonClickedOperation:^{
@@ -118,6 +118,7 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
             [weakSelf.delegate didClickcCommentButtonInCell:weakSelf];
         }
     }];
+    
     
     NSArray *views = @[_iconView, _nameLable, _contentLabel, _moreButton, _picContainerView, _timeLabel, _operationButton, _operationMenu, _commentView];
     

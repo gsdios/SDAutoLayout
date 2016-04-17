@@ -37,6 +37,8 @@
 @property (nonatomic, copy) NSString *msgContent;
 @property (nonatomic, strong) NSArray *picNamesArray;
 
+@property (nonatomic, assign, getter = isLiked) BOOL liked;
+
 @property (nonatomic, strong) NSArray<SDTimeLineCellLikeItemModel *> *likeItemsArray;
 @property (nonatomic, strong) NSArray<SDTimeLineCellCommentItemModel *> *commentItemsArray;
 

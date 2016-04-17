@@ -30,7 +30,7 @@
 
 @protocol SDTimeLineCellDelegate <NSObject>
 
-- (void)didClickLickButtonInCell:(UITableViewCell *)cell;
+- (void)didClickLikeButtonInCell:(UITableViewCell *)cell;
 - (void)didClickcCommentButtonInCell:(UITableViewCell *)cell;
 
 @end
