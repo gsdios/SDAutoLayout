@@ -221,6 +221,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 设置等宽子view（子view需要在同一水平方向） */
 @property (nonatomic, strong) NSArray *sd_equalWidthSubviews;
 
+/** 设置类似collectionView效果的浮动子view */
+- (void)setupFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount verticalMargin:(CGFloat)verticalMargin horizontalMargin:(CGFloat)horizontalMagin;
+
 @end
 
 
@@ -368,6 +371,16 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic, strong) NSIndexPath *sd_indexPath;
 
 @property (nonatomic, assign) BOOL hasSetFrameWithCache;
+
+
+
+/** 设置类似collectionView效果的浮动子view */
+
+@property (nonatomic, strong) NSArray *flowItems;
+@property (nonatomic, assign) CGFloat verticalMargin;
+@property (nonatomic, assign) CGFloat horizontalMargin;
+@property (nonatomic, assign) NSInteger perRowItemsCount;
+@property (nonatomic, assign) CGFloat lastWidth;
 
 @end
 

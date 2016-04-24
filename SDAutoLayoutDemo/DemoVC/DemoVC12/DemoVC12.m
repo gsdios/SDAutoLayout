@@ -32,12 +32,7 @@
 {
     UIScrollView *_scrollView;
     
-    UIView *_subview1;
-    UILabel *_subview1_label;
-    
-    UILabel *_subview2;
-    
-    UIView *_redView;
+    UIView *_flowItemContentView;
 }
 
 - (void)viewDidLoad {
@@ -47,6 +42,7 @@
     
     [self setupScrollView];
 }
+
 
 // 添加scrollview
 - (void)setupScrollView
@@ -58,13 +54,79 @@
     // 设置scrollview与父view的边距
     scroll.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
     
-    [self setupScrollViewSubView1];
-    [self setupScrollViewSubView2];
-    [self setupScrollViewSubView3];
+    [self setupFlowItemContentView];
     
     // 设置scrollview的contentsize自适应
-    [scroll setupAutoContentSizeWithBottomView:_redView bottomMargin:10];
+    [scroll setupAutoContentSizeWithBottomView:_flowItemContentView bottomMargin:10];
 }
+
+
+// 添加flowItemContentView
+- (void)setupFlowItemContentView
+{
+    _flowItemContentView = [UIView new];
+    _flowItemContentView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4];
+    [_scrollView addSubview:_flowItemContentView];
+    
+    _flowItemContentView.sd_layout
+    .leftEqualToView(_scrollView)
+    .rightEqualToView(_scrollView)
+    .topEqualToView(_scrollView);
+    
+    [self setupFlowItemViews];
+}
+
+
+
+- (void)setupFlowItemViews
+{
+    NSMutableArray *temp = [NSMutableArray new];
+    for (int i = 0; i < 35; i++) {
+        UIView *view = [UIView new];
+        view.backgroundColor = [self randomColor];
+        [_flowItemContentView addSubview:view];
+        view.sd_layout.autoHeightRatio(0.8);
+        [temp addObject:view];
+    }
+    
+    // 关键步骤：设置类似collectionView的展示效果
+    [_flowItemContentView setupFlowItems:[temp copy] withPerRowItemsCount:3 verticalMargin:10 horizontalMargin:10];
+}
+
+
+- (UIColor *)randomColor
+{
+    CGFloat r = arc4random_uniform(256) / 255.0;
+    CGFloat g = arc4random_uniform(256) / 255.0;
+    CGFloat b = arc4random_uniform(256) / 255.0;
+    
+    return [UIColor colorWithRed:r green:g blue:b alpha:1];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 // 设置scrollview的第一个子深粉色view（包含左边一个label、右边一个button的深粉色view，这个view根据label文字高度自适应）
 - (void)setupScrollViewSubView1
@@ -113,7 +175,7 @@
 - (void)setupScrollViewSubView2
 {
     UILabel *label = [UILabel new];
-    label.text = [NSString stringWithFormat:@" 共有%u个字符 ", [_subview1_label.text length]];
+    label.text = [NSString stringWithFormat:@" 共有%lu个字符 ", [_subview1_label.text length]];
     label.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
     _subview2 = label;
     [_scrollView addSubview:label];
@@ -166,7 +228,7 @@
     _subview1_label.text = [NSString stringWithFormat:@"%@     ---> %@", _subview1_label.text, addStr];
     [_subview1_label updateLayout];
     
-    _subview2.text = [NSString stringWithFormat:@" 共有%u个字符 ", [_subview1_label.text length]];
+    _subview2.text = [NSString stringWithFormat:@" 共有%lu个字符 ", [_subview1_label.text length]];
     
     if (_scrollView.contentSize.height > _scrollView.height) {
         CGPoint point = _scrollView.contentOffset;
@@ -177,6 +239,6 @@
     }
 }
 
-
+*/
 
 @end

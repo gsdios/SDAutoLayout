@@ -574,6 +574,20 @@
     objc_setAssociatedObject(self, @selector(sd_equalWidthSubviews), sd_equalWidthSubviews, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (void)setupFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount verticalMargin:(CGFloat)verticalMargin horizontalMargin:(CGFloat)horizontalMagin
+{
+    self.sd_categoryManager.flowItems = viewsArray;
+    self.sd_categoryManager.perRowItemsCount = perRowItemsCount;
+    self.sd_categoryManager.verticalMargin = verticalMargin;
+    self.sd_categoryManager.horizontalMargin = horizontalMagin;
+    
+    if (viewsArray.count) {
+        [self setupAutoHeightWithBottomView:viewsArray.lastObject bottomMargin:horizontalMagin];
+    } else {
+        [self clearAutoHeigtSettings];
+    }
+}
+
 - (void)sd_addSubviews:(NSArray *)subviews
 {
     [subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
@@ -895,6 +909,39 @@
         [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
             view.width = averageWidth;
             view.fixedWidth = @(averageWidth);
+        }];
+    }
+    
+    if (self.sd_categoryManager.flowItems.count && (self.sd_categoryManager.lastWidth != self.width)) {
+        
+        self.sd_categoryManager.lastWidth = self.width;
+        
+        NSInteger perRowItemsCount = self.sd_categoryManager.perRowItemsCount;
+        CGFloat horizontalMargin = self.sd_categoryManager.horizontalMargin;
+        CGFloat verticalMargin = self.sd_categoryManager.verticalMargin;
+        CGFloat w = (self.width - (perRowItemsCount + 1) * horizontalMargin) / perRowItemsCount + 1;
+        __block UIView *referencedView = self;
+        [self.sd_categoryManager.flowItems enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
+            if (idx < perRowItemsCount) {
+                if (idx == 0) {
+                    view.sd_layout
+                    .leftSpaceToView(referencedView, horizontalMargin)
+                    .topSpaceToView(referencedView, verticalMargin)
+                    .widthIs(w);
+                } else {
+                    view.sd_layout
+                    .leftSpaceToView(referencedView, horizontalMargin)
+                    .topEqualToView(referencedView)
+                    .widthIs(w);
+                }
+                referencedView = view;
+            } else {
+                referencedView = self.sd_categoryManager.flowItems[idx - perRowItemsCount];
+                view.sd_layout
+                .leftEqualToView(referencedView)
+                .widthIs(w)
+                .topSpaceToView(referencedView, verticalMargin);
+            }
         }];
     }
     
