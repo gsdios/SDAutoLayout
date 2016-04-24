@@ -912,6 +912,9 @@
                 [self setupCornerRadiusWithView:model.needsAutoResizeView model:model];
                 model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache = YES;
             } else {
+                if (model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache) {
+                    model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache = NO;
+                }
                 [self sd_resizeWithModel:model];
             }
         }];
