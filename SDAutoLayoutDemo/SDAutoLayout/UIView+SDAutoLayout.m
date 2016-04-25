@@ -581,6 +581,8 @@
     self.sd_categoryManager.verticalMargin = verticalMargin;
     self.sd_categoryManager.horizontalMargin = horizontalMagin;
     
+    self.sd_categoryManager.lastWidth = 0;
+    
     if (viewsArray.count) {
         [self setupAutoHeightWithBottomView:viewsArray.lastObject bottomMargin:horizontalMagin];
     } else {
