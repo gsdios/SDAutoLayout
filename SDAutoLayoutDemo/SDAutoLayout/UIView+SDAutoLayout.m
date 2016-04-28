@@ -900,6 +900,11 @@
     // 如果程序崩溃在这行代码说明是你的view在执行“layoutSubvies”方法时出了问题而不是在此自动布局库内部出现了问题，请检查你的“layoutSubvies”方法
     [self sd_layoutSubviews];
     
+    [self sd_layoutSubviewsHandle];
+}
+
+- (void)sd_layoutSubviewsHandle{
+
     if (self.sd_equalWidthSubviews.count) {
         __block CGFloat totalMargin = 0;
         [self.sd_equalWidthSubviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
@@ -1346,6 +1351,32 @@
 
 @end
 
+@implementation UIButton (SDAutoLayoutButton)
+
++ (void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *selString = @"layoutSubviews";
+        NSString *mySelString = [@"sd_" stringByAppendingString:selString];
+        
+        Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
+        Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
+        method_exchangeImplementations(originalMethod, myMethod);
+    });
+}
+
+- (void)sd_layoutSubviews
+{
+    // 如果程序崩溃在这行代码说明是你的view在执行“layoutSubvies”方法时出了问题而不是在此自动布局库内部出现了问题，请检查你的“layoutSubvies”方法
+    [self sd_layoutSubviews];
+    
+    [self sd_layoutSubviewsHandle];
+    
+}
+
+@end
+
 
 @implementation UIView (SDChangeFrame)
 
@@ -1462,8 +1493,6 @@
 }
 
 @end
-
-
 
 @implementation SDUIViewCategoryManager
 
