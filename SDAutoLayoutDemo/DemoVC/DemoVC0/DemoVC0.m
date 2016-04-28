@@ -78,7 +78,49 @@
     .rightSpaceToView(self.view0, 10)
     .widthRatioToView(self.view0, 0.5)
     .heightIs(20);
-
+    
+    /** button作为父视图示例 */
+    /*
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    [button1 setTitle:@"一个button" forState:UIControlStateNormal];
+    
+    [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [button1 setBackgroundColor:[UIColor lightGrayColor]];
+    
+    [self.view addSubview:button1];
+    
+    button1.sd_layout
+    .centerYEqualToView(self.view)
+    .centerXEqualToView(self.view)
+    .widthIs(200)
+    .heightIs(100);
+    
+    UIView *buttonSubView = [[UIView alloc]init];
+    
+    buttonSubView.backgroundColor = [UIColor grayColor];
+    
+    [button1 addSubview:buttonSubView];
+    
+    buttonSubView.sd_layout
+    .topSpaceToView(button1 , 10)
+    .leftSpaceToView(button1 , 10)
+    .rightSpaceToView(button1 , 20)
+    .heightIs(20);
+    
+    UIView *buttonSubView2 = [[UIView alloc]init];
+    
+    buttonSubView2.backgroundColor = [UIColor grayColor];
+    
+    [button1 addSubview:buttonSubView2];
+    
+    buttonSubView2.sd_layout
+    .topSpaceToView(buttonSubView , 10)
+    .leftSpaceToView(button1 , 20)
+    .rightSpaceToView(button1 , 10)
+    .heightIs(20);
+     */
 }
 
 
