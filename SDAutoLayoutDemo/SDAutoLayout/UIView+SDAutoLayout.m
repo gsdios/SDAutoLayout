@@ -240,6 +240,9 @@
         SDAutoLayoutModelItem *item = [SDAutoLayoutModelItem new];
         item.refView = view;
         [weakSelf setValue:item forKey:key];
+        if ([key isEqualToString:@"equalCenterY"] && [view isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
+            view.shouldReadjustFrameBeforeStoreCache = YES;
+        }
         return weakSelf;
     };
 }
@@ -1398,6 +1401,16 @@
 
 
 @implementation UIView (SDChangeFrame)
+
+- (BOOL)shouldReadjustFrameBeforeStoreCache
+{
+    return self.sd_categoryManager.shouldReadjustFrameBeforeStoreCache;
+}
+
+- (void)setShouldReadjustFrameBeforeStoreCache:(BOOL)shouldReadjustFrameBeforeStoreCache
+{
+    self.sd_categoryManager.shouldReadjustFrameBeforeStoreCache = shouldReadjustFrameBeforeStoreCache;
+}
 
 - (CGFloat)left {
     return self.frame.origin.x;

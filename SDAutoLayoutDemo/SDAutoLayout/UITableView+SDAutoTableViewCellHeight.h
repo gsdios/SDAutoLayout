@@ -37,6 +37,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIView+SDAutoLayout.h"
+
 @class SDCellAutoHeightManager;
 
 #define kSDModelCellTag 199206

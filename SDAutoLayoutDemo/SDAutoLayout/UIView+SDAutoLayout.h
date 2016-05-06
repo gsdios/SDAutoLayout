@@ -346,6 +346,8 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UIView (SDChangeFrame)
 
+@property (nonatomic) BOOL shouldReadjustFrameBeforeStoreCache;
+
 @property (nonatomic) CGFloat left;
 @property (nonatomic) CGFloat top;
 @property (nonatomic) CGFloat right;
@@ -372,6 +374,8 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic, strong) NSIndexPath *sd_indexPath;
 
 @property (nonatomic, assign) BOOL hasSetFrameWithCache;
+
+@property (nonatomic) BOOL shouldReadjustFrameBeforeStoreCache;
 
 
 

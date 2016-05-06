@@ -22,7 +22,6 @@
  */
 
 #import "UITableView+SDAutoTableViewCellHeight.h"
-#import "UIView+SDAutoLayout.h"
 #import <objc/runtime.h>
 
 @interface SDCellAutoHeightManager ()
@@ -167,6 +166,10 @@
         
         
         if (self.modelCell.sd_indexPath && self.modelCell.sd_tableView) {
+            if (self.modelCell.contentView.shouldReadjustFrameBeforeStoreCache) {
+                self.modelCell.contentView.height = self.modelCell.autoHeight;
+                [self.modelCell.contentView layoutSubviews];
+            }
             [self.modelCell.contentView.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
                 [self.modelTableview.cellAutoHeightManager setSubviewFrameCache:model.needsAutoResizeView.frame WithIndexPath:self.modelCell.sd_indexPath];
             }];
