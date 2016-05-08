@@ -348,19 +348,19 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @property (nonatomic) BOOL shouldReadjustFrameBeforeStoreCache;
 
-@property (nonatomic) CGFloat left;
-@property (nonatomic) CGFloat top;
-@property (nonatomic) CGFloat right;
-@property (nonatomic) CGFloat bottom;
-@property (nonatomic) CGFloat centerX;
-@property (nonatomic) CGFloat centerY;
+@property (nonatomic) CGFloat left_sd;
+@property (nonatomic) CGFloat top_sd;
+@property (nonatomic) CGFloat right_sd;
+@property (nonatomic) CGFloat bottom_sd;
+@property (nonatomic) CGFloat centerX_sd;
+@property (nonatomic) CGFloat centerY_sd;
 
-@property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
+@property (nonatomic) CGFloat width_sd;
+@property (nonatomic) CGFloat height_sd;
 
 
-@property (nonatomic) CGPoint origin;
-@property (nonatomic) CGSize size;
+@property (nonatomic) CGPoint origin_sd;
+@property (nonatomic) CGSize size_sd;
 
 @end
 

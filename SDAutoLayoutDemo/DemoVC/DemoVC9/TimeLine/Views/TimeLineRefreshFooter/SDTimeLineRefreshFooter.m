@@ -98,8 +98,8 @@
 {
     if (keyPath != kSDBaseRefreshViewObserveKeyPath) return;
     
-    if (self.scrollView.contentOffset.y > self.scrollView.contentSize.height - self.scrollView.height && self.refreshState != SDWXRefreshViewStateRefreshing) {
-        self.frame = CGRectMake(0, self.scrollView.contentSize.height, self.scrollView.width, kSDTimeLineRefreshFooterHeight);
+    if (self.scrollView.contentOffset.y > self.scrollView.contentSize.height - self.scrollView.height_sd && self.refreshState != SDWXRefreshViewStateRefreshing) {
+        self.frame = CGRectMake(0, self.scrollView.contentSize.height, self.scrollView.width_sd, kSDTimeLineRefreshFooterHeight);
         self.hidden = NO;
         self.refreshState = SDWXRefreshViewStateRefreshing;
     } else if (self.refreshState == SDWXRefreshViewStateNormal) {

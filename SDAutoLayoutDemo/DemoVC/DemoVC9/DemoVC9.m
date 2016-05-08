@@ -133,7 +133,7 @@ static CGFloat textFieldH = 40;
     _textField.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8].CGColor;
     _textField.layer.borderWidth = 1;
     _textField.backgroundColor = [UIColor whiteColor];
-    _textField.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.width, textFieldH);
+    _textField.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.width_sd, textFieldH);
     [[UIApplication sharedApplication].keyWindow addSubview:_textField];
     
     [_textField becomeFirstResponder];

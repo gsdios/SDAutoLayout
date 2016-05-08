@@ -270,13 +270,13 @@ static const CGFloat maxImageViewWidth = 200.f;
 // 放大图片
 - (void)magnifyImage
 {
-    CGFloat w = self.imageView.width * 1.3;
+    CGFloat w = self.imageView.width_sd * 1.3;
     if (w > maxImageViewWidth) {
         [self showAlertWithText:@"已经达到最大宽度"];
         return;
     }
     [UIView animateWithDuration:0.2 animations:^{
-        self.imageView.sd_layout.widthIs(self.imageView.width * 1.3);
+        self.imageView.sd_layout.widthIs(self.imageView.width_sd * 1.3);
         [self.scroollView layoutSubviews];
     }];
 }
@@ -285,7 +285,7 @@ static const CGFloat maxImageViewWidth = 200.f;
 - (void)shrinkImage
 {
     [UIView animateWithDuration:0.2 animations:^{
-        self.imageView.sd_layout.widthIs(self.imageView.width * 0.7);
+        self.imageView.sd_layout.widthIs(self.imageView.width_sd * 0.7);
         [self.scroollView layoutSubviews];
     }];
 }

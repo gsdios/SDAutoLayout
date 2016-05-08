@@ -167,7 +167,7 @@
         
         if (self.modelCell.sd_indexPath && self.modelCell.sd_tableView) {
             if (self.modelCell.contentView.shouldReadjustFrameBeforeStoreCache) {
-                self.modelCell.contentView.height = self.modelCell.autoHeight;
+                self.modelCell.contentView.height_sd = self.modelCell.autoHeight;
                 [self.modelCell.contentView layoutSubviews];
             }
             [self.modelCell.contentView.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
@@ -190,8 +190,8 @@
         }
         _modelCell.contentView.tag = kSDModelCellTag;
     }
-    if (self.modelCell.contentView.width != self.contentViewWidth) {
-        _modelCell.contentView.width = self.contentViewWidth;
+    if (self.modelCell.contentView.width_sd != self.contentViewWidth) {
+        _modelCell.contentView.width_sd = self.contentViewWidth;
     }
     return [self cellHeightForIndexPath:indexPath model:model keyPath:keyPath];
 }
@@ -202,7 +202,7 @@
     
     _contentViewWidth = contentViewWidth;
     
-    self.modelCell.contentView.width = self.contentViewWidth;
+    self.modelCell.contentView.width_sd = self.contentViewWidth;
     
     
     [_subviewFrameCacheDict removeAllObjects];
@@ -363,8 +363,8 @@
     }
     UITableViewCell *cell = [tableView.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
     tableView.cellAutoHeightManager.modelCell = cell;
-    if (cell.contentView.width != width) {
-        cell.contentView.width = width;
+    if (cell.contentView.width_sd != width) {
+        cell.contentView.width_sd = width;
     }
     return [[tableView cellAutoHeightManager] cellHeightForIndexPath:indexPath model:nil keyPath:nil];
 }

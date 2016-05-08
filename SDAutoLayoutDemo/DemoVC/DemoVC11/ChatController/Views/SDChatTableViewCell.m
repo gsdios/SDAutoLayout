@@ -137,7 +137,7 @@
             }
         }
         
-        self.messageImageView.size = CGSizeMake(w, h);
+        self.messageImageView.size_sd = CGSizeMake(w, h);
         _container.sd_layout.widthIs(w).heightIs(h);
         
         // 设置container以messageImageView为bottomView高度自适应
@@ -149,7 +149,7 @@
         __weak typeof(self) weakself = self;
         [_containerBackgroundImageView setDidFinishAutoLayoutBlock:^(CGRect frame) {
             // 在_containerBackgroundImageView的frame确定之后设置maskImageView的size等于containerBackgroundImageView的size
-            weakself.maskImageView.size = frame.size;
+            weakself.maskImageView.size_sd = frame.size;
         }];
         
     } else if (model.text) { // 没有图片有文字情况下设置文字自动布局
