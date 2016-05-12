@@ -41,6 +41,7 @@ NSString * const demo10Description = @"一个SDAutoLayout使用者“李西亚�
 NSString * const demo11Description = @"仿微信的聊天界面：\n1.纯文本消息（带可点击链接，表情）\n2.图片消息";
 NSString * const demo12Description = @"scroll任意布局内容自适应";
 NSString * const demo13Description = @"scroll任意布局内容自适应自动布局";
+NSString * const demo14Description = @"xib的cell高度自适应";
 
 @implementation DemoTableViewControler
 {
@@ -56,7 +57,7 @@ NSString * const demo13Description = @"scroll任意布局内容自适应自动�
     
     [self.navigationController pushViewController:[NSClassFromString(@"DemoVC13") new] animated:YES];
     
-    _contenArray = @[demo0Description, demo1Description, demo2Description, demo3Description, demo4Description, demo5Description, demo6Description, demo7Description, demo8Description, demo9Description, demo10Description, demo11Description, demo12Description, demo13Description];
+    _contenArray = @[demo0Description, demo1Description, demo2Description, demo3Description, demo4Description, demo5Description, demo6Description, demo7Description, demo8Description, demo9Description, demo10Description, demo11Description, demo12Description, demo13Description, demo14Description];
 }
 
 #pragma mark - tableview datasourece and delegate

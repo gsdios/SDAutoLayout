@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4808F3941CE4ABFB00242779 /* DemoVC14.m in Sources */ = {isa = PBXBuildFile; fileRef = 4808F3931CE4ABFB00242779 /* DemoVC14.m */; };
+		4808F3981CE4AC1700242779 /* DemoVC14Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4808F3961CE4AC1700242779 /* DemoVC14Cell.m */; };
+		4808F3991CE4AC1700242779 /* DemoVC14Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4808F3971CE4AC1700242779 /* DemoVC14Cell.xib */; };
 		4841F5E91C2ABC60004979F4 /* pic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4841F5E51C2ABC60004979F4 /* pic5.jpg */; };
 		4841F5EA1C2ABC60004979F4 /* pic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4841F5E61C2ABC60004979F4 /* pic6.jpg */; };
 		4841F5EB1C2ABC60004979F4 /* pic7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4841F5E71C2ABC60004979F4 /* pic7.jpg */; };
@@ -223,6 +226,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4808F3921CE4ABFB00242779 /* DemoVC14.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC14.h; sourceTree = "<group>"; };
+		4808F3931CE4ABFB00242779 /* DemoVC14.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC14.m; sourceTree = "<group>"; };
+		4808F3951CE4AC1700242779 /* DemoVC14Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC14Cell.h; sourceTree = "<group>"; };
+		4808F3961CE4AC1700242779 /* DemoVC14Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC14Cell.m; sourceTree = "<group>"; };
+		4808F3971CE4AC1700242779 /* DemoVC14Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoVC14Cell.xib; sourceTree = "<group>"; };
 		4841F5E51C2ABC60004979F4 /* pic5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic5.jpg; sourceTree = "<group>"; };
 		4841F5E61C2ABC60004979F4 /* pic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic6.jpg; sourceTree = "<group>"; };
 		4841F5E71C2ABC60004979F4 /* pic7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic7.jpg; sourceTree = "<group>"; };
@@ -600,6 +608,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4808F3911CE4ABB500242779 /* DemoVC14 */ = {
+			isa = PBXGroup;
+			children = (
+				4808F3921CE4ABFB00242779 /* DemoVC14.h */,
+				4808F3931CE4ABFB00242779 /* DemoVC14.m */,
+				4808F3951CE4AC1700242779 /* DemoVC14Cell.h */,
+				4808F3961CE4AC1700242779 /* DemoVC14Cell.m */,
+				4808F3971CE4AC1700242779 /* DemoVC14Cell.xib */,
+			);
+			path = DemoVC14;
+			sourceTree = "<group>";
+		};
 		485302961C3F648F004361A7 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +735,7 @@
 		485303021C3F977A004361A7 /* DemoVC */ = {
 			isa = PBXGroup;
 			children = (
+				4808F3911CE4ABB500242779 /* DemoVC14 */,
 				48EEAD6D1C9C2FE4001138FE /* DemoVC13 */,
 				48EEAD691C9C25DB001138FE /* DemoVC12 */,
 				48EB72E01C748D40003A818E /* DemoVC11 */,
@@ -1645,6 +1666,7 @@
 				48EB73251C748EDE003A818E /* test1.jpg in Resources */,
 				48FC0E9E1C4FB60A004098B8 /* LICENSE in Resources */,
 				99D694F21C8C585300DA97E1 /* Discover.xcassets in Resources */,
+				4808F3991CE4AC1700242779 /* DemoVC14Cell.xib in Resources */,
 				48DBCD221C01E045002EC476 /* pic3.jpg in Resources */,
 				48DBCD211C01E045002EC476 /* pic2.jpg in Resources */,
 				48EB73451C749212003A818E /* Home.xcassets in Resources */,
@@ -1733,6 +1755,7 @@
 				48FC0EBF1C4FB60A004098B8 /* MJRefreshGifHeader.m in Sources */,
 				99D694EF1C8C567A00DA97E1 /* SDBaseNavigationController.m in Sources */,
 				485302E01C3F6490004361A7 /* UIImage+WebP.m in Sources */,
+				4808F3981CE4AC1700242779 /* DemoVC14Cell.m in Sources */,
 				99D694F01C8C567A00DA97E1 /* SDBaseTableViewController.m in Sources */,
 				4853033E1C3F977A004361A7 /* DemoVC6.m in Sources */,
 				48FC0EAA1C4FB60A004098B8 /* MJFoundation.m in Sources */,
@@ -1799,6 +1822,7 @@
 				485302CD1C3F6490004361A7 /* SDPhotoBrowser.m in Sources */,
 				48FC0E971C4FB60A004098B8 /* AFHTTPSessionManager.m in Sources */,
 				48FC0EC71C4FB60A004098B8 /* README.md in Sources */,
+				4808F3941CE4ABFB00242779 /* DemoVC14.m in Sources */,
 				48FC0EA51C4FB60A004098B8 /* UIProgressView+AFNetworking.m in Sources */,
 				99D694D91C8C553500DA97E1 /* NSMutableAttributedString+MLLabel.m in Sources */,
 				48FC0EC51C4FB60A004098B8 /* UIScrollView+MJRefresh.m in Sources */,
