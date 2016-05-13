@@ -72,6 +72,7 @@
 		487D3EC21BCB9EC700A66173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EC11BCB9EC700A66173 /* Images.xcassets */; };
 		487D3EC51BCB9EC700A66173 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EC31BCB9EC700A66173 /* LaunchScreen.xib */; };
 		487D3ED11BCB9EC700A66173 /* SDAutoLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3ED01BCB9EC700A66173 /* SDAutoLayoutDemoTests.m */; };
+		489489091CE5FA1700C9BB71 /* PhotosContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 489489081CE5FA1700C9BB71 /* PhotosContainerView.m */; };
 		48DBCD1A1C01E045002EC476 /* icon0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD101C01E045002EC476 /* icon0.jpg */; };
 		48DBCD1B1C01E045002EC476 /* icon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD111C01E045002EC476 /* icon1.jpg */; };
 		48DBCD1C1C01E045002EC476 /* icon2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD121C01E045002EC476 /* icon2.jpg */; };
@@ -350,6 +351,8 @@
 		487D3ECA1BCB9EC700A66173 /* SDAutoLayoutDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDAutoLayoutDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		487D3ECF1BCB9EC700A66173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		487D3ED01BCB9EC700A66173 /* SDAutoLayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDAutoLayoutDemoTests.m; sourceTree = "<group>"; };
+		489489071CE5FA1700C9BB71 /* PhotosContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosContainerView.h; sourceTree = "<group>"; };
+		489489081CE5FA1700C9BB71 /* PhotosContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosContainerView.m; sourceTree = "<group>"; };
 		48DBCD101C01E045002EC476 /* icon0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon0.jpg; sourceTree = "<group>"; };
 		48DBCD111C01E045002EC476 /* icon1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon1.jpg; sourceTree = "<group>"; };
 		48DBCD121C01E045002EC476 /* icon2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon2.jpg; sourceTree = "<group>"; };
@@ -616,6 +619,8 @@
 				4808F3951CE4AC1700242779 /* DemoVC14Cell.h */,
 				4808F3961CE4AC1700242779 /* DemoVC14Cell.m */,
 				4808F3971CE4AC1700242779 /* DemoVC14Cell.xib */,
+				489489071CE5FA1700C9BB71 /* PhotosContainerView.h */,
+				489489081CE5FA1700C9BB71 /* PhotosContainerView.m */,
 			);
 			path = DemoVC14;
 			sourceTree = "<group>";
@@ -1778,6 +1783,7 @@
 				48FC0E211C4FB3EA004098B8 /* DemoVC10.m in Sources */,
 				48FC0E9D1C4FB60A004098B8 /* AFURLSessionManager.m in Sources */,
 				99D694E01C8C553500DA97E1 /* MLLabel.m in Sources */,
+				489489091CE5FA1700C9BB71 /* PhotosContainerView.m in Sources */,
 				48EB72FF1C748DF5003A818E /* MLEmojiLabel.m in Sources */,
 				99D694B91C8C54D100DA97E1 /* SDTimeLineTableHeaderView.m in Sources */,
 				48FC0E991C4FB60A004098B8 /* AFSecurityPolicy.m in Sources */,

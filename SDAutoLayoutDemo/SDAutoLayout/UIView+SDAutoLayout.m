@@ -593,11 +593,21 @@
     }
 }
 
+- (void)clearAutoWidthFlowItemsSettings
+{
+    [self setupAutoWidthFlowItems:nil withPerRowItemsCount:0 verticalMargin:0 horizontalMargin:0];
+}
+
 - (void)setupAutoMarginFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount itemWidth:(CGFloat)itemWidth verticalMargin:(CGFloat)verticalMargin
 {
     self.sd_categoryManager.shouldShowAsAutoMarginViews = YES;
     self.sd_categoryManager.flowItemWidth = itemWidth;
     [self setupAutoWidthFlowItems:viewsArray withPerRowItemsCount:perRowItemsCount verticalMargin:verticalMargin horizontalMargin:0];
+}
+
+- (void)clearAutoMarginFlowItemsSettings
+{
+    [self setupAutoMarginFlowItems:nil withPerRowItemsCount:0 itemWidth:0 verticalMargin:0];
 }
 
 - (void)sd_addSubviews:(NSArray *)subviews
@@ -944,7 +954,7 @@
             }
         } else {
             horizontalMargin = self.sd_categoryManager.horizontalMargin;
-            w = (self.width_sd - (perRowItemsCount + 1) * horizontalMargin) / perRowItemsCount;
+            w = (self.width_sd - (perRowItemsCount - 1) * horizontalMargin) / perRowItemsCount;
         }
         CGFloat verticalMargin = self.sd_categoryManager.verticalMargin;
         
@@ -952,9 +962,11 @@
         [self.sd_categoryManager.flowItems enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
             if (idx < perRowItemsCount) {
                 if (idx == 0) {
+                    /* 保留
                     BOOL shouldShowAsAutoMarginViews = self.sd_categoryManager.shouldShowAsAutoMarginViews;
+                     */
                     view.sd_layout
-                    .leftSpaceToView(referencedView, shouldShowAsAutoMarginViews ? 0 : horizontalMargin)
+                    .leftSpaceToView(referencedView, 0)
                     .topSpaceToView(referencedView, verticalMargin)
                     .widthIs(w);
                 } else {

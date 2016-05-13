@@ -224,8 +224,14 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 设置类似collectionView效果的固定间距自动宽度浮动子view */
 - (void)setupAutoWidthFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount verticalMargin:(CGFloat)verticalMargin horizontalMargin:(CGFloat)horizontalMagin;
 
+/** 清除固定间距自动宽度浮动子view设置 */
+- (void)clearAutoWidthFlowItemsSettings;
+
 /** 设置类似collectionView效果的固定宽带自动间距浮动子view */
 - (void)setupAutoMarginFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount itemWidth:(CGFloat)itemWidth verticalMargin:(CGFloat)verticalMargin;
+
+/** 清除固定宽带自动间距浮动子view设置 */
+- (void)clearAutoMarginFlowItemsSettings;
 
 @end
 

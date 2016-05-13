@@ -44,6 +44,10 @@
                                      @"icon2.jpg",
                                      @"icon3.jpg",
                                      @"icon4.jpg",
+                                     @"icon0.jpg",
+                                     @"icon1.jpg",
+                                     @"icon2.jpg",
+                                     @"icon3.jpg"
                                      ];
     
     
@@ -55,27 +59,26 @@
                            ];
     
     for (int i = 0; i < count; i++) {
-        int iconRandomIndex = arc4random_uniform(5);
+        
         int nameRandomIndex = arc4random_uniform(5);
         
         DemoVC7Model *model = [DemoVC7Model new];
         model.title = textArray[nameRandomIndex];
-        
+        model.iconImagePath = iconImageNamesArray[arc4random_uniform(9)];
         
         // 模拟“有或者无图片”
-        int random = arc4random_uniform(100);
-        if (random <= 30) {
+        int random = arc4random_uniform(1);
+        if (random <= 8) {
             NSMutableArray *temp = [NSMutableArray new];
             
-            for (int i = 0; i < 3; i++) {
-                int randomIndex = arc4random_uniform(5);
+            int randomImagesCount = arc4random_uniform(9);
+            for (int i = 0; i < randomImagesCount; i++) {
+                int randomIndex = arc4random_uniform(9);
                 NSString *text = iconImageNamesArray[randomIndex];
                 [temp addObject:text];
             }
             
             model.imagePathsArray = [temp copy];
-        } else {
-            model.imagePathsArray = @[iconImageNamesArray[iconRandomIndex]];
         }
         
         [self.modelsArray addObject:model];
