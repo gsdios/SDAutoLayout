@@ -58,6 +58,8 @@
 @property (nonatomic, strong) SDAutoLayoutModelItem *widthEqualHeight;
 @property (nonatomic, strong) SDAutoLayoutModelItem *heightEqualWidth;
 
+@property (nonatomic, strong) SDAutoLayoutModelItem *lastModelItem;
+
 @end
 
 @implementation SDAutoLayoutModel
@@ -88,6 +90,8 @@
 @synthesize minHeightIs = _minHeightIs;
 @synthesize widthEqualToHeight = _widthEqualToHeight;
 @synthesize heightEqualToWidth = _heightEqualToWidth;
+@synthesize offset = _offset;
+
 
 - (MarginToView)leftSpaceToView
 {
@@ -240,6 +244,7 @@
         SDAutoLayoutModelItem *item = [SDAutoLayoutModelItem new];
         item.refView = view;
         [weakSelf setValue:item forKey:key];
+        weakSelf.lastModelItem = item;
         if ([key isEqualToString:@"equalCenterY"] && [view isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
             view.shouldReadjustFrameBeforeStoreCache = YES;
         }
@@ -387,6 +392,7 @@
     if (!_widthEqualToHeight) {
         _widthEqualToHeight = ^() {
             weakSelf.widthEqualHeight = [SDAutoLayoutModelItem new];
+            weakSelf.lastModelItem = weakSelf.widthEqualHeight;
             // 主动触发一次赋值操作
             weakSelf.needsAutoResizeView.height_sd = weakSelf.needsAutoResizeView.height_sd;
             return weakSelf;
@@ -402,12 +408,25 @@
     if (!_heightEqualToWidth) {
         _heightEqualToWidth = ^() {
             weakSelf.heightEqualWidth = [SDAutoLayoutModelItem new];
+            weakSelf.lastModelItem = weakSelf.heightEqualWidth;
             // 主动触发一次赋值操作
             weakSelf.needsAutoResizeView.width_sd = weakSelf.needsAutoResizeView.width_sd;
             return weakSelf;
         };
     }
     return _heightEqualToWidth;
+}
+
+- (SDAutoLayoutModel *(^)(CGFloat))offset
+{
+    __weak typeof(self) weakSelf = self;
+    if (!_offset) {
+        _offset = ^(CGFloat offset) {
+            weakSelf.lastModelItem.offset = offset;
+            return weakSelf;
+        };
+    }
+    return _offset;
 }
 
 @end
@@ -699,6 +718,14 @@
 
 
 @implementation SDAutoLayoutModelItem
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        _offset = 0;
+    }
+    return self;
+}
 
 @end
 
@@ -1242,20 +1269,22 @@
         
     } else if (model.equalLeft) {
         if (!view.fixedWidth) {
-            CGFloat viewR = view.right_sd;
-            CGFloat refViewL = model.equalLeft.refView.left_sd;
-            view.width_sd = viewR  - refViewL;
+            if (model.needsAutoResizeView == view.superview) {
+                view.width_sd = view.right_sd - (0 + model.equalLeft.offset);
+            } else {
+                view.width_sd = view.right_sd  - (model.equalLeft.refView.left_sd + model.equalLeft.offset);
+            }
         }
         if (view.superview == model.equalLeft.refView) {
-            view.left_sd = 0;
+            view.left_sd = 0 + model.equalLeft.offset;
         } else {
-            view.left_sd = model.equalLeft.refView.left_sd;
+            view.left_sd = model.equalLeft.refView.left_sd + model.equalLeft.offset;
         }
     } else if (model.equalCenterX) {
         if (view.superview == model.equalCenterX.refView) {
-            view.centerX_sd = model.equalCenterX.refView.width_sd * 0.5;
+            view.centerX_sd = model.equalCenterX.refView.width_sd * 0.5 + model.equalCenterX.offset;
         } else {
-            view.centerX_sd = model.equalCenterX.refView.centerX_sd;
+            view.centerX_sd = model.equalCenterX.refView.centerX_sd + model.equalCenterX.offset;
         }
     } else if (model.centerX) {
         view.centerX_sd = [model.centerX floatValue];
@@ -1279,15 +1308,15 @@
     } else if (model.equalRight) {
         if (!view.fixedWidth) {
             if (model.equalRight.refView == view.superview) {
-                view.width_sd = model.equalRight.refView.width_sd - view.left_sd;
+                view.width_sd = model.equalRight.refView.width_sd - view.left_sd + model.equalRight.offset;
             } else {
-                view.width_sd = model.equalRight.refView.right_sd - view.left_sd;
+                view.width_sd = model.equalRight.refView.right_sd - view.left_sd + model.equalRight.offset;
             }
         }
         
-        view.right_sd = model.equalRight.refView.right_sd;
+        view.right_sd = model.equalRight.refView.right_sd + model.equalRight.offset;
         if (view.superview == model.equalRight.refView) {
-            view.right_sd = model.equalRight.refView.width_sd;
+            view.right_sd = model.equalRight.refView.width_sd + model.equalRight.offset;
         }
         
     }
@@ -1310,20 +1339,20 @@
     } else if (model.equalTop) {
         if (view.superview == model.equalTop.refView) {
             if (!view.fixedHeight) {
-                view.height_sd = view.bottom_sd;
+                view.height_sd = view.bottom_sd - model.equalTop.offset;
             }
-            view.top_sd = 0;
+            view.top_sd = 0 + model.equalTop.offset;
         } else {
             if (!view.fixedHeight) {
-                view.height_sd = view.bottom_sd - model.equalTop.refView.top_sd;
+                view.height_sd = view.bottom_sd - (model.equalTop.refView.top_sd + model.equalTop.offset);
             }
-            view.top_sd = model.equalTop.refView.top_sd;
+            view.top_sd = model.equalTop.refView.top_sd + model.equalTop.offset;
         }
     } else if (model.equalCenterY) {
         if (view.superview == model.equalCenterY.refView) {
-            view.centerY_sd = model.equalCenterY.refView.height_sd * 0.5;
+            view.centerY_sd = model.equalCenterY.refView.height_sd * 0.5 + model.equalCenterY.offset;
         } else {
-            view.centerY_sd = model.equalCenterY.refView.centerY_sd;
+            view.centerY_sd = model.equalCenterY.refView.centerY_sd + model.equalCenterY.offset;
         }
     } else if (model.centerY) {
         view.centerY_sd = [model.centerY floatValue];
@@ -1348,14 +1377,14 @@
     } else if (model.equalBottom) {
         if (view.superview == model.equalBottom.refView) {
             if (!view.fixedHeight) {
-                view.height_sd = view.superview.height_sd - view.top_sd;
+                view.height_sd = view.superview.height_sd - view.top_sd + model.equalBottom.offset;
             }
-            view.bottom_sd = model.equalBottom.refView.height_sd;
+            view.bottom_sd = model.equalBottom.refView.height_sd + model.equalBottom.offset;
         } else {
             if (!view.fixedHeight) {
-                view.height_sd = model.equalBottom.refView.bottom_sd - view.top_sd;
+                view.height_sd = model.equalBottom.refView.bottom_sd - view.top_sd + model.equalBottom.offset;
             }
-            view.bottom_sd = model.equalBottom.refView.bottom_sd;
+            view.bottom_sd = model.equalBottom.refView.bottom_sd + model.equalBottom.offset;
         }
     }
 }
