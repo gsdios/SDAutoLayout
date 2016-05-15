@@ -160,7 +160,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 传入UIEdgeInsetsMake(top, left, bottom, right)，可以快捷设置view到其父view上左下右的间距  */
 @property (nonatomic, copy, readonly) SpaceToSuperView spaceToSuperView;
 
-/** 设置偏移量，参数为“(CGFloat value)” */
+/** 设置偏移量，参数为“(CGFloat value)，目前只有带有equalToView的方法可以设置offset” */
 @property (nonatomic, copy, readonly) Offset offset;
 
 @property (nonatomic, weak) UIView *needsAutoResizeView;
