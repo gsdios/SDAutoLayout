@@ -142,8 +142,10 @@
     if (!_widthIs) {
         __weak typeof(self) weakSelf = self;
         _widthIs = ^(CGFloat value) {
-            weakSelf.needsAutoResizeView.width_sd = value;
             weakSelf.needsAutoResizeView.fixedWidth = @(value);
+            SDAutoLayoutModelItem *widthItem = [SDAutoLayoutModelItem new];
+            widthItem.value = @(value);
+            weakSelf.width = widthItem;
             return weakSelf;
         };
     }
@@ -155,8 +157,10 @@
     if (!_heightIs) {
         __weak typeof(self) weakSelf = self;
         _heightIs = ^(CGFloat value) {
-            weakSelf.needsAutoResizeView.height_sd = value;
             weakSelf.needsAutoResizeView.fixedHeight = @(value);
+            SDAutoLayoutModelItem *heightItem = [SDAutoLayoutModelItem new];
+            heightItem.value = @(value);
+            weakSelf.height = heightItem;
             return weakSelf;
         };
     }
@@ -685,7 +689,7 @@
     if (self.sd_maxWidth) {
         [self sizeToFit];
     } else if (self.autoHeightRatioValue) {
-        self.frame = CGRectZero;
+        self.size_sd = CGSizeZero;
     }
 }
 
