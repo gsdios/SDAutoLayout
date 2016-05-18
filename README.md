@@ -17,6 +17,8 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ## 更新记录：
 
+2016.05.16 -- 修复用xib生成的view出现的部分约束失效问题
+
 2016.05.15 -- 增加设置偏移量offset功能
 
 2016.04.30 -- 修复之前button作为父视图时内部控件不能自动布局问题
