@@ -732,7 +732,7 @@
     .heightIs(buttonHeight);
     
     [self.titleLabel setSingleLineAutoResizeWithMaxWidth:MAXFLOAT];
-    [self setupAutoWidthWithRightView:self.titleLabel rightMargin:10];
+    [self setupAutoWidthWithRightView:self.titleLabel rightMargin:hPadding];
 }
 
 @end
