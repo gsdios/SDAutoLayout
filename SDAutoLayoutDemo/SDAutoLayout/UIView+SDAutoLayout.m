@@ -720,6 +720,23 @@
 
 @end
 
+@implementation UIButton (SDExtention)
+
+- (void)setupAutoSizeWithHorizontalPadding:(CGFloat)hPadding buttonHeight:(CGFloat)buttonHeight
+{
+    self.fixedHeight = @(buttonHeight);
+    
+    self.titleLabel.sd_layout
+    .leftSpaceToView(self, hPadding)
+    .topEqualToView(self)
+    .heightIs(buttonHeight);
+    
+    [self.titleLabel setSingleLineAutoResizeWithMaxWidth:MAXFLOAT];
+    [self setupAutoWidthWithRightView:self.titleLabel rightMargin:10];
+}
+
+@end
+
 
 @implementation SDAutoLayoutModelItem
 

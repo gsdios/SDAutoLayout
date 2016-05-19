@@ -169,6 +169,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 
 
+#pragma mark - UIView 高度、宽度自适应相关方法
 
 @interface UIView (SDAutoHeightWidth)
 
@@ -205,6 +206,10 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @end
 
+
+
+#pragma mark - UIView 设置圆角半径、九宫格浮动效果、自动布局回调block等相关方法
+
 @interface UIView (SDLayoutExtention)
 
 /** 自动布局完成后的回调block，可以在这里获取到view的真实frame  */
@@ -239,6 +244,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @end
 
+
+
+#pragma mark - UIView 设置约束、更新约束、清空约束、开启cell的frame缓存等相关方法
 
 @interface UIView (SDAutoLayout)
 
@@ -286,6 +294,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @end
 
 
+
+#pragma mark - UIScrollView 内容竖向自适应、内容横向自适应方法
+
 @interface UIScrollView (SDAutoContentSize)
 
 /** 设置scrollview内容竖向自适应 */
@@ -296,6 +307,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @end
 
+
+
+#pragma mark - UILabel 开启富文本布局、设置单行文本label宽度自适应、 设置label最多可以显示的行数
 
 @interface UILabel (SDLabelAutoResize)
 
@@ -312,6 +326,17 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 
 
+#pragma mark - UIButton 设置button根据单行文字自适应
+
+@interface UIButton (SDExtention)
+
+/*
+ * 设置button根据单行文字自适应
+ * hPadding：左右边距
+ */
+- (void)setupAutoSizeWithHorizontalPadding:(CGFloat)hPadding buttonHeight:(CGFloat)buttonHeight;
+
+@end
 
 
 
@@ -340,7 +365,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 
 
-
+#pragma mark - 其他方法（如果有需要可以自己利用以下接口拓展更多功能）
 
 // ----------------- 以下为此库内部需要用到的类和方法（可以不用看）----------------
 
