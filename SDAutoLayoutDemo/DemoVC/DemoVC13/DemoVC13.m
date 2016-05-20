@@ -34,6 +34,8 @@ static const CGFloat maxImageViewWidth = 200.f;
 
 @property (nonatomic, strong) UIScrollView *scroollView;
 
+@property (nonatomic, strong) UIView *wrapperView;
+
 @property (nonatomic, strong) UILabel *contentLabel;
 
 @property (nonatomic, strong) UIView *lastBottomLine;
@@ -54,11 +56,26 @@ static const CGFloat maxImageViewWidth = 200.f;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.wrapperView = [UIView new];
+    [self.scroollView addSubview:self.wrapperView];
+    
+    
+    
+    
+    [self.scroollView setupAutoContentSizeWithBottomView:self.wrapperView bottomMargin:0];
+    
+    
     [self setupContentCell];
     [self setupImageCell];
     [self setupGridViewCell];
     
-    [self.scroollView setupAutoContentSizeWithBottomView:self.lastBottomLine bottomMargin:10];
+    self.wrapperView.sd_layout.
+    leftEqualToView(self.scroollView)
+    .rightEqualToView(self.scroollView)
+    .topEqualToView(self.scroollView);
+    [self.wrapperView setupAutoHeightWithBottomView:self.lastBottomLine bottomMargin:10];
+    
+    
 }
 
 - (UIScrollView *)scroollView
@@ -76,11 +93,11 @@ static const CGFloat maxImageViewWidth = 200.f;
 {
     UIView *line = [UIView new];
     line.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
-    [self.scroollView addSubview:line];
+    [self.wrapperView addSubview:line];
     
     line.sd_layout
-    .leftSpaceToView(self.scroollView, 5)
-    .rightSpaceToView(self.scroollView, 5)
+    .leftSpaceToView(self.wrapperView, 5)
+    .rightSpaceToView(self.wrapperView, 5)
     .heightIs(1)
     .topSpaceToView(view, margin);
     
@@ -139,18 +156,18 @@ static const CGFloat maxImageViewWidth = 200.f;
         .bottomEqualToView(buttonContainer);
     }
     
-    [self.scroollView sd_addSubviews:@[titleLabel, contentLabel, buttonContainer]];
+    [self.wrapperView sd_addSubviews:@[titleLabel, contentLabel, buttonContainer]];
     
     titleLabel.sd_layout
-    .leftSpaceToView(self.scroollView, 10)
-    .topSpaceToView(self.scroollView, 20)
+    .leftSpaceToView(self.wrapperView, 10)
+    .topSpaceToView(self.wrapperView, 20)
     .widthIs(80)
     .heightIs(20);
     
     contentLabel.sd_layout
     .leftSpaceToView(titleLabel, 10)
     .topEqualToView(titleLabel)
-    .rightSpaceToView(self.scroollView, 10)
+    .rightSpaceToView(self.wrapperView, 10)
     .autoHeightRatio(0);
     
     buttonContainer.sd_layout
@@ -176,10 +193,10 @@ static const CGFloat maxImageViewWidth = 200.f;
     
     UIButton *shrinkButton = [self buttonWithTitle:@"缩小" bgColor:[[UIColor redColor] colorWithAlphaComponent:0.7] sel:@selector(shrinkImage)];
     
-    [self.scroollView sd_addSubviews:@[titleLabel, imageView, magnifyButton, shrinkButton]];
+    [self.wrapperView sd_addSubviews:@[titleLabel, imageView, magnifyButton, shrinkButton]];
     
     titleLabel.sd_layout
-    .leftSpaceToView(self.scroollView, 10)
+    .leftSpaceToView(self.wrapperView, 10)
     .topSpaceToView(self.lastBottomLine, 10)
     .widthIs(80)
     .heightIs(20);
@@ -217,7 +234,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     contanerView.backgroundColor = [UIColor redColor];
     self.gridItemContainerView = contanerView;
     
-    [_scroollView sd_addSubviews:@[titleLabel, contanerView]];
+    [self.wrapperView sd_addSubviews:@[titleLabel, contanerView]];
     
     
     {
@@ -238,7 +255,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     
     
     titleLabel.sd_layout
-    .leftSpaceToView(self.scroollView, 10)
+    .leftSpaceToView(self.wrapperView, 10)
     .topSpaceToView(self.lastBottomLine, 10)
     .widthIs(80)
     .heightIs(20);
@@ -246,7 +263,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     contanerView.sd_layout
     .leftSpaceToView(titleLabel, 10)
     .topEqualToView(titleLabel)
-    .rightSpaceToView(_scroollView, 10);
+    .rightSpaceToView(self.wrapperView, 10);
     [contanerView setupAutoHeightWithBottomView:contanerView.subviews.lastObject bottomMargin:10];
     
     self.lastBottomLine = [self addSeparatorLineBellowView:contanerView margin:10];
@@ -256,6 +273,7 @@ static const CGFloat maxImageViewWidth = 200.f;
 - (void)addText
 {
     self.contentLabel.text = [NSString stringWithFormat:@"%@     %@", self.contentLabel.text, kCommonText];
+    [self.wrapperView layoutSubviews];
     [self.scroollView layoutSubviews];
 }
 
@@ -264,6 +282,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     long to = self.contentLabel.text.length - 20;
     to = to < 1 ? 1 : to;
     self.contentLabel.text = [self.contentLabel.text substringToIndex:to];
+    [self.wrapperView layoutSubviews];
     [self.scroollView layoutSubviews];
 }
 
@@ -277,6 +296,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     }
     [UIView animateWithDuration:0.2 animations:^{
         self.imageView.sd_layout.widthIs(self.imageView.width_sd * 1.3);
+        [self.wrapperView layoutSubviews];
         [self.scroollView layoutSubviews];
     }];
 }
@@ -286,6 +306,7 @@ static const CGFloat maxImageViewWidth = 200.f;
 {
     [UIView animateWithDuration:0.2 animations:^{
         self.imageView.sd_layout.widthIs(self.imageView.width_sd * 0.7);
+        [self.wrapperView layoutSubviews];
         [self.scroollView layoutSubviews];
     }];
 }
@@ -338,7 +359,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     
     [self.gridItemContainerView setupAutoHeightWithBottomView:self.gridItemContainerView.subviews.lastObject bottomMargin:10];
     
-    [_scroollView layoutSubviews];
+    [self.wrapperView layoutSubviews];
 }
 
 
