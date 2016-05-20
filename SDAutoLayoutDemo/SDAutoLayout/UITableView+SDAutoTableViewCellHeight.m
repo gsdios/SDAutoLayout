@@ -257,8 +257,11 @@
 
 - (void)sd_reloadData
 {
-    [self.cellAutoHeightManager clearHeightCache];
+    if (!self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData) {
+        [self.cellAutoHeightManager clearHeightCache];
+    }
     [self sd_reloadData];
+    self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = NO;
 }
 
 - (void)sd_reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
@@ -287,32 +290,6 @@
  
  */
 
-- (void)startAutoCellHeightWithCellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth NS_DEPRECATED(10_0, 10_4, 6_0, 6_0)
-{
-    if (!self.cellAutoHeightManager) {
-        self.cellAutoHeightManager = [SDCellAutoHeightManager managerWithCellClass:cellClass tableView:self];
-    }
-    self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
-}
-
-- (void)startAutoCellHeightWithCellClasses:(NSArray *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth NS_DEPRECATED(10_0, 10_4, 6_0, 6_0)
-{
-    if (!self.cellAutoHeightManager) {
-        self.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] initWithCellClasses:cellClassArray tableView:self];
-    }
-    self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
-}
-
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath NS_DEPRECATED(10_0, 10_4, 6_0, 6_0)
-{
-    return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath];
-}
-
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass NS_DEPRECATED(10_0, 10_4, 6_0, 6_0)
-{
-    return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass];
-}
-
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth
 {
     if (!self.cellAutoHeightManager) {
@@ -323,6 +300,12 @@
     self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
     
     return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass];
+}
+
+- (void)reloadDataWithExistedHeightCache
+{
+    self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = YES;
+    [self reloadData];
 }
 
 - (SDCellAutoHeightManager *)cellAutoHeightManager

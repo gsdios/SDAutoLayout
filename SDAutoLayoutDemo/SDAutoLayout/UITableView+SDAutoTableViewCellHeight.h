@@ -44,17 +44,16 @@
 #define kSDModelCellTag 199206
 
 
-/*  普通版！两行代码（两步设置）搞定tableview的cell高度自适应(单cell详见demo5，多cell详见demo7)  */
+
+#pragma mark - UITableView 方法，返回自动计算出的cell高度
 
 @interface UITableView (SDAutoTableViewCellHeight)
 
 @property (nonatomic, strong) SDCellAutoHeightManager *cellAutoHeightManager;
 
 
-// ☆☆☆☆☆☆☆☆☆☆☆【推荐使用方法（性能高+易用性好），详见demo7和demo9】☆☆☆☆☆☆☆☆☆☆☆
-
 /**
- * 返回计算出的cell高度（普通简化版方法，同样只需一步设置即可完成）
+ * 返回计算出的cell高度（普通简化版方法，同样只需一步设置即可完成）(用法：单cell详见demo5，多cell详见demo7)
  * model              : cell的数据模型实例
  * keyPath            : cell的数据模型属性的属性名字符串（即kvc原理中的key）
  * cellClass          : 当前的indexPath对应的cell的class
@@ -62,37 +61,15 @@
  */
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth;
 
-
-// ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
-
-
-
-
-// >>>>>>>>>>>>>> 单个cell情景下调用以下方法 >>>>>>>>>>>>>>
-
-/** (不再推荐使用此方法！)开启高度自适应，建议在tableview的数据源方法“- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section”中调用此方法*/
-- (void)startAutoCellHeightWithCellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth NS_DEPRECATED(10_0, 10_4, 6_0, 6_0);
-
-/** (不再推荐使用此方法！)返回计算出的cell高度;model为cell的数据模型实例;keyPath为cell的数据模型属性的属性名字符串（即kvc原理中的key）*/
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath NS_DEPRECATED(10_0, 10_4, 6_0, 6_0);
-
-
-
-// >>>>>>>>>>>>>> 多cell情景下调用以下方法(详细用法见demo7) >>>>>>>>>>>>>>>>>
-
-/** (不再推荐使用此方法！)cellClassArray 为所有cell的类组成的数组，详细用法见demo7 */
-- (void)startAutoCellHeightWithCellClasses:(NSArray *)cellClassArray contentViewWidth:(CGFloat)contentViewWidth NS_DEPRECATED(10_0, 10_4, 6_0, 6_0);
-
-/** (不再推荐使用此方法！)返回计算出的cell高度;model为cell的数据模型实例;keyPath为cell的数据模型属性的属性名字符串（即kvc原理中的key） */
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass NS_DEPRECATED(10_0, 10_4, 6_0, 6_0);
+/** 刷新tableView但不清空之前已经计算好的高度缓存，用于直接将新数据拼接在旧数据之后的tableView刷新 */
+- (void)reloadDataWithExistedHeightCache;
 
 @end
 
 
 
 
-
-/* 升级版！一行代码（一步设置）搞定tableview的cell高度自适应,同时适用于单cell和多cell（详见demo8） */
+#pragma mark - UITableViewController 方法，返回自动计算出的cell高度
 
 @interface UITableViewController (SDTableViewControllerAutoCellHeight)
 
@@ -102,6 +79,8 @@
 @end
 
 
+
+#pragma mark - NSObject 方法，返回自动计算出的cell高度
 
 @interface NSObject (SDAnyObjectAutoCellHeight)
 
@@ -129,6 +108,8 @@
 // ------------------------------- 以下为库内部使用无须了解 --------------------
 
 @interface SDCellAutoHeightManager : NSObject
+
+@property (nonatomic, assign) BOOL shouldKeepHeightCacheWhenReloadingData;
 
 @property (nonatomic, assign) CGFloat contentViewWidth;
 

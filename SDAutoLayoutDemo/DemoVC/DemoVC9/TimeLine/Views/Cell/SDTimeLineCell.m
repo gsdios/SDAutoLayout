@@ -158,8 +158,8 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     _timeLabel.sd_layout
     .leftEqualToView(_contentLabel)
     .topSpaceToView(_picContainerView, margin)
-    .heightIs(15)
-    .autoHeightRatio(0);
+    .heightIs(15);
+    [_timeLabel setSingleLineAutoResizeWithMaxWidth:200];
     
     _operationButton.sd_layout
     .rightSpaceToView(contentView, margin)
@@ -289,3 +289,4 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
 }
 
 @end
+
