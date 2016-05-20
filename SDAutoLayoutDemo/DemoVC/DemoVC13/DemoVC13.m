@@ -273,8 +273,7 @@ static const CGFloat maxImageViewWidth = 200.f;
 - (void)addText
 {
     self.contentLabel.text = [NSString stringWithFormat:@"%@     %@", self.contentLabel.text, kCommonText];
-    [self.wrapperView layoutSubviews];
-    [self.scroollView layoutSubviews];
+    [self updateViews];
 }
 
 - (void)delText
@@ -282,8 +281,7 @@ static const CGFloat maxImageViewWidth = 200.f;
     long to = self.contentLabel.text.length - 20;
     to = to < 1 ? 1 : to;
     self.contentLabel.text = [self.contentLabel.text substringToIndex:to];
-    [self.wrapperView layoutSubviews];
-    [self.scroollView layoutSubviews];
+    [self updateViews];
 }
 
 // 放大图片
@@ -309,6 +307,12 @@ static const CGFloat maxImageViewWidth = 200.f;
         [self.wrapperView layoutSubviews];
         [self.scroollView layoutSubviews];
     }];
+}
+
+- (void)updateViews
+{
+    [self.wrapperView layoutSubviews];
+    [self.scroollView layoutSubviews];
 }
 
 - (void)addGridItemView
