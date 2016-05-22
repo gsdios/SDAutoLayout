@@ -30,7 +30,7 @@ static const CGFloat maxImageViewWidth = 200.f;
 
 #define kGridItemViewColor [[UIColor greenColor] colorWithAlphaComponent:0.5]
 
-@interface DemoVC13 ()
+@interface DemoVC13 () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scroollView;
 
@@ -53,15 +53,13 @@ static const CGFloat maxImageViewWidth = 200.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarOrientationChange:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.wrapperView = [UIView new];
     [self.scroollView addSubview:self.wrapperView];
-    
-    
-    
-    
     [self.scroollView setupAutoContentSizeWithBottomView:self.wrapperView bottomMargin:0];
     
     
@@ -78,10 +76,16 @@ static const CGFloat maxImageViewWidth = 200.f;
     
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (UIScrollView *)scroollView
 {
     if (!_scroollView) {
         _scroollView = [UIScrollView new];
+        _scroollView.delegate = self;
         [self.view addSubview:_scroollView];
         
         _scroollView.sd_layout.spaceToSuperView(UIEdgeInsetsZero);
@@ -401,5 +405,31 @@ static const CGFloat maxImageViewWidth = 200.f;
         [alert removeFromSuperview];
     });
 }
+
+
+
+#pragma mark - 监听屏幕旋转
+
+- (void)statusBarOrientationChange:(NSNotification *)notification
+{
+    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAotuLayout”属性来设置要不要触发自动布局计算
+    self.scroollView.sd_closeAotuLayout = NO;
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAotuLayout”属性来设置要不要触发自动布局计算
+    self.wrapperView.sd_closeAotuLayout = YES;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAotuLayout”属性来设置要不要触发自动布局计算
+    self.wrapperView.sd_closeAotuLayout = NO;
+}
+
 
 @end

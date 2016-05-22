@@ -925,6 +925,16 @@
     return [self sd_layout];
 }
 
+- (BOOL)sd_isClosingAotuLayout
+{
+    return self.sd_categoryManager.sd_isClosingAotuLayout;
+}
+
+- (void)setSd_closeAotuLayout:(BOOL)sd_closeAotuLayout
+{
+    self.sd_categoryManager.sd_closeAotuLayout = sd_closeAotuLayout;
+}
+
 - (void)sd_clearAutoLayoutSettings
 {
     SDAutoLayoutModel *model = [self ownLayoutModel];
@@ -1135,7 +1145,7 @@
 {
     UIView *view = model.needsAutoResizeView;
     
-    if (!view) return;
+    if (!view || view.sd_isClosingAotuLayout) return;
     
     if (view.sd_maxWidth && (model.rightSpaceToView || model.rightEqualToView)) { // 靠右布局前提设置
         [self layoutAutoWidthWidthView:view model:model];

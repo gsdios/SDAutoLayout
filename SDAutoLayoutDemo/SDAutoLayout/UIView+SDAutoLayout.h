@@ -259,6 +259,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 清空之前的自动布局设置，重新开始自动布局(重新生成布局约束并添加到父view布局序列数组中的最后一个位置)  */
 - (SDAutoLayoutModel *)sd_resetNewLayout;
 
+/** 是否关闭自动布局  */
+@property (nonatomic, getter = sd_isClosingAotuLayout) BOOL sd_closeAotuLayout;
+
 /** 清空之前的自动布局设置  */
 - (void)sd_clearAutoLayoutSettings;
 
@@ -413,6 +416,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @property (nonatomic) BOOL shouldReadjustFrameBeforeStoreCache;
 
+@property (nonatomic, assign, getter = sd_isClosingAotuLayout) BOOL sd_closeAotuLayout;
 
 
 /** 设置类似collectionView效果的固定间距自动宽度浮动子view */
