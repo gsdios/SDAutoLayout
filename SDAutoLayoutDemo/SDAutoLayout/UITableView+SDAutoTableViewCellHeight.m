@@ -76,14 +76,14 @@
 {
     [_modelTableview registerClass:cellClass forCellReuseIdentifier:NSStringFromClass(cellClass)];
     self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+    
     if (!self.modelCell.contentView.subviews.count) {
-        self.modelCell = nil;
-        [_modelTableview registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:NSStringFromClass(cellClass)];
-        
-        /*
-         如果程序卡在了这里请检查并确保你的cell的子控件添加在cell的contentView上（不要直接添加到cell上）。
-         */
-        self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+        NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@.nib", NSStringFromClass(cellClass)] ofType:nil];
+        if (path) {
+            self.modelCell = nil;
+            [_modelTableview registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:NSStringFromClass(cellClass)];
+            self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+        }
     }
     if (self.modelCell) {
         [_modelCellsDict setObject:self.modelCell forKey:NSStringFromClass(cellClass)];
