@@ -712,7 +712,7 @@
 {
     NSAssert(self.ownLayoutModel, @"请在布局完成之后再做此步设置！");
     if (lineCount > 0) {
-        self.sd_layout.maxHeightIs(self.font.lineHeight * lineCount);
+        self.sd_layout.maxHeightIs(self.font.lineHeight * lineCount + 0.1);
     } else {
         self.sd_layout.maxHeightIs(MAXFLOAT);
     }
