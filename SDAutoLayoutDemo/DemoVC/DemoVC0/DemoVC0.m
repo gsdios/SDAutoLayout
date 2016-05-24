@@ -127,7 +127,7 @@
 
 - (void)animation
 {
-    if (_widthRatio == 0.4) {
+    if (_widthRatio >= 0.4) {
         _widthRatio = 0.1;
     } else {
         _widthRatio = 0.4;
