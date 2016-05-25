@@ -42,7 +42,7 @@
     [self setupAutoWidthViewsWithCount:4 margin:10];
     
     // 设置一排固定宽度自动间距子view
-    [self setupAutoMarginViewsWithCount:4 itemWidth:60];
+    [self setupAutoMarginViewsWithCount:4 itemWidth:80];
 }
 
 // 设置自定义图片和label位置的button
@@ -104,7 +104,7 @@
     .topSpaceToView(_centerButton, 10);
     
     // 此步设置之后_autoWidthViewsContainer的高度可以根据子view自适应
-    [_autoWidthViewsContainer setupAutoWidthFlowItems:[temp copy] withPerRowItemsCount:count verticalMargin:margin horizontalMargin:margin];
+    [_autoWidthViewsContainer setupAutoWidthFlowItems:[temp copy] withPerRowItemsCount:4 verticalMargin:margin horizontalMargin:margin];
     
 }
 
@@ -125,7 +125,7 @@
     }
     
     // 此步设置之后_autoMarginViewsContainer的高度可以根据子view自适应
-    [_autoMarginViewsContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:count itemWidth:itemWidth verticalMargin:10];
+    [_autoMarginViewsContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:3 itemWidth:itemWidth verticalMargin:10];
     
     _autoMarginViewsContainer.sd_layout
     .leftSpaceToView(self.view, 10)

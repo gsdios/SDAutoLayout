@@ -409,6 +409,19 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic) CGPoint origin_sd;
 @property (nonatomic) CGSize size_sd;
 
+
+// 兼容旧版本
+@property (nonatomic) CGFloat left;
+@property (nonatomic) CGFloat top;
+@property (nonatomic) CGFloat right;
+@property (nonatomic) CGFloat bottom;
+@property (nonatomic) CGFloat centerX;
+@property (nonatomic) CGFloat centerY;
+@property (nonatomic) CGFloat width;
+@property (nonatomic) CGFloat height;
+@property (nonatomic) CGPoint origin;
+@property (nonatomic) CGSize size;
+
 @end
 
 

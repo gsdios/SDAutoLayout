@@ -1012,7 +1012,7 @@
         CGFloat w = 0;
         if (self.sd_categoryManager.shouldShowAsAutoMarginViews) {
             w = self.sd_categoryManager.flowItemWidth;
-            long itemsCount = self.sd_categoryManager.flowItems.count;
+            long itemsCount = self.sd_categoryManager.perRowItemsCount;
             if (itemsCount > 1) {
                 horizontalMargin = (self.width_sd - itemsCount * w) / (itemsCount - 1);
             }
@@ -1615,6 +1615,93 @@
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
+}
+
+// 兼容旧版本
+
+- (CGFloat)left
+{
+    return self.left_sd;
+}
+
+- (void)setLeft:(CGFloat)left
+{
+    self.left_sd = left;
+}
+
+- (CGFloat)right
+{
+    return self.right_sd;
+}
+
+- (void)setRight:(CGFloat)right
+{
+    self.right_sd = right;
+}
+
+- (CGFloat)width
+{
+    return self.width_sd;
+}
+
+- (CGFloat)height
+{
+    return self.height_sd;
+}
+
+- (CGFloat)top
+{
+    return self.top_sd;
+}
+
+- (void)setTop:(CGFloat)top
+{
+    self.top_sd = top;
+}
+
+- (CGFloat)bottom
+{
+    return self.bottom_sd;
+}
+
+- (void)setBottom:(CGFloat)bottom
+{
+    self.bottom_sd = bottom;
+}
+
+- (CGFloat)centerX
+{
+    return self.centerX_sd;
+}
+
+- (void)setCenterX:(CGFloat)centerX
+{
+    self.centerX_sd = centerX;
+}
+
+- (CGFloat)centerY
+{
+    return self.centerY_sd;
+}
+
+- (void)setCenterY:(CGFloat)centerY
+{
+    self.centerY_sd = centerY;
+}
+
+- (CGPoint)origin
+{
+    return self.origin_sd;
+}
+
+- (void)setOrigin:(CGPoint)origin
+{
+    self.origin_sd = origin;
+}
+
+- (CGSize)size
+{
+    return self.size_sd;
 }
 
 @end
