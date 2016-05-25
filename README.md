@@ -11,13 +11,13 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ##Pod支持：
 
-支持pod：  pod 'SDAutoLayout', '~> 2.0.0'
+支持pod：  pod 'SDAutoLayout', '~> 2.1.0'
 
 如果发现pod search SDAutoLayout 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
 
 ## 更新记录：
 
-2016.05.16 -- 修复用xib生成的view出现的部分约束失效问题
+2016.05.16 -- 修复用xib生成的view出现的部分约束失效问题（发布pod2.0.0版本）
 
 2016.05.15 -- 增加设置偏移量offset功能
 
