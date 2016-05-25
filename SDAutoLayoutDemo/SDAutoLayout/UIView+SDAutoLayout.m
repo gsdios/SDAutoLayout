@@ -935,6 +935,12 @@
     self.sd_categoryManager.sd_closeAotuLayout = sd_closeAotuLayout;
 }
 
+- (void)removeFromSuperviewAndClearAutoLayoutSettings
+{
+    [self sd_clearAutoLayoutSettings];
+    [self removeFromSuperview];
+}
+
 - (void)sd_clearAutoLayoutSettings
 {
     SDAutoLayoutModel *model = [self ownLayoutModel];

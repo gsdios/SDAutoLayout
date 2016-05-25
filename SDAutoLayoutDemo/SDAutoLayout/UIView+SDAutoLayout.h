@@ -246,7 +246,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 
 
-#pragma mark - UIView 设置约束、更新约束、清空约束、开启cell的frame缓存等相关方法
+#pragma mark - UIView 设置约束、更新约束、清空约束、从父view移除并清空约束、开启cell的frame缓存等相关方法
 
 @interface UIView (SDAutoLayout)
 
@@ -261,6 +261,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 /** 是否关闭自动布局  */
 @property (nonatomic, getter = sd_isClosingAotuLayout) BOOL sd_closeAotuLayout;
+
+/** 从父view移除并清空约束  */
+- (void)removeFromSuperviewAndClearAutoLayoutSettings;
 
 /** 清空之前的自动布局设置  */
 - (void)sd_clearAutoLayoutSettings;
