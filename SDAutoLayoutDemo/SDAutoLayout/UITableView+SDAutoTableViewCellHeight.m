@@ -104,6 +104,11 @@
     return _modelCell;
 }
 
+- (NSDictionary *)heightCacheDict
+{
+    return _cacheDictionary;
+}
+
 - (void)clearHeightCache
 {
     [_cacheDictionary removeAllObjects];
@@ -306,6 +311,19 @@
 {
     self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = YES;
     [self reloadData];
+}
+
+- (CGFloat)cellsTotalHeight
+{
+    CGFloat h = 0;
+    if (!self.cellAutoHeightManager.heightCacheDict.count) {
+        [self reloadData];
+    }
+    NSArray *values = [self.cellAutoHeightManager.heightCacheDict allValues];
+    for (NSNumber *number in values) {
+        h += [number floatValue];
+    }
+    return h;
 }
 
 - (SDCellAutoHeightManager *)cellAutoHeightManager

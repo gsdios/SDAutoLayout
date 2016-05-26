@@ -64,6 +64,9 @@
 /** 刷新tableView但不清空之前已经计算好的高度缓存，用于直接将新数据拼接在旧数据之后的tableView刷新 */
 - (void)reloadDataWithExistedHeightCache;
 
+/** 返回所有cell的高度总和  */
+- (CGFloat)cellsTotalHeight;
+
 @end
 
 
@@ -120,6 +123,8 @@
 @property (nonatomic, strong) UITableViewCell *modelCell;
 
 @property (nonatomic, strong) NSMutableDictionary *subviewFrameCacheDict;
+
+@property (nonatomic, strong, readonly) NSDictionary *heightCacheDict;
 
 - (void)clearHeightCache;
 
