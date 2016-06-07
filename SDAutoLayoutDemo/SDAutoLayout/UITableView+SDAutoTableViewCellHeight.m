@@ -115,10 +115,15 @@
     [_subviewFrameCacheDict removeAllObjects];
 }
 
+- (NSString *)cacheKeyForIndexPath:(NSIndexPath *)indexPath
+{
+    return [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.row];
+}
+
 - (void)clearHeightCacheOfIndexPaths:(NSArray *)indexPaths
 {
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
-        NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
+        NSString *cacheKey = [self cacheKeyForIndexPath:indexPath];
         [_cacheDictionary removeObjectForKey:cacheKey];
         [_subviewFrameCacheDict removeObjectForKey:cacheKey];
     }];
@@ -129,7 +134,7 @@
     /*
      如果程序卡在了这里很可能是由于你用了“dequeueReusableCellWithIdentifier:forIndexPath:”方法来重用cell，换成““dequeueReusableCellWithIdentifier:”（不带IndexPath）方法即可解决
      */
-    NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
+    NSString *cacheKey = [self cacheKeyForIndexPath:indexPath];
     return (NSNumber *)[_cacheDictionary objectForKey:cacheKey];
 }
 
@@ -151,6 +156,8 @@
         
         if (model && keyPath) {
             [self.modelCell setValue:model forKey:keyPath];
+        } else if (self.cellDataSetting) {
+            self.cellDataSetting(self.modelCell);
         }
         
         
@@ -166,7 +173,7 @@
 #endif
         
         [self.modelCell.contentView layoutSubviews];
-        NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
+        NSString *cacheKey = [self cacheKeyForIndexPath:indexPath];
         [_cacheDictionary setObject:@(self.modelCell.autoHeight) forKey:cacheKey];
         
         
@@ -224,7 +231,7 @@
     if (!self.subviewFrameCacheDict) {
         self.subviewFrameCacheDict = [NSMutableDictionary new];
     }
-    NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
+    NSString *cacheKey = [self cacheKeyForIndexPath:indexPath];
     NSMutableArray *caches = [self.subviewFrameCacheDict objectForKey:cacheKey];
     if (!caches) {
         caches = [NSMutableArray new];
@@ -235,7 +242,7 @@
 
 - (NSMutableArray *)subviewFrameCachesWithIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cacheKey = [NSString stringWithFormat:@"%ld%ld", (long)indexPath.section, (long)indexPath.row];
+    NSString *cacheKey = [self cacheKeyForIndexPath:indexPath];
     return [self.subviewFrameCacheDict valueForKey:cacheKey];
 }
 
@@ -307,6 +314,14 @@
     return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass];
 }
 
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellClass:(__unsafe_unretained Class)cellClass cellContentViewWidth:(CGFloat)width cellDataSetting:(AutoCellHeightDataSettingBlock)cellDataSetting
+{
+
+    self.cellDataSetting = cellDataSetting;
+
+    return [self cellHeightForIndexPath:indexPath model:nil keyPath:nil cellClass:cellClass contentViewWidth:width];
+}
+
 - (void)reloadDataWithExistedHeightCache
 {
     self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = YES;
@@ -334,6 +349,16 @@
 - (void)setCellAutoHeightManager:(SDCellAutoHeightManager *)cellAutoHeightManager
 {
     objc_setAssociatedObject(self, @selector(cellAutoHeightManager), cellAutoHeightManager, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setCellDataSetting:(AutoCellHeightDataSettingBlock)cellDataSetting
+{
+    self.cellAutoHeightManager.cellDataSetting = cellDataSetting;
+}
+
+- (AutoCellHeightDataSettingBlock)cellDataSetting
+{
+    return self.cellAutoHeightManager.cellDataSetting;
 }
 
 @end

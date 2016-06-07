@@ -249,7 +249,7 @@
         item.refView = view;
         [weakSelf setValue:item forKey:key];
         weakSelf.lastModelItem = item;
-        if ([key isEqualToString:@"equalCenterY"] && [view isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
+        if ([view isKindOfClass:NSClassFromString(@"UITableViewCellContentView")] && ([key isEqualToString:@"equalCenterY"] || [key isEqualToString:@"equalBottom"])) {
             view.shouldReadjustFrameBeforeStoreCache = YES;
         }
         return weakSelf;

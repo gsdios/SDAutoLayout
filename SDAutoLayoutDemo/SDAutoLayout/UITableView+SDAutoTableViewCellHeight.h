@@ -25,13 +25,6 @@
 
 
 /*
- 
- cell高度自适应有“普通版”和“升级版”两个版本：
- 
- 1.普通版：两行代码（两步设置）搞定tableview的cell高度自适应(单cell详见demo5，多cell详见demo7)
- 
- 2.升级版：只需一步设置即可实现，见下方category“UITableViewController (SDTableViewControllerAutoCellHeight)”)
- 
  PS:cell高度自适应前提>>应该调用cell的“- (void)setupAutoHeightWithBottomView:(UIView *)bottomView bottomMargin:(CGFloat)bottomMargin”方法进行cell的自动高度设置
  */
 
@@ -40,6 +33,8 @@
 #import "UIView+SDAutoLayout.h"
 
 @class SDCellAutoHeightManager;
+
+typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell *cell);
 
 #define kSDModelCellTag 199206
 
@@ -61,11 +56,21 @@
  */
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth;
 
+/**
+ * 返回计算出的cell高度（普通简化版方法，同样只需一步设置即可完成）(用法：见DemoVC14)
+ * cellClass          : 当前的indexPath对应的cell的class
+ * contentViewWidth   : cell的contentView的宽度
+ * cellDataSetting    : 设置cell数据的block
+ */
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellClass:(Class)cellClass cellContentViewWidth:(CGFloat)width cellDataSetting:(AutoCellHeightDataSettingBlock)cellDataSetting;
+
 /** 刷新tableView但不清空之前已经计算好的高度缓存，用于直接将新数据拼接在旧数据之后的tableView刷新 */
 - (void)reloadDataWithExistedHeightCache;
 
 /** 返回所有cell的高度总和  */
 - (CGFloat)cellsTotalHeight;
+
+@property (nonatomic, copy) AutoCellHeightDataSettingBlock cellDataSetting;
 
 @end
 
@@ -125,6 +130,8 @@
 @property (nonatomic, strong) NSMutableDictionary *subviewFrameCacheDict;
 
 @property (nonatomic, strong, readonly) NSDictionary *heightCacheDict;
+
+@property (nonatomic, copy) AutoCellHeightDataSettingBlock cellDataSetting;
 
 - (void)clearHeightCache;
 
