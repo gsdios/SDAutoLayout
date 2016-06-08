@@ -33,6 +33,8 @@
 #import "UITableView+SDAutoTableViewCellHeight.h"
 #import "UIView+SDAutoLayout.h"
 
+#import "LEETheme.h"
+
 #define kTimeLineTableViewCellId @"SDTimeLineCell"
 
 static CGFloat textFieldH = 40;
@@ -56,6 +58,24 @@ static CGFloat textFieldH = 40;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"日间" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
+    
+    rightBarButtonItem.lee_theme
+    .LeeAddCustomConfig(@"day" , ^(UIBarButtonItem *item){
+        
+        item.title = @"夜间";
+        
+    }).LeeAddCustomConfig(@"night" , ^(UIBarButtonItem *item){
+        
+        item.title = @"日间";
+    });
+    
+    self.view.lee_theme
+    .LeeAddBackgroundColor(DAY , [UIColor whiteColor])
+    .LeeAddBackgroundColor(NIGHT , [UIColor blackColor]);
+    
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -88,6 +108,8 @@ static CGFloat textFieldH = 40;
     SDTimeLineTableHeaderView *headerView = [SDTimeLineTableHeaderView new];
     headerView.frame = CGRectMake(0, 0, 0, 260);
     self.tableView.tableHeaderView = headerView;
+    
+    self.tableView.separatorColor = [[UIColor grayColor] colorWithAlphaComponent:0.2f];
     
     [self.tableView registerClass:[SDTimeLineCell class] forCellReuseIdentifier:kTimeLineTableViewCellId];
     
@@ -140,12 +162,49 @@ static CGFloat textFieldH = 40;
     _textField.delegate = self;
     _textField.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8].CGColor;
     _textField.layer.borderWidth = 1;
-    _textField.backgroundColor = [UIColor whiteColor];
+    
+    _textField.lee_theme
+    .LeeAddBackgroundColor(DAY , [UIColor whiteColor])
+    .LeeAddBackgroundColor(NIGHT , [UIColor blackColor])
+    .LeeAddTextColor(DAY , [UIColor blackColor])
+    .LeeAddTextColor(NIGHT , [UIColor grayColor])
+    .LeeAddCustomConfig(DAY , ^(UITextField *item){
+        
+        item.keyboardAppearance = UIKeyboardAppearanceDefault;
+        if ([item isFirstResponder]) {
+            [item resignFirstResponder];
+            [item becomeFirstResponder];
+        }
+    }).LeeAddCustomConfig(NIGHT , ^(UITextField *item){
+    
+        item.keyboardAppearance = UIKeyboardAppearanceDark;
+        if ([item isFirstResponder]) {
+            [item resignFirstResponder];
+            [item becomeFirstResponder];
+        }
+    });
+    
     _textField.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.width_sd, textFieldH);
     [[UIApplication sharedApplication].keyWindow addSubview:_textField];
     
     [_textField becomeFirstResponder];
     [_textField resignFirstResponder];
+}
+
+// 右栏目按钮点击事件
+
+- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
+    
+    if ([[LEETheme currentThemeTag] isEqualToString:DAY]) {
+        
+        [LEETheme startTheme:NIGHT];
+   
+    } else {
+        
+        [LEETheme startTheme:DAY];
+        
+    }
+    
 }
 
 - (NSArray *)creatModelsWithCount:(NSInteger)count

@@ -37,4 +37,8 @@
 
 #define TimeLineCellHighlightedColor [UIColor colorWithRed:92/255.0 green:140/255.0 blue:193/255.0 alpha:1.0]
 
+#define DAY @"day"
+
+#define NIGHT @"night"
+
 #endif

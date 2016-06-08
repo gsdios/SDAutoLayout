@@ -37,6 +37,8 @@
 
 #import "SDTimeLineCellOperationMenu.h"
 
+#import "LEETheme.h"
+
 const CGFloat contentLabelFontSize = 15;
 CGFloat maxContentLabelHeight = 0; // 根据具体font而定
 
@@ -61,7 +63,13 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
         [self setup];
+        
+        //设置主题
+        
+        [self configTheme];
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
@@ -103,7 +111,6 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     
     _timeLabel = [UILabel new];
     _timeLabel.font = [UIFont systemFontOfSize:13];
-    _timeLabel.textColor = [UIColor lightGrayColor];
     
     
     _operationMenu = [SDTimeLineCellOperationMenu new];
@@ -172,12 +179,27 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     .rightSpaceToView(self.contentView, margin)
     .topSpaceToView(_timeLabel, margin); // 已经在内部实现高度自适应所以不需要再设置高度
     
-    
     _operationMenu.sd_layout
     .rightSpaceToView(_operationButton, 0)
     .heightIs(36)
     .centerYEqualToView(_operationButton)
     .widthIs(0);
+}
+
+- (void)configTheme{
+    
+    self.lee_theme
+    .LeeAddBackgroundColor(DAY , [UIColor whiteColor])
+    .LeeAddBackgroundColor(NIGHT , [UIColor blackColor]);
+    
+    _contentLabel.lee_theme
+    .LeeAddTextColor(DAY , [UIColor blackColor])
+    .LeeAddTextColor(NIGHT , [UIColor grayColor]);
+
+    _timeLabel.lee_theme
+    .LeeAddTextColor(DAY , [UIColor lightGrayColor])
+    .LeeAddTextColor(NIGHT , [UIColor grayColor]);
+
 }
 
 - (void)dealloc

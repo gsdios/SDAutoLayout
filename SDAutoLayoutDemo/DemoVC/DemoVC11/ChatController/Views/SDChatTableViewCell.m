@@ -29,6 +29,7 @@
 
 #import "UIView+SDAutoLayout.h"
 
+#import "LEETheme.h"
 
 #define kLabelMargin 20.f
 #define kLabelTopMargin 8.f
@@ -60,7 +61,13 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
         [self setupView];
+    
+        //设置主题
+        
+        [self configTheme];
+        
     }
     return self;
 }
@@ -97,6 +104,33 @@
     // 设置containerBackgroundImageView填充父view
     _containerBackgroundImageView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
  
+}
+
+- (void)configTheme{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    self.lee_theme.LeeConfigBackgroundColor(@"backgroundcolor");
+    
+    self.label.lee_theme.LeeConfigTextColor(@"textcolor");
+    
+    //其实只要上面的设置textcolor就可以的 , 你自己的这个label设置后不会马上变 , 需要重新赋值一下才会改变 - ,- 针对你这个情况 所以这样处理一下先
+    self.label.lee_theme.LeeAddCustomConfigs(@[@"day" , @"night"] , ^(MLEmojiLabel *item){
+       
+        item.text = weakSelf.model.text;
+        
+    });
+    
+    self.containerBackgroundImageView.lee_theme
+    .LeeAddCustomConfig(@"day" , ^(UIImageView * item){
+        
+        item.alpha = 1.0f; //因为你没有夜间的图片 这里暂时只能这样实现效果了
+        
+    }).LeeAddCustomConfig(@"night" , ^(UIImageView * item){
+        
+        item.alpha = 0.2f;
+    });
+    
 }
 
 - (void)setModel:(SDChatModel *)model
