@@ -212,17 +212,18 @@
 {
     if (_contentViewWidth == contentViewWidth) return;
     
+    CGFloat lastContentViewWidth = _contentViewWidth;
     _contentViewWidth = contentViewWidth;
     
     self.modelCell.contentView.width_sd = self.contentViewWidth;
     
-    
-    [_subviewFrameCacheDict removeAllObjects];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self clearHeightCache];
-        [self.modelTableview reloadData];
-    });
+    if (lastContentViewWidth > 0) {
+        [_subviewFrameCacheDict removeAllObjects];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self clearHeightCache];
+            [self.modelTableview reloadData];
+        });
+    }
 }
 
 
