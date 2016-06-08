@@ -37,7 +37,8 @@
     .leftSpaceToView(self.imgIcon ,margin)
     .topSpaceToView(self.contentView,margin)
     .rightSpaceToView(self.contentView,margin)
-    .heightIs(21);
+    .autoHeightRatio(0);
+    self.lblTitle.numberOfLines = 0;
     
     self.lblSubtitle.sd_layout
     .topSpaceToView(self.lblTitle,margin)
@@ -46,12 +47,12 @@
     .autoHeightRatio(0);
     
     self.lineView.sd_layout
-    .topSpaceToView(self.imgIcon,margin)
+    .bottomEqualToView(self.contentView)
     .rightSpaceToView(self.contentView,0)
     .leftSpaceToView(self.contentView,0)
     .heightIs(1);
     
-    [self setupAutoHeightWithBottomView:self.lineView bottomMargin:0];
+    [self setupAutoHeightWithBottomViewsArray:@[self.lblSubtitle, self.imgIcon] bottomMargin:(margin + 1)];
 }
 
 

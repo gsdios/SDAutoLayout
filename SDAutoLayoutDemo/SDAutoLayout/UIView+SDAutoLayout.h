@@ -45,6 +45,11 @@
  *
  *********************************************************************************
  
+ 
+ SDAutoLayout
+ 版本：2.1.1
+ 发布：2016.06.07
+ 
  */
 
 
@@ -63,6 +68,7 @@ typedef SDAutoLayoutModel *(^WidthHeight)(CGFloat value);
 typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat ratioValue);
 typedef SDAutoLayoutModel *(^AutoHeight)(CGFloat ratioValue);
 typedef SDAutoLayoutModel *(^SameWidthHeight)();
+typedef SDAutoLayoutModel *(^Offset)(CGFloat value);
 typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface SDAutoLayoutModel : NSObject
@@ -159,12 +165,16 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 传入UIEdgeInsetsMake(top, left, bottom, right)，可以快捷设置view到其父view上左下右的间距  */
 @property (nonatomic, copy, readonly) SpaceToSuperView spaceToSuperView;
 
+/** 设置偏移量，参数为“(CGFloat value)，目前只有带有equalToView的方法可以设置offset” */
+@property (nonatomic, copy, readonly) Offset offset;
+
 @property (nonatomic, weak) UIView *needsAutoResizeView;
 
 @end
 
 
 
+#pragma mark - UIView 高度、宽度自适应相关方法
 
 @interface UIView (SDAutoHeightWidth)
 
@@ -201,6 +211,10 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @end
 
+
+
+#pragma mark - UIView 设置圆角半径、九宫格浮动效果、自动布局回调block等相关方法
+
 @interface UIView (SDLayoutExtention)
 
 /** 自动布局完成后的回调block，可以在这里获取到view的真实frame  */
@@ -221,11 +235,23 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 设置等宽子view（子view需要在同一水平方向） */
 @property (nonatomic, strong) NSArray *sd_equalWidthSubviews;
 
-/** 设置类似collectionView效果的浮动子view */
-- (void)setupFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount verticalMargin:(CGFloat)verticalMargin horizontalMargin:(CGFloat)horizontalMagin;
+/** 设置类似collectionView效果的固定间距自动宽度浮动子view */
+- (void)setupAutoWidthFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount verticalMargin:(CGFloat)verticalMargin horizontalMargin:(CGFloat)horizontalMagin;
+
+/** 清除固定间距自动宽度浮动子view设置 */
+- (void)clearAutoWidthFlowItemsSettings;
+
+/** 设置类似collectionView效果的固定宽带自动间距浮动子view */
+- (void)setupAutoMarginFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount itemWidth:(CGFloat)itemWidth verticalMargin:(CGFloat)verticalMargin;
+
+/** 清除固定宽带自动间距浮动子view设置 */
+- (void)clearAutoMarginFlowItemsSettings;
 
 @end
 
+
+
+#pragma mark - UIView 设置约束、更新约束、清空约束、从父view移除并清空约束、开启cell的frame缓存等相关方法
 
 @interface UIView (SDAutoLayout)
 
@@ -237,6 +263,12 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 /** 清空之前的自动布局设置，重新开始自动布局(重新生成布局约束并添加到父view布局序列数组中的最后一个位置)  */
 - (SDAutoLayoutModel *)sd_resetNewLayout;
+
+/** 是否关闭自动布局  */
+@property (nonatomic, getter = sd_isClosingAotuLayout) BOOL sd_closeAotuLayout;
+
+/** 从父view移除并清空约束  */
+- (void)removeFromSuperviewAndClearAutoLayoutSettings;
 
 /** 清空之前的自动布局设置  */
 - (void)sd_clearAutoLayoutSettings;
@@ -273,6 +305,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @end
 
 
+
+#pragma mark - UIScrollView 内容竖向自适应、内容横向自适应方法
+
 @interface UIScrollView (SDAutoContentSize)
 
 /** 设置scrollview内容竖向自适应 */
@@ -283,6 +318,9 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @end
 
+
+
+#pragma mark - UILabel 开启富文本布局、设置单行文本label宽度自适应、 设置label最多可以显示的行数
 
 @interface UILabel (SDLabelAutoResize)
 
@@ -299,6 +337,17 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 
 
+#pragma mark - UIButton 设置button根据单行文字自适应
+
+@interface UIButton (SDExtention)
+
+/*
+ * 设置button根据单行文字自适应
+ * hPadding：左右边距
+ */
+- (void)setupAutoSizeWithHorizontalPadding:(CGFloat)hPadding buttonHeight:(CGFloat)buttonHeight;
+
+@end
 
 
 
@@ -327,7 +376,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 
 
-
+#pragma mark - 其他方法（如果有需要可以自己利用以下接口拓展更多功能）
 
 // ----------------- 以下为此库内部需要用到的类和方法（可以不用看）----------------
 
@@ -335,6 +384,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @property (nonatomic, strong) NSNumber *value;
 @property (nonatomic, weak) UIView *refView;
+@property (nonatomic, assign) CGFloat offset;
 
 @end
 
@@ -343,17 +393,32 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UIView (SDChangeFrame)
 
+@property (nonatomic) BOOL shouldReadjustFrameBeforeStoreCache;
+
+@property (nonatomic) CGFloat left_sd;
+@property (nonatomic) CGFloat top_sd;
+@property (nonatomic) CGFloat right_sd;
+@property (nonatomic) CGFloat bottom_sd;
+@property (nonatomic) CGFloat centerX_sd;
+@property (nonatomic) CGFloat centerY_sd;
+
+@property (nonatomic) CGFloat width_sd;
+@property (nonatomic) CGFloat height_sd;
+
+
+@property (nonatomic) CGPoint origin_sd;
+@property (nonatomic) CGSize size_sd;
+
+
+// 兼容旧版本
 @property (nonatomic) CGFloat left;
 @property (nonatomic) CGFloat top;
 @property (nonatomic) CGFloat right;
 @property (nonatomic) CGFloat bottom;
 @property (nonatomic) CGFloat centerX;
 @property (nonatomic) CGFloat centerY;
-
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
-
-
 @property (nonatomic) CGPoint origin;
 @property (nonatomic) CGSize size;
 
@@ -370,15 +435,24 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @property (nonatomic, assign) BOOL hasSetFrameWithCache;
 
+@property (nonatomic) BOOL shouldReadjustFrameBeforeStoreCache;
+
+@property (nonatomic, assign, getter = sd_isClosingAotuLayout) BOOL sd_closeAotuLayout;
 
 
-/** 设置类似collectionView效果的浮动子view */
+/** 设置类似collectionView效果的固定间距自动宽度浮动子view */
 
 @property (nonatomic, strong) NSArray *flowItems;
 @property (nonatomic, assign) CGFloat verticalMargin;
 @property (nonatomic, assign) CGFloat horizontalMargin;
 @property (nonatomic, assign) NSInteger perRowItemsCount;
 @property (nonatomic, assign) CGFloat lastWidth;
+
+
+/** 设置类似collectionView效果的固定宽带自动间距浮动子view */
+
+@property (nonatomic, assign) CGFloat flowItemWidth;
+@property (nonatomic, assign) BOOL shouldShowAsAutoMarginViews;
 
 @end
 

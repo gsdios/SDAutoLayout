@@ -32,8 +32,7 @@
 {
     [super viewDidLoad];
     
-    
- 
+
     // demo1.内容自适应view
     [self setupAutoHeightView];
     
@@ -42,6 +41,9 @@
     
     // demo3.高度自适应label
     [self setupAutoHeightLabel];
+    
+    // demo4.设置button根据文字size自适应
+    [self setupAutoSizeButton];
     
 }
 
@@ -126,6 +128,22 @@
     .widthIs(100)
     .autoHeightRatio(0);
     
+}
+
+// demo4.设置button根据文字size自适应
+- (void)setupAutoSizeButton
+{
+    UIButton *btn = [UIButton new];
+    btn.backgroundColor = [UIColor redColor];
+    [btn setTitle:@"button根据文字自适应" forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+    
+    btn.sd_layout
+    .centerXEqualToView(self.view)
+    .topSpaceToView(self.view1, 20);
+    
+    // 设置button根据文字size自适应
+    [btn setupAutoSizeWithHorizontalPadding:10 buttonHeight:25];
 }
 
 

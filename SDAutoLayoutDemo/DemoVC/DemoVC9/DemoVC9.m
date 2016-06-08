@@ -72,7 +72,15 @@ static CGFloat textFieldH = 40;
     [_refreshFooter addToScrollView:self.tableView refreshOpration:^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.dataArray addObjectsFromArray:[weakSelf creatModelsWithCount:10]];
-            [weakSelf.tableView reloadData];
+            
+            /**
+            [weakSelf.tableView reloadDataWithExistedHeightCache]
+            作用等同于
+            [weakSelf.tableView reloadData]
+            只是“reloadDataWithExistedHeightCache”刷新tableView但不清空之前已经计算好的高度缓存，用于直接将新数据拼接在旧数据之后的tableView刷新
+             */
+            [weakSelf.tableView reloadDataWithExistedHeightCache];
+            
             [weakRefreshFooter endRefreshing];
         });
     }];
@@ -133,7 +141,7 @@ static CGFloat textFieldH = 40;
     _textField.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8].CGColor;
     _textField.layer.borderWidth = 1;
     _textField.backgroundColor = [UIColor whiteColor];
-    _textField.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.width, textFieldH);
+    _textField.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, self.view.width_sd, textFieldH);
     [[UIApplication sharedApplication].keyWindow addSubview:_textField];
     
     [_textField becomeFirstResponder];
