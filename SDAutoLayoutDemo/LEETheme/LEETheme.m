@@ -55,6 +55,11 @@ NSString * const LEEThemeCurrentTag = @"LEEThemeCurrentTag";
     [[NSNotificationCenter defaultCenter] postNotificationName:LEEThemeChangingNotificaiton object:nil userInfo:nil];
 }
 
++ (void)defaultTheme:(NSString *)tag{
+    
+    if (![LEETheme shareTheme].currentTag && ![[NSUserDefaults standardUserDefaults] objectForKey:LEEThemeCurrentTag]) [LEETheme startTheme:tag];
+}
+
 + (NSString *)currentThemeTag{
     
     return [LEETheme shareTheme].currentTag ? [LEETheme shareTheme].currentTag : [[NSUserDefaults standardUserDefaults] objectForKey:LEEThemeCurrentTag];

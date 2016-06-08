@@ -58,6 +58,13 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToImageAndState)(NSString *tag , UI
 + (void)startTheme:(NSString *)tag;
 
 /**
+ *  默认主题
+ *
+ *  @param tag 主题标签
+ */
++ (void)defaultTheme:(NSString *)tag;
+
+/**
  *  当前主题标签
  *
  *  @return 主题标签 tag

@@ -59,6 +59,8 @@ static CGFloat textFieldH = 40;
 {
     [super viewDidLoad];
     
+    //LEETheme 分为两种模式 , 独立设置模式 JSON设置模式 , 朋友圈demo展示的是独立设置模式的使用 , 微信聊天demo 展示的是JSON模式的使用
+    
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"日间" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
     
     rightBarButtonItem.lee_theme
@@ -70,6 +72,8 @@ static CGFloat textFieldH = 40;
         
         item.title = @"日间";
     });
+    
+    //为self.view 添加背景颜色设置
     
     self.view.lee_theme
     .LeeAddBackgroundColor(DAY , [UIColor whiteColor])

@@ -199,7 +199,7 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     _timeLabel.lee_theme
     .LeeAddTextColor(DAY , [UIColor lightGrayColor])
     .LeeAddTextColor(NIGHT , [UIColor grayColor]);
-
+    
 }
 
 - (void)dealloc
