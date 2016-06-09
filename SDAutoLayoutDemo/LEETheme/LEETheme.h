@@ -76,6 +76,7 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToImageAndState)(NSString *tag , UI
  *
  *  @param json json字符串
  *  @param tag 主题标签
+ *  @param path 资源路径
  */
 + (void)addThemeConfigJson:(NSString *)json WithTag:(NSString *)tag WithResourcesPath:(NSString *)path;
 

@@ -54,6 +54,8 @@
     
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"日间" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
     
+    //通过添加自定义block 实现不同主题下 barbutton的title显示不同标题 , 当然这只是举个例子 , block中你想做任何羞羞的事都可以.
+    
     rightBarButtonItem.lee_theme
     .LeeAddCustomConfig(@"day" , ^(UIBarButtonItem *item){
         
@@ -63,6 +65,8 @@
         
         item.title = @"日间";
     });
+    
+    //设置背景颜色的标识符 , 这个标识符和你的json文件中配置的标识符对应
     
     self.view.lee_theme.LeeConfigBackgroundColor(@"backgroundcolor");
     
