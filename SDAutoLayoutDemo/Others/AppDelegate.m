@@ -23,6 +23,8 @@
 
 #import "AppDelegate.h"
 
+#import "LEETheme.h"
+
 @interface AppDelegate ()
 
 @end
@@ -32,8 +34,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self configLEEThemeJson];
+    
     return YES;
 }
+
+//设置LEEThemeJson
+
+- (void)configLEEThemeJson{
+    
+    //获取对应主题的json设置数据
+    
+    NSString *dayjson = [NSString stringWithContentsOfFile:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"theme_day_json.json"] encoding:NSUTF8StringEncoding error:nil];
+    
+    //添加json设置数据 , 设置主题标签 , 设置资源路径
+    
+    [LEETheme addThemeConfigJson:dayjson WithTag:@"day" WithResourcesPath:nil];
+    
+    NSString *nightjson = [NSString stringWithContentsOfFile:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"theme_night_json.json"] encoding:NSUTF8StringEncoding error:nil];
+    
+    [LEETheme addThemeConfigJson:nightjson WithTag:@"night" WithResourcesPath:nil];
+    
+    //设置默认主题
+    
+    [LEETheme defaultTheme:@"day"];
+    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

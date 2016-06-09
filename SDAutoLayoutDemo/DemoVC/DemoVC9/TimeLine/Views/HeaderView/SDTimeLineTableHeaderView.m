@@ -30,6 +30,10 @@
 
 #import "UIView+SDAutoLayout.h"
 
+#import "GlobalDefines.h"
+
+#import "LEETheme.h"
+
 @implementation SDTimeLineTableHeaderView
 
 {
@@ -41,20 +45,31 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        
         [self setup];
+    
+        //设置主题
+        
+        [self configTheme];
+        
     }
     return self;
 }
 
 - (void)setup
 {
+    
     _backgroundImageView = [UIImageView new];
     _backgroundImageView.image = [UIImage imageNamed:@"pbg.jpg"];
     [self addSubview:_backgroundImageView];
     
     _iconView = [UIImageView new];
     _iconView.image = [UIImage imageNamed:@"picon.jpg"];
-    _iconView.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    _iconView.layer.lee_theme
+    .LeeAddBorderColor(DAY , [UIColor whiteColor])
+    .LeeAddBorderColor(NIGHT , [UIColor blackColor]);
+    
     _iconView.layer.borderWidth = 3;
     [self addSubview:_iconView];
     
@@ -83,5 +98,17 @@
     .heightIs(20);
 }
 
+- (void)configTheme{
+    
+    self.lee_theme
+    .LeeAddBackgroundColor(DAY , [UIColor whiteColor])
+    .LeeAddBackgroundColor(NIGHT , [UIColor blackColor]);
+    
+}
+
+- (void)dealloc{
+    
+    
+}
 
 @end

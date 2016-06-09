@@ -37,6 +37,8 @@
 
 #import "UIView+SDAutoLayout.h"
 
+#import "LEETheme.h"
+
 #define kChatTableViewControllerCellId @"ChatTableViewController"
 
 @interface DemoVC11 ()
@@ -50,15 +52,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"日间" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
+    
+    //通过添加自定义block 实现不同主题下 barbutton的title显示不同标题 , 当然这只是举个例子 , block中你想做任何羞羞的事都可以.
+    
+    rightBarButtonItem.lee_theme
+    .LeeAddCustomConfig(@"day" , ^(UIBarButtonItem *item){
+        
+        item.title = @"夜间";
+        
+    }).LeeAddCustomConfig(@"night" , ^(UIBarButtonItem *item){
+        
+        item.title = @"日间";
+    });
+    
+    //设置背景颜色的标识符 , 这个标识符和你的json文件中配置的标识符对应
+    
+    self.view.lee_theme.LeeConfigBackgroundColor(@"backgroundcolor");
+    
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
     [self setupDataWithCount:30];
     
-    CGFloat rgb = 240;
-    self.tableView.backgroundColor = SDColor(rgb, rgb, rgb, 1);
+    self.tableView.lee_theme.LeeConfigBackgroundColor(@"backgroundcolor");
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView registerClass:[SDChatTableViewCell class] forCellReuseIdentifier:kChatTableViewControllerCellId];
 }
+
 
 - (void)setupDataWithCount:(NSInteger)count
 {
@@ -87,6 +109,23 @@
         [self.dataArray addObject:model];
     }
 }
+
+// 右栏目按钮点击事件
+
+- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
+    
+    if ([[LEETheme currentThemeTag] isEqualToString:DAY]) {
+        
+        [LEETheme startTheme:NIGHT];
+        
+    } else {
+        
+        [LEETheme startTheme:DAY];
+        
+    }
+    
+}
+
 
 #pragma mark - tableview delegate and datasource
 

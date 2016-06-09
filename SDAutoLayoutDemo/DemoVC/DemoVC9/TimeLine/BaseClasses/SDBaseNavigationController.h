@@ -28,6 +28,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GlobalDefines.h"
+
 @interface SDBaseNavigationController : UINavigationController
 
 @end

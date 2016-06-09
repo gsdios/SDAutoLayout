@@ -31,6 +31,8 @@
 #import "SDTimeLineCellModel.h"
 #import "MLLinkLabel.h"
 
+#import "LEETheme.h"
+
 @interface SDTimeLineCellCommentView () <MLLinkLabelDelegate>
 
 @property (nonatomic, strong) NSArray *likeItemsArray;
@@ -51,7 +53,13 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        
         [self setupViews];
+    
+        //设置主题
+        
+        [self configTheme];
+
     }
     return self;
 }
@@ -59,8 +67,9 @@
 - (void)setupViews
 {
     _bgImageView = [UIImageView new];
-    UIImage *bgImage = [[UIImage imageNamed:@"LikeCmtBg"] stretchableImageWithLeftCapWidth:40 topCapHeight:30];
+    UIImage *bgImage = [[[UIImage imageNamed:@"LikeCmtBg"] stretchableImageWithLeftCapWidth:40 topCapHeight:30] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     _bgImageView.image = bgImage;
+    _bgImageView.backgroundColor = [UIColor clearColor];
     [self addSubview:_bgImageView];
     
     _likeLabel = [MLLinkLabel new];
@@ -69,10 +78,29 @@
     [self addSubview:_likeLabel];
     
     _likeLableBottomLine = [UIView new];
-    _likeLableBottomLine.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2];
     [self addSubview:_likeLableBottomLine];
     
     _bgImageView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+}
+
+- (void)configTheme{
+    
+    self.lee_theme
+    .LeeAddBackgroundColor(DAY , [UIColor whiteColor])
+    .LeeAddBackgroundColor(NIGHT , [UIColor blackColor]);
+    
+    _bgImageView.lee_theme
+    .LeeAddTintColor(DAY , SDColor(230, 230, 230, 1.0f))
+    .LeeAddTintColor(NIGHT , SDColor(30, 30, 30, 1.0f));
+    
+    _likeLabel.lee_theme
+    .LeeAddTextColor(DAY , [UIColor blackColor])
+    .LeeAddTextColor(NIGHT , [UIColor grayColor]);
+    
+    _likeLableBottomLine.lee_theme
+    .LeeAddBackgroundColor(DAY , SDColor(210, 210, 210, 1.0f))
+    .LeeAddBackgroundColor(NIGHT , SDColor(60, 60, 60, 1.0f));
+    
 }
 
 - (void)setCommentItemsArray:(NSArray *)commentItemsArray
@@ -85,6 +113,9 @@
         MLLinkLabel *label = [MLLinkLabel new];
         UIColor *highLightColor = TimeLineCellHighlightedColor;
         label.linkTextAttributes = @{NSForegroundColorAttributeName : highLightColor};
+        label.lee_theme
+        .LeeAddTextColor(DAY , [UIColor blackColor])
+        .LeeAddTextColor(NIGHT , [UIColor grayColor]);
         label.font = [UIFont systemFontOfSize:14];
         label.delegate = self;
         [self addSubview:label];
