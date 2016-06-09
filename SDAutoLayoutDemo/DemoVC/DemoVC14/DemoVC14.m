@@ -107,7 +107,7 @@
 {
     DemoVC7Model *demoVC14Modelodel = self.modelsArray[indexPath.row];
     
-    return [self.tableView cellHeightForIndexPath:indexPath model:demoVC14Modelodel keyPath:@"model" cellClass:[DemoVC14Cell class] contentViewWidth:[UIScreen mainScreen].bounds.size.width];
+    return [self.tableView cellHeightForIndexPath:indexPath model:demoVC14Modelodel keyPath:@"model" cellClass:[DemoVC14Cell class] contentViewWidth:[self cellContentViewWith]];
     
     /*
      *  第二种返回cell高度的方法，此方法不需要设置keyPath，适合一个cell与多个model的情况
@@ -121,6 +121,17 @@
                                         cellClass:[DemoVC14Cell class]
                              cellContentViewWidth:[UIScreen mainScreen].bounds.size.width cellDataSetting:dataSetting];
      */
+}
+
+- (CGFloat)cellContentViewWith
+{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    
+    // 适配ios7横屏
+    if ([UIApplication sharedApplication].statusBarOrientation != UIInterfaceOrientationPortrait && [[UIDevice currentDevice].systemVersion floatValue] < 8) {
+        width = [UIScreen mainScreen].bounds.size.height;
+    }
+    return width;
 }
 
 @end
