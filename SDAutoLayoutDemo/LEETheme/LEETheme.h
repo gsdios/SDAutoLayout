@@ -22,6 +22,7 @@
 @class LEEThemeConfigModel;
 
 typedef void(^LEEThemeConfigBlock)(id item);
+typedef void(^LEEThemeConfigBlockToIdentifier)(id item , id value);
 typedef LEEThemeConfigModel *(^LEEConfigThemeToFloat)(CGFloat number);
 typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifier)(NSString *identifier);
 typedef LEEThemeConfigModel *(^LEEConfigThemeToColor)(NSString *tag , UIColor *color);
@@ -35,7 +36,8 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToImageAndState)(NSString *tag , UI
 typedef LEEThemeConfigModel *(^LEEConfigThemeToImageAndState)(NSString *tag , UIImage *image , UIControlState state);
 typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndColor)(NSString *tag , NSString *keyPath , UIColor *color);
 typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndImage)(NSString *tag , NSString *keyPath , id image);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndString)(NSString *tag , NSString *keyPath , NSString *string);
+typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *identifier , LEEThemeConfigBlockToIdentifier);
+
 /*
  
  *********************************************************************************
@@ -131,6 +133,10 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndString)(NSString *tag ,
 @property (nonatomic , copy , readonly ) LEEConfigThemeToColor LeeAddBackgroundColor;
 /** 添加占位符颜色设置 -> 格式: .LeeAddPlaceholderColor(@@"tag" , UIColor) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToColor LeeAddPlaceholderColor;
+/** 添加进度轨道渲染颜色设置 -> 格式: .LeeAddTrackTintColor(@@"tag" , UIColor) */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToColor LeeAddTrackTintColor;
+/** 添加进度渲染颜色设置 -> 格式: .LeeAddProgressTintColor(@@"tag" , UIColor) */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToColor LeeAddProgressTintColor;
 /** 添加高亮文本颜色设置 -> 格式: .LeeAddHighlightedTextColor(@@"tag" , UIColor) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToColor LeeAddHighlightedTextColor;
 /** 添加页数指示渲染颜色设置 -> 格式: .LeeAddPageIndicatorTintColor(@@"tag" , UIColor) */
@@ -142,41 +148,45 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndString)(NSString *tag ,
 /** 添加按钮标题阴影颜色设置 -> 格式: .LeeAddButtonTitleShadowColor(@@"tag" , UIColor , UIControlStateNormal) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToColorAndState LeeAddButtonTitleShadowColor;
 
-/** 添加属性颜色设置 -> 格式: .LeeAddKeyPathAndColor(@@"tag" , @"keyPath" , UIColor) */
+/** 添加属性颜色设置 -> 格式: .LeeAddKeyPathAndColor(@@"tag" , @@"keyPath" , UIColor) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToKeyPathAndColor LeeAddKeyPathAndColor;
 
 /** Image */
 
-/** 添加图片设置 -> 格式: .LeeAddImage(@@"tag" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加图片设置 -> 格式: .LeeAddImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddImage;
-/** 添加阴影图片设置 -> 格式: .LeeAddShadowImage(@@"tag" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加进度轨道图片设置 -> 格式: .LeeAddTrackImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddTrackImage;
+/** 添加进度图片设置 -> 格式: .LeeAddProgressImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddProgressImage;
+/** 添加阴影图片设置 -> 格式: .LeeAddShadowImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddShadowImage;
-/** 添加选中图片设置 -> 格式: .LeeAddSelectedImage(@@"tag" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加选中图片设置 -> 格式: .LeeAddSelectedImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddSelectedImage;
-/** 添加背景图片设置 -> 格式: .LeeAddBackgroundImage(@@"tag" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加背景图片设置 -> 格式: .LeeAddBackgroundImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddBackgroundImage;
-/** 添加返回指示图片设置 -> 格式: .LeeAddBackIndicatorImage(@@"tag" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加返回指示图片设置 -> 格式: .LeeAddBackIndicatorImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddBackIndicatorImage;
-/** 添加返回指示图片设置 -> 格式: .LeeAddBackIndicatorTransitionMaskImage(@@"tag" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加返回指示图片设置 -> 格式: .LeeAddBackIndicatorTransitionMaskImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddBackIndicatorTransitionMaskImage;
-/** 添加选择指示器图片设置 -> 格式: .LeeAddSelectionIndicatorImage(@@"tag" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加选择指示器图片设置 -> 格式: .LeeAddSelectionIndicatorImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddSelectionIndicatorImage;
-/** 添加分栏背景图片设置 -> 格式: .LeeAddScopeBarBackgroundImage(@@"tag" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加分栏背景图片设置 -> 格式: .LeeAddScopeBarBackgroundImage(@@"tag" , UIImage 或 @@"imageName" 或 @@"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImage LeeAddScopeBarBackgroundImage;
 /** 添加按钮图片设置 -> 格式: .LeeAddButtonImage(@@"tag" , UIImage , UIControlStateNormal) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImageAndState LeeAddButtonImage;
 /** 添加按钮背景图片设置 -> 格式: .LeeAddButtonBackgroundImage(@@"tag" , UIImage , UIControlStateNormal) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToImageAndState LeeAddButtonBackgroundImage;
 
-/** 添加属性图片设置 -> 格式: .LeeAddKeyPathAndImage(@@"tag" , @"keyPath" , UIImage 或 @"imageName" 或 @"imagePath") */
+/** 添加属性图片设置 -> 格式: .LeeAddKeyPathAndImage(@@"tag" , @@"keyPath" , UIImage 或 @"imageName" 或 @"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToKeyPathAndImage LeeAddKeyPathAndImage;
 
 /** ----JSON设置方式---- */
 
 /** Block */
 
-/** 自定义设置 -> 格式: .LeeCustomConfig(@@"identifier" , ^(id value){ code... }) */
-@property (nonatomic , copy , readonly ) LEEConfigThemeToStringAndBlock LeeCustomConfig;
+/** 自定义设置 -> 格式: .LeeCustomConfig(@@"identifier" , ^(id item , id value){ code... }) */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifierAndBlock LeeCustomConfig;
 
 /** Color */
 
@@ -204,6 +214,10 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndString)(NSString *tag ,
 @property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigBackgroundColor;
 /** 设置占位符颜色标识符 -> 格式: .LeeConfigPlaceholderColor(@@"identifier") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigPlaceholderColor;
+/** 设置进度轨道渲染颜色标识符 -> 格式: .LeeConfigTrackTintColor(@@"identifier") */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigTrackTintColor;
+/** 设置进度渲染颜色标识符 -> 格式: .LeeConfigProgressTintColor(@@"identifier") */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigProgressTintColor;
 /** 设置高亮文本颜色标识符 -> 格式: .LeeConfigHighlightedTextColor(@@"identifier") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigHighlightedTextColor;
 /** 设置页数指示渲染颜色标识符 -> 格式: .LeeConfigPageIndicatorTintColor(@@"identifier") */
@@ -219,6 +233,10 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndString)(NSString *tag ,
 
 /** 设置图片标识符 -> 格式: .LeeConfigImage(@@"identifier") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigImage;
+/** 设置进度轨道图片标识符 -> 格式: .LeeConfigTrackImage(@@"identifier") */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigTrackImage;
+/** 设置进度图片标识符 -> 格式: .LeeConfigProgressImage(@@"identifier") */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigProgressImage;
 /** 设置阴影图片标识符 -> 格式: .LeeConfigShadowImage(@@"identifier") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifier LeeConfigShadowImage;
 /** 设置选中图片标识符 -> 格式: .LeeConfigSelectedImage(@@"identifier") */
@@ -238,7 +256,12 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndString)(NSString *tag ,
 /** 设置按钮背景图片标识符 -> 格式: .LeeConfigButtonBackgroundImage(@@"identifier" , UIControlStateNormal) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifierAndState LeeConfigButtonBackgroundImage;
 
-/** 设置主题更改过渡动画时长 -> 格式: .LeeChangeThemeAnimationDuration(0.2f) */
+/** 设置属性标识符 -> 格式: .LeeAddKeyPathAndColor(@@"keyPath" , @@"identifier") */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToString LeeAddKeyPathAndIdentifier;
+
+/** ----通用设置---- */
+
+/** 设置主题更改过渡动画时长 -> 格式: .LeeChangeThemeAnimationDuration(0.1f) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToFloat LeeChangeThemeAnimationDuration;
 
 @end

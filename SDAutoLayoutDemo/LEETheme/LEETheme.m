@@ -407,6 +407,28 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
 }
 
+- (LEEConfigThemeToColor)LeeAddTrackTintColor{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *tag , UIColor *color){
+        
+        return weakSelf.LeeAddKeyPathAndColor(tag , @"trackTintColor" , color);
+    };
+    
+}
+
+- (LEEConfigThemeToColor)LeeAddProgressTintColor{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *tag , UIColor *color){
+        
+        return weakSelf.LeeAddKeyPathAndColor(tag , @"progressTintColor" , color);
+    };
+    
+}
+
 - (LEEConfigThemeToColor)LeeAddHighlightedTextColor{
     
     __weak typeof(self) weakSelf = self;
@@ -516,6 +538,28 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     return ^(NSString *tag , id image){
         
         return weakSelf.LeeAddKeyPathAndImage(tag , @"image" , image);
+    };
+    
+}
+
+- (LEEConfigThemeToImage)LeeAddTrackImage{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *tag , id image){
+        
+        return weakSelf.LeeAddKeyPathAndImage(tag , @"trackImage" , image);
+    };
+    
+}
+
+- (LEEConfigThemeToImage)LeeAddProgressImage{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *tag , id image){
+        
+        return weakSelf.LeeAddKeyPathAndImage(tag , @"progressImage" , image);
     };
     
 }
@@ -645,11 +689,11 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
 
 #pragma mark ***JSON设置方式***
 
-- (LEEConfigThemeToStringAndBlock)LeeCustomConfig{
+- (LEEConfigThemeToIdentifierAndBlock)LeeCustomConfig{
     
     __weak typeof(self) weakSelf = self;
     
-    return ^(NSString *identifier , LEEThemeConfigBlock configBlock){
+    return ^(NSString *identifier , LEEThemeConfigBlockToIdentifier configBlock){
         
         NSMutableDictionary *info = weakSelf.modelThemeIdentifierConfigInfo[@(LEEThemeIdentifierConfigTypeCustomConfig)];
         
@@ -672,11 +716,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"tintColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"tintColor" , identifier);
     };
     
 }
@@ -687,11 +727,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"textColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"textColor" , identifier);
     };
     
 }
@@ -702,11 +738,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"fillColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"fillColor" , identifier);
     };
     
 }
@@ -717,11 +749,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"strokeColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"strokeColor" , identifier);
     };
     
 }
@@ -732,11 +760,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"borderColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"borderColor" , identifier);
     };
     
 }
@@ -747,11 +771,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"shadowColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"shadowColor" , identifier);
     };
     
 }
@@ -762,11 +782,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"onTintColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"onTintColor" , identifier);
     };
     
 }
@@ -777,11 +793,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"thumbTintColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"thumbTintColor" , identifier);
     };
     
 }
@@ -792,11 +804,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"separatorColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"separatorColor" , identifier);
     };
     
 }
@@ -807,11 +815,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"barTintColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"barTintColor" , identifier);
     };
     
 }
@@ -822,11 +826,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"backgroundColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"backgroundColor" , identifier);
     };
     
 }
@@ -837,11 +837,29 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"_placeholderLabel.textColor"];
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"_placeholderLabel.textColor" , identifier);
+    };
+    
+}
+
+- (LEEConfigThemeToIdentifier)LeeConfigTrackTintColor{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *identifier){
         
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"trackTintColor" , identifier);
+    };
+    
+}
+
+- (LEEConfigThemeToIdentifier)LeeConfigProgressTintColor{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *identifier){
         
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"progressTintColor" , identifier);
     };
     
 }
@@ -852,11 +870,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"highlightedTextColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"highlightedTextColor" , identifier);
     };
     
 }
@@ -867,11 +881,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"pageIndicatorTintColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"pageIndicatorTintColor" , identifier);
     };
     
 }
@@ -882,11 +892,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"currentPageIndicatorTintColor"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"currentPageIndicatorTintColor" , identifier);
     };
     
 }
@@ -939,11 +945,29 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"image"];
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"image" , identifier);
+    };
+    
+}
+
+- (LEEConfigThemeToIdentifier)LeeConfigTrackImage{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *identifier){
         
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"trackImage" , identifier);
+    };
+    
+}
+
+- (LEEConfigThemeToIdentifier)LeeConfigProgressImage{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *identifier){
         
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"progressImage" , identifier);
     };
     
 }
@@ -954,11 +978,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"shadowImage"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"shadowImage" , identifier);
     };
     
 }
@@ -969,11 +989,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"selectedImage"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"selectedImage" , identifier);
     };
     
 }
@@ -984,11 +1000,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"backgroundImage"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"backgroundImage" , identifier);
     };
     
 }
@@ -999,11 +1011,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"backIndicatorImage"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"backIndicatorImage" , identifier);
     };
     
 }
@@ -1014,11 +1022,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"backIndicatorTransitionMaskImage"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"backIndicatorTransitionMaskImage" , identifier);
     };
     
 }
@@ -1029,11 +1033,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"selectionIndicatorImage"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"selectionIndicatorImage" , identifier);
     };
     
 }
@@ -1044,11 +1044,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:@"scopeBarBackgroundImage"];
-        
-        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
-        
-        return weakSelf;
+        return weakSelf.LeeAddKeyPathAndIdentifier(@"scopeBarBackgroundImage" , identifier);
     };
     
 }
@@ -1087,6 +1083,21 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
         [info setObject:identifier forKey:@(state)];
         
         [weakSelf.modelThemeIdentifierConfigInfo setObject:info forKey:@(LEEThemeIdentifierConfigTypeButtonBackgroundImage)];
+        
+        [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
+        
+        return weakSelf;
+    };
+    
+}
+
+- (LEEConfigThemeToString)LeeAddKeyPathAndIdentifier{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    return ^(NSString *keyPath , NSString *identifier){
+        
+        [weakSelf.modelThemeIdentifierConfigInfo setObject:identifier forKey:keyPath];
         
         [weakSelf initCurrentThemeConfigHandleWithIdentifier:identifier];
         
@@ -1301,11 +1312,13 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
             
             if ([image isKindOfClass:[NSString class]]) {
                 
+                NSString *info = image;
+                
                 image = [UIImage imageNamed:image];
                 
-                if (!image) image = [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:image]];
+                if (!image) image = [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:info]];
                 
-                if (!image) image = [UIImage imageWithContentsOfFile:image];
+                if (!image) image = [UIImage imageWithContentsOfFile:info];
             }
             
             if (image) if ([image isKindOfClass:[UIImage class]]) [self setValue:image forKeyPath:keyPath];
@@ -1330,9 +1343,9 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
             
             for (NSString *identifier in identifierConfigInfo.allKeys) {
                 
-                LEEThemeConfigBlock configBlockItem = identifierConfigInfo[identifier];
+                LEEThemeConfigBlockToIdentifier configBlockItem = identifierConfigInfo[identifier];
                 
-                if (configBlockItem) configBlockItem([self getCurrentThemeTagValueWithIdentifier:identifier]);
+                if (configBlockItem) configBlockItem(self , [self getCurrentThemeTagValueWithIdentifier:identifier]);
             }
             
         }
