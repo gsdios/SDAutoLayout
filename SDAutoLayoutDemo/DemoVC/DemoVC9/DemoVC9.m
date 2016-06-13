@@ -64,11 +64,11 @@ static CGFloat textFieldH = 40;
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"日间" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
     
     rightBarButtonItem.lee_theme
-    .LeeAddCustomConfig(@"day" , ^(UIBarButtonItem *item){
+    .LeeAddCustomConfig(DAY , ^(UIBarButtonItem *item){
         
         item.title = @"夜间";
         
-    }).LeeAddCustomConfig(@"night" , ^(UIBarButtonItem *item){
+    }).LeeAddCustomConfig(NIGHT , ^(UIBarButtonItem *item){
         
         item.title = @"日间";
     });
@@ -113,7 +113,13 @@ static CGFloat textFieldH = 40;
     headerView.frame = CGRectMake(0, 0, 0, 260);
     self.tableView.tableHeaderView = headerView;
     
-    self.tableView.separatorColor = [[UIColor grayColor] colorWithAlphaComponent:0.2f];
+//    self.tableView.separatorColor = [[UIColor grayColor] colorWithAlphaComponent:0.2f];
+    
+    //添加分隔线颜色设置
+    
+    self.tableView.lee_theme
+    .LeeAddSeparatorColor(DAY , [[UIColor lightGrayColor] colorWithAlphaComponent:0.5f])
+    .LeeAddSeparatorColor(NIGHT , [[UIColor grayColor] colorWithAlphaComponent:0.5f]);
     
     [self.tableView registerClass:[SDTimeLineCell class] forCellReuseIdentifier:kTimeLineTableViewCellId];
     
