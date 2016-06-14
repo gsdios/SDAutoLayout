@@ -125,6 +125,7 @@
 		48EB73451C749212003A818E /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB73441C749212003A818E /* Home.xcassets */; };
 		48EEAD6C1C9C25F4001138FE /* DemoVC12.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EEAD6B1C9C25F4001138FE /* DemoVC12.m */; };
 		48EEAD701C9C3006001138FE /* DemoVC13.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EEAD6F1C9C3006001138FE /* DemoVC13.m */; };
+		48F4867E1D1010BA003B7418 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F4867D1D1010BA003B7418 /* LEETheme.m */; };
 		48FC0E161C4FB3A8004098B8 /* Ads.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E041C4FB3A8004098B8 /* Ads.m */; };
 		48FC0E171C4FB3A8004098B8 /* Editor.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E061C4FB3A8004098B8 /* Editor.m */; };
 		48FC0E181C4FB3A8004098B8 /* Imgextra.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E081C4FB3A8004098B8 /* Imgextra.m */; };
@@ -214,7 +215,6 @@
 		99D694F01C8C567A00DA97E1 /* SDBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694ED1C8C567A00DA97E1 /* SDBaseTableViewController.m */; };
 		99D694F21C8C585300DA97E1 /* Discover.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99D694F11C8C585200DA97E1 /* Discover.xcassets */; };
 		99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */; };
-		9B3AEBEB1D0EA69500B90F77 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AEBEA1D0EA69500B90F77 /* LEETheme.m */; };
 		9BF7727A1D080DF700460B6E /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF772781D080DF700460B6E /* theme_day_json.json */; };
 		9BF7727B1D080DF700460B6E /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF772791D080DF700460B6E /* theme_night_json.json */; };
 /* End PBXBuildFile section */
@@ -417,6 +417,8 @@
 		48EEAD6B1C9C25F4001138FE /* DemoVC12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC12.m; sourceTree = "<group>"; };
 		48EEAD6E1C9C3006001138FE /* DemoVC13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC13.h; sourceTree = "<group>"; };
 		48EEAD6F1C9C3006001138FE /* DemoVC13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC13.m; sourceTree = "<group>"; };
+		48F4867C1D1010BA003B7418 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
+		48F4867D1D1010BA003B7418 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		48FC0E031C4FB3A8004098B8 /* Ads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ads.h; sourceTree = "<group>"; };
 		48FC0E041C4FB3A8004098B8 /* Ads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ads.m; sourceTree = "<group>"; };
 		48FC0E051C4FB3A8004098B8 /* Editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Editor.h; sourceTree = "<group>"; };
@@ -594,8 +596,6 @@
 		99D694F11C8C585200DA97E1 /* Discover.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Discover.xcassets; sourceTree = "<group>"; };
 		99D694F61C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineRefreshFooter.h; sourceTree = "<group>"; };
 		99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineRefreshFooter.m; sourceTree = "<group>"; };
-		9B3AEBE91D0EA69500B90F77 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
-		9B3AEBEA1D0EA69500B90F77 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		9BF772781D080DF700460B6E /* theme_day_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_day_json.json; sourceTree = "<group>"; };
 		9BF772791D080DF700460B6E /* theme_night_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_night_json.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -635,6 +635,7 @@
 		485302961C3F648F004361A7 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				48F4867B1D1010BA003B7418 /* LEETheme */,
 				48EB72F31C748DF5003A818E /* MLEmojiLabel */,
 				485302E41C3F65EE004361A7 /* SDCycleScrollView */,
 				485302971C3F648F004361A7 /* SDPhotoBrowser */,
@@ -905,7 +906,6 @@
 		487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
-				9BF772621D07D45000460B6E /* LEETheme */,
 				99A6976F1C423B0D004EA699 /* SDAutoLayout */,
 				485303491C3F97AA004361A7 /* Others */,
 				485303021C3F977A004361A7 /* DemoVC */,
@@ -1112,6 +1112,15 @@
 				48EEAD6F1C9C3006001138FE /* DemoVC13.m */,
 			);
 			path = DemoVC13;
+			sourceTree = "<group>";
+		};
+		48F4867B1D1010BA003B7418 /* LEETheme */ = {
+			isa = PBXGroup;
+			children = (
+				48F4867C1D1010BA003B7418 /* LEETheme.h */,
+				48F4867D1D1010BA003B7418 /* LEETheme.m */,
+			);
+			path = LEETheme;
 			sourceTree = "<group>";
 		};
 		48FC0E011C4FB399004098B8 /* DemoVC10 */ = {
@@ -1582,15 +1591,6 @@
 			path = BaseRefreshView;
 			sourceTree = "<group>";
 		};
-		9BF772621D07D45000460B6E /* LEETheme */ = {
-			isa = PBXGroup;
-			children = (
-				9B3AEBE91D0EA69500B90F77 /* LEETheme.h */,
-				9B3AEBEA1D0EA69500B90F77 /* LEETheme.m */,
-			);
-			path = LEETheme;
-			sourceTree = "<group>";
-		};
 		9BF772771D080DF700460B6E /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -1649,7 +1649,7 @@
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = QCC328325S;
+						DevelopmentTeam = V4Q779DR3D;
 					};
 					487D3EC91BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1801,7 +1801,6 @@
 				48FC0EBD1C4FB60A004098B8 /* MJRefreshBackNormalFooter.m in Sources */,
 				48FC0EAD1C4FB60A004098B8 /* MJPropertyType.m in Sources */,
 				485302E11C3F6490004361A7 /* UIImageView+HighlightedWebCache.m in Sources */,
-				9B3AEBEB1D0EA69500B90F77 /* LEETheme.m in Sources */,
 				485303401C3F977A004361A7 /* DemoVC7Cell.m in Sources */,
 				99D694B51C8C54D000DA97E1 /* SDTimeLineCellModel.m in Sources */,
 				48EEAD701C9C3006001138FE /* DemoVC13.m in Sources */,
@@ -1861,6 +1860,7 @@
 				4808F3941CE4ABFB00242779 /* DemoVC14.m in Sources */,
 				48FC0EA51C4FB60A004098B8 /* UIProgressView+AFNetworking.m in Sources */,
 				99D694D91C8C553500DA97E1 /* NSMutableAttributedString+MLLabel.m in Sources */,
+				48F4867E1D1010BA003B7418 /* LEETheme.m in Sources */,
 				48FC0EC51C4FB60A004098B8 /* UIScrollView+MJRefresh.m in Sources */,
 				485303511C3F97AA004361A7 /* DemoTableViewControler.m in Sources */,
 				48FC0ECB1C4FB7CA004098B8 /* XYString.m in Sources */,
