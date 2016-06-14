@@ -148,6 +148,8 @@ static CGFloat textFieldH = 40;
             });
         }];
         [self.tableView.superview addSubview:_refreshHeader];
+    } else {
+        [self.tableView.superview bringSubviewToFront:_refreshHeader];
     }
 }
 
