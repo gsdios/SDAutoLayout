@@ -125,7 +125,6 @@
 		48EB73451C749212003A818E /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB73441C749212003A818E /* Home.xcassets */; };
 		48EEAD6C1C9C25F4001138FE /* DemoVC12.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EEAD6B1C9C25F4001138FE /* DemoVC12.m */; };
 		48EEAD701C9C3006001138FE /* DemoVC13.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EEAD6F1C9C3006001138FE /* DemoVC13.m */; };
-		48F4867E1D1010BA003B7418 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 48F4867D1D1010BA003B7418 /* LEETheme.m */; };
 		48FC0E161C4FB3A8004098B8 /* Ads.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E041C4FB3A8004098B8 /* Ads.m */; };
 		48FC0E171C4FB3A8004098B8 /* Editor.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E061C4FB3A8004098B8 /* Editor.m */; };
 		48FC0E181C4FB3A8004098B8 /* Imgextra.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E081C4FB3A8004098B8 /* Imgextra.m */; };
@@ -215,6 +214,7 @@
 		99D694F01C8C567A00DA97E1 /* SDBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694ED1C8C567A00DA97E1 /* SDBaseTableViewController.m */; };
 		99D694F21C8C585300DA97E1 /* Discover.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99D694F11C8C585200DA97E1 /* Discover.xcassets */; };
 		99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */; };
+		9B2AF0ED1D1107E30007A130 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2AF0EC1D1107E30007A130 /* LEETheme.m */; };
 		9BF7727A1D080DF700460B6E /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF772781D080DF700460B6E /* theme_day_json.json */; };
 		9BF7727B1D080DF700460B6E /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF772791D080DF700460B6E /* theme_night_json.json */; };
 /* End PBXBuildFile section */
@@ -417,8 +417,6 @@
 		48EEAD6B1C9C25F4001138FE /* DemoVC12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC12.m; sourceTree = "<group>"; };
 		48EEAD6E1C9C3006001138FE /* DemoVC13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC13.h; sourceTree = "<group>"; };
 		48EEAD6F1C9C3006001138FE /* DemoVC13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC13.m; sourceTree = "<group>"; };
-		48F4867C1D1010BA003B7418 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
-		48F4867D1D1010BA003B7418 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		48FC0E031C4FB3A8004098B8 /* Ads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ads.h; sourceTree = "<group>"; };
 		48FC0E041C4FB3A8004098B8 /* Ads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ads.m; sourceTree = "<group>"; };
 		48FC0E051C4FB3A8004098B8 /* Editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Editor.h; sourceTree = "<group>"; };
@@ -596,6 +594,8 @@
 		99D694F11C8C585200DA97E1 /* Discover.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Discover.xcassets; sourceTree = "<group>"; };
 		99D694F61C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineRefreshFooter.h; sourceTree = "<group>"; };
 		99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineRefreshFooter.m; sourceTree = "<group>"; };
+		9B2AF0EB1D1107E30007A130 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
+		9B2AF0EC1D1107E30007A130 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		9BF772781D080DF700460B6E /* theme_day_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_day_json.json; sourceTree = "<group>"; };
 		9BF772791D080DF700460B6E /* theme_night_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_night_json.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1117,8 +1117,8 @@
 		48F4867B1D1010BA003B7418 /* LEETheme */ = {
 			isa = PBXGroup;
 			children = (
-				48F4867C1D1010BA003B7418 /* LEETheme.h */,
-				48F4867D1D1010BA003B7418 /* LEETheme.m */,
+				9B2AF0EB1D1107E30007A130 /* LEETheme.h */,
+				9B2AF0EC1D1107E30007A130 /* LEETheme.m */,
 			);
 			path = LEETheme;
 			sourceTree = "<group>";
@@ -1860,7 +1860,7 @@
 				4808F3941CE4ABFB00242779 /* DemoVC14.m in Sources */,
 				48FC0EA51C4FB60A004098B8 /* UIProgressView+AFNetworking.m in Sources */,
 				99D694D91C8C553500DA97E1 /* NSMutableAttributedString+MLLabel.m in Sources */,
-				48F4867E1D1010BA003B7418 /* LEETheme.m in Sources */,
+				9B2AF0ED1D1107E30007A130 /* LEETheme.m in Sources */,
 				48FC0EC51C4FB60A004098B8 /* UIScrollView+MJRefresh.m in Sources */,
 				485303511C3F97AA004361A7 /* DemoTableViewControler.m in Sources */,
 				48FC0ECB1C4FB7CA004098B8 /* XYString.m in Sources */,
