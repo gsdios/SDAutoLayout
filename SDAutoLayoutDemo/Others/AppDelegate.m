@@ -60,9 +60,7 @@
     
     [LEETheme defaultTheme:@"day"];
     
-    //设置默认切换主题的动画时长
     
-    [LEETheme defaultChangeThemeAnimationDuration:0.1f];
     
 }
 
