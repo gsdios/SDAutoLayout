@@ -113,8 +113,6 @@ static CGFloat textFieldH = 40;
     headerView.frame = CGRectMake(0, 0, 0, 260);
     self.tableView.tableHeaderView = headerView;
     
-//    self.tableView.separatorColor = [[UIColor grayColor] colorWithAlphaComponent:0.2f];
-    
     //添加分隔线颜色设置
     
     self.tableView.lee_theme
@@ -148,6 +146,8 @@ static CGFloat textFieldH = 40;
             });
         }];
         [self.tableView.superview addSubview:_refreshHeader];
+    } else {
+        [self.tableView.superview bringSubviewToFront:_refreshHeader];
     }
 }
 
@@ -212,11 +212,8 @@ static CGFloat textFieldH = 40;
         [LEETheme startTheme:NIGHT];
    
     } else {
-        
         [LEETheme startTheme:DAY];
-        
     }
-    
 }
 
 - (NSArray *)creatModelsWithCount:(NSInteger)count
@@ -372,7 +369,6 @@ static CGFloat textFieldH = 40;
 {
     [_textField resignFirstResponder];
 }
-
 
 
 

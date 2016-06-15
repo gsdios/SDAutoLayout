@@ -1424,6 +1424,9 @@
             view.bottom_sd = model.equalBottom.refView.bottom_sd + model.equalBottom.offset;
         }
     }
+    if (model.widthEqualHeight && !view.fixedHeight) {
+        [self layoutRightWithView:view model:model];
+    }
 }
 
 
@@ -1560,10 +1563,10 @@
     if (self.ownLayoutModel.widthEqualHeight) {
         if (width_sd != self.height_sd) return;
     }
+    [self setWidth:width_sd];
     if (self.ownLayoutModel.heightEqualWidth) {
         self.height_sd = width_sd;
     }
-    [self setWidth:width_sd];
 }
 
 - (CGFloat)height_sd {
@@ -1574,10 +1577,10 @@
     if (self.ownLayoutModel.heightEqualWidth) {
         if (height_sd != self.width_sd) return;
     }
+    [self setHeight:height_sd];
     if (self.ownLayoutModel.widthEqualHeight) {
         self.width_sd = height_sd;
     }
-    [self setHeight:height_sd];
 }
 
 - (CGPoint)origin_sd {
