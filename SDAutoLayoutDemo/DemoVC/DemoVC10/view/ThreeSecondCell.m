@@ -56,7 +56,7 @@
     .topSpaceToView(self.imgOther2,margin)
     .leftSpaceToView(contentView,margin)
     .rightSpaceToView(contentView,margin)
-    .heightIs(1);
+    .heightIs(0.5f);
 
     [self setupAutoHeightWithBottomView:self.lineView bottomMargin:0];
 

@@ -1,0 +1,16 @@
+{
+    "color": {
+        "demovc11_backgroundcolor": "#F0F0F0",
+        "demovc11_textcolor": "#000000",
+        
+        "demovc10_cell_backgroundcolor": "#fffafafa",
+        "demovc10_cell_titlecolor": "#ff444444",
+        "demovc10_cell_separatorcolor": "#ffD9D9D9",
+        "demovc10_cell_summarycolor": "#ff686868",
+        "demovc10_cell_linecolor": "#ffD9D9D9",
+        "demovc10_backgroundcolor": "#fffafafa"
+    },
+    "image": {
+        "messageimage": ""
+    }
+}

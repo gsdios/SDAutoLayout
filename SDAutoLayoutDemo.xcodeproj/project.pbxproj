@@ -214,9 +214,9 @@
 		99D694F01C8C567A00DA97E1 /* SDBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694ED1C8C567A00DA97E1 /* SDBaseTableViewController.m */; };
 		99D694F21C8C585300DA97E1 /* Discover.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99D694F11C8C585200DA97E1 /* Discover.xcassets */; };
 		99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */; };
-		9B2AF0ED1D1107E30007A130 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2AF0EC1D1107E30007A130 /* LEETheme.m */; };
-		9BF7727A1D080DF700460B6E /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF772781D080DF700460B6E /* theme_day_json.json */; };
-		9BF7727B1D080DF700460B6E /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF772791D080DF700460B6E /* theme_night_json.json */; };
+		9B2AF0F01D11649D0007A130 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2AF0EF1D11649D0007A130 /* LEETheme.m */; };
+		9B2AF0F51D1166690007A130 /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F31D1166690007A130 /* theme_day_json.json */; };
+		9B2AF0F61D1166690007A130 /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F41D1166690007A130 /* theme_night_json.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -594,10 +594,10 @@
 		99D694F11C8C585200DA97E1 /* Discover.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Discover.xcassets; sourceTree = "<group>"; };
 		99D694F61C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineRefreshFooter.h; sourceTree = "<group>"; };
 		99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineRefreshFooter.m; sourceTree = "<group>"; };
-		9B2AF0EB1D1107E30007A130 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
-		9B2AF0EC1D1107E30007A130 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
-		9BF772781D080DF700460B6E /* theme_day_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_day_json.json; sourceTree = "<group>"; };
-		9BF772791D080DF700460B6E /* theme_night_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_night_json.json; sourceTree = "<group>"; };
+		9B2AF0EE1D11649D0007A130 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
+		9B2AF0EF1D11649D0007A130 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
+		9B2AF0F31D1166690007A130 /* theme_day_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_day_json.json; sourceTree = "<group>"; };
+		9B2AF0F41D1166690007A130 /* theme_night_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_night_json.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -881,6 +881,7 @@
 				4853034F1C3F97AA004361A7 /* ViewController.m */,
 				485303531C3F97E6004361A7 /* DemoCell.h */,
 				485303541C3F97E6004361A7 /* DemoCell.m */,
+				9B2AF0F21D1166690007A130 /* Theme */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -994,7 +995,6 @@
 		48EB72E41C748D6C003A818E /* ChatController */ = {
 			isa = PBXGroup;
 			children = (
-				9BF772771D080DF700460B6E /* Theme */,
 				48EB72E51C748D6C003A818E /* Models */,
 				48EB72EA1C748D6C003A818E /* Views */,
 				48EB73411C748F26003A818E /* DemoVC11.h */,
@@ -1117,8 +1117,8 @@
 		48F4867B1D1010BA003B7418 /* LEETheme */ = {
 			isa = PBXGroup;
 			children = (
-				9B2AF0EB1D1107E30007A130 /* LEETheme.h */,
-				9B2AF0EC1D1107E30007A130 /* LEETheme.m */,
+				9B2AF0EE1D11649D0007A130 /* LEETheme.h */,
+				9B2AF0EF1D11649D0007A130 /* LEETheme.m */,
 			);
 			path = LEETheme;
 			sourceTree = "<group>";
@@ -1591,11 +1591,11 @@
 			path = BaseRefreshView;
 			sourceTree = "<group>";
 		};
-		9BF772771D080DF700460B6E /* Theme */ = {
+		9B2AF0F21D1166690007A130 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				9BF772781D080DF700460B6E /* theme_day_json.json */,
-				9BF772791D080DF700460B6E /* theme_night_json.json */,
+				9B2AF0F31D1166690007A130 /* theme_day_json.json */,
+				9B2AF0F41D1166690007A130 /* theme_night_json.json */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -1649,7 +1649,7 @@
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = V4Q779DR3D;
+						DevelopmentTeam = QCC328325S;
 					};
 					487D3EC91BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1687,6 +1687,7 @@
 				48DBCD1A1C01E045002EC476 /* icon0.jpg in Resources */,
 				4841F5E91C2ABC60004979F4 /* pic5.jpg in Resources */,
 				48EB72FE1C748DF5003A818E /* MLEmoji_ExpressionImage.plist in Resources */,
+				9B2AF0F51D1166690007A130 /* theme_day_json.json in Resources */,
 				48EB73381C748EDE003A818E /* 22.jpg in Resources */,
 				48EB732C1C748EDE003A818E /* 11.jpg in Resources */,
 				48EB73341C748EDE003A818E /* 19.jpg in Resources */,
@@ -1707,10 +1708,8 @@
 				48DBCD1F1C01E045002EC476 /* pic0.jpg in Resources */,
 				485302CF1C3F6490004361A7 /* sdRefeshView_arrow@2x.png in Resources */,
 				48EB72FD1C748DF5003A818E /* MLEmoji_Expression.plist in Resources */,
-				9BF7727B1D080DF700460B6E /* theme_night_json.json in Resources */,
 				48EB73311C748EDE003A818E /* 16.jpg in Resources */,
 				48EB73351C748EDE003A818E /* 2.jpg in Resources */,
-				9BF7727A1D080DF700460B6E /* theme_day_json.json in Resources */,
 				4841F5F21C2ACC2B004979F4 /* pbg.jpg in Resources */,
 				48EB732D1C748EDE003A818E /* 12.jpg in Resources */,
 				48EB73391C748EDE003A818E /* 23.jpg in Resources */,
@@ -1728,6 +1727,7 @@
 				487D3EC51BCB9EC700A66173 /* LaunchScreen.xib in Resources */,
 				48EB73361C748EDE003A818E /* 20.jpg in Resources */,
 				48EB733B1C748EDE003A818E /* 4.jpg in Resources */,
+				9B2AF0F61D1166690007A130 /* theme_night_json.json in Resources */,
 				48EB73371C748EDE003A818E /* 21.jpg in Resources */,
 				48FC0EB31C4FB60A004098B8 /* LICENSE in Resources */,
 				48DBCD1D1C01E045002EC476 /* icon3.jpg in Resources */,
@@ -1801,6 +1801,7 @@
 				48FC0EBD1C4FB60A004098B8 /* MJRefreshBackNormalFooter.m in Sources */,
 				48FC0EAD1C4FB60A004098B8 /* MJPropertyType.m in Sources */,
 				485302E11C3F6490004361A7 /* UIImageView+HighlightedWebCache.m in Sources */,
+				9B2AF0F01D11649D0007A130 /* LEETheme.m in Sources */,
 				485303401C3F977A004361A7 /* DemoVC7Cell.m in Sources */,
 				99D694B51C8C54D000DA97E1 /* SDTimeLineCellModel.m in Sources */,
 				48EEAD701C9C3006001138FE /* DemoVC13.m in Sources */,
@@ -1860,7 +1861,6 @@
 				4808F3941CE4ABFB00242779 /* DemoVC14.m in Sources */,
 				48FC0EA51C4FB60A004098B8 /* UIProgressView+AFNetworking.m in Sources */,
 				99D694D91C8C553500DA97E1 /* NSMutableAttributedString+MLLabel.m in Sources */,
-				9B2AF0ED1D1107E30007A130 /* LEETheme.m in Sources */,
 				48FC0EC51C4FB60A004098B8 /* UIScrollView+MJRefresh.m in Sources */,
 				485303511C3F97AA004361A7 /* DemoTableViewControler.m in Sources */,
 				48FC0ECB1C4FB7CA004098B8 /* XYString.m in Sources */,

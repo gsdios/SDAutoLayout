@@ -47,9 +47,31 @@
      本demo由SDAutoLayout库的使用者“李西亚”提供，感谢“李西亚”对本库的关注与支持！
      */
     
-    
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    
+    /*
+     本demo日夜间主题切换由SDAutoLayout库的使用者“LEE”提供，感谢“LEE”对本库的关注与支持！
+     */
+    
+    //LEETheme 分为两种模式 , 独立设置模式 JSON设置模式 , 朋友圈demo展示的是独立设置模式的使用 , 微信聊天demo 展示的是JSON模式的使用
+    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"日间" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItemAction:)];
+    
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    rightBarButtonItem.lee_theme
+    .LeeAddCustomConfig(DAY , ^(UIBarButtonItem *item){
+        
+        item.title = @"夜间";
+        
+    }).LeeAddCustomConfig(NIGHT , ^(UIBarButtonItem *item){
+        
+        item.title = @"日间";
+    });
+
+    
+    self.view.lee_theme.LeeConfigBackgroundColor(@"demovc10_backgroundcolor");
+    
     self.automaticallyAdjustsScrollViewInsets = YES;
     
     [self.view addSubview:self.tv];
@@ -57,6 +79,21 @@
     self.tv.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
 }
 
+// 右栏目按钮点击事件
+
+- (void)rightBarButtonItemAction:(UIBarButtonItem *)sender{
+    
+    if ([[LEETheme currentThemeTag] isEqualToString:DAY]) {
+        
+        [LEETheme startTheme:NIGHT];
+        
+    } else {
+        
+        [LEETheme startTheme:DAY];
+        
+    }
+    
+}
 
 #pragma mark - getter
 - (UITableView *)tv{
@@ -65,14 +102,14 @@
      本demo由SDAutoLayout库的使用者“李西亚”提供，感谢“李西亚”对本库的关注与支持！
      */
     
-    
-    
     if (!_tv) {
         
         _tv = [[UITableView alloc] initWithFrame:self.view.bounds];
         _tv.separatorColor = [UIColor clearColor];
         _tv.delegate = self;
         _tv.dataSource = self;
+        _tv.backgroundColor = [UIColor clearColor];
+        
         
         __weak typeof(self) weakSelf = self;
         
@@ -153,7 +190,6 @@
     [_tv reloadData];
     [_myRefreshView  endRefreshing];
 }
-
 
 #pragma mark - 表的协议方法
 
