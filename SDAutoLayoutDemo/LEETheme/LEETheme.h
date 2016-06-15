@@ -70,6 +70,13 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
 + (void)defaultTheme:(NSString *)tag;
 
 /**
+ *  默认更改主题动画时长 (这是所有对象默认的时长 , 但如果你对某个对象单独进行了时长设置 , 那么该对象将以单独设置的为准)
+ *
+ *  @param duration 动画时长
+ */
++ (void)defaultChangeThemeAnimationDuration:(CGFloat)duration;
+
+/**
  *  当前主题标签
  *
  *  @return 主题标签 tag
@@ -256,8 +263,8 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
 /** 设置按钮背景图片标识符 -> 格式: .LeeConfigButtonBackgroundImage(@@"identifier" , UIControlStateNormal) */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToIdentifierAndState LeeConfigButtonBackgroundImage;
 
-/** 设置属性标识符 -> 格式: .LeeAddKeyPathAndColor(@@"keyPath" , @@"identifier") */
-@property (nonatomic , copy , readonly ) LEEConfigThemeToString LeeAddKeyPathAndIdentifier;
+/** 设置属性标识符 -> 格式: .LeeConfigKeyPathAndIdentifier(@@"keyPath" , @@"identifier") */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToString LeeConfigKeyPathAndIdentifier;
 
 /** ----通用设置---- */
 

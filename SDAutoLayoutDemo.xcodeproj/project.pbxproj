@@ -214,7 +214,7 @@
 		99D694F01C8C567A00DA97E1 /* SDBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694ED1C8C567A00DA97E1 /* SDBaseTableViewController.m */; };
 		99D694F21C8C585300DA97E1 /* Discover.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99D694F11C8C585200DA97E1 /* Discover.xcassets */; };
 		99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */; };
-		9B3AEBEE1D0EA7B900B90F77 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3AEBED1D0EA7B900B90F77 /* LEETheme.m */; };
+		9B2AF0E61D1103310007A130 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2AF0E51D1103310007A130 /* LEETheme.m */; };
 		9BF7727A1D080DF700460B6E /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF772781D080DF700460B6E /* theme_day_json.json */; };
 		9BF7727B1D080DF700460B6E /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF772791D080DF700460B6E /* theme_night_json.json */; };
 /* End PBXBuildFile section */
@@ -594,8 +594,8 @@
 		99D694F11C8C585200DA97E1 /* Discover.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Discover.xcassets; sourceTree = "<group>"; };
 		99D694F61C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineRefreshFooter.h; sourceTree = "<group>"; };
 		99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineRefreshFooter.m; sourceTree = "<group>"; };
-		9B3AEBEC1D0EA7B900B90F77 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
-		9B3AEBED1D0EA7B900B90F77 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
+		9B2AF0E41D1103310007A130 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
+		9B2AF0E51D1103310007A130 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		9BF772781D080DF700460B6E /* theme_day_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_day_json.json; sourceTree = "<group>"; };
 		9BF772791D080DF700460B6E /* theme_night_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_night_json.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1585,8 +1585,8 @@
 		9BF772621D07D45000460B6E /* LEETheme */ = {
 			isa = PBXGroup;
 			children = (
-				9B3AEBEC1D0EA7B900B90F77 /* LEETheme.h */,
-				9B3AEBED1D0EA7B900B90F77 /* LEETheme.m */,
+				9B2AF0E41D1103310007A130 /* LEETheme.h */,
+				9B2AF0E51D1103310007A130 /* LEETheme.m */,
 			);
 			path = LEETheme;
 			sourceTree = "<group>";
@@ -1801,7 +1801,7 @@
 				48FC0EBD1C4FB60A004098B8 /* MJRefreshBackNormalFooter.m in Sources */,
 				48FC0EAD1C4FB60A004098B8 /* MJPropertyType.m in Sources */,
 				485302E11C3F6490004361A7 /* UIImageView+HighlightedWebCache.m in Sources */,
-				9B3AEBEE1D0EA7B900B90F77 /* LEETheme.m in Sources */,
+				9B2AF0E61D1103310007A130 /* LEETheme.m in Sources */,
 				485303401C3F977A004361A7 /* DemoVC7Cell.m in Sources */,
 				99D694B51C8C54D000DA97E1 /* SDTimeLineCellModel.m in Sources */,
 				48EEAD701C9C3006001138FE /* DemoVC13.m in Sources */,

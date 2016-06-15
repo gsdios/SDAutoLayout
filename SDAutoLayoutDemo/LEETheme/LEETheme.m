@@ -31,6 +31,8 @@ NSString * const LEEThemeCurrentTag = @"LEEThemeCurrentTag";
 
 @property (nonatomic , copy ) NSMutableDictionary *jsonConfigInfo;
 
+@property (nonatomic , assign ) CGFloat animationDuration;
+
 @end
 
 @implementation LEETheme
@@ -59,6 +61,13 @@ NSString * const LEEThemeCurrentTag = @"LEEThemeCurrentTag";
 + (void)defaultTheme:(NSString *)tag{
     
     if (![LEETheme shareTheme].currentTag && ![[NSUserDefaults standardUserDefaults] objectForKey:LEEThemeCurrentTag]) [LEETheme shareTheme].currentTag = tag;
+}
+
++ (void)defaultChangeThemeAnimationDuration:(CGFloat)duration{
+    
+    NSAssert(duration >= 0, @"默认的更改主题动画时长不能小于0秒");
+    
+    [LEETheme shareTheme].animationDuration = duration;
 }
 
 + (NSString *)currentThemeTag{
@@ -184,7 +193,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
         
         //默认属性值
         
-        _modelChangeThemeAnimationDuration = 0.1f; //默认更改主题动画时长为0.1秒
+        _modelChangeThemeAnimationDuration = -1.f; //默认为小于0
     }
     return self;
 }
@@ -716,7 +725,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"tintColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"tintColor" , identifier);
     };
     
 }
@@ -727,7 +736,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"textColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"textColor" , identifier);
     };
     
 }
@@ -738,7 +747,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"fillColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"fillColor" , identifier);
     };
     
 }
@@ -749,7 +758,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"strokeColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"strokeColor" , identifier);
     };
     
 }
@@ -760,7 +769,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"borderColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"borderColor" , identifier);
     };
     
 }
@@ -771,7 +780,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"shadowColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"shadowColor" , identifier);
     };
     
 }
@@ -782,7 +791,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"onTintColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"onTintColor" , identifier);
     };
     
 }
@@ -793,7 +802,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"thumbTintColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"thumbTintColor" , identifier);
     };
     
 }
@@ -804,7 +813,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"separatorColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"separatorColor" , identifier);
     };
     
 }
@@ -815,7 +824,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"barTintColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"barTintColor" , identifier);
     };
     
 }
@@ -826,7 +835,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"backgroundColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"backgroundColor" , identifier);
     };
     
 }
@@ -837,7 +846,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"_placeholderLabel.textColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"_placeholderLabel.textColor" , identifier);
     };
     
 }
@@ -848,7 +857,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"trackTintColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"trackTintColor" , identifier);
     };
     
 }
@@ -859,7 +868,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"progressTintColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"progressTintColor" , identifier);
     };
     
 }
@@ -870,7 +879,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"highlightedTextColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"highlightedTextColor" , identifier);
     };
     
 }
@@ -881,7 +890,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"pageIndicatorTintColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"pageIndicatorTintColor" , identifier);
     };
     
 }
@@ -892,7 +901,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"currentPageIndicatorTintColor" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"currentPageIndicatorTintColor" , identifier);
     };
     
 }
@@ -945,7 +954,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"image" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"image" , identifier);
     };
     
 }
@@ -956,7 +965,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"trackImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"trackImage" , identifier);
     };
     
 }
@@ -967,7 +976,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"progressImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"progressImage" , identifier);
     };
     
 }
@@ -978,7 +987,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"shadowImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"shadowImage" , identifier);
     };
     
 }
@@ -989,7 +998,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"selectedImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"selectedImage" , identifier);
     };
     
 }
@@ -1000,7 +1009,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"backgroundImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"backgroundImage" , identifier);
     };
     
 }
@@ -1011,7 +1020,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"backIndicatorImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"backIndicatorImage" , identifier);
     };
     
 }
@@ -1022,7 +1031,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"backIndicatorTransitionMaskImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"backIndicatorTransitionMaskImage" , identifier);
     };
     
 }
@@ -1033,7 +1042,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"selectionIndicatorImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"selectionIndicatorImage" , identifier);
     };
     
 }
@@ -1044,7 +1053,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     return ^(NSString *identifier){
         
-        return weakSelf.LeeAddKeyPathAndIdentifier(@"scopeBarBackgroundImage" , identifier);
+        return weakSelf.LeeConfigKeyPathAndIdentifier(@"scopeBarBackgroundImage" , identifier);
     };
     
 }
@@ -1091,7 +1100,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
 }
 
-- (LEEConfigThemeToString)LeeAddKeyPathAndIdentifier{
+- (LEEConfigThemeToString)LeeConfigKeyPathAndIdentifier{
     
     __weak typeof(self) weakSelf = self;
     
@@ -1223,7 +1232,13 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     dispatch_async(dispatch_get_main_queue(), ^{
 
+        [UIView beginAnimations:@"LEEThemeChangeAnimations" context:nil];
+        
+        [UIView setAnimationDuration:self.lee_theme.modelChangeThemeAnimationDuration >= 0.0f ? self.lee_theme.modelChangeThemeAnimationDuration : [LEETheme shareTheme].animationDuration ];
+        
         [self changeThemeConfigWithAboutConfigBlock:nil];
+        
+        [UIView commitAnimations];
     });
 
 }
@@ -1293,10 +1308,6 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
         
         NSDictionary *identifierConfigInfo = self.lee_theme.modelThemeIdentifierConfigInfo[@(LEEThemeIdentifierConfigTypeCustomConfig)];
         
-        [UIView beginAnimations:@"LEEThemeChangeAnimations" context:nil];
-        
-        [UIView setAnimationDuration:self.lee_theme.modelChangeThemeAnimationDuration];
-        
         if (aboutConfigBlock) aboutConfigBlock();
         
         for (NSString *keyPath in self.lee_theme.modelThemeColorConfigInfo) {
@@ -1349,8 +1360,7 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
             }
             
         }
-        
-        [UIView commitAnimations];
+
     }
     
 }
@@ -1390,17 +1400,17 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
 
 - (void)setLee_theme:(LEEThemeConfigModel *)lee_theme{
     
-    objc_setAssociatedObject(self, @selector(lee_theme), lee_theme , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if(self) if(lee_theme) objc_setAssociatedObject(self, @selector(lee_theme), lee_theme , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (BOOL)isLeeTheme{
     
-    return [objc_getAssociatedObject(self, _cmd) boolValue];
+    return self ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
 }
 
 - (void)setIsLeeTheme:(BOOL)isLeeTheme{
     
-    objc_setAssociatedObject(self, @selector(isLeeTheme), @(isLeeTheme) , OBJC_ASSOCIATION_ASSIGN);
+    if (self) objc_setAssociatedObject(self, @selector(isLeeTheme), @(isLeeTheme) , OBJC_ASSOCIATION_ASSIGN);
 }
 
 @end
