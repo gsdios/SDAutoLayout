@@ -36,7 +36,6 @@
     .heightIs(175);
     
     [self setupAutoHeightWithBottomView:self.cycleScrollView bottomMargin:0];
-    
 
 }
 

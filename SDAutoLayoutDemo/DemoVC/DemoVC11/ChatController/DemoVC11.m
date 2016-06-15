@@ -68,13 +68,13 @@
     
     //设置背景颜色的标识符 , 这个标识符和你的json文件中配置的标识符对应
     
-    self.view.lee_theme.LeeConfigBackgroundColor(@"backgroundcolor");
+    self.view.lee_theme.LeeConfigBackgroundColor(@"demovc11_backgroundcolor");
     
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     [self setupDataWithCount:30];
     
-    self.tableView.lee_theme.LeeConfigBackgroundColor(@"backgroundcolor");
+    self.tableView.lee_theme.LeeConfigBackgroundColor(@"demovc11_backgroundcolor");
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     

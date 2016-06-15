@@ -48,7 +48,7 @@
     .topSpaceToView(self.lblSubtitle,margin)
     .rightSpaceToView(self.contentView,0)
     .leftSpaceToView(self.contentView,0)
-    .heightIs(1);
+    .heightIs(0.5f);
 
     [self setupAutoHeightWithBottomView:self.lineView bottomMargin:0];
 

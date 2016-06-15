@@ -12,7 +12,7 @@
  *
  *  @author LEE
  *  @copyright    Copyright © 2016年 lee. All rights reserved.
- *  @version    V1.0.4
+ *  @version    V1.0.7
  */
 
 
@@ -1216,19 +1216,17 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
 
 - (void)lee_dealloc{
     
-    if ([self isLeeTheme]) [[NSNotificationCenter defaultCenter] removeObserver:self name:LEEThemeChangingNotificaiton object:nil];
-    
-    if ([self isLeeTheme]) objc_removeAssociatedObjects(self);
-    
+    if ([self isLeeTheme]) {
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:LEEThemeChangingNotificaiton object:nil];
+        
+        objc_removeAssociatedObjects(self);
+    }
+
     [self lee_dealloc];
 }
 
-- (void)addNotification{
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeThemeConfigNotify:) name:LEEThemeChangingNotificaiton object:nil];
-}
-
-- (void)changeThemeConfigNotify:(NSNotification *)notify{
+- (void)leeTheme_ChangeThemeConfigNotify:(NSNotification *)notify{
     
     dispatch_async(dispatch_get_main_queue(), ^{
 
@@ -1371,16 +1369,13 @@ typedef NS_ENUM(NSInteger, LEEThemeIdentifierConfigType) {
     
     if (!model) {
         
-        if ([self isKindOfClass:[LEEThemeConfigModel class]]) {
-            
-            return nil;
-        }
+        NSAssert(![self isKindOfClass:[LEEThemeConfigModel class]], @"是不是点多了? ( *・ω・)✄╰ひ╯ ");
         
         model = [LEEThemeConfigModel new];
         
         objc_setAssociatedObject(self, _cmd, model , OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
-        [self addNotification];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leeTheme_ChangeThemeConfigNotify:) name:LEEThemeChangingNotificaiton object:nil];
         
         [self setIsLeeTheme:YES];
         

@@ -32,6 +32,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         self.imgIcon = [UIImageView new];
         [self.contentView addSubview:self.imgIcon];
         
@@ -46,7 +48,6 @@
         [self.contentView addSubview:self.lblSubtitle];
         
         self.lineView = [UIView new];
-        self.lineView.backgroundColor = rgba(238, 238, 238, 1.0);
         [self.contentView addSubview:self.lineView];
         
         self.imgOther1 = [UIImageView new];
@@ -55,9 +56,27 @@
         self.imgOther2 = [UIImageView new];
         [self.contentView addSubview:self.imgOther2];
         
-         
+        //设置主题
+        
+        [self configTheme];
     }
     return self;
+}
+
+//设置主题
+
+- (void)configTheme{
+    
+    //使用JSON设置模式 
+    
+    self.lblTitle.lee_theme.LeeConfigTextColor(@"demovc10_cell_titlecolor");
+    
+    self.lblSubtitle.lee_theme.LeeConfigTextColor(@"demovc10_cell_summarycolor");
+    
+    self.lineView.lee_theme.LeeConfigBackgroundColor(@"demovc10_cell_linecolor");
+    
+    self.lee_theme.LeeConfigBackgroundColor(@"demovc10_cell_backgroundcolor");
+    
 }
 
 @end

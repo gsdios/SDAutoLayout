@@ -110,9 +110,9 @@
     
     __weak typeof(self) weakSelf = self;
     
-    self.lee_theme.LeeConfigBackgroundColor(@"backgroundcolor");
+    self.lee_theme.LeeConfigBackgroundColor(@"demovc11_backgroundcolor");
     
-    self.label.lee_theme.LeeConfigTextColor(@"textcolor");
+    self.label.lee_theme.LeeConfigTextColor(@"demovc11_textcolor");
     
     //其实只要上面的设置textcolor就可以的 , 你自己定义的这个label设置后不会马上变 , 需要重新赋值一下才会改变 - ,- 针对你这个情况 所以这样处理一下先
     //这步操作是添加一个多标签的自定义block 也就是说你传入的主题标签都会触发执行这个block

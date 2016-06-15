@@ -50,7 +50,7 @@
     .bottomEqualToView(self.contentView)
     .rightSpaceToView(self.contentView,0)
     .leftSpaceToView(self.contentView,0)
-    .heightIs(1);
+    .heightIs(0.5f);
     
     [self setupAutoHeightWithBottomViewsArray:@[self.lblSubtitle, self.imgIcon] bottomMargin:(margin + 1)];
 }
