@@ -137,6 +137,8 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell *cell);
 
 - (void)clearHeightCacheOfIndexPaths:(NSArray *)indexPaths;
 
+- (void)deleteThenResetHeightCache:(NSIndexPath *)indexPathToDelete;
+
 - (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath;
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;
