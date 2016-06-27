@@ -11,11 +11,13 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ##Pod支持：
 
-支持pod：  pod 'SDAutoLayout', '~> 2.1.1'
+支持pod：  pod 'SDAutoLayout', '~> 2.1.2'
 
 如果发现pod search SDAutoLayout 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
 
 ## 更新记录：
+
+2016.06.24 -- 修复给button设置约束时在iOS8.x系统中出现的崩溃问题；发布2.1.2版本
 
 2016.06.23 -- 实现删除某行cell时自动调整height缓存
 
