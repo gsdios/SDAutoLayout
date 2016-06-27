@@ -90,7 +90,7 @@
     }
     
     // 关键步骤：设置类似collectionView的展示效果
-    [_flowItemContentView setupAutoWidthFlowItems:[temp copy] withPerRowItemsCount:3 verticalMargin:10 horizontalMargin:10];
+    [_flowItemContentView setupAutoWidthFlowItems:[temp copy] withPerRowItemsCount:3 verticalMargin:10 horizontalMargin:10 verticalEdgeInset:0 horizontalEdgeInset:0];
 }
 
 

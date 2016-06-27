@@ -104,7 +104,7 @@
     .topSpaceToView(_centerButton, 10);
     
     // 此步设置之后_autoWidthViewsContainer的高度可以根据子view自适应
-    [_autoWidthViewsContainer setupAutoWidthFlowItems:[temp copy] withPerRowItemsCount:4 verticalMargin:margin horizontalMargin:margin];
+    [_autoWidthViewsContainer setupAutoWidthFlowItems:[temp copy] withPerRowItemsCount:4 verticalMargin:margin horizontalMargin:margin verticalEdgeInset:20 horizontalEdgeInset:30];
     
 }
 
@@ -125,7 +125,7 @@
     }
     
     // 此步设置之后_autoMarginViewsContainer的高度可以根据子view自适应
-    [_autoMarginViewsContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:3 itemWidth:itemWidth verticalMargin:10];
+    [_autoMarginViewsContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:3 itemWidth:itemWidth verticalMargin:10 verticalEdgeInset:20 horizontalEdgeInset:30];
     
     _autoMarginViewsContainer.sd_layout
     .leftSpaceToView(self.view, 10)

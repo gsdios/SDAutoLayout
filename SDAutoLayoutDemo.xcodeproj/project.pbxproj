@@ -417,6 +417,7 @@
 		48EEAD6B1C9C25F4001138FE /* DemoVC12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC12.m; sourceTree = "<group>"; };
 		48EEAD6E1C9C3006001138FE /* DemoVC13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC13.h; sourceTree = "<group>"; };
 		48EEAD6F1C9C3006001138FE /* DemoVC13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC13.m; sourceTree = "<group>"; };
+		48F0CD321D20EE8C0018C47A /* SDAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
 		48FC0E031C4FB3A8004098B8 /* Ads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ads.h; sourceTree = "<group>"; };
 		48FC0E041C4FB3A8004098B8 /* Ads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ads.m; sourceTree = "<group>"; };
 		48FC0E051C4FB3A8004098B8 /* Editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Editor.h; sourceTree = "<group>"; };
@@ -1398,6 +1399,7 @@
 				99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */,
 				99A697721C423B0D004EA699 /* UIView+SDAutoLayout.h */,
 				99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */,
+				48F0CD321D20EE8C0018C47A /* SDAutoLayout.h */,
 			);
 			path = SDAutoLayout;
 			sourceTree = "<group>";
