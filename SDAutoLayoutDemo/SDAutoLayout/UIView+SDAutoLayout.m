@@ -1159,15 +1159,25 @@
             }
         }
         
-        if (![self isKindOfClass:[UIScrollView class]] && self.sd_rightViewsArray.count && (self.ownLayoutModel.right || self.ownLayoutModel.equalRight)) {
+        SDAutoLayoutModel *model = self.ownLayoutModel;
+        
+        if (![self isKindOfClass:[UIScrollView class]] && self.sd_rightViewsArray.count && (model.right || model.equalRight || model.centerX || model.equalCenterX)) {
             self.fixedWidth = @(self.width);
-            [self layoutRightWithView:self model:self.ownLayoutModel];
+            if (model.right || model.equalRight) {
+                [self layoutRightWithView:self model:model];
+            } else {
+                [self layoutLeftWithView:self model:model];
+            }
             self.fixedWidth = nil;
         }
         
-        if (![self isKindOfClass:[UIScrollView class]] && self.sd_bottomViewsArray.count && (self.ownLayoutModel.bottom || self.ownLayoutModel.equalBottom)) {
+        if (![self isKindOfClass:[UIScrollView class]] && self.sd_bottomViewsArray.count && (model.bottom || model.equalBottom || model.centerY || model.equalCenterY)) {
             self.fixedHeight = @(self.height);
-            [self layoutBottomWithView:self model:self.ownLayoutModel];
+            if (model.bottom || model.equalBottom) {
+                [self layoutBottomWithView:self model:model];
+            } else {
+                [self layoutTopWithView:self model:model];
+            }
             self.fixedHeight = nil;
         }
         
