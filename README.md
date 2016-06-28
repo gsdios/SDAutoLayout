@@ -3,11 +3,6 @@
 ##众多公司和个人开发者已经使用本库布局：
 SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3effb8
 
-
-![](http://upload-images.jianshu.io/upload_images/1157161-07fa43e0f539ebad.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![](http://upload-images.jianshu.io/upload_images/1157161-453a5d33d7f3d48d.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
 ## 技术支持(QQ交流群)：
@@ -172,3 +167,8 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 
 ![](http://ww3.sinaimg.cn/bmiddle/9b8146edgw1ex4mukixr6g209g07lhdt.gif)
+
+
+![](http://upload-images.jianshu.io/upload_images/1157161-07fa43e0f539ebad.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/1157161-453a5d33d7f3d48d.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
