@@ -125,7 +125,7 @@
     }
     
     // 此步设置之后_autoMarginViewsContainer的高度可以根据子view自适应
-    [_autoMarginViewsContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:3 itemWidth:itemWidth verticalMargin:10 verticalEdgeInset:4 horizontalEdgeInset:30];
+    [_autoMarginViewsContainer setupAutoMarginFlowItems:[temp copy] withPerRowItemsCount:3 itemWidth:itemWidth verticalMargin:10 verticalEdgeInset:4 horizontalEdgeInset:10];
     
     _autoMarginViewsContainer.sd_layout
     .leftSpaceToView(self.view, 10)

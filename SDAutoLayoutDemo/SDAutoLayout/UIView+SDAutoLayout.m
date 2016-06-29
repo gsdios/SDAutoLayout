@@ -1272,7 +1272,7 @@
             if (label.text.length) {
                 if (!label.isAttributedContent) {
                     CGRect rect = [label.text boundingRectWithSize:CGSizeMake(label.width_sd, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
-                    label.height_sd = rect.size.height;
+                    label.height_sd = rect.size.height + 0.1;
                 } else {
                     [label sizeToFit];
                 }
@@ -1294,7 +1294,7 @@
         if (label.text.length) {
             if (!label.isAttributedContent) {
                 CGRect rect = [label.text boundingRectWithSize:CGSizeMake(width, label.height_sd) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
-                label.width_sd = rect.size.width;
+                label.width_sd = rect.size.width + 0.1;
             } else{
                 [label sizeToFit];
                 if (label.width_sd > width) {
@@ -1302,7 +1302,7 @@
                 }
             }
         } else {
-            label.width_sd = 0;
+            label.size_sd = CGSizeZero;
         }
     }
 }
