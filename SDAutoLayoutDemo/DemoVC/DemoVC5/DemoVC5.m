@@ -73,6 +73,7 @@
 - (void)setupHeaderView
 {
     UIView *header = [UIView new];
+    header.width = [UIScreen mainScreen].bounds.size.width;
     
     NSArray *picImageNamesArray = @[ @"pic1.jpg",
                                      @"pic2.jpg",
