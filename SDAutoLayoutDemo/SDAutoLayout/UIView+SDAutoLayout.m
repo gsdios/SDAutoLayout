@@ -128,10 +128,14 @@
 - (MarginToView)marginToViewblockWithKey:(NSString *)key
 {
     __weak typeof(self) weakSelf = self;
-    return ^(UIView *view, CGFloat value) {
+    return ^(id viewOrViewsArray, CGFloat value) {
         SDAutoLayoutModelItem *item = [SDAutoLayoutModelItem new];
         item.value = @(value);
-        item.refView = view;
+        if ([viewOrViewsArray isKindOfClass:[UIView class]]) {
+            item.refView = viewOrViewsArray;
+        } else if ([viewOrViewsArray isKindOfClass:[NSArray class]]) {
+            item.refViewsArray = [viewOrViewsArray copy];
+        }
         [weakSelf setValue:item forKey:key];
         return weakSelf;
     };
@@ -1338,6 +1342,15 @@
             }
             view.left_sd = [model.left.value floatValue];
         } else {
+            if (model.left.refViewsArray.count) {
+                CGFloat lastRefRight = 0;
+                for (UIView *ref in model.left.refViewsArray) {
+                    if ([ref isKindOfClass:[UIView class]] && ref.right_sd > lastRefRight) {
+                        model.left.refView = ref;
+                        lastRefRight = ref.right_sd;
+                    }
+                }
+            }
             if (!view.fixedWidth) { // view.autoLeft && view.autoRight
                 view.width_sd = view.right_sd - model.left.refView.right_sd - [model.left.value floatValue];
             }
@@ -1408,6 +1421,15 @@
             }
             view.top_sd = [model.top.value floatValue];
         } else {
+            if (model.top.refViewsArray.count) {
+                CGFloat lastRefBottom = 0;
+                for (UIView *ref in model.top.refViewsArray) {
+                    if ([ref isKindOfClass:[UIView class]] && ref.bottom_sd > lastRefBottom) {
+                        model.top.refView = ref;
+                        lastRefBottom = ref.bottom_sd;
+                    }
+                }
+            }
             if (!view.fixedHeight) { // view.autoTop && view.autoBottom && view.bottom
                 view.height_sd = view.bottom_sd - model.top.refView.bottom_sd - [model.top.value floatValue];
             }

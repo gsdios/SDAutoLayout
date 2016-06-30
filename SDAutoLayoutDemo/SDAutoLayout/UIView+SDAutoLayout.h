@@ -61,7 +61,7 @@
 
 @class SDAutoLayoutModel, SDUIViewCategoryManager;
 
-typedef SDAutoLayoutModel *(^MarginToView)(UIView *toView, CGFloat value);
+typedef SDAutoLayoutModel *(^MarginToView)(id viewOrViewsArray, CGFloat value);
 typedef SDAutoLayoutModel *(^Margin)(CGFloat value);
 typedef SDAutoLayoutModel *(^MarginEqualToView)(UIView *toView);
 typedef SDAutoLayoutModel *(^WidthHeight)(CGFloat value);
@@ -87,11 +87,11 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 /* 设置距离其它view的间距 */
 
-/** 左边到其参照view之间的间距，参数为“(View, CGFloat)”  */
+/** 左边到其参照view之间的间距，参数为“(View 或者 view数组, CGFloat)”  */
 @property (nonatomic, copy, readonly) MarginToView leftSpaceToView;
 /** 右边到其参照view之间的间距，参数为“(View, CGFloat)”  */
 @property (nonatomic, copy, readonly) MarginToView rightSpaceToView;
-/** 顶部到其参照view之间的间距，参数为“(View, CGFloat)”  */
+/** 顶部到其参照view之间的间距，参数为“(View 或者 view数组, CGFloat)”  */
 @property (nonatomic, copy, readonly) MarginToView topSpaceToView;
 /** 底部到其参照view之间的间距，参数为“(View, CGFloat)”  */
 @property (nonatomic, copy, readonly) MarginToView bottomSpaceToView;
@@ -404,6 +404,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic, strong) NSNumber *value;
 @property (nonatomic, weak) UIView *refView;
 @property (nonatomic, assign) CGFloat offset;
+@property (nonatomic, strong) NSArray *refViewsArray;
 
 @end
 
