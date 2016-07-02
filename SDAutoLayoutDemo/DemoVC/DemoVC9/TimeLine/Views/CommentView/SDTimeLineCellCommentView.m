@@ -125,7 +125,10 @@
     for (int i = 0; i < commentItemsArray.count; i++) {
         SDTimeLineCellCommentItemModel *model = commentItemsArray[i];
         MLLinkLabel *label = self.commentLabelsArray[i];
-        label.attributedText = [self generateAttributedStringWithCommentItemModel:model];
+        if (!model.attributedContent) {
+            model.attributedContent = [self generateAttributedStringWithCommentItemModel:model];
+        }
+        label.attributedText = model.attributedContent;
     }
 }
 
@@ -145,8 +148,10 @@
         if (i > 0) {
             [attributedText appendAttributedString:[[NSAttributedString alloc] initWithString:@"，"]];
         }
-        [attributedText appendAttributedString:[self generateAttributedStringWithLikeItemModel:model]];
-        ;
+        if (!model.attributedContent) {
+            model.attributedContent = [self generateAttributedStringWithLikeItemModel:model];
+        }
+        [attributedText appendAttributedString:model.attributedContent];
     }
     
     _likeLabel.attributedText = [attributedText copy];
