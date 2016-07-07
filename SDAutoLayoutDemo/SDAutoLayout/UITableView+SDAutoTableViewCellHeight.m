@@ -159,6 +159,29 @@
 
 }
 
+- (void)insertNewDataAtTheBeginingOfSection:(NSInteger)section newDataCount:(NSInteger)count
+{
+    NSMutableDictionary *tempHeightCacheDict = [NSMutableDictionary new];
+    NSMutableDictionary *tempFrameCacheDict = [NSMutableDictionary new];
+    for (NSString *key in _cacheDictionary.allKeys) {
+        NSArray *res = [key componentsSeparatedByString:@"-"];
+        long originalSection = [res.firstObject integerValue];
+        long row = [res.lastObject integerValue];
+        if (originalSection == section) {
+            NSNumber *heightCache = _cacheDictionary[key];
+            NSArray *frameCache = _subviewFrameCacheDict[key];
+            NSString *newKey = [NSString stringWithFormat:@"%ld-%ld", originalSection, (row + count)];
+            [tempHeightCacheDict setValue:heightCache forKey:newKey];
+            [tempFrameCacheDict setValue:frameCache forKey:newKey];
+            [_cacheDictionary removeObjectForKey:key];
+            [_subviewFrameCacheDict removeObjectForKey:key];
+        }
+    }
+    [_cacheDictionary addEntriesFromDictionary:tempHeightCacheDict];
+    [_subviewFrameCacheDict addEntriesFromDictionary:tempFrameCacheDict];
+
+}
+
 - (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath
 {
     /*
@@ -359,6 +382,13 @@
 - (void)reloadDataWithExistedHeightCache
 {
     self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = YES;
+    [self reloadData];
+}
+
+- (void)reloadDataWithInsertingDataAtTheBeginingOfSection:(NSInteger)section newDataCount:(NSInteger)count
+{
+    self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = YES;
+    [self.cellAutoHeightManager insertNewDataAtTheBeginingOfSection:section newDataCount:count];
     [self reloadData];
 }
 
