@@ -57,6 +57,8 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ☆☆ SDAutoLayout 原理简介视频教程：http://www.iqiyi.com/w_19rt0tec4p.html ☆☆
 
+☆☆ SDAutoLayout 朋友圈demo视频教程：http://v.youku.com/v_show/id_XMTYzNzg2NzA0MA==.html ☆☆
+
 ## 部分SDAutoLayout的DEMO：
 
 完整微信Demo https://github.com/gsdios/GSD_WeiXin
