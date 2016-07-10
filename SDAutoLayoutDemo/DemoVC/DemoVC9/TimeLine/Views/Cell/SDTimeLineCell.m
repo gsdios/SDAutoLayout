@@ -30,13 +30,9 @@
 
 #import "SDTimeLineCellModel.h"
 #import "UIView+SDAutoLayout.h"
-
 #import "SDTimeLineCellCommentView.h"
-
 #import "SDWeiXinPhotoContainerView.h"
-
 #import "SDTimeLineCellOperationMenu.h"
-
 #import "LEETheme.h"
 
 const CGFloat contentLabelFontSize = 15;
@@ -55,7 +51,6 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     UIButton *_moreButton;
     UIButton *_operationButton;
     SDTimeLineCellCommentView *_commentView;
-    BOOL _shouldOpenContentLabel;
     SDTimeLineCellOperationMenu *_operationMenu;
 }
 
@@ -67,7 +62,6 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
         [self setup];
         
         //设置主题
-        
         [self configTheme];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -79,8 +73,6 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
 {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveOperationButtonClickedNotification:) name:kSDTimeLineCellOperationButtonClickedNotification object:nil];
-    
-    _shouldOpenContentLabel = NO;
     
     _iconView = [UIImageView new];
     
@@ -187,7 +179,6 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
 }
 
 - (void)configTheme{
-    
     self.lee_theme
     .LeeAddBackgroundColor(DAY , [UIColor whiteColor])
     .LeeAddBackgroundColor(NIGHT , [UIColor blackColor]);
@@ -199,7 +190,6 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     _timeLabel.lee_theme
     .LeeAddTextColor(DAY , [UIColor lightGrayColor])
     .LeeAddTextColor(NIGHT , [UIColor grayColor]);
-    
 }
 
 - (void)dealloc
@@ -211,15 +201,10 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
 {
     _model = model;
     
-    _commentView.frame = CGRectZero;
     [_commentView setupWithLikeItemsArray:model.likeItemsArray commentItemsArray:model.commentItemsArray];
-    
-    _shouldOpenContentLabel = NO;
     
     _iconView.image = [UIImage imageNamed:model.iconName];
     _nameLable.text = model.name;
-    // 防止单行文本label在重用时宽度计算不准的问题
-    [_nameLable sizeToFit];
     _contentLabel.text = model.msgContent;
     _picContainerView.picPathStringsArray = model.picNamesArray;
     
@@ -247,14 +232,8 @@ NSString *const kSDTimeLineCellOperationButtonClickedNotification = @"SDTimeLine
     UIView *bottomView;
     
     if (!model.commentItemsArray.count && !model.likeItemsArray.count) {
-        _commentView.fixedWidth = @0; // 如果没有评论或者点赞，设置commentview的固定宽度为0（设置了fixedWith的控件将不再在自动布局过程中调整宽度）
-        _commentView.fixedHeight = @0; // 如果没有评论或者点赞，设置commentview的固定高度为0（设置了fixedHeight的控件将不再在自动布局过程中调整高度）
-        _commentView.sd_layout.topSpaceToView(_timeLabel, 0);
         bottomView = _timeLabel;
     } else {
-        _commentView.fixedHeight = nil; // 取消固定宽度约束
-        _commentView.fixedWidth = nil; // 取消固定高度约束
-        _commentView.sd_layout.topSpaceToView(_timeLabel, 10);
         bottomView = _commentView;
     }
     

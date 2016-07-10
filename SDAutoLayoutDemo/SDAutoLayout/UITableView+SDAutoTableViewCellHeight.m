@@ -129,6 +129,59 @@
     }];
 }
 
+- (void)deleteThenResetHeightCache:(NSIndexPath *)indexPathToDelete
+{
+
+    NSString *cacheKey = [self cacheKeyForIndexPath:indexPathToDelete];
+    [_cacheDictionary removeObjectForKey:cacheKey];
+    [_subviewFrameCacheDict removeObjectForKey:cacheKey];
+    
+    long sectionOfToDeleteItem = indexPathToDelete.section;
+    long rowOfToDeleteItem = indexPathToDelete.row;
+    NSMutableDictionary *tempHeightCacheDict = [NSMutableDictionary new];
+    NSMutableDictionary *tempFrameCacheDict = [NSMutableDictionary new];
+    for (NSString *key in _cacheDictionary.allKeys) {
+        NSArray *res = [key componentsSeparatedByString:@"-"];
+        long section = [res.firstObject integerValue];
+        long row = [res.lastObject integerValue];
+        if (section == sectionOfToDeleteItem && row > rowOfToDeleteItem) {
+            NSNumber *heightCache = _cacheDictionary[key];
+            NSArray *frameCache = _subviewFrameCacheDict[key];
+            NSString *newKey = [NSString stringWithFormat:@"%ld-%ld", section, (row - 1)];
+            [tempHeightCacheDict setValue:heightCache forKey:newKey];
+            [tempFrameCacheDict setValue:frameCache forKey:newKey];
+            [_cacheDictionary removeObjectForKey:key];
+            [_subviewFrameCacheDict removeObjectForKey:key];
+        }
+    }
+    [_cacheDictionary addEntriesFromDictionary:tempHeightCacheDict];
+    [_subviewFrameCacheDict addEntriesFromDictionary:tempFrameCacheDict];
+
+}
+
+- (void)insertNewDataAtTheBeginingOfSection:(NSInteger)section newDataCount:(NSInteger)count
+{
+    NSMutableDictionary *tempHeightCacheDict = [NSMutableDictionary new];
+    NSMutableDictionary *tempFrameCacheDict = [NSMutableDictionary new];
+    for (NSString *key in _cacheDictionary.allKeys) {
+        NSArray *res = [key componentsSeparatedByString:@"-"];
+        long originalSection = [res.firstObject integerValue];
+        long row = [res.lastObject integerValue];
+        if (originalSection == section) {
+            NSNumber *heightCache = _cacheDictionary[key];
+            NSArray *frameCache = _subviewFrameCacheDict[key];
+            NSString *newKey = [NSString stringWithFormat:@"%ld-%ld", originalSection, (row + count)];
+            [tempHeightCacheDict setValue:heightCache forKey:newKey];
+            [tempFrameCacheDict setValue:frameCache forKey:newKey];
+            [_cacheDictionary removeObjectForKey:key];
+            [_subviewFrameCacheDict removeObjectForKey:key];
+        }
+    }
+    [_cacheDictionary addEntriesFromDictionary:tempHeightCacheDict];
+    [_subviewFrameCacheDict addEntriesFromDictionary:tempFrameCacheDict];
+
+}
+
 - (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath
 {
     /*
@@ -256,7 +309,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        NSArray *selStringsArray = @[@"reloadData", @"reloadRowsAtIndexPaths:withRowAnimation:"];
+        NSArray *selStringsArray = @[@"reloadData", @"reloadRowsAtIndexPaths:withRowAnimation:", @"deleteRowsAtIndexPaths:withRowAnimation:"];
         
         [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
             NSString *mySelString = [@"sd_" stringByAppendingString:selString];
@@ -283,17 +336,20 @@
     [self sd_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
+- (void)sd_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+{
+    for (NSIndexPath *indexPath in indexPaths) {
+        [self.cellAutoHeightManager deleteThenResetHeightCache:indexPath];
+    }
+    [self sd_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+}
+
 /*
  * 下一步即将实现的功能
  
  - (void)sd_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
  {
  [self sd_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
- }
- 
- - (void)sd_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
- {
- [self sd_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
  }
  
  - (void)sd_moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
@@ -326,6 +382,13 @@
 - (void)reloadDataWithExistedHeightCache
 {
     self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = YES;
+    [self reloadData];
+}
+
+- (void)reloadDataWithInsertingDataAtTheBeginingOfSection:(NSInteger)section newDataCount:(NSInteger)count
+{
+    self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = YES;
+    [self.cellAutoHeightManager insertNewDataAtTheBeginingOfSection:section newDataCount:count];
     [self reloadData];
 }
 

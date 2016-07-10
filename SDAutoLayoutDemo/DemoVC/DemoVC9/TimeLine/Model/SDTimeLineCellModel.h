@@ -55,6 +55,8 @@
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *userId;
 
+@property (nonatomic, copy) NSAttributedString *attributedContent;
+
 @end
 
 
@@ -67,5 +69,7 @@
 
 @property (nonatomic, copy) NSString *secondUserName;
 @property (nonatomic, copy) NSString *secondUserId;
+
+@property (nonatomic, copy) NSAttributedString *attributedContent;
 
 @end

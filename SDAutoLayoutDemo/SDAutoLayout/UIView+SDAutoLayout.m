@@ -128,10 +128,14 @@
 - (MarginToView)marginToViewblockWithKey:(NSString *)key
 {
     __weak typeof(self) weakSelf = self;
-    return ^(UIView *view, CGFloat value) {
+    return ^(id viewOrViewsArray, CGFloat value) {
         SDAutoLayoutModelItem *item = [SDAutoLayoutModelItem new];
         item.value = @(value);
-        item.refView = view;
+        if ([viewOrViewsArray isKindOfClass:[UIView class]]) {
+            item.refView = viewOrViewsArray;
+        } else if ([viewOrViewsArray isKindOfClass:[NSArray class]]) {
+            item.refViewsArray = [viewOrViewsArray copy];
+        }
         [weakSelf setValue:item forKey:key];
         return weakSelf;
     };
@@ -600,39 +604,6 @@
     objc_setAssociatedObject(self, @selector(sd_equalWidthSubviews), sd_equalWidthSubviews, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)setupAutoWidthFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount verticalMargin:(CGFloat)verticalMargin horizontalMargin:(CGFloat)horizontalMagin
-{
-    self.sd_categoryManager.flowItems = viewsArray;
-    self.sd_categoryManager.perRowItemsCount = perRowItemsCount;
-    self.sd_categoryManager.verticalMargin = verticalMargin;
-    self.sd_categoryManager.horizontalMargin = horizontalMagin;
-    
-    self.sd_categoryManager.lastWidth = 0;
-    
-    if (viewsArray.count) {
-        [self setupAutoHeightWithBottomView:viewsArray.lastObject bottomMargin:verticalMargin];
-    } else {
-        [self clearAutoHeigtSettings];
-    }
-}
-
-- (void)clearAutoWidthFlowItemsSettings
-{
-    [self setupAutoWidthFlowItems:nil withPerRowItemsCount:0 verticalMargin:0 horizontalMargin:0];
-}
-
-- (void)setupAutoMarginFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount itemWidth:(CGFloat)itemWidth verticalMargin:(CGFloat)verticalMargin
-{
-    self.sd_categoryManager.shouldShowAsAutoMarginViews = YES;
-    self.sd_categoryManager.flowItemWidth = itemWidth;
-    [self setupAutoWidthFlowItems:viewsArray withPerRowItemsCount:perRowItemsCount verticalMargin:verticalMargin horizontalMargin:0];
-}
-
-- (void)clearAutoMarginFlowItemsSettings
-{
-    [self setupAutoMarginFlowItems:nil withPerRowItemsCount:0 itemWidth:0 verticalMargin:0];
-}
-
 - (void)sd_addSubviews:(NSArray *)subviews
 {
     [subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
@@ -640,6 +611,65 @@
             [self addSubview:view];
         }
     }];
+}
+
+@end
+
+@implementation UIView (SDAutoFlowItems)
+
+- (void)setupAutoWidthFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount verticalMargin:(CGFloat)verticalMargin horizontalMargin:(CGFloat)horizontalMagin verticalEdgeInset:(CGFloat)vInset horizontalEdgeInset:(CGFloat)hInset
+{
+    self.sd_categoryManager.flowItems = viewsArray;
+    self.sd_categoryManager.perRowItemsCount = perRowItemsCount;
+    self.sd_categoryManager.verticalMargin = verticalMargin;
+    self.sd_categoryManager.horizontalMargin = horizontalMagin;
+    self.verticalEdgeInset = vInset;
+    self.horizontalEdgeInset = hInset;
+    
+    self.sd_categoryManager.lastWidth = 0;
+    
+    if (viewsArray.count) {
+        [self setupAutoHeightWithBottomView:viewsArray.lastObject bottomMargin:vInset];
+    } else {
+        [self clearAutoHeigtSettings];
+    }
+}
+
+- (void)clearAutoWidthFlowItemsSettings
+{
+    [self setupAutoWidthFlowItems:nil withPerRowItemsCount:0 verticalMargin:0 horizontalMargin:0 verticalEdgeInset:0 horizontalEdgeInset:0];
+}
+
+- (void)setupAutoMarginFlowItems:(NSArray *)viewsArray withPerRowItemsCount:(NSInteger)perRowItemsCount itemWidth:(CGFloat)itemWidth verticalMargin:(CGFloat)verticalMargin verticalEdgeInset:(CGFloat)vInset horizontalEdgeInset:(CGFloat)hInset
+{
+    self.sd_categoryManager.shouldShowAsAutoMarginViews = YES;
+    self.sd_categoryManager.flowItemWidth = itemWidth;
+    [self setupAutoWidthFlowItems:viewsArray withPerRowItemsCount:perRowItemsCount verticalMargin:verticalMargin horizontalMargin:0 verticalEdgeInset:vInset horizontalEdgeInset:hInset];
+}
+
+- (void)clearAutoMarginFlowItemsSettings
+{
+    [self setupAutoMarginFlowItems:nil withPerRowItemsCount:0 itemWidth:0 verticalMargin:0 verticalEdgeInset:0 horizontalEdgeInset:0];
+}
+
+- (void)setHorizontalEdgeInset:(CGFloat)horizontalEdgeInset
+{
+    self.sd_categoryManager.horizontalEdgeInset = horizontalEdgeInset;
+}
+
+- (CGFloat)horizontalEdgeInset
+{
+    return self.sd_categoryManager.horizontalEdgeInset;
+}
+
+- (void)setVerticalEdgeInset:(CGFloat)verticalEdgeInset
+{
+    self.sd_categoryManager.verticalEdgeInset = verticalEdgeInset;
+}
+
+- (CGFloat)verticalEdgeInset
+{
+    return self.sd_categoryManager.verticalEdgeInset;
 }
 
 @end
@@ -1014,11 +1044,11 @@
             w = self.sd_categoryManager.flowItemWidth;
             long itemsCount = self.sd_categoryManager.perRowItemsCount;
             if (itemsCount > 1) {
-                horizontalMargin = (self.width_sd - itemsCount * w) / (itemsCount - 1);
+                horizontalMargin = (self.width_sd - (self.horizontalEdgeInset * 2) - itemsCount * w) / (itemsCount - 1);
             }
         } else {
             horizontalMargin = self.sd_categoryManager.horizontalMargin;
-            w = (self.width_sd - (perRowItemsCount - 1) * horizontalMargin) / perRowItemsCount;
+            w = (self.width_sd - (self.horizontalEdgeInset * 2) - (perRowItemsCount - 1) * horizontalMargin) / perRowItemsCount;
         }
         CGFloat verticalMargin = self.sd_categoryManager.verticalMargin;
         
@@ -1030,8 +1060,8 @@
                     BOOL shouldShowAsAutoMarginViews = self.sd_categoryManager.shouldShowAsAutoMarginViews;
                      */
                     view.sd_layout
-                    .leftSpaceToView(referencedView, 0)
-                    .topSpaceToView(referencedView, verticalMargin)
+                    .leftSpaceToView(referencedView, self.horizontalEdgeInset)
+                    .topSpaceToView(referencedView, self.verticalEdgeInset)
                     .widthIs(w);
                 } else {
                     view.sd_layout
@@ -1060,7 +1090,13 @@
         
         [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
             if (idx < caches.count) {
-                model.needsAutoResizeView.frame = [[caches objectAtIndex:idx] CGRectValue];
+                CGRect originalFrame = model.needsAutoResizeView.frame;
+                CGRect newFrame = [[caches objectAtIndex:idx] CGRectValue];
+                if (CGRectEqualToRect(originalFrame, newFrame)) {
+                    [model.needsAutoResizeView setNeedsLayout];
+                } else {
+                    model.needsAutoResizeView.frame = newFrame;
+                }
                 [self setupCornerRadiusWithView:model.needsAutoResizeView model:model];
                 model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache = YES;
             } else {
@@ -1133,12 +1169,26 @@
             }
         }
         
-        if (![self isKindOfClass:[UIScrollView class]] && self.sd_rightViewsArray.count && (self.ownLayoutModel.right || self.ownLayoutModel.equalRight)) {
-            [self layoutRightWithView:self model:self.ownLayoutModel];
+        SDAutoLayoutModel *model = self.ownLayoutModel;
+        
+        if (![self isKindOfClass:[UIScrollView class]] && self.sd_rightViewsArray.count && (model.right || model.equalRight || model.centerX || model.equalCenterX)) {
+            self.fixedWidth = @(self.width);
+            if (model.right || model.equalRight) {
+                [self layoutRightWithView:self model:model];
+            } else {
+                [self layoutLeftWithView:self model:model];
+            }
+            self.fixedWidth = nil;
         }
         
-        if (![self isKindOfClass:[UIScrollView class]] && self.sd_bottomViewsArray.count && (self.ownLayoutModel.bottom || self.ownLayoutModel.equalBottom)) {
-            [self layoutBottomWithView:self model:self.ownLayoutModel];
+        if (![self isKindOfClass:[UIScrollView class]] && self.sd_bottomViewsArray.count && (model.bottom || model.equalBottom || model.centerY || model.equalCenterY)) {
+            self.fixedHeight = @(self.height);
+            if (model.bottom || model.equalBottom) {
+                [self layoutBottomWithView:self model:model];
+            } else {
+                [self layoutTopWithView:self model:model];
+            }
+            self.fixedHeight = nil;
         }
         
         if (self.didFinishAutoLayoutBlock) {
@@ -1216,9 +1266,7 @@
         [view layoutSubviews];
     }
     
-    
     [self setupCornerRadiusWithView:view model:model];
-    
 }
 
 - (void)layoutAutoHeightWidthView:(UIView *)view model:(SDAutoLayoutModel *)model
@@ -1232,7 +1280,7 @@
             if (label.text.length) {
                 if (!label.isAttributedContent) {
                     CGRect rect = [label.text boundingRectWithSize:CGSizeMake(label.width_sd, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
-                    label.height_sd = rect.size.height;
+                    label.height_sd = rect.size.height + 0.1;
                 } else {
                     [label sizeToFit];
                 }
@@ -1254,7 +1302,7 @@
         if (label.text.length) {
             if (!label.isAttributedContent) {
                 CGRect rect = [label.text boundingRectWithSize:CGSizeMake(width, label.height_sd) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
-                label.width_sd = rect.size.width;
+                label.width_sd = rect.size.width + 0.1;
             } else{
                 [label sizeToFit];
                 if (label.width_sd > width) {
@@ -1262,7 +1310,7 @@
                 }
             }
         } else {
-            label.width_sd = 0;
+            label.size_sd = CGSizeZero;
         }
     }
 }
@@ -1298,6 +1346,15 @@
             }
             view.left_sd = [model.left.value floatValue];
         } else {
+            if (model.left.refViewsArray.count) {
+                CGFloat lastRefRight = 0;
+                for (UIView *ref in model.left.refViewsArray) {
+                    if ([ref isKindOfClass:[UIView class]] && ref.right_sd > lastRefRight) {
+                        model.left.refView = ref;
+                        lastRefRight = ref.right_sd;
+                    }
+                }
+            }
             if (!view.fixedWidth) { // view.autoLeft && view.autoRight
                 view.width_sd = view.right_sd - model.left.refView.right_sd - [model.left.value floatValue];
             }
@@ -1368,6 +1425,15 @@
             }
             view.top_sd = [model.top.value floatValue];
         } else {
+            if (model.top.refViewsArray.count) {
+                CGFloat lastRefBottom = 0;
+                for (UIView *ref in model.top.refViewsArray) {
+                    if ([ref isKindOfClass:[UIView class]] && ref.bottom_sd > lastRefBottom) {
+                        model.top.refView = ref;
+                        lastRefBottom = ref.bottom_sd;
+                    }
+                }
+            }
             if (!view.fixedHeight) { // view.autoTop && view.autoBottom && view.bottom
                 view.height_sd = view.bottom_sd - model.top.refView.bottom_sd - [model.top.value floatValue];
             }

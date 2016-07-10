@@ -74,6 +74,9 @@
 {
     UIView *header = [UIView new];
     
+    // 由于tableviewHeaderView的特殊性，在使他高度自适应之前你最好先给它设置一个宽度
+    header.width = [UIScreen mainScreen].bounds.size.width;
+    
     NSArray *picImageNamesArray = @[ @"pic1.jpg",
                                      @"pic2.jpg",
                                      @"pic3.jpg",
@@ -194,6 +197,12 @@
     ///////////////////////////////////////////////////////////////////////
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.modelsArray removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

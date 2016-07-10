@@ -32,7 +32,6 @@
 {
     [super viewDidLoad];
     
-
     // demo1.内容自适应view
     [self setupAutoHeightView];
     
@@ -148,3 +147,52 @@
 
 
 @end
+
+
+
+
+
+/*
+ 
+ 
+ self.view0.sd_layout
+ .leftSpaceToView(self.view, 10)
+ .widthIs(150)
+ .topSpaceToView(self.view, 100)
+ .heightIs(30);
+ 
+ self.view1.sd_layout
+ .leftEqualToView(self.view0)
+ .widthRatioToView(self.view, 0.3)
+ .heightIs(50)
+ .topSpaceToView(self.view0, 20);
+ 
+ self.view2.sd_layout
+ .leftSpaceToView(@[self.view0, self.view1], 30)
+ .widthIs(100)
+ .heightEqualToWidth()
+ .topEqualToView(self.view0);
+ 
+ 
+ self.view4.sd_layout
+ .leftSpaceToView(self.view, 50)
+ .topSpaceToView(self.view, 100)
+ .heightRatioToView(self.view, 0.3)
+ .widthIs(50);
+ 
+ self.view3.sd_layout
+ .leftSpaceToView(self.view4, 20)
+ .topEqualToView(self.view4)
+ .widthIs(100)
+ .heightIs(150);
+ 
+ self.view5.sd_layout
+ .leftEqualToView(self.view4)
+ .topSpaceToView(@[self.view3, self.view4], 30)
+ .widthIs(200)
+ .heightIs(20);
+ 
+
+ 
+ 
+ */

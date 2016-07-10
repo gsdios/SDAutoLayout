@@ -57,7 +57,6 @@
         [self setupViews];
     
         //设置主题
-        
         [self configTheme];
 
     }
@@ -75,6 +74,7 @@
     _likeLabel = [MLLinkLabel new];
     _likeLabel.font = [UIFont systemFontOfSize:14];
     _likeLabel.linkTextAttributes = @{NSForegroundColorAttributeName : TimeLineCellHighlightedColor};
+    _likeLabel.isAttributedContent = YES;
     [self addSubview:_likeLabel];
     
     _likeLableBottomLine = [UIView new];
@@ -125,7 +125,10 @@
     for (int i = 0; i < commentItemsArray.count; i++) {
         SDTimeLineCellCommentItemModel *model = commentItemsArray[i];
         MLLinkLabel *label = self.commentLabelsArray[i];
-        label.attributedText = [self generateAttributedStringWithCommentItemModel:model];
+        if (!model.attributedContent) {
+            model.attributedContent = [self generateAttributedStringWithCommentItemModel:model];
+        }
+        label.attributedText = model.attributedContent;
     }
 }
 
@@ -145,8 +148,10 @@
         if (i > 0) {
             [attributedText appendAttributedString:[[NSAttributedString alloc] initWithString:@"，"]];
         }
-        [attributedText appendAttributedString:[self generateAttributedStringWithLikeItemModel:model]];
-        ;
+        if (!model.attributedContent) {
+            model.attributedContent = [self generateAttributedStringWithLikeItemModel:model];
+        }
+        [attributedText appendAttributedString:model.attributedContent];
     }
     
     _likeLabel.attributedText = [attributedText copy];
@@ -172,6 +177,15 @@
         }];
     }
     
+    if (!commentItemsArray.count && !likeItemsArray.count) {
+        self.fixedWidth = @(0); // 如果没有评论或者点赞，设置commentview的固定宽度为0（设置了fixedWith的控件将不再在自动布局过程中调整宽度）
+        self.fixedHeight = @(0); // 如果没有评论或者点赞，设置commentview的固定高度为0（设置了fixedHeight的控件将不再在自动布局过程中调整高度）
+        return;
+    } else {
+        self.fixedHeight = nil; // 取消固定宽度约束
+        self.fixedWidth = nil; // 取消固定高度约束
+    }
+    
     CGFloat margin = 5;
     
     UIView *lastTopView = nil;
@@ -183,11 +197,9 @@
         .topSpaceToView(lastTopView, 10)
         .autoHeightRatio(0);
         
-        _likeLabel.isAttributedContent = YES;
-        
         lastTopView = _likeLabel;
-        
     } else {
+        _likeLabel.attributedText = nil;
         _likeLabel.sd_resetLayout
         .heightIs(0);
     }

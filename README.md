@@ -11,11 +11,17 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ##Pod支持：
 
-支持pod：  pod 'SDAutoLayout', '~> 2.1.1'
+支持pod：  pod 'SDAutoLayout', '~> 2.1.3'
 
 如果发现pod search SDAutoLayout 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
 
 ## 更新记录：
+
+2016.06.30 -- 增加多参照view的leftSpaceToView和topSpaceToView约束，例：topSpaceToView(@[self.view3, self.view4], 30)
+
+2016.06.24 -- 修复给button设置约束时在iOS8.x系统中出现的崩溃问题；发布2.1.2版本
+
+2016.06.23 -- 实现删除某行cell时自动调整height缓存
 
 2016.05.16 -- 修复用xib生成的view出现的部分约束失效问题（发布pod2.0.0版本）
 
@@ -50,6 +56,8 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 ☆☆ SDAutoLayout 进阶版视频教程：http://www.letv.com/ptv/vplay/24381390.html ☆☆
 
 ☆☆ SDAutoLayout 原理简介视频教程：http://www.iqiyi.com/w_19rt0tec4p.html ☆☆
+
+☆☆ SDAutoLayout 朋友圈demo视频教程：http://v.youku.com/v_show/id_XMTYzNzg2NzA0MA==.html ☆☆
 
 ## 部分SDAutoLayout的DEMO：
 
@@ -163,3 +171,8 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 
 ![](http://ww3.sinaimg.cn/bmiddle/9b8146edgw1ex4mukixr6g209g07lhdt.gif)
+
+
+![](http://upload-images.jianshu.io/upload_images/1157161-07fa43e0f539ebad.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](http://upload-images.jianshu.io/upload_images/1157161-453a5d33d7f3d48d.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
