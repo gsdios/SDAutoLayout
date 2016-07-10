@@ -30,13 +30,9 @@
 
 #import "SDTimeLineCellModel.h"
 #import "UIView+SDAutoLayout.h"
-
 #import "SDTimeLineCellCommentView.h"
-
 #import "SDWeiXinPhotoContainerView.h"
-
 #import "SDTimeLineCellOperationMenu.h"
-
 #import "LEETheme.h"
 
 const CGFloat contentLabelFontSize = 15;
