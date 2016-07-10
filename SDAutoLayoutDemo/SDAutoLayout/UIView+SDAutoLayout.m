@@ -1090,7 +1090,13 @@
         
         [self.autoLayoutModelsArray enumerateObjectsUsingBlock:^(SDAutoLayoutModel *model, NSUInteger idx, BOOL *stop) {
             if (idx < caches.count) {
-                model.needsAutoResizeView.frame = [[caches objectAtIndex:idx] CGRectValue];
+                CGRect originalFrame = model.needsAutoResizeView.frame;
+                CGRect newFrame = [[caches objectAtIndex:idx] CGRectValue];
+                if (CGRectEqualToRect(originalFrame, newFrame)) {
+                    [model.needsAutoResizeView setNeedsLayout];
+                } else {
+                    model.needsAutoResizeView.frame = newFrame;
+                }
                 [self setupCornerRadiusWithView:model.needsAutoResizeView model:model];
                 model.needsAutoResizeView.sd_categoryManager.hasSetFrameWithCache = YES;
             } else {
@@ -1260,9 +1266,7 @@
         [view layoutSubviews];
     }
     
-    
     [self setupCornerRadiusWithView:view model:model];
-    
 }
 
 - (void)layoutAutoHeightWidthView:(UIView *)view model:(SDAutoLayoutModel *)model

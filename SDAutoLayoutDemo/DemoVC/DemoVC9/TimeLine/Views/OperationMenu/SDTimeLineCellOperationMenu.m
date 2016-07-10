@@ -78,6 +78,7 @@
     if (self.likeButtonClickedOperation) {
         self.likeButtonClickedOperation();
     }
+    self.show = NO;
 }
 
 - (void)commentButtonClicked
