@@ -392,6 +392,17 @@
     [self reloadData];
 }
 
+- (void)reloadDataWithInsertingDataAtTheBeginingOfSections:(NSArray *)sectionNumsArray newDataCounts:(NSArray *)dataCountsArray
+{
+    self.cellAutoHeightManager.shouldKeepHeightCacheWhenReloadingData = YES;
+    [sectionNumsArray enumerateObjectsUsingBlock:^(NSNumber *num, NSUInteger idx, BOOL *stop) {
+        int section = [num intValue];
+        int dataCountForSection = [dataCountsArray[idx] intValue];
+        [self.cellAutoHeightManager insertNewDataAtTheBeginingOfSection:section newDataCount:dataCountForSection];
+    }];
+    [self reloadData];
+}
+
 - (CGFloat)cellsTotalHeight
 {
     CGFloat h = 0;

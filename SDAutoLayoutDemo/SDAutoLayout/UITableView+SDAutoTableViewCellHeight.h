@@ -70,6 +70,13 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell *cell);
 /** 刷新tableView同时调整已经计算好的高度缓存，用于直接将新数据插在旧数据前面的tableView的刷新 */
 - (void)reloadDataWithInsertingDataAtTheBeginingOfSection:(NSInteger)section newDataCount:(NSInteger)count;
 
+/** 
+ * 刷新tableView同时调整已经计算好的高度缓存，用于直接将新数据插在旧数据前面的tableView的刷新(用于刷新多个section)
+ * sectionNumsArray : 要刷新的所有section序号组成的数组, 例@[@(0), @(1)]
+ * dataCountsArray  : 每个section的数据条数组成的数组, 例@[@(20), @(10)]
+ */
+- (void)reloadDataWithInsertingDataAtTheBeginingOfSections:(NSArray *)sectionNumsArray newDataCounts:(NSArray *)dataCountsArray;
+
 /** 返回所有cell的高度总和  */
 - (CGFloat)cellsTotalHeight;
 
