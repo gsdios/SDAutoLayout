@@ -392,7 +392,7 @@
     [self sd_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
-- (void)sd_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+- (void)sd_deleteRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
     for (NSIndexPath *indexPath in indexPaths) {
         [self.cellAutoHeightManager deleteThenResetHeightCache:indexPath];
@@ -401,7 +401,7 @@
 }
 
 
-- (void)sd_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+- (void)sd_insertRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
     [self.cellAutoHeightManager insertNewDataAtIndexPaths:indexPaths];
     [self sd_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
