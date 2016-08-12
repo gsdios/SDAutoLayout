@@ -1301,7 +1301,10 @@
         label.numberOfLines = 1;
         if (label.text.length) {
             if (!label.isAttributedContent) {
-                CGRect rect = [label.text boundingRectWithSize:CGSizeMake(width, label.height_sd) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
+                CGRect rect = [label.text boundingRectWithSize:CGSizeMake(MAXFLOAT, label.height_sd) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : label.font} context:nil];
+                if (rect.size.width > width) {
+                    rect.size.width = width;
+                }
                 label.width_sd = rect.size.width + 0.1;
             } else{
                 [label sizeToFit];
