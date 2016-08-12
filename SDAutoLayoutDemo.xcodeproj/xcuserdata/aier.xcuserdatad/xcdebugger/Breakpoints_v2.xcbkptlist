@@ -329,7 +329,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "269"
             endingLineNumber = "269"
-            landmarkName = "-operationButtonClicked"
+            landmarkName = "-receiveOperationButtonClickedNotification:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
