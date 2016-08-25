@@ -20,13 +20,12 @@
     return  self;
 }
 
-
 -(void)setup{
     // 滚动图片区
     self.cycleScrollView = [[SDCycleScrollView alloc] init];
     [self.contentView addSubview:self.cycleScrollView];
     
-
+    
     //设置约束
     CGFloat margin = 0;
     self.cycleScrollView.sd_layout
