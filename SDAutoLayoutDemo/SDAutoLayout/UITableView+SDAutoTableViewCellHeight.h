@@ -151,6 +151,8 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell *cell);
 
 - (void)insertNewDataAtTheBeginingOfSection:(NSInteger)section newDataCount:(NSInteger)count;
 
+- (void)insertNewDataAtIndexPaths:(NSArray *)indexPaths;
+
 - (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath;
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;

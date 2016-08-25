@@ -17,6 +17,8 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ## 更新记录：
 
+2016.08.12 -- 实现在tableview插入新的cell数据时自动缓存管理
+
 2016.06.30 -- 增加多参照view的leftSpaceToView和topSpaceToView约束，例：topSpaceToView(@[self.view3, self.view4], 30)
 
 2016.06.24 -- 修复给button设置约束时在iOS8.x系统中出现的崩溃问题；发布2.1.2版本
