@@ -419,10 +419,7 @@
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth
 {
-    if (!self.cellAutoHeightManager) {
-        self.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] init];
-        self.cellAutoHeightManager.modelTableview = self;
-    }
+    self.cellAutoHeightManager.modelTableview = self;
     
     self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
     
@@ -476,7 +473,17 @@
 
 - (SDCellAutoHeightManager *)cellAutoHeightManager
 {
-    return objc_getAssociatedObject(self, _cmd);
+    
+    SDCellAutoHeightManager *cellAutoHeightManager = objc_getAssociatedObject(self, _cmd);
+    
+    if (!cellAutoHeightManager) {
+        
+        cellAutoHeightManager = [[SDCellAutoHeightManager alloc] init];
+        
+        [self setCellAutoHeightManager:cellAutoHeightManager];
+    }
+    
+    return cellAutoHeightManager;
 }
 
 - (void)setCellAutoHeightManager:(SDCellAutoHeightManager *)cellAutoHeightManager
@@ -510,10 +517,8 @@
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellContentViewWidth:(CGFloat)width tableView:(UITableView *)tableView
 {
-    if (!tableView.cellAutoHeightManager) {
-        tableView.cellAutoHeightManager = [[SDCellAutoHeightManager alloc] init];
-        tableView.cellAutoHeightManager.modelTableview = tableView;
-    }
+    tableView.cellAutoHeightManager.modelTableview = tableView;
+
     if (tableView.cellAutoHeightManager.contentViewWidth != width) {
         tableView.cellAutoHeightManager.contentViewWidth = width;
     }
