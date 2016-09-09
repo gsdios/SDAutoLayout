@@ -412,8 +412,8 @@ static const CGFloat maxImageViewWidth = 200.f;
 
 - (void)statusBarOrientationChange:(NSNotification *)notification
 {
-    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAotuLayout”属性来设置要不要触发自动布局计算
-    self.scroollView.sd_closeAotuLayout = NO;
+    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAutoLayout”属性来设置要不要触发自动布局计算
+    self.scroollView.sd_closeAutoLayout = NO;
 }
 
 
@@ -421,14 +421,14 @@ static const CGFloat maxImageViewWidth = 200.f;
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAotuLayout”属性来设置要不要触发自动布局计算
-    self.wrapperView.sd_closeAotuLayout = YES;
+    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAutoLayout”属性来设置要不要触发自动布局计算
+    self.wrapperView.sd_closeAutoLayout = YES;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAotuLayout”属性来设置要不要触发自动布局计算
-    self.wrapperView.sd_closeAotuLayout = NO;
+    // 由于scrollview在滚动时会不断调用layoutSubvies方法，这就会不断触发自动布局计算，而很多时候这种计算是不必要的，所以可以通过控制“sd_closeAutoLayout”属性来设置要不要触发自动布局计算
+    self.wrapperView.sd_closeAutoLayout = NO;
 }
 
 
