@@ -960,7 +960,7 @@
     return self.sd_categoryManager.sd_isClosingAutoLayout;
 }
 
-- (void)setsd_closeAutoLayout:(BOOL)sd_closeAutoLayout
+- (void)setSd_closeAutoLayout:(BOOL)sd_closeAutoLayout
 {
     self.sd_categoryManager.sd_closeAutoLayout = sd_closeAutoLayout;
 }
