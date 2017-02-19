@@ -83,6 +83,7 @@
 @synthesize centerXIs = _centerXIs;
 @synthesize centerYIs = _centerYIs;
 @synthesize autoHeightRatio = _autoHeightRatio;
+@synthesize autoWidthRatio = _autoWidthRatio;
 @synthesize spaceToSuperView = _spaceToSuperView;
 @synthesize maxWidthIs = _maxWidthIs;
 @synthesize maxHeightIs = _maxHeightIs;
@@ -361,7 +362,7 @@
     return _centerYIs;
 }
 
-- (AutoHeight)autoHeightRatio
+- (AutoHeightWidth)autoHeightRatio
 {
     __weak typeof(self) weakSelf = self;
     
@@ -372,6 +373,19 @@
         };
     }
     return _autoHeightRatio;
+}
+
+- (AutoHeightWidth)autoWidthRatio
+{
+    __weak typeof(self) weakSelf = self;
+    
+    if (!_autoWidthRatio) {
+        _autoWidthRatio = ^(CGFloat ratioaValue) {
+            weakSelf.needsAutoResizeView.autoWidthRatioValue = @(ratioaValue);
+            return weakSelf;
+        };
+    }
+    return _autoWidthRatio;
 }
 
 - (SpaceToSuperView)spaceToSuperView
@@ -846,6 +860,16 @@
     objc_setAssociatedObject(self, @selector(autoHeightRatioValue), autoHeightRatioValue, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (NSNumber *)autoWidthRatioValue
+{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setAutoWidthRatioValue:(NSNumber *)autoWidthRatioValue
+{
+    objc_setAssociatedObject(self, @selector(autoWidthRatioValue), autoWidthRatioValue, OBJC_ASSOCIATION_RETAIN);
+}
+
 - (NSNumber *)sd_maxWidth
 {
     return objc_getAssociatedObject(self, _cmd);
@@ -1219,6 +1243,10 @@
     if (view.autoHeightRatioValue && view.width_sd > 0 && (model.bottomEqualToView || model.bottomSpaceToView)) { // 底部布局前提设置
         [self layoutAutoHeightWidthView:view model:model];
         view.fixedHeight = @(view.height_sd);
+    }
+    
+    if (view.autoWidthRatioValue) {
+        view.fixedWidth = @(view.height_sd * [view.autoWidthRatioValue floatValue]);
     }
     
     

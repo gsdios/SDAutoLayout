@@ -66,7 +66,7 @@ typedef SDAutoLayoutModel *(^Margin)(CGFloat value);
 typedef SDAutoLayoutModel *(^MarginEqualToView)(UIView *toView);
 typedef SDAutoLayoutModel *(^WidthHeight)(CGFloat value);
 typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat ratioValue);
-typedef SDAutoLayoutModel *(^AutoHeight)(CGFloat ratioValue);
+typedef SDAutoLayoutModel *(^AutoHeightWidth)(CGFloat ratioValue);
 typedef SDAutoLayoutModel *(^SameWidthHeight)();
 typedef SDAutoLayoutModel *(^Offset)(CGFloat value);
 typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
@@ -156,7 +156,10 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 /** 设置一个view的高度和它的宽度相同，参数为空“()” */
 @property (nonatomic, copy, readonly) SameWidthHeight heightEqualToWidth;
 /** 自适应高度，传入高宽比值，label可以传0实现文字高度自适应 */
-@property (nonatomic, copy, readonly) AutoHeight autoHeightRatio;
+@property (nonatomic, copy, readonly) AutoHeightWidth autoHeightRatio;
+
+/** 自适应宽度，参数为宽高比值 */
+@property (nonatomic, copy, readonly) AutoHeightWidth autoWidthRatio;
 
 
 
@@ -322,6 +325,7 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @property (nonatomic) SDAutoLayoutModel *ownLayoutModel;
 @property (nonatomic, strong) NSNumber *sd_maxWidth;
 @property (nonatomic, strong) NSNumber *autoHeightRatioValue;
+@property (nonatomic, strong) NSNumber *autoWidthRatioValue;
 
 @end
 
