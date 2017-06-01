@@ -18,6 +18,8 @@
 
 - (void)awakeFromNib {
     
+    [super awakeFromNib];
+    
     self.contentView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1];
     
     PhotosContainerView *photosContainer = [[PhotosContainerView alloc] initWithMaxItemsCount:9];
