@@ -35,14 +35,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [self configLEEThemeJson];
+    [self configTheme];
     
     return YES;
 }
 
-//设置LEEThemeJson
+// 设置LEETheme
 
-- (void)configLEEThemeJson{
+- (void)configTheme{
     
     //获取对应主题的json设置数据
     
@@ -50,20 +50,15 @@
     
     //添加json设置数据 , 设置主题标签 , 设置资源路径
     
-    [LEETheme addThemeConfigJson:dayjson WithTag:@"day" WithResourcesPath:nil];
+    [LEETheme addThemeConfigWithJson:dayjson Tag:@"day" ResourcesPath:nil];
     
     NSString *nightjson = [NSString stringWithContentsOfFile:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"theme_night_json.json"] encoding:NSUTF8StringEncoding error:nil];
     
-    [LEETheme addThemeConfigJson:nightjson WithTag:@"night" WithResourcesPath:nil];
+    [LEETheme addThemeConfigWithJson:nightjson Tag:@"night" ResourcesPath:nil];
     
     //设置默认主题
     
     [LEETheme defaultTheme:@"day"];
-    
-    //设置默认更改主题动画时长
-    
-    [LEETheme defaultChangeThemeAnimationDuration:0.1f];
-    
 }
 
 

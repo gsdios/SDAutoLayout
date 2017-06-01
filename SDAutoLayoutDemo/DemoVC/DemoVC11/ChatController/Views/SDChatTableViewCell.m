@@ -103,26 +103,30 @@
     
     // 设置containerBackgroundImageView填充父view
     _containerBackgroundImageView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
- 
 }
 
 - (void)configTheme{
     
-    __weak typeof(self) weakSelf = self;
-    
     self.lee_theme.LeeConfigBackgroundColor(@"demovc11_backgroundcolor");
     
-    self.label.lee_theme.LeeConfigTextColor(@"demovc11_textcolor");
+//    self.label.lee_theme.LeeConfigTextColor(@"demovc11_textcolor");
     
-    //其实只要上面的设置textcolor就可以的 , 你自己定义的这个label设置后不会马上变 , 需要重新赋值一下才会改变 - ,- 针对你这个情况 所以这样处理一下先
-    //这步操作是添加一个多标签的自定义block 也就是说你传入的主题标签都会触发执行这个block
-    self.label.lee_theme.LeeAddCustomConfigs(@[@"day" , @"night"] , ^(MLEmojiLabel *item){
-       
-        item.text = weakSelf.model.text;
+    //其实UILabel的话只要按照上面的设置textcolor就可以的 , 这个label是第三方的 设置后不会马上变 , 需要重新赋值一下才会改变 - ,- 针对你这个情况 所以这样处理一下先
+    self.label.lee_theme
+    .LeeAddCustomConfig(@"day", ^(MLEmojiLabel *item) {
         
+        item.textColor = [UIColor blackColor];
+        
+        item.text = item.text; // 重新赋值text
+    })
+    .LeeAddCustomConfig(@"night", ^(MLEmojiLabel *item) {
+        
+        item.textColor = [UIColor lightGrayColor];
+        
+        item.text = item.text;
     });
     
-    //正常应该设置image的标识符 完成切换不同图片的效果 , 但是这个demo没有夜间图片 暂时只能用这个方式演示一下咯 , 要不然会看着不太和谐
+    //正常应该设置image的标识符 完成切换不同图片的效果 , 但是这个demo没有夜间图片 暂时用这个方式演示一下咯 , 要不然会看着不太和谐
     
     self.containerBackgroundImageView.lee_theme
     .LeeAddCustomConfig(@"day" , ^(UIImageView * item){
@@ -136,8 +140,8 @@
     
 }
 
-- (void)setModel:(SDChatModel *)model
-{
+- (void)setModel:(SDChatModel *)model{
+    
     _model = model;
     
     _label.text = model.text;

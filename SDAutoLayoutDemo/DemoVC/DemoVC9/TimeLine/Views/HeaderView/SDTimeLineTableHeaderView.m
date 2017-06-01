@@ -103,7 +103,6 @@
     self.lee_theme
     .LeeAddBackgroundColor(DAY , [UIColor whiteColor])
     .LeeAddBackgroundColor(NIGHT , [UIColor blackColor]);
-    
 }
 
 - (void)dealloc{

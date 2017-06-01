@@ -67,7 +67,7 @@
 
 - (void)configTheme{
     
-    //使用JSON设置模式 
+    //使用标识符设置模式
     
     self.lblTitle.lee_theme.LeeConfigTextColor(@"demovc10_cell_titlecolor");
     
