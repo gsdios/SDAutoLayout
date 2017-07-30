@@ -1324,6 +1324,9 @@ Class cellContVClass()
                     label.height_sd = rect.size.height + 0.1;
                 } else {
                     [label sizeToFit];
+                    if (label.sd_maxWidth && label.width_sd > [label.sd_maxWidth floatValue]) {
+                        label.width_sd = [label.sd_maxWidth floatValue];
+                    }
                 }
             } else {
                 label.height_sd = 0;
