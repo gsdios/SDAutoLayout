@@ -13,7 +13,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 主要用于编程经验分享+SD系列开源库答疑解惑，有需要的请关注！
  ![](https://github.com/gsdios/SDCycleScrollView/blob/master/qrcode_for_gh_a69e5c4e13c4_430.jpg?raw=true)
 
-##Pod支持：
+## Pod支持：
 
 支持pod：  pod 'SDAutoLayout', '~> 2.1.3'
 
