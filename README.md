@@ -21,6 +21,8 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 ## 更新记录：
 
+2017.11.11 -- 解决朋友圈demo在iOS11上文字收折或者展开时出现cell跳动问题
+
 2017.06.26 -- 解决部分开发者反应因出现“UITableViewCellContentView”而导致应用审核被拒问题
 
 2016.08.12 -- 实现在tableview插入新的cell数据时自动缓存管理
