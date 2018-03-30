@@ -74,15 +74,20 @@
 
 - (void)registerCellWithCellClass:(Class)cellClass
 {
-    [_modelTableview registerClass:cellClass forCellReuseIdentifier:NSStringFromClass(cellClass)];
-    self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+    [self registerCellWithCellClass:cellClass reuseIdentifier:NSStringFromClass(cellClass)];
+}
+
+- (void)registerCellWithCellClass:(Class)cellClass reuseIdentifier:(NSString*)reuseIdentifier
+{
+    [_modelTableview registerClass:cellClass forCellReuseIdentifier:reuseIdentifier];
+    self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:reuseIdentifier];
     
     if (!self.modelCell.contentView.subviews.count) {
         NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@.nib", NSStringFromClass(cellClass)] ofType:nil];
         if (path) {
             self.modelCell = nil;
-            [_modelTableview registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:NSStringFromClass(cellClass)];
-            self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:NSStringFromClass(cellClass)];
+            [_modelTableview registerNib:[UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+            self.modelCell = [_modelTableview dequeueReusableCellWithIdentifier:reuseIdentifier];
         }
     }
     if (self.modelCell) {
@@ -303,11 +308,16 @@
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass
 {
+   return [self cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass reuseIdentifier:NSStringFromClass(cellClass)];
+}
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass  reuseIdentifier:(NSString*)reuseIdentifier
+{
     if (![self.modelCell isKindOfClass:cellClass]) {
         self.modelCell = nil;
         self.modelCell = [_modelCellsDict objectForKey:NSStringFromClass(cellClass)];
         if (!self.modelCell) {
-            [self registerCellWithCellClass:cellClass];
+            [self registerCellWithCellClass:cellClass  reuseIdentifier:reuseIdentifier];
         }
         _modelCell.contentView.tag = kSDModelCellTag;
     }
@@ -316,6 +326,7 @@
     }
     return [self cellHeightForIndexPath:indexPath model:model keyPath:keyPath];
 }
+
 
 - (void)setContentViewWidth:(CGFloat)contentViewWidth
 {
@@ -419,19 +430,28 @@
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth
 {
+    return [self cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass contentViewWidth:contentViewWidth  reuseIdentifier:NSStringFromClass(cellClass)];
+}
+
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth reuseIdentifier:(NSString*)reuseIdentifier
+{
     self.cellAutoHeightManager.modelTableview = self;
     
     self.cellAutoHeightManager.contentViewWidth = contentViewWidth;
     
-    return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass];
+    return [self.cellAutoHeightManager cellHeightForIndexPath:indexPath model:model keyPath:keyPath cellClass:cellClass reuseIdentifier:reuseIdentifier];
 }
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellClass:(__unsafe_unretained Class)cellClass cellContentViewWidth:(CGFloat)width cellDataSetting:(AutoCellHeightDataSettingBlock)cellDataSetting
 {
+    return [self cellHeightForIndexPath:indexPath model:nil keyPath:nil cellClass:cellClass contentViewWidth:width reuseIdentifier:NSStringFromClass(cellClass)];
+}
 
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellClass:(Class)cellClass cellContentViewWidth:(CGFloat)width cellDataSetting:(AutoCellHeightDataSettingBlock)cellDataSetting reuseIdentifier:(NSString*)reuseIdentifier
+{
     self.cellDataSetting = cellDataSetting;
-
-    return [self cellHeightForIndexPath:indexPath model:nil keyPath:nil cellClass:cellClass contentViewWidth:width];
+    
+    return [self cellHeightForIndexPath:indexPath model:nil keyPath:nil cellClass:cellClass contentViewWidth:width reuseIdentifier:reuseIdentifier];
 }
 
 - (void)reloadDataWithExistedHeightCache

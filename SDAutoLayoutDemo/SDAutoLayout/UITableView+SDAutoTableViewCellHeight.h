@@ -56,6 +56,11 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell *cell);
  */
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth;
 
+/*
+ 如果使用自定义的reuseIdentifier在cell中进行了业务判断处理，必须使用该方法
+ */
+-(CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth reuseIdentifier:(NSString*)reuseIdentifier;
+
 /**
  * 返回计算出的cell高度（普通简化版方法，同样只需一步设置即可完成）(用法：见DemoVC14)
  * cellClass          : 当前的indexPath对应的cell的class
@@ -63,6 +68,11 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell *cell);
  * cellDataSetting    : 设置cell数据的block
  */
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellClass:(Class)cellClass cellContentViewWidth:(CGFloat)width cellDataSetting:(AutoCellHeightDataSettingBlock)cellDataSetting;
+
+/*
+ 如果使用自定义的reuseIdentifier在cell中进行了业务判断处理，必须使用该方法
+ */
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellClass:(Class)cellClass cellContentViewWidth:(CGFloat)width cellDataSetting:(AutoCellHeightDataSettingBlock)cellDataSetting reuseIdentifier:(NSString*)reuseIdentifier;
 
 /** 刷新tableView但不清空之前已经计算好的高度缓存，用于直接将新数据拼接在旧数据之后的tableView刷新 */
 - (void)reloadDataWithExistedHeightCache;
@@ -158,6 +168,8 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell *cell);
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;
 
 - (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass;
+
+-(CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth reuseIdentifier:(NSString*)reuseIdentifier;
 
 
 - (NSMutableArray *)subviewFrameCachesWithIndexPath:(NSIndexPath *)indexPath;;
