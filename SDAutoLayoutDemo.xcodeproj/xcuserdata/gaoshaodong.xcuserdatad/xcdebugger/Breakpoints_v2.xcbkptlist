@@ -89,7 +89,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
             endingLineNumber = "33"
-            landmarkName = "cellContVClass()"
+            landmarkName = "cellContVClass"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,7 +121,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
             endingLineNumber = "79"
-            landmarkName = "-setFrame:"
+            landmarkName = "-links"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
