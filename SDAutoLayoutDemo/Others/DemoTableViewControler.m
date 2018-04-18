@@ -80,8 +80,10 @@ NSString * const demo14Description = @"xib的cell高度自适应";
         [self.navigationItem.rightBarButtonItem setTitle:@"关闭内存监控"];
         if (!hasShowedAlert) {
             hasShowedAlert = YES;
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"开启内存监控" message:@"你已开启实时内存监控(开启此项会增加少量额外cpu开销)。\n本内存监控组件采用腾讯QQ团队开源的OOMDetector组件，可以帮助开发者快速定位内存暴增、内存泄漏问题，同时可以输出造成内存问题的相关堆栈。更多功能请在Github搜索OOMDetector查看。" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
-            [alertView show];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"开启内存监控" message:@"你已开启实时内存监控(开启此项会增加少量额外cpu开销)。\n本内存监控组件采用腾讯QQ团队开源的OOMDetector组件，可以帮助开发者快速定位内存暴增、内存泄漏问题，同时可以输出造成内存问题的相关堆栈。更多功能请在Github搜索OOMDetector查看。" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+                [alertView show];
+            });
          }
     } else {
         [self.navigationItem.rightBarButtonItem setTitle:@"开启内存监控"];
