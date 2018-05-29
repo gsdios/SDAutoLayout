@@ -218,6 +218,7 @@
 		9B1415001EDFC77900173BB9 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1414FF1EDFC77900173BB9 /* LEETheme.m */; };
 		9B2AF0F51D1166690007A130 /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F31D1166690007A130 /* theme_day_json.json */; };
 		9B2AF0F61D1166690007A130 /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F41D1166690007A130 /* theme_night_json.json */; };
+		B1B944B220BCFB44008F658A /* SDAutolayout+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -601,6 +602,8 @@
 		9B1414FF1EDFC77900173BB9 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		9B2AF0F31D1166690007A130 /* theme_day_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_day_json.json; sourceTree = "<group>"; };
 		9B2AF0F41D1166690007A130 /* theme_night_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_night_json.json; sourceTree = "<group>"; };
+		B1B944B020BCFB44008F658A /* SDAutoLayoutDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SDAutoLayoutDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDAutolayout+extension.swift"; sourceTree = "<group>"; };
 		B9BAE9A3DD9811F84DDDECB2 /* libPods-SDAutoLayoutDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDAutoLayoutDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF70C3084D41C4217B66DF2B /* Pods-SDAutoLayoutDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDAutoLayoutDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDAutoLayoutDemo/Pods-SDAutoLayoutDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -915,6 +918,7 @@
 		487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B1B944AF20BCFAAE008F658A /* SwiftExtension */,
 				99A6976F1C423B0D004EA699 /* SDAutoLayout */,
 				485303491C3F97AA004361A7 /* Others */,
 				485303021C3F977A004361A7 /* DemoVC */,
@@ -1618,6 +1622,15 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		B1B944AF20BCFAAE008F658A /* SwiftExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */,
+				B1B944B020BCFB44008F658A /* SDAutoLayoutDemo-Bridging-Header.h */,
+			);
+			path = SwiftExtension;
+			sourceTree = "<group>";
+		};
 		DFED35631060760095A64CE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1679,6 +1692,7 @@
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = ZAYJYHGWK8;
+						LastSwiftMigration = 0930;
 					};
 					487D3EC91BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1943,6 +1957,7 @@
 				48FC0ECB1C4FB7CA004098B8 /* XYString.m in Sources */,
 				485302F41C3F65EE004361A7 /* TAAbstractDotView.m in Sources */,
 				48FC0EA31C4FB60A004098B8 /* UIButton+AFNetworking.m in Sources */,
+				B1B944B220BCFB44008F658A /* SDAutolayout+extension.swift in Sources */,
 				485302F81C3F65EE004361A7 /* SDCollectionViewCell.m in Sources */,
 				48FC0EB51C4FB60A004098B8 /* MJRefreshBackFooter.m in Sources */,
 				99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */,
@@ -2113,6 +2128,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZAYJYHGWK8;
@@ -2129,6 +2145,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gsd.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SDAutoLayoutDemo/SwiftExtension/SDAutoLayoutDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2138,6 +2157,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZAYJYHGWK8;
@@ -2154,12 +2174,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gsd.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SDAutoLayoutDemo/SwiftExtension/SDAutoLayoutDemo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		487D3ED81BCB9EC700A66173 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2179,6 +2202,7 @@
 		487D3ED91BCB9EC700A66173 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
