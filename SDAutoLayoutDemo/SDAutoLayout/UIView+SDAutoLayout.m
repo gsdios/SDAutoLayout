@@ -1273,6 +1273,14 @@ Class cellContVClass()
     
     [self layoutBottomWithView:view model:model];
     
+    if ((model.centerX || model.equalCenterX) && !view.fixedWidth) {
+        [self layoutLeftWithView:view model:model];
+    }
+    
+    if ((model.centerY || model.equalCenterY) && !view.fixedHeight) {
+        [self layoutTopWithView:view model:model];
+    }
+    
     if (view.sd_maxWidth) {
         [self layoutAutoWidthWidthView:view model:model];
     }
