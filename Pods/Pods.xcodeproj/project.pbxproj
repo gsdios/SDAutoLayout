@@ -105,55 +105,55 @@
 		0D0B1E9CEEA0436E4013B0BFAD1813FE /* Pods-SDAutoLayoutDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SDAutoLayoutDemo.release.xcconfig"; sourceTree = "<group>"; };
 		0EA747D99189663E202DCA143CE8FC38 /* QQLeakDataUploadCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QQLeakDataUploadCenter.h; path = libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakDataUploadCenter.h; sourceTree = "<group>"; };
 		1073D6369C6343FCB37181037D541FDC /* CThreadTrackingHashmap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CThreadTrackingHashmap.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/structures/CThreadTrackingHashmap.h; sourceTree = "<group>"; };
-		11ADA35E05279BE142A4742D36FA2FFC /* CObjcFilter.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CObjcFilter.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/objc/CObjcFilter.mm; sourceTree = "<group>"; };
+		11ADA35E05279BE142A4742D36FA2FFC /* CObjcFilter.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CObjcFilter.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/objc/CObjcFilter.mm; sourceTree = "<group>"; };
 		1393E1C2F8FAADC4165AABB63AFBF839 /* QQLeakFileUploadCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QQLeakFileUploadCenter.h; path = libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakFileUploadCenter.h; sourceTree = "<group>"; };
 		174BE87A841CE4D4FD5962369E3A4186 /* CStackHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CStackHelper.h; path = libOOMDetector/libOOMDetector/OOMDetector/common/stack/CStackHelper.h; sourceTree = "<group>"; };
-		19265D21A2EAB25D2A5B6ED5F7406841 /* QQLeakDataUploadCenter.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = QQLeakDataUploadCenter.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakDataUploadCenter.mm; sourceTree = "<group>"; };
-		1D867E41270750C0A6278868C3DDA183 /* QQLeakMallocStackTracker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = QQLeakMallocStackTracker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/main/QQLeakMallocStackTracker.mm; sourceTree = "<group>"; };
-		27331C6251F7C486582D339B03BFAC53 /* libfishhook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libfishhook.a; path = libfishhook.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DE53A011233713CF885774780565B11 /* CBaseHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CBaseHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CBaseHashmap.mm; sourceTree = "<group>"; };
-		30741978D4773C989385AE677B685C4E /* QQLeakFileUploadCenter.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = QQLeakFileUploadCenter.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakFileUploadCenter.mm; sourceTree = "<group>"; };
-		32BAEB4F5D448FC259D7B476B06720EA /* OOMDetector.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = OOMDetector.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/main/OOMDetector.mm; sourceTree = "<group>"; };
+		19265D21A2EAB25D2A5B6ED5F7406841 /* QQLeakDataUploadCenter.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = QQLeakDataUploadCenter.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakDataUploadCenter.mm; sourceTree = "<group>"; };
+		1D867E41270750C0A6278868C3DDA183 /* QQLeakMallocStackTracker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = QQLeakMallocStackTracker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/main/QQLeakMallocStackTracker.mm; sourceTree = "<group>"; };
+		27331C6251F7C486582D339B03BFAC53 /* libfishhook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfishhook.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DE53A011233713CF885774780565B11 /* CBaseHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CBaseHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CBaseHashmap.mm; sourceTree = "<group>"; };
+		30741978D4773C989385AE677B685C4E /* QQLeakFileUploadCenter.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = QQLeakFileUploadCenter.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/upload/QQLeakFileUploadCenter.mm; sourceTree = "<group>"; };
+		32BAEB4F5D448FC259D7B476B06720EA /* OOMDetector.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = OOMDetector.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/main/OOMDetector.mm; sourceTree = "<group>"; };
 		34776566216FBB24E6E0FE83F1202F91 /* Pods-SDAutoLayoutDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SDAutoLayoutDemo-resources.sh"; sourceTree = "<group>"; };
 		3B74A9CE4864D460F3169CD10E15D474 /* fishhook.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = fishhook.xcconfig; sourceTree = "<group>"; };
-		3CA14D0E27AC07B64526481A511BA8DD /* CommonMallocLogger.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CommonMallocLogger.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/stack/CommonMallocLogger.mm; sourceTree = "<group>"; };
+		3CA14D0E27AC07B64526481A511BA8DD /* CommonMallocLogger.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CommonMallocLogger.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/stack/CommonMallocLogger.mm; sourceTree = "<group>"; };
 		451836DE316D49F51E8E6B92750081C8 /* OOMDetector-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OOMDetector-prefix.pch"; sourceTree = "<group>"; };
-		48AFED57506BC6A343F5B6D7F6D66098 /* libPods-SDAutoLayoutDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SDAutoLayoutDemo.a"; path = "libPods-SDAutoLayoutDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		48AFED57506BC6A343F5B6D7F6D66098 /* libPods-SDAutoLayoutDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDAutoLayoutDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC4E3966D5B57F7163B11101077DD90 /* CMemoryChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CMemoryChecker.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CMemoryChecker.h; sourceTree = "<group>"; };
-		4C19E1A0208769BBF48E71A776074CF4 /* CMallocHook.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CMallocHook.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/hook/CMallocHook.mm; sourceTree = "<group>"; };
+		4C19E1A0208769BBF48E71A776074CF4 /* CMallocHook.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CMallocHook.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/hook/CMallocHook.mm; sourceTree = "<group>"; };
 		4C568CDD49DEC590BE4A952A5A0647C3 /* OOMDetector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OOMDetector.h; path = libOOMDetector/libOOMDetector/OOMDetector/Headers/OOMDetector.h; sourceTree = "<group>"; };
-		530113B07FA79C18DFF344748BF041E0 /* CSegmentChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CSegmentChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CSegmentChecker.mm; sourceTree = "<group>"; };
-		556900C2C36EB9160A948F9749A16760 /* CStackHelper.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CStackHelper.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/stack/CStackHelper.mm; sourceTree = "<group>"; };
-		56E408CFFBFBD9FF28C9FFE473F576E1 /* COOMDetector.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = COOMDetector.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/main/COOMDetector.mm; sourceTree = "<group>"; };
+		530113B07FA79C18DFF344748BF041E0 /* CSegmentChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CSegmentChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CSegmentChecker.mm; sourceTree = "<group>"; };
+		556900C2C36EB9160A948F9749A16760 /* CStackHelper.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CStackHelper.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/stack/CStackHelper.mm; sourceTree = "<group>"; };
+		56E408CFFBFBD9FF28C9FFE473F576E1 /* COOMDetector.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = COOMDetector.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/main/COOMDetector.mm; sourceTree = "<group>"; };
 		5905299FCEE0612728AE647ADEEC223B /* fishhook.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		5AD00FA0E6DC842B1A81987C5EB6A7DF /* Pods-SDAutoLayoutDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SDAutoLayoutDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5CC6C02DF333C1BF15A9C6D6BCE7B683 /* COOMDetector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = COOMDetector.h; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/main/COOMDetector.h; sourceTree = "<group>"; };
-		5F52E4059EC12665D14393CD1C4C3013 /* OOMStatisticsInfoCenter.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = OOMStatisticsInfoCenter.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/statistic/OOMStatisticsInfoCenter.mm; sourceTree = "<group>"; };
-		61E5479D35D431E3B7D1F76A91653D34 /* HighSpeedLogger.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = HighSpeedLogger.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/logger/HighSpeedLogger.mm; sourceTree = "<group>"; };
+		5F52E4059EC12665D14393CD1C4C3013 /* OOMStatisticsInfoCenter.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = OOMStatisticsInfoCenter.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/statistic/OOMStatisticsInfoCenter.mm; sourceTree = "<group>"; };
+		61E5479D35D431E3B7D1F76A91653D34 /* HighSpeedLogger.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = HighSpeedLogger.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/logger/HighSpeedLogger.mm; sourceTree = "<group>"; };
 		6201658497E1616823B06CDE997C7999 /* AllocationTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AllocationTracker.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/hook/AllocationTracker.h; sourceTree = "<group>"; };
 		69D2C717D7E47BB32DAF779C6D7CC30F /* QQLeakPredefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QQLeakPredefines.h; path = libOOMDetector/libOOMDetector/OOMDetector/common/QQLeakPredefines.h; sourceTree = "<group>"; };
-		6ADF3C760AA27D331FC6D27FE98FE1A4 /* OOMDetectorLogger.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = OOMDetectorLogger.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/logger/OOMDetectorLogger.mm; sourceTree = "<group>"; };
+		6ADF3C760AA27D331FC6D27FE98FE1A4 /* OOMDetectorLogger.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = OOMDetectorLogger.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/logger/OOMDetectorLogger.mm; sourceTree = "<group>"; };
 		6CDF0190398A90AA0F421F4A2AB9178A /* OOMStatisticsInfoCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OOMStatisticsInfoCenter.h; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/statistic/OOMStatisticsInfoCenter.h; sourceTree = "<group>"; };
 		6E0FF9C740AC483FC30861FDCA71A547 /* QQLeakChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QQLeakChecker.h; path = libOOMDetector/libOOMDetector/OOMDetector/Headers/QQLeakChecker.h; sourceTree = "<group>"; };
-		706BA5C396B1D6D1987F8D36E96BF038 /* CThreadTrackingHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CThreadTrackingHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/structures/CThreadTrackingHashmap.mm; sourceTree = "<group>"; };
+		706BA5C396B1D6D1987F8D36E96BF038 /* CThreadTrackingHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CThreadTrackingHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/structures/CThreadTrackingHashmap.mm; sourceTree = "<group>"; };
 		72832B788500273633CE73725DD3DE39 /* OOMDetector-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OOMDetector-dummy.m"; sourceTree = "<group>"; };
-		75760EE3D981D1931B71D17FBD10F642 /* CLeakChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CLeakChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/main/CLeakChecker.mm; sourceTree = "<group>"; };
+		75760EE3D981D1931B71D17FBD10F642 /* CLeakChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CLeakChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/main/CLeakChecker.mm; sourceTree = "<group>"; };
 		774FB994071CD1E8D603F5DBB70EF5F7 /* CRegisterChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CRegisterChecker.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CRegisterChecker.h; sourceTree = "<group>"; };
 		7826C2FCB7344E662C0593A961184133 /* MemoryIndicator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MemoryIndicator.m; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/memoryIndicator/MemoryIndicator.m; sourceTree = "<group>"; };
 		790FC7345466BF86E941C7BACDBC1EF5 /* Pods-SDAutoLayoutDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SDAutoLayoutDemo-frameworks.sh"; sourceTree = "<group>"; };
 		7E4D888305AD235BD0D0FE33D640F720 /* Pods-SDAutoLayoutDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SDAutoLayoutDemo-dummy.m"; sourceTree = "<group>"; };
-		7E8ED66EBA1FCA489C7D186C88552B28 /* CMemoryChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CMemoryChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CMemoryChecker.mm; sourceTree = "<group>"; };
+		7E8ED66EBA1FCA489C7D186C88552B28 /* CMemoryChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CMemoryChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CMemoryChecker.mm; sourceTree = "<group>"; };
 		7F28EBADA39ADB161B9866DBC1A7A670 /* CLeakedHashmap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLeakedHashmap.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/structures/CLeakedHashmap.h; sourceTree = "<group>"; };
 		804119E49AC82E76DF861A66362E9576 /* CBaseHashmap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBaseHashmap.h; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CBaseHashmap.h; sourceTree = "<group>"; };
 		8460C44C65248EE4944668A34F0B6770 /* CLeakChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLeakChecker.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/main/CLeakChecker.h; sourceTree = "<group>"; };
 		91262D371F4EED04B78E293C0761FB11 /* OOMDetector.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OOMDetector.xcconfig; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		96566EA20358F00CD93AF50AEC1B9D9E /* CStacksHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CStacksHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CStacksHashmap.mm; sourceTree = "<group>"; };
-		9B64E3BFA8FE445CB75E687A3F24A149 /* fishhook.c */ = {isa = PBXFileReference; includeInIndex = 1; path = fishhook.c; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		96566EA20358F00CD93AF50AEC1B9D9E /* CStacksHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CStacksHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CStacksHashmap.mm; sourceTree = "<group>"; };
+		9B64E3BFA8FE445CB75E687A3F24A149 /* fishhook.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
 		9CCB6A26885ED5B445B62BE1EB039D9E /* CSegmentChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSegmentChecker.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CSegmentChecker.h; sourceTree = "<group>"; };
 		9EC8391C41ABB5540FED9BE5DC1A4C17 /* OOMMemoryStackTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OOMMemoryStackTracker.h; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/stacktrack/OOMMemoryStackTracker.h; sourceTree = "<group>"; };
-		9ED4603C6D9FF0349732FFA4913B0D26 /* libOOMDetector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libOOMDetector.a; path = libOOMDetector.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2A80C869B69957D780B39D91F004E96 /* CStackChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CStackChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CStackChecker.mm; sourceTree = "<group>"; };
+		9ED4603C6D9FF0349732FFA4913B0D26 /* libOOMDetector.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOOMDetector.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2A80C869B69957D780B39D91F004E96 /* CStackChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CStackChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CStackChecker.mm; sourceTree = "<group>"; };
 		A7B08A34FF40709F9AD830EA5FA6C5EB /* OOMDetectorLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OOMDetectorLogger.h; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/logger/OOMDetectorLogger.h; sourceTree = "<group>"; };
 		A7B5030DC3CDF3FD33AB0CA05D2C9CC6 /* CStackChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CStackChecker.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CStackChecker.h; sourceTree = "<group>"; };
 		A97E49BCCBBD032BA75FA1FF17D73D7A /* CStacksHashmap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CStacksHashmap.h; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CStacksHashmap.h; sourceTree = "<group>"; };
@@ -163,22 +163,22 @@
 		B3C0638C9E642CB853DD24D3FD69DA6F /* QQLeakMallocStackTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QQLeakMallocStackTracker.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/main/QQLeakMallocStackTracker.h; sourceTree = "<group>"; };
 		B976A26DEA2281908AF2255B5F93C668 /* fishhook-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "fishhook-prefix.pch"; sourceTree = "<group>"; };
 		C1907E08AD557F9A654FFEAA03F01C24 /* CObjcFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CObjcFilter.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/objc/CObjcFilter.h; sourceTree = "<group>"; };
-		C718885A474C11CF1FD214B39029DE9B /* CRegisterChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CRegisterChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CRegisterChecker.mm; sourceTree = "<group>"; };
-		C9072CBE53EEFB63289C330169841419 /* CLeakedHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CLeakedHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/structures/CLeakedHashmap.mm; sourceTree = "<group>"; };
-		CA1EA205D59C3F15BB0A780E44EBC027 /* QQLeakChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = QQLeakChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/main/QQLeakChecker.mm; sourceTree = "<group>"; };
+		C718885A474C11CF1FD214B39029DE9B /* CRegisterChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CRegisterChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CRegisterChecker.mm; sourceTree = "<group>"; };
+		C9072CBE53EEFB63289C330169841419 /* CLeakedHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CLeakedHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/structures/CLeakedHashmap.mm; sourceTree = "<group>"; };
+		CA1EA205D59C3F15BB0A780E44EBC027 /* QQLeakChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = QQLeakChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/main/QQLeakChecker.mm; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D108417AB7A5CBB2A235071164B3FE3B /* Pods-SDAutoLayoutDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SDAutoLayoutDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		D4795640DFD37E97D895E473E26E467C /* OOMMemoryStackTracker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = OOMMemoryStackTracker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/stacktrack/OOMMemoryStackTracker.mm; sourceTree = "<group>"; };
+		D4795640DFD37E97D895E473E26E467C /* OOMMemoryStackTracker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = OOMMemoryStackTracker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/stacktrack/OOMMemoryStackTracker.mm; sourceTree = "<group>"; };
 		D843B5DEBB31D2D1602256ABA2AF4D81 /* CHeapChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CHeapChecker.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CHeapChecker.h; sourceTree = "<group>"; };
-		DABD3AE3C9B397AD527981EDAC2DC211 /* AllocationTracker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = AllocationTracker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/hook/AllocationTracker.mm; sourceTree = "<group>"; };
+		DABD3AE3C9B397AD527981EDAC2DC211 /* AllocationTracker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = AllocationTracker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/hook/AllocationTracker.mm; sourceTree = "<group>"; };
 		DB6ED7689A61787171CDE4BDDA48DF2C /* CPtrsHashmap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CPtrsHashmap.h; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CPtrsHashmap.h; sourceTree = "<group>"; };
 		DF1A4FD877AD96FD83A75069746B70DB /* libOOMDetector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = libOOMDetector.h; path = libOOMDetector/libOOMDetector/libOOMDetector.h; sourceTree = "<group>"; };
 		E267C8D9F272BBA8FC190249D5301F58 /* HighSpeedLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HighSpeedLogger.h; path = libOOMDetector/libOOMDetector/OOMDetector/OOMDetector/logger/HighSpeedLogger.h; sourceTree = "<group>"; };
-		E5DAF59D6A01626BF0CCDFBDA5C0A1EA /* CHeapChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CHeapChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CHeapChecker.mm; sourceTree = "<group>"; };
+		E5DAF59D6A01626BF0CCDFBDA5C0A1EA /* CHeapChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CHeapChecker.mm; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/memchecker/CHeapChecker.mm; sourceTree = "<group>"; };
 		F7D07F3B364F84F25F15698A584AD979 /* CMallocHook.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CMallocHook.h; path = libOOMDetector/libOOMDetector/OOMDetector/QQLeak/hook/CMallocHook.h; sourceTree = "<group>"; };
 		F8C13E2F3BB74FE9BFBD84CB530638A4 /* fishhook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "fishhook-dummy.m"; sourceTree = "<group>"; };
-		FB58C8BB127A6B98E81EF90CBF9091BF /* oomgif.gif */ = {isa = PBXFileReference; includeInIndex = 1; name = oomgif.gif; path = assets/oomgif.gif; sourceTree = "<group>"; };
-		FCD221E4B92D049DB87C1CF5B4B4F363 /* CPtrsHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = CPtrsHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CPtrsHashmap.mm; sourceTree = "<group>"; };
+		FB58C8BB127A6B98E81EF90CBF9091BF /* oomgif.gif */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.gif; name = oomgif.gif; path = assets/oomgif.gif; sourceTree = "<group>"; };
+		FCD221E4B92D049DB87C1CF5B4B4F363 /* CPtrsHashmap.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = CPtrsHashmap.mm; path = libOOMDetector/libOOMDetector/OOMDetector/common/structure/CPtrsHashmap.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,7 +328,6 @@
 				A20B199D05F73FFC5749530AE00B08DC /* Resources */,
 				18EE7AD1F0C3C0BDA93313527378E469 /* Support Files */,
 			);
-			name = OOMDetector;
 			path = OOMDetector;
 			sourceTree = "<group>";
 		};
@@ -347,7 +346,6 @@
 				5905299FCEE0612728AE647ADEEC223B /* fishhook.h */,
 				AEA1E6B116A181B1E6A9A0271C8F2BFE /* Support Files */,
 			);
-			name = fishhook;
 			path = fishhook;
 			sourceTree = "<group>";
 		};
@@ -498,7 +496,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1000;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -608,7 +606,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/fishhook/fishhook-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -631,7 +629,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/fishhook/fishhook-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -653,7 +651,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -675,19 +673,31 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -698,7 +708,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
@@ -716,7 +726,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -738,20 +748,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -765,7 +787,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -784,7 +806,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/OOMDetector/OOMDetector-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -807,7 +829,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/OOMDetector/OOMDetector-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";

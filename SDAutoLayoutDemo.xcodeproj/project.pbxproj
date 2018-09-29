@@ -71,7 +71,6 @@
 		487D3EC01BCB9EC700A66173 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EBE1BCB9EC700A66173 /* Main.storyboard */; };
 		487D3EC21BCB9EC700A66173 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EC11BCB9EC700A66173 /* Images.xcassets */; };
 		487D3EC51BCB9EC700A66173 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 487D3EC31BCB9EC700A66173 /* LaunchScreen.xib */; };
-		487D3ED11BCB9EC700A66173 /* SDAutoLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 487D3ED01BCB9EC700A66173 /* SDAutoLayoutDemoTests.m */; };
 		489489091CE5FA1700C9BB71 /* PhotosContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 489489081CE5FA1700C9BB71 /* PhotosContainerView.m */; };
 		48DBCD1A1C01E045002EC476 /* icon0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD101C01E045002EC476 /* icon0.jpg */; };
 		48DBCD1B1C01E045002EC476 /* icon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48DBCD111C01E045002EC476 /* icon1.jpg */; };
@@ -187,8 +186,6 @@
 		48FC0ECB1C4FB7CA004098B8 /* XYString.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0ECA1C4FB7CA004098B8 /* XYString.m */; };
 		6B42D97E2087825A009D5BEC /* DemoVC14Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B42D97D2087825A009D5BEC /* DemoVC14Cell.xib */; };
 		9997FB651CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9997FB641CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m */; };
-		99A697741C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */; };
-		99A697751C423B0D004EA699 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */; };
 		99D694B51C8C54D000DA97E1 /* SDTimeLineCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694A01C8C54D000DA97E1 /* SDTimeLineCellModel.m */; };
 		99D694B61C8C54D100DA97E1 /* SDTimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694A31C8C54D000DA97E1 /* SDTimeLineTableViewController.m */; };
 		99D694B71C8C54D100DA97E1 /* SDTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694A71C8C54D000DA97E1 /* SDTimeLineCell.m */; };
@@ -215,17 +212,16 @@
 		9B2AF0F51D1166690007A130 /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F31D1166690007A130 /* theme_day_json.json */; };
 		9B2AF0F61D1166690007A130 /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F41D1166690007A130 /* theme_night_json.json */; };
 		C94A1348215F572E00A92F35 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C94A1346215F572E00A92F35 /* LEETheme.m */; };
+		C94A1350215F591A00A92F35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A134F215F591A00A92F35 /* AppDelegate.swift */; };
+		C94A1352215F591A00A92F35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A1351215F591A00A92F35 /* ViewController.swift */; };
+		C94A1355215F591A00A92F35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94A1353215F591A00A92F35 /* Main.storyboard */; };
+		C94A1357215F591C00A92F35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94A1356215F591C00A92F35 /* Assets.xcassets */; };
+		C94A135A215F591C00A92F35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94A1358215F591C00A92F35 /* LaunchScreen.storyboard */; };
+		C96D0594215F5BED0050BA9F /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D058F215F5BED0050BA9F /* UIView+SDAutoLayout.m */; };
+		C96D0595215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D0592215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m */; };
+		C96D059C215F5C040050BA9F /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D0597215F5C040050BA9F /* UIView+SDAutoLayout.m */; };
+		C96D059D215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D059A215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		487D3ECB1BCB9EC700A66173 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 487D3EA91BCB9EC700A66173 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 487D3EB01BCB9EC700A66173;
-			remoteInfo = "SDAutoLayout 测试 Demo";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4808F3921CE4ABFB00242779 /* DemoVC14.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC14.h; sourceTree = "<group>"; };
@@ -348,9 +344,6 @@
 		487D3EBF1BCB9EC700A66173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		487D3EC11BCB9EC700A66173 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		487D3EC41BCB9EC700A66173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		487D3ECA1BCB9EC700A66173 /* SDAutoLayoutDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDAutoLayoutDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		487D3ECF1BCB9EC700A66173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		487D3ED01BCB9EC700A66173 /* SDAutoLayoutDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDAutoLayoutDemoTests.m; sourceTree = "<group>"; };
 		489489071CE5FA1700C9BB71 /* PhotosContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosContainerView.h; sourceTree = "<group>"; };
 		489489081CE5FA1700C9BB71 /* PhotosContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosContainerView.m; sourceTree = "<group>"; };
 		48DBCD101C01E045002EC476 /* icon0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon0.jpg; sourceTree = "<group>"; };
@@ -414,7 +407,6 @@
 		48EEAD6B1C9C25F4001138FE /* DemoVC12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC12.m; sourceTree = "<group>"; };
 		48EEAD6E1C9C3006001138FE /* DemoVC13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC13.h; sourceTree = "<group>"; };
 		48EEAD6F1C9C3006001138FE /* DemoVC13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC13.m; sourceTree = "<group>"; };
-		48F0CD321D20EE8C0018C47A /* SDAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
 		48FC0E031C4FB3A8004098B8 /* Ads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ads.h; sourceTree = "<group>"; };
 		48FC0E041C4FB3A8004098B8 /* Ads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ads.m; sourceTree = "<group>"; };
 		48FC0E051C4FB3A8004098B8 /* Editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Editor.h; sourceTree = "<group>"; };
@@ -541,10 +533,6 @@
 		6B42D97D2087825A009D5BEC /* DemoVC14Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoVC14Cell.xib; sourceTree = "<group>"; };
 		9997FB631CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellOperationMenu.h; sourceTree = "<group>"; };
 		9997FB641CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellOperationMenu.m; sourceTree = "<group>"; };
-		99A697701C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
-		99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
-		99A697721C423B0D004EA699 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
-		99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 		99D6949F1C8C54D000DA97E1 /* SDTimeLineCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellModel.h; sourceTree = "<group>"; };
 		99D694A01C8C54D000DA97E1 /* SDTimeLineCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellModel.m; sourceTree = "<group>"; };
 		99D694A21C8C54D000DA97E1 /* SDTimeLineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineTableViewController.h; sourceTree = "<group>"; };
@@ -597,6 +585,24 @@
 		C94A1345215F572E00A92F35 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
 		C94A1346215F572E00A92F35 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		C94A1347215F572E00A92F35 /* LEEThemeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEThemeHelper.h; sourceTree = "<group>"; };
+		C94A134D215F591A00A92F35 /* SDAutoLayoutSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDAutoLayoutSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C94A134F215F591A00A92F35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C94A1351215F591A00A92F35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C94A1354215F591A00A92F35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C94A1356215F591C00A92F35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C94A1359215F591C00A92F35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C94A135B215F591C00A92F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C96D058F215F5BED0050BA9F /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		C96D0590215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		C96D0591215F5BED0050BA9F /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
+		C96D0592215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		C96D0593215F5BED0050BA9F /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		C96D0597215F5C040050BA9F /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		C96D0598215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		C96D0599215F5C040050BA9F /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
+		C96D059A215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		C96D059B215F5C040050BA9F /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		C96D059E215F5C980050BA9F /* Bridge-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		EF70C3084D41C4217B66DF2B /* Pods-SDAutoLayoutDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDAutoLayoutDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDAutoLayoutDemo/Pods-SDAutoLayoutDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -609,7 +615,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		487D3EC71BCB9EC700A66173 /* Frameworks */ = {
+		C94A134A215F591A00A92F35 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -891,7 +897,7 @@
 			isa = PBXGroup;
 			children = (
 				487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */,
-				487D3ECD1BCB9EC700A66173 /* SDAutoLayoutDemoTests */,
+				C94A134E215F591A00A92F35 /* SDAutoLayoutSwiftDemo */,
 				487D3EB21BCB9EC700A66173 /* Products */,
 				8692F3CE0736DACAE5C8D22B /* Pods */,
 				DFED35631060760095A64CE0 /* Frameworks */,
@@ -902,7 +908,7 @@
 			isa = PBXGroup;
 			children = (
 				487D3EB11BCB9EC700A66173 /* SDAutoLayoutDemo.app */,
-				487D3ECA1BCB9EC700A66173 /* SDAutoLayoutDemo.xctest */,
+				C94A134D215F591A00A92F35 /* SDAutoLayoutSwiftDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -910,7 +916,7 @@
 		487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
-				99A6976F1C423B0D004EA699 /* SDAutoLayout */,
+				C96D058E215F5BED0050BA9F /* SDAutoLayout */,
 				485303491C3F97AA004361A7 /* Others */,
 				485303021C3F977A004361A7 /* DemoVC */,
 				485302961C3F648F004361A7 /* Vender */,
@@ -928,23 +934,6 @@
 				48DBCD0F1C01DEB1002EC476 /* Images */,
 				487D3EB51BCB9EC700A66173 /* Info.plist */,
 				487D3EB61BCB9EC700A66173 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		487D3ECD1BCB9EC700A66173 /* SDAutoLayoutDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				487D3ED01BCB9EC700A66173 /* SDAutoLayoutDemoTests.m */,
-				487D3ECE1BCB9EC700A66173 /* Supporting Files */,
-			);
-			path = SDAutoLayoutDemoTests;
-			sourceTree = "<group>";
-		};
-		487D3ECE1BCB9EC700A66173 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				487D3ECF1BCB9EC700A66173 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1402,18 +1391,6 @@
 			path = OperationMenu;
 			sourceTree = "<group>";
 		};
-		99A6976F1C423B0D004EA699 /* SDAutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				99A697701C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.h */,
-				99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */,
-				99A697721C423B0D004EA699 /* UIView+SDAutoLayout.h */,
-				99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */,
-				48F0CD321D20EE8C0018C47A /* SDAutoLayout.h */,
-			);
-			path = SDAutoLayout;
-			sourceTree = "<group>";
-		};
 		99D6949D1C8C54D000DA97E1 /* TimeLine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1611,6 +1588,45 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		C94A134E215F591A00A92F35 /* SDAutoLayoutSwiftDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C96D0596215F5C040050BA9F /* SDAutoLayout */,
+				C94A134F215F591A00A92F35 /* AppDelegate.swift */,
+				C94A1351215F591A00A92F35 /* ViewController.swift */,
+				C94A1353215F591A00A92F35 /* Main.storyboard */,
+				C94A1356215F591C00A92F35 /* Assets.xcassets */,
+				C94A1358215F591C00A92F35 /* LaunchScreen.storyboard */,
+				C96D059E215F5C980050BA9F /* Bridge-Header.h */,
+				C94A135B215F591C00A92F35 /* Info.plist */,
+			);
+			path = SDAutoLayoutSwiftDemo;
+			sourceTree = "<group>";
+		};
+		C96D058E215F5BED0050BA9F /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				C96D058F215F5BED0050BA9F /* UIView+SDAutoLayout.m */,
+				C96D0590215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.h */,
+				C96D0591215F5BED0050BA9F /* SDAutoLayout.h */,
+				C96D0592215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m */,
+				C96D0593215F5BED0050BA9F /* UIView+SDAutoLayout.h */,
+			);
+			path = SDAutoLayout;
+			sourceTree = SOURCE_ROOT;
+		};
+		C96D0596215F5C040050BA9F /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				C96D0597215F5C040050BA9F /* UIView+SDAutoLayout.m */,
+				C96D0598215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.h */,
+				C96D0599215F5C040050BA9F /* SDAutoLayout.h */,
+				C96D059A215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m */,
+				C96D059B215F5C040050BA9F /* UIView+SDAutoLayout.h */,
+			);
+			path = SDAutoLayout;
+			sourceTree = SOURCE_ROOT;
+		};
 		DFED35631060760095A64CE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1642,23 +1658,22 @@
 			productReference = 487D3EB11BCB9EC700A66173 /* SDAutoLayoutDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		487D3EC91BCB9EC700A66173 /* SDAutoLayoutDemoTests */ = {
+		C94A134C215F591A00A92F35 /* SDAutoLayoutSwiftDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 487D3ED71BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayoutDemoTests" */;
+			buildConfigurationList = C94A135C215F591C00A92F35 /* Build configuration list for PBXNativeTarget "SDAutoLayoutSwiftDemo" */;
 			buildPhases = (
-				487D3EC61BCB9EC700A66173 /* Sources */,
-				487D3EC71BCB9EC700A66173 /* Frameworks */,
-				487D3EC81BCB9EC700A66173 /* Resources */,
+				C94A1349215F591A00A92F35 /* Sources */,
+				C94A134A215F591A00A92F35 /* Frameworks */,
+				C94A134B215F591A00A92F35 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				487D3ECC1BCB9EC700A66173 /* PBXTargetDependency */,
 			);
-			name = SDAutoLayoutDemoTests;
-			productName = "SDAutoLayout 测试 DemoTests";
-			productReference = 487D3ECA1BCB9EC700A66173 /* SDAutoLayoutDemo.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = SDAutoLayoutSwiftDemo;
+			productName = SDAutoLayoutSwiftDemo;
+			productReference = C94A134D215F591A00A92F35 /* SDAutoLayoutSwiftDemo.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -1666,17 +1681,18 @@
 		487D3EA91BCB9EC700A66173 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = gsd;
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 3GNXU2LRUU;
 					};
-					487D3EC91BCB9EC700A66173 = {
-						CreatedOnToolsVersion = 6.4;
+					C94A134C215F591A00A92F35 = {
+						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = 3GNXU2LRUU;
-						TestTargetID = 487D3EB01BCB9EC700A66173;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1694,7 +1710,7 @@
 			projectRoot = "";
 			targets = (
 				487D3EB01BCB9EC700A66173 /* SDAutoLayoutDemo */,
-				487D3EC91BCB9EC700A66173 /* SDAutoLayoutDemoTests */,
+				C94A134C215F591A00A92F35 /* SDAutoLayoutSwiftDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -1765,10 +1781,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		487D3EC81BCB9EC700A66173 /* Resources */ = {
+		C94A134B215F591A00A92F35 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94A135A215F591C00A92F35 /* LaunchScreen.storyboard in Resources */,
+				C94A1357215F591C00A92F35 /* Assets.xcassets in Resources */,
+				C94A1355215F591A00A92F35 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1853,9 +1872,11 @@
 				48FC0EA81C4FB60A004098B8 /* MJDictionaryCache.m in Sources */,
 				485302D91C3F6490004361A7 /* SDWebImageDownloader.m in Sources */,
 				485303361C3F977A004361A7 /* DemoVC1.m in Sources */,
+				C96D0595215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				485302F71C3F65EE004361A7 /* TAPageControl.m in Sources */,
 				48FC0EBF1C4FB60A004098B8 /* MJRefreshGifHeader.m in Sources */,
 				99D694EF1C8C567A00DA97E1 /* SDBaseNavigationController.m in Sources */,
+				C96D0594215F5BED0050BA9F /* UIView+SDAutoLayout.m in Sources */,
 				485302E01C3F6490004361A7 /* UIImage+WebP.m in Sources */,
 				4808F3981CE4AC1700242779 /* DemoVC14Cell.m in Sources */,
 				99D694F01C8C567A00DA97E1 /* SDBaseTableViewController.m in Sources */,
@@ -1890,7 +1911,6 @@
 				485302D81C3F6490004361A7 /* SDWebImageDecoder.m in Sources */,
 				485302DC1C3F6490004361A7 /* SDWebImagePrefetcher.m in Sources */,
 				48FC0E981C4FB60A004098B8 /* AFNetworkReachabilityManager.m in Sources */,
-				99A697751C423B0D004EA699 /* UIView+SDAutoLayout.m in Sources */,
 				48FC0E1C1C4FB3A8004098B8 /* ThreeFourthCell.m in Sources */,
 				485302D21C3F6490004361A7 /* SDRefreshView.m in Sources */,
 				48EB72F01C748D6C003A818E /* SDChatModel.m in Sources */,
@@ -1940,7 +1960,6 @@
 				485302DA1C3F6490004361A7 /* SDWebImageDownloaderOperation.m in Sources */,
 				485303521C3F97AA004361A7 /* ViewController.m in Sources */,
 				99D694E31C8C553500DA97E1 /* README.md in Sources */,
-				99A697741C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				99D694B61C8C54D100DA97E1 /* SDTimeLineTableViewController.m in Sources */,
 				48FC0EAC1C4FB60A004098B8 /* MJPropertyKey.m in Sources */,
 				48EB73431C748F26003A818E /* DemoVC11.m in Sources */,
@@ -1978,23 +1997,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		487D3EC61BCB9EC700A66173 /* Sources */ = {
+		C94A1349215F591A00A92F35 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				487D3ED11BCB9EC700A66173 /* SDAutoLayoutDemoTests.m in Sources */,
+				C94A1352215F591A00A92F35 /* ViewController.swift in Sources */,
+				C94A1350215F591A00A92F35 /* AppDelegate.swift in Sources */,
+				C96D059D215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				C96D059C215F5C040050BA9F /* UIView+SDAutoLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		487D3ECC1BCB9EC700A66173 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 487D3EB01BCB9EC700A66173 /* SDAutoLayoutDemo */;
-			targetProxy = 487D3ECB1BCB9EC700A66173 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		487D3EBE1BCB9EC700A66173 /* Main.storyboard */ = {
@@ -2013,6 +2027,22 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		C94A1353215F591A00A92F35 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C94A1354215F591A00A92F35 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C94A1358215F591C00A92F35 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C94A1359215F591C00A92F35 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2024,19 +2054,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2068,13 +2109,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2093,6 +2144,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2148,39 +2200,81 @@
 			};
 			name = Release;
 		};
-		487D3ED81BCB9EC700A66173 /* Debug */ = {
+		C94A135D215F591C00A92F35 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3GNXU2LRUU;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SDAutoLayoutDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = SDAutoLayoutDemo;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayoutDemo.app/SDAutoLayoutDemo";
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SDAutoLayoutSwiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lee.SDAutoLayoutSwiftDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SDAutoLayoutSwiftDemo/Bridge-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		487D3ED91BCB9EC700A66173 /* Release */ = {
+		C94A135E215F591C00A92F35 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GNXU2LRUU;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SDAutoLayoutDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = SDAutoLayoutDemo;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayoutDemo.app/SDAutoLayoutDemo";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SDAutoLayoutSwiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lee.SDAutoLayoutSwiftDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SDAutoLayoutSwiftDemo/Bridge-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2205,11 +2299,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		487D3ED71BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayoutDemoTests" */ = {
+		C94A135C215F591C00A92F35 /* Build configuration list for PBXNativeTarget "SDAutoLayoutSwiftDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				487D3ED81BCB9EC700A66173 /* Debug */,
-				487D3ED91BCB9EC700A66173 /* Release */,
+				C94A135D215F591C00A92F35 /* Debug */,
+				C94A135E215F591C00A92F35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

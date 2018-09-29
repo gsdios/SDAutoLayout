@@ -34,7 +34,7 @@
 
 @class SDCellAutoHeightManager;
 
-typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell *cell);
+typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell * _Nonnull cell);
 
 #define kSDModelCellTag 199206
 
