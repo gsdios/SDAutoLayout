@@ -197,6 +197,7 @@
         .topSpaceToView(lastTopView, 10)
         .autoHeightRatio(0);
         
+        [_likeLabel sizeToFit];
         lastTopView = _likeLabel;
     } else {
         _likeLabel.attributedText = nil;

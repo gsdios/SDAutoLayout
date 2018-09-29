@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38B700E467BDE4C37C6ADD5C /* libPods-SDAutoLayoutDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BAE9A3DD9811F84DDDECB2 /* libPods-SDAutoLayoutDemo.a */; };
 		4808F3941CE4ABFB00242779 /* DemoVC14.m in Sources */ = {isa = PBXBuildFile; fileRef = 4808F3931CE4ABFB00242779 /* DemoVC14.m */; };
 		4808F3981CE4AC1700242779 /* DemoVC14Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4808F3961CE4AC1700242779 /* DemoVC14Cell.m */; };
-		4808F3991CE4AC1700242779 /* DemoVC14Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4808F3971CE4AC1700242779 /* DemoVC14Cell.xib */; };
 		4841F5E91C2ABC60004979F4 /* pic5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4841F5E51C2ABC60004979F4 /* pic5.jpg */; };
 		4841F5EA1C2ABC60004979F4 /* pic6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4841F5E61C2ABC60004979F4 /* pic6.jpg */; };
 		4841F5EB1C2ABC60004979F4 /* pic7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4841F5E71C2ABC60004979F4 /* pic7.jpg */; };
@@ -187,6 +187,7 @@
 		48FC0EC61C4FB60A004098B8 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E931C4FB60A004098B8 /* UIView+MJExtension.m */; };
 		48FC0EC71C4FB60A004098B8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0E941C4FB60A004098B8 /* README.md */; };
 		48FC0ECB1C4FB7CA004098B8 /* XYString.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FC0ECA1C4FB7CA004098B8 /* XYString.m */; };
+		6B42D97E2087825A009D5BEC /* DemoVC14Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B42D97D2087825A009D5BEC /* DemoVC14Cell.xib */; };
 		9997FB651CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9997FB641CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m */; };
 		99A697741C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A697711C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.m */; };
 		99A697751C423B0D004EA699 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A697731C423B0D004EA699 /* UIView+SDAutoLayout.m */; };
@@ -234,7 +235,6 @@
 		4808F3931CE4ABFB00242779 /* DemoVC14.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC14.m; sourceTree = "<group>"; };
 		4808F3951CE4AC1700242779 /* DemoVC14Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVC14Cell.h; sourceTree = "<group>"; };
 		4808F3961CE4AC1700242779 /* DemoVC14Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC14Cell.m; sourceTree = "<group>"; };
-		4808F3971CE4AC1700242779 /* DemoVC14Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoVC14Cell.xib; sourceTree = "<group>"; };
 		4841F5E51C2ABC60004979F4 /* pic5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic5.jpg; sourceTree = "<group>"; };
 		4841F5E61C2ABC60004979F4 /* pic6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic6.jpg; sourceTree = "<group>"; };
 		4841F5E71C2ABC60004979F4 /* pic7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic7.jpg; sourceTree = "<group>"; };
@@ -542,6 +542,8 @@
 		48FC0E941C4FB60A004098B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		48FC0EC91C4FB7CA004098B8 /* XYString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYString.h; sourceTree = "<group>"; };
 		48FC0ECA1C4FB7CA004098B8 /* XYString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYString.m; sourceTree = "<group>"; };
+		59F464B58FAB1B71D18C24E1 /* Pods-SDAutoLayoutDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDAutoLayoutDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SDAutoLayoutDemo/Pods-SDAutoLayoutDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6B42D97D2087825A009D5BEC /* DemoVC14Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoVC14Cell.xib; sourceTree = "<group>"; };
 		9997FB631CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTimeLineCellOperationMenu.h; sourceTree = "<group>"; };
 		9997FB641CB2C26800A6FF62 /* SDTimeLineCellOperationMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineCellOperationMenu.m; sourceTree = "<group>"; };
 		99A697701C423B0D004EA699 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
@@ -599,6 +601,8 @@
 		9B1414FF1EDFC77900173BB9 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		9B2AF0F31D1166690007A130 /* theme_day_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_day_json.json; sourceTree = "<group>"; };
 		9B2AF0F41D1166690007A130 /* theme_night_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_night_json.json; sourceTree = "<group>"; };
+		B9BAE9A3DD9811F84DDDECB2 /* libPods-SDAutoLayoutDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDAutoLayoutDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF70C3084D41C4217B66DF2B /* Pods-SDAutoLayoutDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDAutoLayoutDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SDAutoLayoutDemo/Pods-SDAutoLayoutDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -606,6 +610,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B700E467BDE4C37C6ADD5C /* libPods-SDAutoLayoutDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,9 +631,9 @@
 				4808F3931CE4ABFB00242779 /* DemoVC14.m */,
 				4808F3951CE4AC1700242779 /* DemoVC14Cell.h */,
 				4808F3961CE4AC1700242779 /* DemoVC14Cell.m */,
-				4808F3971CE4AC1700242779 /* DemoVC14Cell.xib */,
 				489489071CE5FA1700C9BB71 /* PhotosContainerView.h */,
 				489489081CE5FA1700C9BB71 /* PhotosContainerView.m */,
+				6B42D97D2087825A009D5BEC /* DemoVC14Cell.xib */,
 			);
 			path = DemoVC14;
 			sourceTree = "<group>";
@@ -893,6 +898,8 @@
 				487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */,
 				487D3ECD1BCB9EC700A66173 /* SDAutoLayoutDemoTests */,
 				487D3EB21BCB9EC700A66173 /* Products */,
+				8692F3CE0736DACAE5C8D22B /* Pods */,
+				DFED35631060760095A64CE0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1383,6 +1390,15 @@
 			path = XYString;
 			sourceTree = "<group>";
 		};
+		8692F3CE0736DACAE5C8D22B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59F464B58FAB1B71D18C24E1 /* Pods-SDAutoLayoutDemo.debug.xcconfig */,
+				EF70C3084D41C4217B66DF2B /* Pods-SDAutoLayoutDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9997FB621CB2C26800A6FF62 /* OperationMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1602,6 +1618,14 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		DFED35631060760095A64CE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9BAE9A3DD9811F84DDDECB2 /* libPods-SDAutoLayoutDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1609,9 +1633,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 487D3ED41BCB9EC700A66173 /* Build configuration list for PBXNativeTarget "SDAutoLayoutDemo" */;
 			buildPhases = (
+				382CBFBAD727003877850AE8 /* [CP] Check Pods Manifest.lock */,
 				487D3EAD1BCB9EC700A66173 /* Sources */,
 				487D3EAE1BCB9EC700A66173 /* Frameworks */,
 				487D3EAF1BCB9EC700A66173 /* Resources */,
+				7BA9F5467E8DD663F5AD42C4 /* [CP] Embed Pods Frameworks */,
+				2C5DCE1512DA0F66AAEC40D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1651,7 +1678,7 @@
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = QCC328325S;
+						DevelopmentTeam = ZAYJYHGWK8;
 					};
 					487D3EC91BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1701,7 +1728,6 @@
 				48EB73251C748EDE003A818E /* test1.jpg in Resources */,
 				48FC0E9E1C4FB60A004098B8 /* LICENSE in Resources */,
 				99D694F21C8C585300DA97E1 /* Discover.xcassets in Resources */,
-				4808F3991CE4AC1700242779 /* DemoVC14Cell.xib in Resources */,
 				48DBCD221C01E045002EC476 /* pic3.jpg in Resources */,
 				48DBCD211C01E045002EC476 /* pic2.jpg in Resources */,
 				48EB73451C749212003A818E /* Home.xcassets in Resources */,
@@ -1736,6 +1762,7 @@
 				48EB733C1C748EDE003A818E /* 5.jpg in Resources */,
 				4841F5EC1C2ABC60004979F4 /* pic8.jpg in Resources */,
 				487D3EC21BCB9EC700A66173 /* Images.xcassets in Resources */,
+				6B42D97E2087825A009D5BEC /* DemoVC14Cell.xib in Resources */,
 				48EB732B1C748EDE003A818E /* 10.jpg in Resources */,
 				48EB732F1C748EDE003A818E /* 14.jpg in Resources */,
 				48EB733F1C748EDE003A818E /* 8.jpg in Resources */,
@@ -1755,6 +1782,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C5DCE1512DA0F66AAEC40D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDAutoLayoutDemo/Pods-SDAutoLayoutDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		382CBFBAD727003877850AE8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7BA9F5467E8DD663F5AD42C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDAutoLayoutDemo/Pods-SDAutoLayoutDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		487D3EAD1BCB9EC700A66173 /* Sources */ = {
@@ -2034,15 +2109,24 @@
 		};
 		487D3ED51BCB9EC700A66173 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59F464B58FAB1B71D18C24E1 /* Pods-SDAutoLayoutDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZAYJYHGWK8;
 				INFOPLIST_FILE = SDAutoLayoutDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gsdios.test;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"OOMDetector\"",
+					"-l\"fishhook\"",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gsd.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
 				PROVISIONING_PROFILE = "";
 			};
@@ -2050,15 +2134,24 @@
 		};
 		487D3ED61BCB9EC700A66173 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF70C3084D41C4217B66DF2B /* Pods-SDAutoLayoutDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZAYJYHGWK8;
 				INFOPLIST_FILE = SDAutoLayoutDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gsdios.test;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"OOMDetector\"",
+					"-l\"fishhook\"",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gsd.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
 				PROVISIONING_PROFILE = "";
 			};

@@ -124,6 +124,11 @@ static CGFloat textFieldH = 40;
     [self setupTextField];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // 解决在iOS11上朋友圈demo文字收折或者展开时出现cell跳动问题
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
 }
 
 - (void)viewDidAppear:(BOOL)animated

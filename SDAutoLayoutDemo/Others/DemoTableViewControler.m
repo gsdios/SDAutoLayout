@@ -26,6 +26,7 @@
 #import "UITableView+SDAutoTableViewCellHeight.h"
 
 #import "DemoCell.h"
+#import <OOMDetector.h>
 
 NSString * const demo0Description = @"自动布局动画，修改一个view的布局约束，其他view也会自动重新排布";
 NSString * const demo1Description = @"1.设置view1高度根据子view而自适应(在view1中加入两个子view(testLabel和testView)，然后设置view1高度根据子view内容自适应)\n2.高度自适应lable\n3.宽度自适应label";
@@ -53,12 +54,60 @@ NSString * const demo14Description = @"xib的cell高度自适应";
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.title = @"Demo";
     
     [self.navigationController pushViewController:[NSClassFromString(@"DemoVC13") new] animated:YES];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"开启内存监控" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarButtonItem)];
+    
     _contenArray = @[demo0Description, demo1Description, demo2Description, demo3Description, demo4Description, demo5Description, demo6Description, demo7Description, demo8Description, demo9Description, demo10Description, demo11Description, demo12Description, demo13Description, demo14Description];
 }
+
+- (void)clickRightBarButtonItem
+{
+    /******
+     
+     本内存监控组件采用腾讯QQ团队开源的OOMDetector组件
+     https://github.com/Tencent/OOMDetector
+     
+     ******/
+    
+    static BOOL start = NO;
+    static BOOL hasShowedAlert = NO;
+    start = !start;
+    [self startMemoryDetector:start];
+    if (start) {
+        [self.navigationItem.rightBarButtonItem setTitle:@"关闭内存监控"];
+        if (!hasShowedAlert) {
+            hasShowedAlert = YES;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"开启内存监控" message:@"你已开启实时内存监控(开启此项会增加少量额外cpu开销)。\n本内存监控组件采用腾讯QQ团队开源的OOMDetector组件，可以帮助开发者快速定位内存暴增、内存泄漏问题，同时可以输出造成内存问题的相关堆栈。更多功能请在Github搜索OOMDetector查看。" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+                [alertView show];
+            });
+         }
+    } else {
+        [self.navigationItem.rightBarButtonItem setTitle:@"开启内存监控"];
+    }
+}
+
+- (void)startMemoryDetector:(BOOL)yn
+{
+    /******
+     
+     本内存监控组件采用腾讯QQ团队开源的OOMDetector组件
+     https://github.com/Tencent/OOMDetector
+     
+     ******/
+    
+    if (yn) {
+        [[OOMDetector getInstance] setupWithDefaultConfig];
+    } else {
+        [[OOMDetector getInstance] stopMallocStackMonitor];
+    }
+    [[OOMDetector getInstance] showMemoryIndicatorView:yn];
+}
+
+
 
 #pragma mark - tableview datasourece and delegate
 

@@ -25,6 +25,17 @@
 
 #import <objc/runtime.h>
 
+Class cellContVClass()
+{
+    // 为了应付SB审核的SB条款 The use of non-public APIs is not permitted on the App Store because it can lead to a poor user experience should these APIs change.
+    static UITableViewCell *tempCell;
+    
+    if (!tempCell) {
+        tempCell = [UITableViewCell new];
+    }
+    return [tempCell.contentView class];
+}
+
 @interface SDAutoLayoutModel ()
 
 @property (nonatomic, strong) SDAutoLayoutModelItem *width;
@@ -254,7 +265,7 @@
         item.refView = view;
         [weakSelf setValue:item forKey:key];
         weakSelf.lastModelItem = item;
-        if ([view isKindOfClass:NSClassFromString(@"UITableViewCellContentView")] && ([key isEqualToString:@"equalCenterY"] || [key isEqualToString:@"equalBottom"])) {
+        if ([view isKindOfClass:cellContVClass()] && ([key isEqualToString:@"equalCenterY"] || [key isEqualToString:@"equalBottom"])) {
             view.shouldReadjustFrameBeforeStoreCache = YES;
         }
         return weakSelf;
@@ -756,7 +767,13 @@
 {
     NSAssert(self.ownLayoutModel, @"请在布局完成之后再做此步设置！");
     if (lineCount > 0) {
-        self.sd_layout.maxHeightIs(self.font.lineHeight * lineCount + 0.1);
+        if (self.isAttributedContent) {
+            NSDictionary *attrs = [self.attributedText attributesAtIndex:0 effectiveRange:nil];
+            NSMutableParagraphStyle *paragraphStyle = attrs[NSParagraphStyleAttributeName];
+            self.sd_layout.maxHeightIs((self.font.lineHeight) * lineCount + paragraphStyle.lineSpacing * (lineCount - 1) + 0.1);
+        } else {
+            self.sd_layout.maxHeightIs(self.font.lineHeight * lineCount + 0.1);
+        }
     } else {
         self.sd_layout.maxHeightIs(MAXFLOAT);
     }
@@ -1108,7 +1125,7 @@
         
         NSMutableArray *caches = nil;
         
-        if ([self isKindOfClass:NSClassFromString(@"UITableViewCellContentView")] && self.sd_tableView) {
+        if ([self isKindOfClass:cellContVClass()] && self.sd_tableView) {
             caches = [self.sd_tableView.cellAutoHeightManager subviewFrameCachesWithIndexPath:self.sd_indexPath];
         }
         
@@ -1132,11 +1149,13 @@
         }];
     }
     
-    if (self.tag == kSDModelCellTag && [self isKindOfClass:NSClassFromString(@"UITableViewCellContentView")]) {
+    if (self.tag == kSDModelCellTag && [self isKindOfClass:cellContVClass()]) {
         UITableViewCell *cell = (UITableViewCell *)(self.superview);
-        if ([cell isKindOfClass:NSClassFromString(@"UITableViewCellScrollView")]) {
+        
+        while (cell && ![cell isKindOfClass:[UITableViewCell class]]) {
             cell = (UITableViewCell *)cell.superview;
         }
+        
         if ([cell isKindOfClass:[UITableViewCell class]]) {
             CGFloat height = 0;
             for (UIView *view in cell.sd_bottomViewsArray) {
@@ -1254,6 +1273,14 @@
     
     [self layoutBottomWithView:view model:model];
     
+    if ((model.centerX || model.equalCenterX) && !view.fixedWidth) {
+        [self layoutLeftWithView:view model:model];
+    }
+    
+    if ((model.centerY || model.equalCenterY) && !view.fixedHeight) {
+        [self layoutTopWithView:view model:model];
+    }
+    
     if (view.sd_maxWidth) {
         [self layoutAutoWidthWidthView:view model:model];
     }
@@ -1311,6 +1338,9 @@
                     label.height_sd = rect.size.height + 0.1;
                 } else {
                     [label sizeToFit];
+                    if (label.sd_maxWidth && label.width_sd > [label.sd_maxWidth floatValue]) {
+                        label.width_sd = [label.sd_maxWidth floatValue];
+                    }
                 }
             } else {
                 label.height_sd = 0;
