@@ -95,7 +95,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 ```
     _view.sd_layout.leftSpaceToView(self.view, 10).topSpaceToView(self.view,80).heightIs(130).widthRatioToView(self.view, 0.4);
 ```
-    demo
+    综合示例
 ```   
     
     *******************************************************************************
@@ -130,7 +130,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
     
 ## tableview和cell高度自适应：   
 
-####普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
+#### 普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
 ```    
     1. >> 设置cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
@@ -148,7 +148,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
     }
 ```
 
-####升级版（适应于cell条数少于100的tableview）：tableview 高度自适应设置只需要2步
+#### 升级版（适应于cell条数少于100的tableview）：tableview 高度自适应设置只需要2步
 ```    
     1. >> 设置cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
