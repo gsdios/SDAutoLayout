@@ -95,7 +95,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 ```
     _view.sd_layout.leftSpaceToView(self.view, 10).topSpaceToView(self.view,80).heightIs(130).widthRatioToView(self.view, 0.4);
 ```
-    
+```    
     >> UILabel文字自适应：
     // autoHeightRatio() 传0则根据文字自动计算高度（传大于0的值则根据此数值设置高度和宽度的比值）
     _label.sd_layout.autoHeightRatio(0);
@@ -103,7 +103,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
     *******************************************************************************
         
         注意:先把需要自动布局的view加入父view然后在进行自动布局，例： 
-```
+
         UIView *view0 = [UIView new];
         UIView *view1 = [UIView new];
         [self.view addSubview:view0];
@@ -120,11 +120,11 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
         .topEqualToView(view0)
         .heightRatioToView(view0, 1)
         .rightSpaceToView(self.view, 10);
-```
+
     *******************************************************************************
+```  
     
-    
-    ## tableview和cell高度自适应：   
+## tableview和cell高度自适应：   
 
 ####普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
     
