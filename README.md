@@ -95,12 +95,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 ```
     _view.sd_layout.leftSpaceToView(self.view, 10).topSpaceToView(self.view,80).heightIs(130).widthRatioToView(self.view, 0.4);
 ```
-#### UILabel文字自适应：
-```
-// autoHeightRatio() 传0则根据文字自动计算高度（传大于0的值则根据此数值设置高度和宽度的比值）
-    _label.sd_layout.autoHeightRatio(0);
-```
-
+    demo
 ```   
     
     *******************************************************************************
@@ -126,6 +121,12 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
     *******************************************************************************
 ```  
+
+## UILabel文字自适应
+```
+// autoHeightRatio() 传0则根据文字自动计算高度（传大于0的值则根据此数值设置高度和宽度的比值）
+    _label.sd_layout.autoHeightRatio(0);
+```
     
 ## tableview和cell高度自适应：   
 
