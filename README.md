@@ -78,38 +78,6 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 
 
 #   用法简介
-
-## tableview和cell高度自适应：   
-
-####普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
-    
-    1. >> 设置cell高度自适应：
-    // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
-    [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
-    
-    2. >> 获取自动计算出的cell高度
-    
-    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-    {
-        id model = self.modelsArray[indexPath.row];
-        // 获取cell高度
-        return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[DemoVC9Cell class]  contentViewWidth:cellContentViewWith];
-    }
-
-
-####升级版（适应于cell条数少于100的tableview）：tableview 高度自适应设置只需要2步
-    
-    1. >> 设置cell高度自适应：
-    // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
-    [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
-    
-    2. >> 获取自动计算出的cell高度 
-    
-    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-    {
-    // 获取cell高度
-    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:[UIScreen mainScreen].bounds.size.width];
-    }
     
     
 ## 普通view的自动布局：
@@ -151,6 +119,41 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
         .heightRatioToView(view0, 1)
         .rightSpaceToView(self.view, 10);
     *******************************************************************************
+    
+    
+    ## tableview和cell高度自适应：   
+
+####普通（简化）版【推荐使用】：tableview 高度自适应设置只需要2步
+    
+    1. >> 设置cell高度自适应：
+    // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
+    [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
+    
+    2. >> 获取自动计算出的cell高度
+    
+    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+    {
+        id model = self.modelsArray[indexPath.row];
+        // 获取cell高度
+        return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[DemoVC9Cell class]  contentViewWidth:cellContentViewWith];
+    }
+
+
+####升级版（适应于cell条数少于100的tableview）：tableview 高度自适应设置只需要2步
+    
+    1. >> 设置cell高度自适应：
+    // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
+    [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
+    
+    2. >> 获取自动计算出的cell高度 
+    
+    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+    {
+    // 获取cell高度
+    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:[UIScreen mainScreen].bounds.size.width];
+    }
+    
+    
 
 #### 自动布局用法简析
 
