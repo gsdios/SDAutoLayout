@@ -103,7 +103,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
     *******************************************************************************
         
         注意:先把需要自动布局的view加入父view然后在进行自动布局，例： 
-        ```
+```
         UIView *view0 = [UIView new];
         UIView *view1 = [UIView new];
         [self.view addSubview:view0];
@@ -120,7 +120,7 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
         .topEqualToView(view0)
         .heightRatioToView(view0, 1)
         .rightSpaceToView(self.view, 10);
-        ```
+```
     *******************************************************************************
     
     
@@ -130,9 +130,9 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
     
     1. >> 设置cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
-    ```
+```
     [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
-    ```
+```
     
     2. >> 获取自动计算出的cell高度
 ```
@@ -148,18 +148,18 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
     
     1. >> 设置cell高度自适应：
     // cell布局设置好之后调用此方法就可以实现高度自适应（注意：如果用高度自适应则不要再以cell的底边为参照去布局其子view）
-    ```
+```
     [cell setupAutoHeightWithBottomView:_view4 bottomMargin:10];
-    ```
+```
     
     2. >> 获取自动计算出的cell高度 
-    ```
+```
     - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
     {
     // 获取cell高度
     return [self cellHeightForIndexPath:indexPath cellContentViewWidth:[UIScreen mainScreen].bounds.size.width];
     }
-    ```
+```
     
 
 #### 自动布局用法简析
