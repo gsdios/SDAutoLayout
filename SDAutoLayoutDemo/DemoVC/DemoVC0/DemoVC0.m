@@ -136,7 +136,7 @@
     // 开启动画
     [UIView animateWithDuration:0.8 animations:^{
         self.view0.sd_layout
-        .widthRatioToView(self.view, _widthRatio);
+        .widthRatioToView(self.view, self->_widthRatio);
         [self.view0 updateLayout]; // 调用此方法开启view0动画效果
         [self.view5 updateLayout]; // 调用此方法开启view5动画效果
         /*

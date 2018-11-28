@@ -165,11 +165,11 @@
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[ThreeModel mj_objectArrayWithKeyValuesArray:temArray]];
         
         //..下拉刷新
-        if (self.myRefreshView == _tv.header) {
+        if (self.myRefreshView == self->_tv.header) {
             self.listArry = arrayM;
-            _tv.footer.hidden = self.listArry.count==0?YES:NO;
+            self->_tv.footer.hidden = self.listArry.count==0?YES:NO;
             
-        }else if(self.myRefreshView == _tv.footer){
+        }else if(self.myRefreshView == self->_tv.footer){
             [self.listArry addObjectsFromArray:arrayM];
         }
         
@@ -180,7 +180,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"请求失败");
-        [_myRefreshView endRefreshing];
+        [self->_myRefreshView endRefreshing];
     }];
 }
 

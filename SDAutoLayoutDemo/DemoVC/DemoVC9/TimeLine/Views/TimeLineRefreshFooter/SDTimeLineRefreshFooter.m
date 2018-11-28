@@ -28,7 +28,7 @@
     return self;
 }
 
-- (void)addToScrollView:(UIScrollView *)scrollView refreshOpration:(void (^)())refrsh
+- (void)addToScrollView:(UIScrollView *)scrollView refreshOpration:(void (^)(void))refrsh
 {
     self.scrollView = scrollView;
     self.refreshBlock = refrsh;

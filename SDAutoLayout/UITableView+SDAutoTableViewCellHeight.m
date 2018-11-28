@@ -231,8 +231,8 @@
         [tempHeightCaches enumerateObjectsUsingBlock:^(NSNumber *heightCache, NSUInteger idx, BOOL *stop) {
             if (![heightCache isKindOfClass:[NSNull class]]) {
                 NSString *key = [NSString stringWithFormat:@"%zd-%zd", section, idx];
-                [_cacheDictionary setValue:heightCache forKey:key];
-                [_subviewFrameCacheDict setValue:[tempFrameCaches objectAtIndex:idx] forKey:key];
+                [self->_cacheDictionary setValue:heightCache forKey:key];
+                [self->_subviewFrameCacheDict setValue:[tempFrameCaches objectAtIndex:idx] forKey:key];
             }
         }];
     }

@@ -44,7 +44,7 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell * _Nonnull cell);
 
 @interface UITableView (SDAutoTableViewCellHeight)
 
-@property (nonatomic, strong) SDCellAutoHeightManager *cellAutoHeightManager;
+@property (nonatomic, strong) SDCellAutoHeightManager * _Nullable cellAutoHeightManager;
 
 
 /**
@@ -54,7 +54,7 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell * _Nonnull cell);
  * cellClass          : 当前的indexPath对应的cell的class
  * contentViewWidth   : cell的contentView的宽度
  */
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass contentViewWidth:(CGFloat)contentViewWidth;
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *_Nonnull)indexPath model:(id _Nullable )model keyPath:(NSString *_Nullable)keyPath cellClass:(Class _Nullable )cellClass contentViewWidth:(CGFloat)contentViewWidth;
 
 /**
  * 返回计算出的cell高度（普通简化版方法，同样只需一步设置即可完成）(用法：见DemoVC14)
@@ -62,7 +62,7 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell * _Nonnull cell);
  * contentViewWidth   : cell的contentView的宽度
  * cellDataSetting    : 设置cell数据的block
  */
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellClass:(Class)cellClass cellContentViewWidth:(CGFloat)width cellDataSetting:(AutoCellHeightDataSettingBlock)cellDataSetting;
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *_Nonnull)indexPath cellClass:(Class _Nonnull )cellClass cellContentViewWidth:(CGFloat)width cellDataSetting:(AutoCellHeightDataSettingBlock _Nonnull )cellDataSetting;
 
 /** 刷新tableView但不清空之前已经计算好的高度缓存，用于直接将新数据拼接在旧数据之后的tableView刷新 */
 - (void)reloadDataWithExistedHeightCache;
@@ -75,12 +75,12 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell * _Nonnull cell);
  * sectionNumsArray : 要刷新的所有section序号组成的数组, 例@[@(0), @(1)]
  * dataCountsArray  : 每个section的数据条数组成的数组, 例@[@(20), @(10)]
  */
-- (void)reloadDataWithInsertingDataAtTheBeginingOfSections:(NSArray *)sectionNumsArray newDataCounts:(NSArray *)dataCountsArray;
+- (void)reloadDataWithInsertingDataAtTheBeginingOfSections:(NSArray *_Nonnull)sectionNumsArray newDataCounts:(NSArray *_Nonnull)dataCountsArray;
 
 /** 返回所有cell的高度总和  */
 - (CGFloat)cellsTotalHeight;
 
-@property (nonatomic, copy) AutoCellHeightDataSettingBlock cellDataSetting;
+@property (nonatomic, copy) AutoCellHeightDataSettingBlock _Nonnull cellDataSetting;
 
 @end
 
@@ -92,7 +92,7 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell * _Nonnull cell);
 @interface UITableViewController (SDTableViewControllerAutoCellHeight)
 
 /** (UITableViewController方法)升级版！一行代码（一步设置）搞定tableview的cell高度自适应,同时适用于单cell和多cell,性能比普通版稍微差一些,不建议在数据量大的tableview中使用  */
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellContentViewWidth:(CGFloat)width;
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *_Nonnull)indexPath cellContentViewWidth:(CGFloat)width;
 
 @end
 
@@ -103,7 +103,7 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell * _Nonnull cell);
 @interface NSObject (SDAnyObjectAutoCellHeight)
 
 /** (NSObject方法)升级版！一行代码（一步设置）搞定tableview的cell高度自适应,同时适用于单cell和多cell,性能比普通版稍微差一些,不建议在数据量大的tableview中使用  */
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath cellContentViewWidth:(CGFloat)width tableView:(UITableView *)tableView;
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *_Nonnull)indexPath cellContentViewWidth:(CGFloat)width tableView:(UITableView *_Nonnull)tableView;
 
 @end
 
@@ -131,39 +131,39 @@ typedef void (^AutoCellHeightDataSettingBlock)(UITableViewCell * _Nonnull cell);
 
 @property (nonatomic, assign) CGFloat contentViewWidth;
 
-@property (nonatomic, assign) Class cellClass;
+@property (nonatomic, assign) Class _Nullable cellClass;
 
 @property (nonatomic, assign) CGFloat cellHeight;
 
-@property (nonatomic, strong) UITableViewCell *modelCell;
+@property (nonatomic, strong) UITableViewCell * _Nullable modelCell;
 
-@property (nonatomic, strong) NSMutableDictionary *subviewFrameCacheDict;
+@property (nonatomic, strong) NSMutableDictionary * _Nullable subviewFrameCacheDict;
 
-@property (nonatomic, strong, readonly) NSDictionary *heightCacheDict;
+@property (nonatomic, strong, readonly) NSDictionary * _Nullable heightCacheDict;
 
-@property (nonatomic, copy) AutoCellHeightDataSettingBlock cellDataSetting;
+@property (nonatomic, copy) AutoCellHeightDataSettingBlock _Nullable cellDataSetting;
 
 - (void)clearHeightCache;
 
-- (void)clearHeightCacheOfIndexPaths:(NSArray *)indexPaths;
+- (void)clearHeightCacheOfIndexPaths:(NSArray *_Nonnull)indexPaths;
 
-- (void)deleteThenResetHeightCache:(NSIndexPath *)indexPathToDelete;
+- (void)deleteThenResetHeightCache:(NSIndexPath *_Nonnull)indexPathToDelete;
 
 - (void)insertNewDataAtTheBeginingOfSection:(NSInteger)section newDataCount:(NSInteger)count;
 
-- (void)insertNewDataAtIndexPaths:(NSArray *)indexPaths;
+- (void)insertNewDataAtIndexPaths:(NSArray *_Nonnull)indexPaths;
 
-- (NSNumber *)heightCacheForIndexPath:(NSIndexPath *)indexPath;
+- (NSNumber *_Nonnull)heightCacheForIndexPath:(NSIndexPath *_Nonnull)indexPath;
 
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath;
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *_Nonnull)indexPath model:(id _Nullable )model keyPath:(NSString *_Nullable)keyPath;
 
-- (CGFloat)cellHeightForIndexPath:(NSIndexPath *)indexPath model:(id)model keyPath:(NSString *)keyPath cellClass:(Class)cellClass;
+- (CGFloat)cellHeightForIndexPath:(NSIndexPath *_Nonnull)indexPath model:(id _Nonnull )model keyPath:(NSString *_Nonnull)keyPath cellClass:(Class _Nonnull )cellClass;
 
 
-- (NSMutableArray *)subviewFrameCachesWithIndexPath:(NSIndexPath *)indexPath;;
-- (void)setSubviewFrameCache:(CGRect)rect WithIndexPath:(NSIndexPath *)indexPath;
+- (NSMutableArray *_Nullable)subviewFrameCachesWithIndexPath:(NSIndexPath *_Nonnull)indexPath;;
+- (void)setSubviewFrameCache:(CGRect)rect WithIndexPath:(NSIndexPath *_Nonnull)indexPath;
 
-- (instancetype)initWithCellClass:(Class)cellClass tableView:(UITableView *)tableView;
-+ (instancetype)managerWithCellClass:(Class)cellClass tableView:(UITableView *)tableView;
+- (instancetype _Nonnull )initWithCellClass:(Class _Nonnull )cellClass tableView:(UITableView *_Nonnull)tableView;
++ (instancetype _Nonnull )managerWithCellClass:(Class _Nonnull )cellClass tableView:(UITableView *_Nonnull)tableView;
 @end
 

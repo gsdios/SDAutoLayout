@@ -33,6 +33,6 @@
 
 + (instancetype)refreshHeaderWithCenter:(CGPoint)center;
 
-@property (nonatomic, copy) void(^refreshingBlock)();
+@property (nonatomic, copy) void(^refreshingBlock)(void);
 
 @end

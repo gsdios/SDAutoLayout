@@ -92,7 +92,7 @@
     _titleLabel.text = model.title;
 
     [model.imagePathsArray enumerateObjectsUsingBlock:^(NSString * _Nonnull str, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIImageView *imageView = _imageViewsArray[idx];
+        UIImageView *imageView = self->_imageViewsArray[idx];
         imageView.image = [UIImage imageNamed:str];
     }];
 }

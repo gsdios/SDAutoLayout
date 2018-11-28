@@ -490,7 +490,7 @@ static CGFloat textFieldH = 40;
     }
     
     [UIView animateWithDuration:0.25 animations:^{
-        _textField.frame = textFieldRect;
+        self->_textField.frame = textFieldRect;
     }];
     
     CGFloat h = rect.size.height + textFieldH;

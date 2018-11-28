@@ -98,7 +98,7 @@
     [_picPathStringsArray enumerateObjectsUsingBlock:^(NSString *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         long columnIndex = idx % perRowItemCount;
         long rowIndex = idx / perRowItemCount;
-        UIImageView *imageView = [_imageViewsArray objectAtIndex:idx];
+        UIImageView *imageView = [self->_imageViewsArray objectAtIndex:idx];
         imageView.hidden = NO;
         imageView.image = [UIImage imageNamed:obj];
         imageView.frame = CGRectMake(columnIndex * (itemW + margin), rowIndex * (itemH + margin), itemW, itemH);

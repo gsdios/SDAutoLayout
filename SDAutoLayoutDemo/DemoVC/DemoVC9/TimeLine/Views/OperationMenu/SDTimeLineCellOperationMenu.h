@@ -12,8 +12,8 @@
 
 @property (nonatomic, assign, getter = isShowing) BOOL show;
 
-@property (nonatomic, copy) void (^likeButtonClickedOperation)();
-@property (nonatomic, copy) void (^commentButtonClickedOperation)();
+@property (nonatomic, copy) void (^likeButtonClickedOperation)(void);
+@property (nonatomic, copy) void (^commentButtonClickedOperation)(void);
 
 
 @end

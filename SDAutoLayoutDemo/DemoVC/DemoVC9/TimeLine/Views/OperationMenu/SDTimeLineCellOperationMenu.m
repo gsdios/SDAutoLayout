@@ -100,7 +100,7 @@
             .widthIs(0);
         } else {
             self.fixedWidth = nil;
-            [self setupAutoWidthWithRightView:_commentButton rightMargin:5];
+            [self setupAutoWidthWithRightView:self->_commentButton rightMargin:5];
         }
         [self updateLayoutWithCellContentView:self.superview];
     }];
