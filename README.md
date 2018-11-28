@@ -1,9 +1,9 @@
 # SDAutoLayout（一行代码搞定自动布局！）
 
-##众多公司和个人开发者已经使用本库布局：
-SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3effb8
-
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
+
+## 众多公司和个人开发者已经使用本库布局：
+SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3effb8
 
 ## 技术支持(QQ交流群)：
 
