@@ -211,6 +211,7 @@
 		99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */; };
 		9B2AF0F51D1166690007A130 /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F31D1166690007A130 /* theme_day_json.json */; };
 		9B2AF0F61D1166690007A130 /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F41D1166690007A130 /* theme_night_json.json */; };
+
 		C94A1348215F572E00A92F35 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C94A1346215F572E00A92F35 /* LEETheme.m */; };
 		C94A1350215F591A00A92F35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A134F215F591A00A92F35 /* AppDelegate.swift */; };
 		C94A1352215F591A00A92F35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A1351215F591A00A92F35 /* ViewController.swift */; };
@@ -221,6 +222,9 @@
 		C96D0595215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D0592215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m */; };
 		C96D059C215F5C040050BA9F /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D0597215F5C040050BA9F /* UIView+SDAutoLayout.m */; };
 		C96D059D215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D059A215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m */; };
+
+		B1B944B220BCFB44008F658A /* SDAutolayout+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -581,6 +585,8 @@
 		99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTimeLineRefreshFooter.m; sourceTree = "<group>"; };
 		9B2AF0F31D1166690007A130 /* theme_day_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_day_json.json; sourceTree = "<group>"; };
 		9B2AF0F41D1166690007A130 /* theme_night_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme_night_json.json; sourceTree = "<group>"; };
+		B1B944B020BCFB44008F658A /* SDAutoLayoutDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SDAutoLayoutDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDAutolayout+extension.swift"; sourceTree = "<group>"; };
 		B9BAE9A3DD9811F84DDDECB2 /* libPods-SDAutoLayoutDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SDAutoLayoutDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94A1345215F572E00A92F35 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
 		C94A1346215F572E00A92F35 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
@@ -916,7 +922,12 @@
 		487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
+
 				C96D058E215F5BED0050BA9F /* SDAutoLayout */,
+
+				B1B944AF20BCFAAE008F658A /* SwiftExtension */,
+				99A6976F1C423B0D004EA699 /* SDAutoLayout */,
+
 				485303491C3F97AA004361A7 /* Others */,
 				485303021C3F977A004361A7 /* DemoVC */,
 				485302961C3F648F004361A7 /* Vender */,
@@ -1588,6 +1599,7 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+
 		C94A134E215F591A00A92F35 /* SDAutoLayoutSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1627,6 +1639,17 @@
 			path = SDAutoLayout;
 			sourceTree = SOURCE_ROOT;
 		};
+
+		B1B944AF20BCFAAE008F658A /* SwiftExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */,
+				B1B944B020BCFB44008F658A /* SDAutoLayoutDemo-Bridging-Header.h */,
+			);
+			path = SwiftExtension;
+			sourceTree = "<group>";
+		};
+
 		DFED35631060760095A64CE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1687,7 +1710,11 @@
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 3GNXU2LRUU;
+
+
+						DevelopmentTeam = ZAYJYHGWK8;
+						LastSwiftMigration = 0930;
+
 					};
 					C94A134C215F591A00A92F35 = {
 						CreatedOnToolsVersion = 10.0;
@@ -1954,6 +1981,7 @@
 				48FC0ECB1C4FB7CA004098B8 /* XYString.m in Sources */,
 				485302F41C3F65EE004361A7 /* TAAbstractDotView.m in Sources */,
 				48FC0EA31C4FB60A004098B8 /* UIButton+AFNetworking.m in Sources */,
+				B1B944B220BCFB44008F658A /* SDAutolayout+extension.swift in Sources */,
 				485302F81C3F65EE004361A7 /* SDCollectionViewCell.m in Sources */,
 				48FC0EB51C4FB60A004098B8 /* MJRefreshBackFooter.m in Sources */,
 				99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */,
@@ -2156,6 +2184,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3GNXU2LRUU;
@@ -2172,6 +2201,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gsd.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SDAutoLayoutDemo/SwiftExtension/SDAutoLayoutDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2181,6 +2213,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3GNXU2LRUU;
@@ -2197,12 +2230,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gsd.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SDAutoLayoutDemo/SwiftExtension/SDAutoLayoutDemo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		C94A135D215F591C00A92F35 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2238,12 +2274,29 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SDAutoLayoutDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = SDAutoLayoutDemo;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayoutDemo.app/SDAutoLayoutDemo";
+
 			};
 			name = Debug;
 		};
 		C94A135E215F591C00A92F35 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2275,6 +2328,18 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SDAutoLayoutDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = SDAutoLayoutDemo;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayoutDemo.app/SDAutoLayoutDemo";
+
 			};
 			name = Release;
 		};
