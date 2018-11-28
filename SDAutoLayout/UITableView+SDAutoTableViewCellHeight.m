@@ -124,8 +124,8 @@
 {
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
         NSString *cacheKey = [self cacheKeyForIndexPath:indexPath];
-        [_cacheDictionary removeObjectForKey:cacheKey];
-        [_subviewFrameCacheDict removeObjectForKey:cacheKey];
+        [self->_cacheDictionary removeObjectForKey:cacheKey];
+        [self->_subviewFrameCacheDict removeObjectForKey:cacheKey];
     }];
 }
 

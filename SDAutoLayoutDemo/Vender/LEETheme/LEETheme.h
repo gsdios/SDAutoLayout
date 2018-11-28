@@ -13,45 +13,13 @@
  *
  *  @author LEE
  *  @copyright    Copyright © 2016 - 2017年 lee. All rights reserved.
- *  @version    V1.1.3
+ *  @version    V1.1.7
  */
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-FOUNDATION_EXPORT double LEEThemeVersionNumber;
-FOUNDATION_EXPORT const unsigned char LEEThemeVersionString[];
-
-@class LEEThemeConfigModel;
-
-typedef void(^LEEThemeConfigBlock)(id item);
-typedef void(^LEEThemeConfigBlockToValue)(id item , id value);
-typedef void(^LEEThemeChangingBlock)(NSString *tag , id item);
-typedef LEEThemeConfigModel *(^LEEConfigTheme)();
-typedef LEEThemeConfigModel *(^LEEConfigThemeToFloat)(CGFloat number);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToTag)(NSString *tag);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPath)(NSString *keyPath);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToSelector)(SEL selector);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifier)(NSString *identifier);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToChangingBlock)(LEEThemeChangingBlock);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_KeyPath)(NSString *tag , NSString *keyPath);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_Selector)(NSString *tag , SEL selector);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_Color)(NSString *tag , id color);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_Image)(NSString *tag , id image);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_Block)(NSString *tag , LEEThemeConfigBlock);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToTs_Block)(NSArray *tags , LEEThemeConfigBlock);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToKeyPathAndIdentifier)(NSString *keyPath , NSString *identifier);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToSelectorAndIdentifier)(SEL sel , NSString *identifier);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToSelectorAndIdentifierAndValueIndexAndValueArray)(SEL sel , NSString *identifier , NSInteger valueIndex , NSArray *otherValues);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndState)(NSString *identifier , UIControlState state);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_ColorAndState)(NSString *tag , UIColor *color , UIControlState state);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_ImageAndState)(NSString *tag , UIImage *image , UIControlState state);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_KeyPathAndValue)(NSString *tag , NSString *keyPath , id value);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_SelectorAndColor)(NSString *tag , SEL sel , id color);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_SelectorAndImage)(NSString *tag , SEL sel , id image);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_SelectorAndValues)(NSString *tag , SEL sel , ...);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToT_SelectorAndValueArray)(NSString *tag , SEL sel , NSArray *values);
-typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *identifier , LEEThemeConfigBlockToValue);
+#import "LEEThemeHelper.h"
 
 /*
  
@@ -59,7 +27,7 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
  *
  * 在使用LEETheme的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
  *
- * QQ    : 可以添加SDAutoLayout群 497140713 在这里找到我(LEE)
+ * QQ    : 可以添加SDAutoLayout群 497140713 在这里找到我(LEE 332459523)
  * Email : 18611401994@163.com
  * GitHub: https://github.com/lixiang1994/LEETheme
  * 简书:    http://www.jianshu.com/users/a6da0db100c8
@@ -87,13 +55,6 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
 + (void)defaultTheme:(NSString *)tag;
 
 /**
- *  默认更改主题动画时长 (这是所有对象默认的时长 , 但如果你对某个对象单独进行了时长设置 , 那么该对象将以单独设置的为准)
- *
- *  @param duration 动画时长
- */
-//+ (void)defaultChangeThemeAnimationDuration:(CGFloat)duration; 暂不支持
-
-/**
  *  当前主题标签
  *
  *  @return 主题标签 tag
@@ -116,7 +77,7 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
  *
  *  @param json json字符串
  *  @param tag 主题标签
- *  @param path 资源路径 (传入nil 默认为mainBundle路径)
+ *  @param path 资源路径 (在Documents目录下的路径 如果资源不在Documents目录下应传入nil 例: ResourcesPath:@@"themeResources/day/")
  */
 + (void)addThemeConfigWithJson:(NSString *)json Tag:(NSString *)tag ResourcesPath:(NSString *)path;
 
@@ -267,11 +228,6 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
 /** 添加图片设置 -> 格式: .LeeAddSelectorAndImage(@@"tag" , @@selector(XXX:) , UIImage 或 @"imageName" 或 @"imagePath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToT_SelectorAndImage LeeAddSelectorAndImage;
 
-/** ----通用设置---- */
-
-
-/** 设置主题更改过渡动画时长 -> 格式: .LeeChangeThemeAnimationDuration(0.1f) */
-//@property (nonatomic , copy , readonly ) LEEConfigThemeToFloat LeeChangeThemeAnimationDuration; 暂不支持
 
 /** 基础设置方法 */
 
@@ -417,8 +373,8 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
 /** 设置方法标识符 -> 格式: .LeeConfigSelectorAndIdentifier(@@selector(XXX:) , @@"identifier") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToSelectorAndIdentifier LeeConfigSelectorAndIdentifier;
 
-/** 设置方法标识符 -> 格式: .LeeConfigSelectorAndIdentifierAndValueIndexAndValueArray(@@selector(XXX:XXX:) , @@"identifier" , 0 , @@[id , id]) */
-@property (nonatomic , copy , readonly ) LEEConfigThemeToSelectorAndIdentifierAndValueIndexAndValueArray LeeConfigSelectorAndIdentifierAndValueIndexAndValueArray;
+/** 设置方法标识符 -> 格式: .LeeConfigSelectorAndValueArray(@@selector(XXX:XXX:) , @@[id , id]) */
+@property (nonatomic , copy , readonly ) LEEConfigThemeToSelectorAndValues LeeConfigSelectorAndValueArray;
 
 /** 移除路径标识符设置 -> 格式: .LeeRemoveKeyPathIdentifier(@@"keyPath") */
 @property (nonatomic , copy , readonly ) LEEConfigThemeToKeyPath LeeRemoveKeyPathIdentifier;
@@ -435,13 +391,23 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
 
 @end
 
+@interface LEEThemeIdentifier : NSString
+
++ (LEEThemeIdentifier *)ident:(NSString *)ident;
+
+@end
+
 @interface NSObject (LEEThemeConfigObject)
 
 @property (nonatomic , strong ) LEEThemeConfigModel *lee_theme;
 
 @end
 
+@interface UIColor (LEEThemeColor)
 
++ (UIColor *)leeTheme_ColorWithHexString:(NSString *)hexString;
+
+@end
 
 
 /*
@@ -466,25 +432,6 @@ typedef LEEThemeConfigModel *(^LEEConfigThemeToIdentifierAndBlock)(NSString *ide
  *           └─┐  ┐  ┌───────┬──┐  ┌──┘
  *             │ ─┤ ─┤       │ ─┤ ─┤
  *             └──┴──┘       └──┴──┘
- *                 神兽保佑
+ *                 神兽 保佑
  *                 代码无BUG!
  */
-
-
-@interface UIColor (LEEThemeColor)
-
-+ (UIColor *)leeTheme_ColorWithHexString:(NSString *)hexString;
-
-@end
-
-#define LEEColorRGBA(R , G , B , A) [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A]
-
-#define LEEColorRGB(R , G , B) LEEColorRGBA(R , G , B , 1.0f)
-
-#define LEEColorHex(hex) [UIColor leeTheme_ColorWithHexString:hex]
-
-#define LEEColorFromIdentifier(tag, identifier) ({((UIColor *)([LEETheme getValueWithTag:tag Identifier:identifier]));})
-
-#define LEEImageFromIdentifier(tag, identifier) ({((UIImage *)([LEETheme getValueWithTag:tag Identifier:identifier]));})
-
-#define LEEValueFromIdentifier(tag, identifier) ({([LEETheme getValueWithTag:tag Identifier:identifier]);})

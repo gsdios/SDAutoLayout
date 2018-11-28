@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/gsdios/SDAutoLayout.git", :tag => "2.2.0"}
 
-  s.source_files  = "SDAutoLayoutDemo/SDAutoLayout/**/*.{h,m}"
+  s.source_files  = "SDAutoLayout/**/*.{h,m}"
 
   # s.public_header_files = "Classes/**/*.h"
 

@@ -61,14 +61,14 @@
 
 @class SDAutoLayoutModel, SDUIViewCategoryManager;
 
-typedef SDAutoLayoutModel *(^MarginToView)(id viewOrViewsArray, CGFloat value);
-typedef SDAutoLayoutModel *(^Margin)(CGFloat value);
-typedef SDAutoLayoutModel *(^MarginEqualToView)(UIView *toView);
-typedef SDAutoLayoutModel *(^WidthHeight)(CGFloat value);
-typedef SDAutoLayoutModel *(^WidthHeightEqualToView)(UIView *toView, CGFloat ratioValue);
-typedef SDAutoLayoutModel *(^AutoHeightWidth)(CGFloat ratioValue);
-typedef SDAutoLayoutModel *(^SameWidthHeight)();
-typedef SDAutoLayoutModel *(^Offset)(CGFloat value);
+typedef SDAutoLayoutModel * _Nonnull (^MarginToView)(id viewOrViewsArray, CGFloat value);
+typedef SDAutoLayoutModel * _Nonnull (^Margin)(CGFloat value);
+typedef SDAutoLayoutModel * _Nonnull (^MarginEqualToView)(UIView *toView);
+typedef SDAutoLayoutModel * _Nonnull (^WidthHeight)(CGFloat value);
+typedef SDAutoLayoutModel * _Nonnull (^WidthHeightEqualToView)(UIView *toView, CGFloat ratioValue);
+typedef SDAutoLayoutModel * _Nonnull (^AutoHeightWidth)(CGFloat ratioValue);
+typedef SDAutoLayoutModel * _Nonnull (^SameWidthHeight)(void);
+typedef SDAutoLayoutModel * _Nonnull (^Offset)(CGFloat value);
 typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface SDAutoLayoutModel : NSObject
@@ -282,13 +282,13 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 @interface UIView (SDAutoLayout)
 
 /** 开始自动布局  */
-- (SDAutoLayoutModel *)sd_layout;
+- (nonnull SDAutoLayoutModel *)sd_layout;
 
 /** 清空之前的自动布局设置，重新开始自动布局(重新生成布局约束并使其在父view的布局序列数组中位置保持不变)  */
-- (SDAutoLayoutModel *)sd_resetLayout;
+- (nonnull SDAutoLayoutModel *)sd_resetLayout;
 
 /** 清空之前的自动布局设置，重新开始自动布局(重新生成布局约束并添加到父view布局序列数组中的最后一个位置)  */
-- (SDAutoLayoutModel *)sd_resetNewLayout;
+- (nonnull SDAutoLayoutModel *)sd_resetNewLayout;
 
 /** 是否关闭自动布局  */
 @property (nonatomic, getter = sd_isClosingAutoLayout) BOOL sd_closeAutoLayout;
