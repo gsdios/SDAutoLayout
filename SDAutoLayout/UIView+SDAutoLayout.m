@@ -816,19 +816,21 @@ Class cellContVClass()
 
 + (void)load
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        NSArray *selStringsArray = @[@"layoutSubviews"];
-        
-        [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
-            NSString *mySelString = [@"sd_" stringByAppendingString:selString];
+    if (self == [UIView class]) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
             
-            Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
-            Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
-            method_exchangeImplementations(originalMethod, myMethod);
-        }];
-    });
+            NSArray *selStringsArray = @[@"layoutSubviews"];
+            
+            [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
+                NSString *mySelString = [@"sd_" stringByAppendingString:selString];
+                
+                Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
+                Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
+                method_exchangeImplementations(originalMethod, myMethod);
+            }];
+        });
+    }
 }
 
 #pragma mark - properties
