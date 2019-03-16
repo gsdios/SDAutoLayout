@@ -1,4 +1,5 @@
-# 基于SDAutoLayout实现类似masory的api，链式编程，目的让熟悉masory的开发者们，0成本接入SDautoLayout
+### 基于SDAutoLayout实现类似masory的api，链式编程，目的让熟悉masory的开发者们，0成本接入SDautoLayout
+### 希望感兴趣的开发者有好的建议时，pr给我，共同维护
 
 
 # SDAutoLayout（一行代码搞定自动布局！）
