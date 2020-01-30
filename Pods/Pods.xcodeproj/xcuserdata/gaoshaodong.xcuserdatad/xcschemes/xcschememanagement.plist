@@ -4,21 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>OOMDetector.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
 		<key>Pods-SDAutoLayoutDemo.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>fishhook.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

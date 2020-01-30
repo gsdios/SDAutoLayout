@@ -155,6 +155,7 @@
     }
     
     _likeLabel.attributedText = [attributedText copy];
+    _likeLabel.hidden = likeItemsArray.count == 0;
 }
 
 - (NSMutableArray *)commentLabelsArray

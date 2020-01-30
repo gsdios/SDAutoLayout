@@ -36,6 +36,34 @@ Class cellContVClass()
     return [tempCell.contentView class];
 }
 
+@interface NSObject (SDALSwizzling)
+
++ (void)sdal_exchengeMethods:(NSArray<NSString *> *)selectorStingArr prefix:(NSString *)prefix;
+
+@end
+
+@implementation NSObject (SDALSwizzling)
+
++ (void)sdal_exchengeMethods:(NSArray<NSString *> *)selectorStingArr prefix:(NSString *)prefix {
+    if (!prefix) {
+        prefix = @"sd_";
+    }
+    [selectorStingArr enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
+        NSString *mySelString = [prefix stringByAppendingString:selString];
+        Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
+        Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
+        
+        const char *types = method_getTypeEncoding(originalMethod);
+        if (class_addMethod(self, NSSelectorFromString(selString), method_getImplementation(myMethod), types)) {
+            class_replaceMethod(self, NSSelectorFromString(mySelString), method_getImplementation(originalMethod), types);
+        } else {
+            method_exchangeImplementations(originalMethod, myMethod);
+        }
+    }];
+}
+
+@end
+
 @interface SDAutoLayoutModel ()
 
 @property (nonatomic, strong) SDAutoLayoutModelItem *width;
@@ -722,16 +750,7 @@ Class cellContVClass()
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
-        NSArray *selStringsArray = @[@"setText:"];
-        
-        [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
-            NSString *mySelString = [@"sd_" stringByAppendingString:selString];
-            
-            Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
-            Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
-            method_exchangeImplementations(originalMethod, myMethod);
-        }];
+        [self sdal_exchengeMethods:@[@"setText:"] prefix:nil];
     });
 }
 
@@ -819,16 +838,7 @@ Class cellContVClass()
     if (self == [UIView class]) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            
-            NSArray *selStringsArray = @[@"layoutSubviews"];
-            
-            [selStringsArray enumerateObjectsUsingBlock:^(NSString *selString, NSUInteger idx, BOOL *stop) {
-                NSString *mySelString = [@"sd_" stringByAppendingString:selString];
-                
-                Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
-                Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
-                method_exchangeImplementations(originalMethod, myMethod);
-            }];
+            [self sdal_exchengeMethods:@[@"layoutSubviews"] prefix:nil];
         });
     }
 }
@@ -1591,12 +1601,7 @@ Class cellContVClass()
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *selString = @"layoutSubviews";
-        NSString *mySelString = [@"sd_button_" stringByAppendingString:selString];
-        
-        Method originalMethod = class_getInstanceMethod(self, NSSelectorFromString(selString));
-        Method myMethod = class_getInstanceMethod(self, NSSelectorFromString(mySelString));
-        method_exchangeImplementations(originalMethod, myMethod);
+        [self sdal_exchengeMethods:@[@"layoutSubviews"] prefix:@"sd_button_"];
     });
 }
 

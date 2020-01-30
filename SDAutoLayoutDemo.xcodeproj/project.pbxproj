@@ -211,7 +211,7 @@
 		99D694F81C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D694F71C8C7F7600DA97E1 /* SDTimeLineRefreshFooter.m */; };
 		9B2AF0F51D1166690007A130 /* theme_day_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F31D1166690007A130 /* theme_day_json.json */; };
 		9B2AF0F61D1166690007A130 /* theme_night_json.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2AF0F41D1166690007A130 /* theme_night_json.json */; };
-
+		B1B944B220BCFB44008F658A /* SDAutolayout+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */; };
 		C94A1348215F572E00A92F35 /* LEETheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C94A1346215F572E00A92F35 /* LEETheme.m */; };
 		C94A1350215F591A00A92F35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A134F215F591A00A92F35 /* AppDelegate.swift */; };
 		C94A1352215F591A00A92F35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A1351215F591A00A92F35 /* ViewController.swift */; };
@@ -222,9 +222,6 @@
 		C96D0595215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D0592215F5BED0050BA9F /* UITableView+SDAutoTableViewCellHeight.m */; };
 		C96D059C215F5C040050BA9F /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D0597215F5C040050BA9F /* UIView+SDAutoLayout.m */; };
 		C96D059D215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = C96D059A215F5C040050BA9F /* UITableView+SDAutoTableViewCellHeight.m */; };
-
-		B1B944B220BCFB44008F658A /* SDAutolayout+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -591,7 +588,7 @@
 		C94A1345215F572E00A92F35 /* LEETheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEETheme.h; sourceTree = "<group>"; };
 		C94A1346215F572E00A92F35 /* LEETheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEETheme.m; sourceTree = "<group>"; };
 		C94A1347215F572E00A92F35 /* LEEThemeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEThemeHelper.h; sourceTree = "<group>"; };
-		C94A134D215F591A00A92F35 /* SDAutoLayoutSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDAutoLayoutSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C94A134D215F591A00A92F35 /* SDAutoLayoutSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SDAutoLayoutSwiftDemo.app; path = SDAutoLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C94A134F215F591A00A92F35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C94A1351215F591A00A92F35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C94A1354215F591A00A92F35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -922,12 +919,8 @@
 		487D3EB31BCB9EC700A66173 /* SDAutoLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
-
 				C96D058E215F5BED0050BA9F /* SDAutoLayout */,
-
 				B1B944AF20BCFAAE008F658A /* SwiftExtension */,
-				99A6976F1C423B0D004EA699 /* SDAutoLayout */,
-
 				485303491C3F97AA004361A7 /* Others */,
 				485303021C3F977A004361A7 /* DemoVC */,
 				485302961C3F648F004361A7 /* Vender */,
@@ -1599,7 +1592,15 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
-
+		B1B944AF20BCFAAE008F658A /* SwiftExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */,
+				B1B944B020BCFB44008F658A /* SDAutoLayoutDemo-Bridging-Header.h */,
+			);
+			path = SwiftExtension;
+			sourceTree = "<group>";
+		};
 		C94A134E215F591A00A92F35 /* SDAutoLayoutSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1639,17 +1640,6 @@
 			path = SDAutoLayout;
 			sourceTree = SOURCE_ROOT;
 		};
-
-		B1B944AF20BCFAAE008F658A /* SwiftExtension */ = {
-			isa = PBXGroup;
-			children = (
-				B1B944B120BCFB44008F658A /* SDAutolayout+extension.swift */,
-				B1B944B020BCFB44008F658A /* SDAutoLayoutDemo-Bridging-Header.h */,
-			);
-			path = SwiftExtension;
-			sourceTree = "<group>";
-		};
-
 		DFED35631060760095A64CE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1669,8 +1659,6 @@
 				487D3EAD1BCB9EC700A66173 /* Sources */,
 				487D3EAE1BCB9EC700A66173 /* Frameworks */,
 				487D3EAF1BCB9EC700A66173 /* Resources */,
-				7BA9F5467E8DD663F5AD42C4 /* [CP] Embed Pods Frameworks */,
-				2C5DCE1512DA0F66AAEC40D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1710,11 +1698,8 @@
 				TargetAttributes = {
 					487D3EB01BCB9EC700A66173 = {
 						CreatedOnToolsVersion = 6.4;
-
-
-						DevelopmentTeam = ZAYJYHGWK8;
+						DevelopmentTeam = 3GNXU2LRUU;
 						LastSwiftMigration = 0930;
-
 					};
 					C94A134C215F591A00A92F35 = {
 						CreatedOnToolsVersion = 10.0;
@@ -1728,6 +1713,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1821,49 +1807,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C5DCE1512DA0F66AAEC40D9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDAutoLayoutDemo/Pods-SDAutoLayoutDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		382CBFBAD727003877850AE8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SDAutoLayoutDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7BA9F5467E8DD663F5AD42C4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SDAutoLayoutDemo/Pods-SDAutoLayoutDemo-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2194,8 +2153,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"OOMDetector\"",
-					"-l\"fishhook\"",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gsd.test;
@@ -2203,7 +2160,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SDAutoLayoutDemo/SwiftExtension/SDAutoLayoutDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -2223,23 +2180,22 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"OOMDetector\"",
-					"-l\"fishhook\"",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gsd.test;
 				PRODUCT_NAME = SDAutoLayoutDemo;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SDAutoLayoutDemo/SwiftExtension/SDAutoLayoutDemo-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
 		C94A135D215F591C00A92F35 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2261,43 +2217,37 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3GNXU2LRUU;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = SDAutoLayoutSwiftDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lee.SDAutoLayoutSwiftDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SDAutoLayoutSwiftDemo/Bridge-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SDAutoLayoutDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lee.SDAutoLayoutSwiftDemo;
 				PRODUCT_NAME = SDAutoLayoutDemo;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SDAutoLayoutSwiftDemo/Bridge-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayoutDemo.app/SDAutoLayoutDemo";
-
 			};
 			name = Debug;
 		};
 		C94A135E215F591C00A92F35 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2317,29 +2267,22 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3GNXU2LRUU;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = SDAutoLayoutSwiftDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lee.SDAutoLayoutSwiftDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SDAutoLayoutSwiftDemo/Bridge-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = SDAutoLayoutDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lee.SDAutoLayoutSwiftDemo;
 				PRODUCT_NAME = SDAutoLayoutDemo;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/SDAutoLayoutSwiftDemo/Bridge-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDAutoLayoutDemo.app/SDAutoLayoutDemo";
-
 			};
 			name = Release;
 		};
