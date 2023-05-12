@@ -9,10 +9,39 @@
 // 若使用cocoapods管理第三方，则打开 import SDAutoLayout 注释
 // import SDAutoLayout
 
-extension UIView {
+/* Example
+ * 示例:
+     yourView.sd.layout().topTo(view, 10)
+                         .leftTo(view, 10)
+                         .width(is: 100)
+                         .height(is: 100)
+ */
+
+
+public final class SDAutoLayout<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+    }
+}
+
+public protocol SDAutoLayoutCompatible {
+    associatedtype CompatibleType
+    var sd: CompatibleType { get }
+}
+
+public extension SDAutoLayoutCompatible {
+    var sd: SDAutoLayout<Self> {
+        get { return SDAutoLayout(self) }
+    }
+}
+
+extension UIView: SDAutoLayoutCompatible { }
+
+extension SDAutoLayout where Base: UIView {
     @discardableResult
     public func layout() -> SDAutoLayoutModel {
-        return sd_layout()
+        return base.sd_layout();
     }
 }
 
