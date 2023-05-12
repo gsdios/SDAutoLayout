@@ -2,6 +2,9 @@
 
 一行代码搞定自动布局！致力于做最简单易用的Autolayout库。The most easy way for autolayout.
 
+### 字节跳动 iOS 岗位招聘
+北上广深杭大量招人，各种研发岗位都在找，有意向者可以直接点击后面链接投递简历或者联系我 gsdios@126.com https://job.toutiao.com/s/eL91QMm，
+
 ## 众多公司和个人开发者已经使用本库布局：
 SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3effb8
 
@@ -12,8 +15,6 @@ SDAutoLayout使用者开发的部分app截图 http://www.jianshu.com/p/9bc04d3ef
 ## Pod支持：
 
 支持pod：  pod 'SDAutoLayout', '~> 2.1.3'
-
-如果发现pod search SDAutoLayout 搜索出来的不是最新版本，需要在终端执行cd转换文件路径命令退回到desktop，然后执行pod setup命令更新本地spec缓存（可能需要几分钟），然后再搜索就可以了
 
 ## 更新记录：
 2018.11.28 -- 修复部分开发者违规调用load的super方法导致自动布局失效的问题
