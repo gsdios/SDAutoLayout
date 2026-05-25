@@ -951,6 +951,13 @@ Class cellContVClass()
     objc_setAssociatedObject(self, @selector(ownLayoutModel), ownLayoutModel, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (void)sd_makeLayout:(void (^)(SDAutoLayoutModel *))config {
+    if (config) {
+        SDAutoLayoutModel *layout = [self sd_layout];
+        config(layout);
+    }
+}
+
 - (SDAutoLayoutModel *)sd_layout
 {
     

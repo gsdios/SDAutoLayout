@@ -281,6 +281,8 @@ typedef void (^SpaceToSuperView)(UIEdgeInsets insets);
 
 @interface UIView (SDAutoLayout)
 
+- (void)sd_makeLayout:(void(^)(SDAutoLayoutModel *layout))config;
+
 /** 开始自动布局  */
 - (nonnull SDAutoLayoutModel *)sd_layout;
 
